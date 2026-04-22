@@ -911,7 +911,11 @@
           : `Le faltan ${faltan} ${faltan === 1 ? "horario" : "horarios"} por seleccionar`;
 
       btnConfirmar.disabled = total !== paquete;
-
+if (total === paquete) {
+  btnConfirmar.textContent = "Confirmar mis horarios";
+} else {
+  btnConfirmar.textContent = `Seleccione ${faltan} ${faltan === 1 ? "horario más" : "horarios más"}`;
+}
       if (total === 0) {
         resumenLista.className = "resumen-vacio";
         resumenLista.innerHTML = "Aún no ha seleccionado horarios.";
