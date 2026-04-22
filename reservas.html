@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservas - Escuela Con Confianza</title>
+
+  <style>
+    :root {
+      --tq: #01aeab;
+      --tq-dark: #018f8d;
+      --tq-light: #e4f8f7;
+      --tq-mid: #b2e6e5;
+      --bg: #f0f2f2;
+      --surface: #ffffff;
+      --border: #e2e5e5;
+      --muted: #8a9494;
+      --body: #1c2121;
+      --danger-bg: #fff3f3;
+      --danger-br: #ffc5c5;
+      --danger-tx: #b91c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--body);
+      font-size: 17px;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .contenedor {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding-bottom: 48px;
+      background: var(--bg);
+      min-height: 100vh;
+    }
+
+    .encabezado {
+      background: var(--tq);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .encabezado::before {
+      content: "";
+      position: absolute;
+      top: -22px;
+      right: 40px;
+      width: 90px;
+      height: 90px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .encabezado::after {
+      content: "";
+      position: absolute;
+      bottom: -36px;
+      right: -36px;
+      width: 140px;
+      height: 140px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+    }
+
+    .marca {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .encabezado h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.08;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .saludo {
+      font-size: 16px;
+      color: rgba(255,255,255,0.9);
+      margin: 0;
+      line-height: 1.38;
+      position: relative;
+      z-index: 1;
+    }
+
+    .saludo strong {
+      color: #ffffff;
+    }
+
+    .bloque-progreso {
+      background: var(--tq-dark);
+      padding: 16px 18px 14px;
+    }
+
+    .progreso-fila {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .progreso-icono {
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .progreso-icono svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .progreso-num {
+      font-size: 30px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .progreso-label {
+      font-size: 15px;
+      color: rgba(255,255,255,0.82);
+      margin-top: 2px;
+    }
+
+    .barra-fondo {
+      height: 5px;
+      background: rgba(255,255,255,0.22);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .barra-fill {
+      height: 100%;
+      background: #ffffff;
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.35s ease;
+    }
+
+    .progreso-hint {
+      font-size: 15px;
+      color: rgba(255,255,255,0.78);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .seccion {
+      margin: 10px 0 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .seccion-titulo {
+      padding: 10px 18px 8px;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--body);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resumen-vacio {
+      padding: 12px 18px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .resumen-lista {
+      padding: 0 12px 4px;
+    }
+
+    .resumen-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 4px;
+      border-bottom: 1px solid var(--bg);
+    }
+
+    .resumen-item:last-child {
+      border-bottom: none;
+    }
+
+    .resumen-numero {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--tq);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .resumen-texto {
+      flex: 1;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--body);
+      line-height: 1.25;
+    }
+
+    .btn-quitar-horario {
+      border: 1px solid var(--tq-mid);
+      background: #ffffff;
+      color: var(--tq-dark);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .cal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cal-mes {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--body);
+      text-align: center;
+      flex: 1;
+    }
+
+    .nav-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--tq-light);
+      border: 2px solid var(--tq-mid);
+      color: var(--tq-dark);
+      font-size: 32px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .nav-btn:disabled {
+      background: #f4f6f6;
+      border-color: var(--border);
+      color: #c5cccc;
+      cursor: not-allowed;
+    }
+
+    .cal-dias-hdr {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 10px 10px 4px;
+      gap: 6px;
+    }
+
+    .cal-dias-hdr span {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 4px 10px 12px;
+      gap: 6px;
+    }
+
+    .dia-vacio,
+    .dia-sin,
+    .dia-con {
+      min-height: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 0;
+    }
+
+    .dia-vacio {
+      background: transparent;
+    }
+
+    .dia-sin {
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      opacity: 0.42;
+    }
+
+    .dia-con {
+      border: 2px solid var(--tq-mid);
+      background: var(--tq-light);
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .dia-con.sel {
+      background: var(--tq);
+      border-color: var(--tq);
+    }
+
+    .nd {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .dia-con .nd,
+    .dia-con .nh {
+      color: var(--tq-dark);
+    }
+
+    .dia-con.sel .nd,
+    .dia-con.sel .nh {
+      color: #ffffff;
+    }
+
+    .nh {
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .horas-header {
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .horas-header h3 {
+      margin: 0 0 3px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .horas-header p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .horas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 14px 16px 18px;
+    }
+
+    .btn-hora {
+      border: 2px solid var(--border);
+      background: var(--surface);
+      border-radius: 16px;
+      height: 68px;
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--body);
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn-hora.sel {
+      background: var(--tq);
+      color: #ffffff;
+      border-color: var(--tq);
+    }
+
+    .horas-vacio {
+      padding: 18px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .wrap-btn {
+      padding: 10px 0 0;
+    }
+
+    .btn-confirmar {
+      width: 100%;
+      height: 60px;
+      border: none;
+      border-radius: 0;
+      background: var(--tq);
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn-confirmar:disabled {
+      background: #dbe3e3;
+      color: #5f6f6f;
+      cursor: not-allowed;
+    }
+
+    .card-ok {
+      margin: 0;
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .card-ok-header {
+      background: var(--tq);
+      padding: 28px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ok-icono {
+      width: 46px;
+      height: 46px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ok-icono svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card-ok-header h2 {
+      color: #ffffff;
+      margin: 0;
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .card-ok-body {
+      padding: 24px 20px 120px;
+      font-size: 19px;
+      line-height: 1.75;
+      color: var(--body);
+      white-space: pre-line;
+      background: #ffffff;
+    }
+
+    .card-error {
+      margin: 12px 0 0;
+      background: var(--danger-bg);
+      border-top: 1px solid var(--danger-br);
+      border-bottom: 1px solid var(--danger-br);
+      color: var(--danger-tx);
+      padding: 18px 20px;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .cargando {
+      padding: 90px 20px;
+      text-align: center;
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    .toast-seleccion {
+      position: fixed;
+      left: 18px;
+      right: 18px;
+      bottom: 86px;
+      z-index: 9999;
+      background: var(--tq-light);
+      border: 1px solid var(--tq-mid);
+      color: var(--body);
+      padding: 13px 16px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+      font-size: 15px;
+      line-height: 1.35;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+    }
+
+    .toast-seleccion.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .toast-check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--tq);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .toast-textos strong {
+      display: block;
+      color: var(--tq-dark);
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .btn-whatsapp {
+      position: fixed;
+      left: 18px;
+      right: 18px;
+      bottom: 24px;
+      z-index: 9999;
+      display: block;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--tq);
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    }
+
+    .hint-scroll-confirmacion {
+      position: fixed;
+      left: 50%;
+      bottom: 96px;
+      transform: translateX(-50%);
+      z-index: 9998;
+      background: rgba(255,255,255,0.96);
+      color: var(--tq-dark);
+      border: 1px solid var(--tq-mid);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      animation: ocultarHintConfirmacion 0.35s ease 5s forwards;
+    }
+
+    @keyframes ocultarHintConfirmacion {
+      to {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .seccion {
+        margin: 12px 20px 0;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+      }
+
+      .bloque-progreso {
+        margin: 16px 20px 0;
+        border-radius: 20px;
+      }
+
+      .wrap-btn {
+        padding: 14px 20px 0;
+      }
+
+      .btn-confirmar {
+        border-radius: 18px;
+      }
+
+      .card-ok {
+        margin: 14px 20px 0;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="contenedor">
+    <div id="contenido">
+      <div class="encabezado">
+        <div class="marca">Escuela Con Confianza</div>
+        <h1>Reserve sus sesiones</h1>
+      </div>
+      <p class="cargando">Cargando disponibilidad...</p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast-seleccion"></div>
+
+  <script>
+    const API_BASE = "/.netlify/functions/reservas";
+    const CODIGO = new URLSearchParams(window.location.search).get("codigo") || "";
+
+    let paquete = 0;
+    let slotsGlobales = [];
+    let seleccionados = new Map();
+    let mesesDisponibles = [];
+    let indiceMesActual = 0;
+    let diaSeleccionado = null;
+    let datosReserva = null;
+
+    const MESES = [
+      "enero", "febrero", "marzo", "abril", "mayo", "junio",
+      "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+    ];
+
+    document.addEventListener("DOMContentLoaded", cargarDatos);
+
+    async function cargarDatos() {
+      try {
+        const res = await fetch(`${API_BASE}?codigo=${encodeURIComponent(CODIGO)}`);
+        const data = await res.json();
+        renderizar(data);
+      } catch (error) {
+        mostrarError({
+          mensaje:
+            "No se pudo cargar la disponibilidad. Aún falta conectar esta página con el sistema interno de reservas."
+        });
+      }
+    }
+
+    function renderizar(r) {
+      const c = document.getElementById("contenido");
+
+      if (!r.ok) {
+        c.innerHTML = mkEncabezado() + `<div class="card-error">${esc(r.mensaje)}</div>`;
+        return;
+      }
+
+      datosReserva = r;
+      paquete = Number(r.paquete);
+      slotsGlobales = r.slots || [];
+
+      if (!slotsGlobales.length) {
+        c.innerHTML =
+          mkEncabezado(`Hola, <strong>${esc(r.nombre)}</strong>.`) +
+          `<div class="card-error">No encontramos horarios disponibles. Comunícate con Escuela Con Confianza.</div>`;
+        return;
+      }
+
+      mesesDisponibles = calcMeses(slotsGlobales);
+      indiceMesActual = 0;
+
+      c.innerHTML =
+        mkEncabezado(
+          `Hola, <strong>${esc(r.nombre)}</strong>. Reserve su paquete de <strong>${paquete} sesiones</strong> con ${esc(r.mentor)}.`
+        ) +
+        `<div class="bloque-progreso">
+          <div class="progreso-fila">
+            <div class="progreso-icono">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            </div>
+            <div class="progreso-textos">
+              <div class="progreso-num" id="progresoNum">0 de ${paquete}</div>
+              <div class="progreso-label">sesiones seleccionadas</div>
+            </div>
+          </div>
+          <div class="barra-fondo"><div class="barra-fill" id="barraFill"></div></div>
+          <div class="progreso-hint" id="progresoHint">Le faltan ${paquete} horarios por seleccionar</div>
+        </div>
+
+        <div class="seccion resumen-seccion">
+          <div class="seccion-titulo">Horarios seleccionados:</div>
+          <div id="resumenLista" class="resumen-vacio">Aún no ha seleccionado horarios.</div>
+        </div>
+
+        <div class="seccion">
+          <div class="cal-header">
+            <button id="btnAnt" class="nav-btn" type="button">&#8249;</button>
+            <div class="cal-mes" id="calMes"></div>
+            <button id="btnSig" class="nav-btn" type="button">&#8250;</button>
+          </div>
+          <div class="cal-dias-hdr"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span></div>
+          <div id="calGrid" class="cal-grid"></div>
+        </div>
+
+        <div class="seccion" id="panelHoras">
+          <div class="horas-vacio">Toque un día para ver los horarios disponibles.</div>
+        </div>
+
+        <div class="wrap-btn">
+          <button id="btnConfirmar" class="btn-confirmar" type="button" disabled>Confirmar mis horarios</button>
+        </div>`;
+
+      document.getElementById("btnAnt").addEventListener("click", irAntes);
+      document.getElementById("btnSig").addEventListener("click", irSiguiente);
+      document.getElementById("btnConfirmar").addEventListener("click", confirmar);
+
+      pintarCalendario();
+      actualizarUI();
+    }
+
+    function mkEncabezado(saludoHTML = "") {
+      return `<div class="encabezado">
+        <div class="marca">Escuela Con Confianza</div>
+        <h1>Reserve sus sesiones</h1>
+        ${saludoHTML ? `<p class="saludo">${saludoHTML}</p>` : ""}
+      </div>`;
+    }
+
+    function pintarCalendario() {
+      const mesKey = mesesDisponibles[indiceMesActual];
+      const info = parseMes(mesKey);
+
+      document.getElementById("calMes").textContent = labelMes(mesKey);
+      document.getElementById("btnAnt").disabled = indiceMesActual === 0;
+      document.getElementById("btnSig").disabled = indiceMesActual === mesesDisponibles.length - 1;
+
+      const grid = document.getElementById("calGrid");
+      grid.innerHTML = "";
+
+      const primero = new Date(info.anio, info.mes - 1, 1);
+      const ultimo = new Date(info.anio, info.mes, 0);
+
+      const lunes = new Date(primero);
+      lunes.setDate(lunes.getDate() - ((lunes.getDay() + 6) % 7));
+
+      const juevesPrimero = new Date(lunes);
+      juevesPrimero.setDate(lunes.getDate() + 3);
+      if (juevesPrimero < primero) lunes.setDate(lunes.getDate() + 7);
+
+      const cursor = new Date(lunes);
+
+      while (cursor <= ultimo) {
+        for (let d = 0; d < 4; d++) {
+          const fecha = new Date(cursor);
+          fecha.setDate(cursor.getDate() + d);
+
+          if (fecha.getMonth() !== info.mes - 1) {
+            const v = document.createElement("div");
+            v.className = "dia-vacio";
+            grid.appendChild(v);
+            continue;
+          }
+
+          const dk = mkDateKey(fecha);
+          const slots = slotsGlobales.filter(s => s.key.indexOf(dk) === 0);
+
+          if (!slots.length) {
+            const el = document.createElement("div");
+            el.className = "dia-sin";
+            el.innerHTML = `<span class="nd">${fecha.getDate()}</span><span class="nh">ocupado</span>`;
+            grid.appendChild(el);
+          } else {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "dia-con" + (diaSeleccionado === dk ? " sel" : "");
+            btn.innerHTML =
+              `<span class="nd">${fecha.getDate()}</span>
+               <span class="nh">${slots.length === 1 ? "1 horario" : slots.length + " horarios"}</span>`;
+
+            btn.addEventListener("click", function () {
+              diaSeleccionado = dk;
+              pintarCalendario();
+              pintarHoras(dk);
+              document.getElementById("panelHoras").scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+
+            grid.appendChild(btn);
+          }
+        }
+
+        cursor.setDate(cursor.getDate() + 7);
+      }
+    }
+
+    function pintarHoras(dateKey) {
+      const panel = document.getElementById("panelHoras");
+      const slots = slotsGlobales.filter(s => s.key.indexOf(dateKey) === 0);
+
+      if (!slots.length) {
+        panel.innerHTML = `<div class="horas-vacio">No hay horarios disponibles para este día.</div>`;
+        return;
+      }
+
+      panel.innerHTML =
+        `<div class="horas-header">
+          <h3>${slots[0].dia} ${slots[0].fechaTexto}</h3>
+          <p>Ahora elija una hora para este día.</p>
+        </div>
+        <div class="horas-grid" id="horasGrid"></div>`;
+
+      const grid = document.getElementById("horasGrid");
+
+      slots.forEach(slot => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn-hora" + (seleccionados.has(slot.key) ? " sel" : "");
+        btn.textContent = slot.horaTexto;
+
+        btn.addEventListener("click", function () {
+          toggleSlot(slot);
+        });
+
+        grid.appendChild(btn);
+      });
+    }
+
+    function toggleSlot(slot) {
+      if (seleccionados.has(slot.key)) {
+        seleccionados.delete(slot.key);
+        mostrarToast("Horario eliminado", `${slot.horaTexto} fue retirado de su selección.`);
+      } else {
+        if (seleccionados.size >= paquete) {
+          mostrarToast("Ya completó sus horarios", "Quite un horario si desea cambiar su selección.");
+          return;
+        }
+
+        seleccionados.set(slot.key, slot);
+        const restantes = paquete - seleccionados.size;
+
+        if (restantes === 0) {
+          mostrarToast("Horarios completos", "Ya puede confirmar su reserva.");
+        } else {
+          mostrarToast("Horario seleccionado", `${slot.horaTexto} agregado. Ahora elija otro día.`);
+        }
+      }
+
+      actualizarUI();
+      pintarCalendario();
+
+      if (diaSeleccionado) {
+        pintarHoras(diaSeleccionado);
+      }
+
+      if (seleccionados.size === paquete) {
+        setTimeout(() => {
+          document.getElementById("btnConfirmar").scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 600);
+      } else {
+        setTimeout(() => {
+          document.querySelector(".cal-header").scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 600);
+      }
+    }
+
+    function actualizarUI() {
+      const total = seleccionados.size;
+      const progresoNum = document.getElementById("progresoNum");
+      const barraFill = document.getElementById("barraFill");
+      const progresoHint = document.getElementById("progresoHint");
+      const resumenLista = document.getElementById("resumenLista");
+      const btnConfirmar = document.getElementById("btnConfirmar");
+
+      if (!progresoNum) return;
+
+      progresoNum.textContent = `${total} de ${paquete}`;
+      barraFill.style.width = `${(total / paquete) * 100}%`;
+
+      const faltan = paquete - total;
+      progresoHint.textContent =
+        faltan === 0
+          ? "¡Listo! Ya puede confirmar sus horarios."
+          : `Le faltan ${faltan} ${faltan === 1 ? "horario" : "horarios"} por seleccionar`;
+
+      btnConfirmar.disabled = total !== paquete;
+
+      if (total === 0) {
+        resumenLista.className = "resumen-vacio";
+        resumenLista.innerHTML = "Aún no ha seleccionado horarios.";
+        return;
+      }
+
+      resumenLista.className = "resumen-lista";
+      resumenLista.innerHTML = "";
+
+      Array.from(seleccionados.values()).forEach((slot, index) => {
+        const item = document.createElement("div");
+        item.className = "resumen-item";
+        item.innerHTML =
+          `<div class="resumen-numero">${index + 1}</div>
+           <div class="resumen-texto">${esc(slot.dia)} ${esc(slot.fechaTexto)} - ${esc(slot.horaTexto)}</div>
+           <button class="btn-quitar-horario" type="button">Quitar</button>`;
+
+        item.querySelector("button").addEventListener("click", function () {
+          seleccionados.delete(slot.key);
+          actualizarUI();
+          pintarCalendario();
+          if (diaSeleccionado) pintarHoras(diaSeleccionado);
+        });
+
+        resumenLista.appendChild(item);
+      });
+    }
+
+    async function confirmar() {
+      if (seleccionados.size !== paquete) return;
+
+      const btn = document.getElementById("btnConfirmar");
+      btn.disabled = true;
+      btn.textContent = "Confirmando reserva...";
+
+      try {
+        const res = await fetch(API_BASE, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            codigo: CODIGO,
+            slotsSeleccionados: Array.from(seleccionados.keys())
+          })
+        });
+
+        const data = await res.json();
+
+        if (!data.ok) {
+          mostrarError(data);
+          return;
+        }
+
+        mostrarConfirmacion(data.mensaje);
+      } catch (error) {
+        mostrarError({
+          mensaje:
+            "No se pudo confirmar la reserva. Aún falta conectar esta página con el sistema interno."
+        });
+      }
+    }
+
+    function mostrarConfirmacion(mensaje) {
+      const c = document.getElementById("contenido");
+
+      const textoWhatsapp = encodeURIComponent(
+        "Hola, ya confirmé mis horarios de reserva en Escuela Con Confianza."
+      );
+
+      c.innerHTML =
+        `<div class="card-ok">
+          <div class="card-ok-header">
+            <div class="ok-icono">
+              <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h2>¡Reserva confirmada!</h2>
+          </div>
+          <div class="card-ok-body">${esc(mensaje)}</div>
+        </div>
+        <div class="hint-scroll-confirmacion">Deslice para leer más ↓</div>
+        <a class="btn-whatsapp" href="https://wa.me/51926687682?text=${textoWhatsapp}" target="_blank">
+          Escribir por WhatsApp
+        </a>`;
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function mostrarError(error) {
+      const c = document.getElementById("contenido");
+      c.innerHTML =
+        mkEncabezado() +
+        `<div class="card-error">${esc(error.mensaje || "Ocurrió un error.")}</div>`;
+    }
+
+    function mostrarToast(titulo, texto) {
+      const toast = document.getElementById("toast");
+
+      toast.innerHTML =
+        `<div class="toast-row">
+          <div class="toast-check">✓</div>
+          <div class="toast-textos">
+            <strong>${esc(titulo)}</strong>
+            <span>${esc(texto)}</span>
+          </div>
+        </div>`;
+
+      toast.classList.add("visible");
+
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        toast.classList.remove("visible");
+      }, 2200);
+    }
+
+    function irAntes() {
+      if (indiceMesActual > 0) {
+        indiceMesActual--;
+        diaSeleccionado = null;
+        pintarCalendario();
+        document.getElementById("panelHoras").innerHTML =
+          `<div class="horas-vacio">Toque un día para ver los horarios disponibles.</div>`;
+      }
+    }
+
+    function irSiguiente() {
+      if (indiceMesActual < mesesDisponibles.length - 1) {
+        indiceMesActual++;
+        diaSeleccionado = null;
+        pintarCalendario();
+        document.getElementById("panelHoras").innerHTML =
+          `<div class="horas-vacio">Toque un día para ver los horarios disponibles.</div>`;
+      }
+    }
+
+    function calcMeses(slots) {
+      const set = new Set();
+
+      slots.forEach(s => {
+        const fecha = s.key.split("|")[0];
+        const [anio, mes] = fecha.split("-");
+        set.add(`${anio}-${mes}`);
+      });
+
+      return Array.from(set).sort();
+    }
+
+    function parseMes(mesKey) {
+      const [anio, mes] = mesKey.split("-").map(Number);
+      return { anio, mes };
+    }
+
+    function labelMes(mesKey) {
+      const { anio, mes } = parseMes(mesKey);
+      return `${capitalizar(MESES[mes - 1])} ${anio}`;
+    }
+
+    function mkDateKey(fecha) {
+      const y = fecha.getFullYear();
+      const m = String(fecha.getMonth() + 1).padStart(2, "0");
+      const d = String(fecha.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+
+    function capitalizar(texto) {
+      return texto.charAt(0).toUpperCase() + texto.slice(1);
+    }
+
+    function esc(texto) {
+      return String(texto || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>
