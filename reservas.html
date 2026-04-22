@@ -699,10 +699,11 @@
       indiceMesActual = 0;
 
       c.innerHTML =
-        mkEncabezado(
-          `Hola, <strong>${esc(r.nombre)}</strong>. Reserve su paquete de <strong>${paquete} sesiones</strong> con ${esc(r.mentor)}.`
-        ) +
-        `<div class="bloque-progreso">
+  mkEncabezado(
+    `Hola, <strong>${esc(r.nombre)}</strong>. Reserve su paquete de <strong>${paquete} sesiones</strong> con ${esc(r.mentor)}.`
+  ) +
+  `<div class="hint-scroll-confirmacion">Deslice para ver los horarios ↓</div>
+  <div class="bloque-progreso">
           <div class="progreso-fila">
             <div class="progreso-icono">
               <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
