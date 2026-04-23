@@ -3,565 +3,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiénes somos | Escuela Con Confianza</title>
-  <style>
-    :root {
-      --turquesa: #01aeab;
-      --negro: #111111;
-      --blanco: #ffffff;
-      --gris-suave: #eef5f5;
-      --texto: #2f2f2f;
-      --texto-suave: #6b6b6b;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--texto);
-      background: var(--blanco);
-    }
-
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(26, 26, 26, 0.96);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .header-inner {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .logo-box {
-      background: rgba(0,0,0,0.35);
-      padding: 10px 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-box img {
-      width: 120px;
-      height: auto;
-    }
-
-    .desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      color: rgba(255,255,255,0.88);
-      font-size: 0.93rem;
-    }
-
-    .desktop-nav a.active,
-    .desktop-nav a:hover {
-      color: var(--turquesa);
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 58px;
-      height: 58px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.08);
-      border-radius: 18px;
-      color: var(--blanco);
-      font-size: 1.8rem;
-    }
-
-    .mobile-nav {
-      display: none;
-      padding-bottom: 16px;
-    }
-
-    .mobile-nav.open { display: block; }
-
-    .mobile-panel {
-      background: #1e1e1e;
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 10px;
-      border-radius: 14px;
-    }
-
-    .mobile-panel a {
-      display: block;
-      padding: 14px 10px;
-      color: var(--blanco);
-      border-radius: 10px;
-    }
-
-    .mobile-panel a:hover { background: rgba(255,255,255,0.06); }
-
-    .hero {
-      position: relative;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.48) 42%, rgba(0,0,0,.2) 100%),
-        url('images/hero-inicio.jpg') center/cover no-repeat;
-      color: var(--blanco);
-    }
-
-    .hero-inner {
-      min-height: 620px;
-      display: flex;
-      align-items: center;
-      padding: 56px 0 72px;
-    }
-
-    .hero-copy {
-      max-width: 480px;
-    }
-
-    .hero-logo {
-      width: 92px;
-      margin-bottom: 18px;
-    }
-
-    .hero-title {
-      margin: 0 0 18px;
-      font-size: clamp(2.1rem, 5vw, 3.9rem);
-      line-height: 1.02;
-      font-weight: 800;
-    }
-
-    .hero-text {
-      margin: 0;
-      font-size: 1.02rem;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.92);
-      max-width: 410px;
-    }
-
-    .hero-dots {
-      display: flex;
-      gap: 8px;
-      margin-top: 24px;
-    }
-
-    .hero-dots span {
-      width: 34px;
-      height: 5px;
-      border-radius: 99px;
-      background: rgba(255,255,255,0.75);
-    }
-
-    .hero-dots span:nth-child(2) { background: var(--turquesa); }
-
-    .section { padding: 72px 0; }
-    .section-soft { background: var(--gris-suave); }
-
-    .eyebrow {
-      color: var(--turquesa);
-      font-size: clamp(1.7rem, 3vw, 2.3rem);
-      font-weight: 800;
-      margin: 0 0 12px;
-    }
-
-    .title {
-      margin: 0 0 18px;
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
-      line-height: 0.98;
-      font-weight: 800;
-      color: #0f0f0f;
-      max-width: 780px;
-    }
-
-    .lead {
-      margin: 0;
-      color: var(--texto-suave);
-      font-size: 1.02rem;
-      line-height: 1.7;
-      max-width: 760px;
-    }
-
-    .values-grid {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-    }
-
-    .value-card {
-      text-align: center;
-      padding: 8px 14px;
-    }
-
-    .value-icon {
-      width: 94px;
-      height: 94px;
-      margin: 0 auto 18px;
-      background: var(--turquesa);
-      color: var(--blanco);
-      display: grid;
-      place-items: center;
-      font-size: 2.4rem;
-      border-radius: 12px;
-    }
-
-    .value-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.5rem;
-      color: #111;
-    }
-
-    .value-card p {
-      margin: 0 auto;
-      color: var(--texto-suave);
-      max-width: 280px;
-      line-height: 1.6;
-    }
-
-    .person-card {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 0;
-      align-items: stretch;
-      border: 2px solid #79d1cf;
-      background: transparent;
-      overflow: hidden;
-    }
-
-    .person-card + .person-card {
-      margin-top: 42px;
-    }
-
-    .person-card.reverse {
-      grid-template-columns: 1.05fr .95fr;
-    }
-
-    .person-copy {
-      padding: 34px 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: rgba(255,255,255,0.4);
-    }
-
-    .person-name {
-      margin: 0 0 18px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1;
-      font-weight: 800;
-      color: #0f0f0f;
-    }
-
-    .person-copy p {
-      margin: 0;
-      color: var(--texto-suave);
-      line-height: 1.75;
-      font-size: 1rem;
-    }
-
-    .quote {
-      margin-top: 24px;
-      color: #1a1a1a;
-      font-weight: 700;
-      line-height: 1.5;
-      font-size: 1.05rem;
-    }
-
-    .quote-mark {
-      color: var(--turquesa);
-      font-size: 2.2rem;
-      vertical-align: middle;
-      line-height: 0;
-    }
-
-    .person-photo-wrap {
-      position: relative;
-      padding: 20px;
-      display: flex;
-      align-items: end;
-      background: rgba(255,255,255,0.2);
-    }
-
-    .person-photo-wrap::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: calc(100% - 36px);
-      height: calc(100% - 34px);
-      background: var(--turquesa);
-      z-index: 0;
-    }
-
-    .person-card.reverse .person-photo-wrap::before {
-      left: auto;
-      right: 0;
-    }
-
-    .person-photo {
-      position: relative;
-      z-index: 1;
-      width: calc(100% - 16px);
-      margin-left: 16px;
-      object-fit: cover;
-      max-height: 520px;
-    }
-
-    .person-card.reverse .person-photo {
-      margin-left: 0;
-      margin-right: 16px;
-    }
-
-    .site-footer {
-      background: #060606;
-      color: var(--blanco);
-      padding: 44px 0 14px;
-      margin-top: 10px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: .9fr .7fr 1fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .footer-logo {
-      width: 110px;
-    }
-
-    .footer-title {
-      margin: 0 0 12px;
-      font-size: 1rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .socials {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .socials a {
-      color: var(--turquesa);
-      font-weight: 700;
-    }
-
-    .footer-list {
-      display: grid;
-      gap: 10px;
-      color: rgba(255,255,255,0.82);
-      font-size: 0.96rem;
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 22px;
-      padding-top: 12px;
-      text-align: center;
-      color: rgba(255,255,255,0.48);
-      font-size: 0.86rem;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 76px;
-      height: 76px;
-      border-radius: 50%;
-      background: #22b455;
-      color: #fff;
-      display: grid;
-      place-items: center;
-      z-index: 1001;
-      box-shadow: 0 14px 28px rgba(0,0,0,0.2);
-      font-size: 1.7rem;
-      font-weight: 700;
-    }
-
-    @media (max-width: 1024px) {
-      .desktop-nav { display: none; }
-      .menu-toggle { display: inline-grid; place-items: center; }
-      .values-grid,
-      .person-card,
-      .person-card.reverse,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .person-card.reverse .person-copy { order: 1; }
-      .person-card.reverse .person-photo-wrap { order: 2; }
-      .hero-inner { min-height: 540px; }
-    }
-
-    @media (max-width: 680px) {
-      .header-inner { min-height: 92px; }
-      .logo-box img { width: 160px; max-width: 44vw; }
-      .hero-inner {
-        min-height: 700px;
-        align-items: end;
-        padding: 30px 0 48px;
-      }
-      .hero-copy { max-width: 100%; }
-      .hero-title { max-width: 330px; }
-      .hero-text { max-width: 320px; }
-      .title { max-width: 330px; }
-      .section { padding: 54px 0; }
-      .person-copy { padding: 26px 22px; }
-      .whatsapp-float {
-        width: 66px;
-        height: 66px;
-        right: 14px;
-        bottom: 14px;
-      }
-    }
-  </style>
+  <meta name="description" content="Conoce a Adriano y Bruno, especialistas en tartamudez que también tartamudean y co-directores de Escuela Con Confianza." />
+  <title>Quiénes somos – Escuela Con Confianza</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo-box" href="index.html" aria-label="Inicio">
-        <img src="images/logo-con-confianza.png" alt="Con Confianza" />
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Inicio – Escuela Con Confianza">
+        <img src="images/logo-con-confianza.png" alt="Escuela Con Confianza" height="44" />
       </a>
-
-      <nav class="desktop-nav" aria-label="Principal">
-        <a href="index.html">Inicio</a>
-        <a class="active" href="quienes-somos.html">Quiénes somos</a>
-        <a href="index.html#servicios">Cursos y mentorías</a>
-        <a href="index.html#testimonios">Testimonios</a>
-        <a href="index.html#guias">Recursos didácticos</a>
+      <nav class="header__nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="header__nav-list">
+          <li><a href="index.html" class="header__nav-link">Inicio</a></li>
+          <li><a href="quienes-somos.html" class="header__nav-link is-active">Quiénes somos</a></li>
+          <li><a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="header__nav-cta" aria-label="Contáctanos por WhatsApp">Contáctanos</a></li>
+        </ul>
       </nav>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
-    </div>
-
-    <div class="container mobile-nav" id="mobileNav">
-      <div class="mobile-panel">
-        <a href="index.html">Inicio</a>
-        <a href="quienes-somos.html">Quiénes somos</a>
-        <a href="index.html#servicios">Cursos y mentorías</a>
-        <a href="index.html#testimonios">Testimonios</a>
-        <a href="index.html#guias">Recursos didácticos</a>
-      </div>
+      <button class="header__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <img class="hero-logo" src="images/logo-con-confianza.png" alt="Con Confianza" />
-          <h1 class="hero-title">Quiénes somos</h1>
-          <p class="hero-text">Especialistas en tartamudez que también tartamudean y aprendimos a manejar nuestra tartamudez. Compartimos estrategias respaldadas por expertos para ayudarte a manejar tu habla con más confianza y menos esfuerzo. Ofrecemos servicios presenciales y virtuales hacia cualquier parte del mundo.</p>
-          <div class="hero-dots" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
+
+    <!-- ========== HERO / INTRO ========== -->
+    <section class="page-hero section" aria-labelledby="page-hero-title">
+      <div class="container page-hero__inner">
+        <div class="page-hero__text">
+          <p class="section__label">Quiénes somos</p>
+          <h1 class="page-hero__title" id="page-hero-title">
+            Personas con tartamudez acompañando a otras personas con tartamudez.
+          </h1>
+          <p class="page-hero__desc">
+            Especialistas en tartamudez que también tartamudean y aprendimos a manejar nuestra tartamudez. Compartimos estrategias respaldadas por expertos para ayudarte a manejar tu habla con más confianza y menos esfuerzo. Ofrecemos servicios presenciales y virtuales hacia cualquier parte del mundo.
+          </p>
+        </div>
+        <div class="page-hero__img-col">
+          <img src="images/foto-grupal.jpg" alt="Adriano y Bruno, cofundadores de Escuela Con Confianza" class="page-hero__img" />
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- ========== VALORES ========== -->
+    <section class="values section section--alt" aria-labelledby="values-title">
       <div class="container">
-        <h2 class="eyebrow">Nuestros valores</h2>
-        <div class="values-grid">
+        <p class="section__label" id="values-title">Nuestros valores</p>
+        <div class="values__grid">
+
           <article class="value-card">
-            <div class="value-icon">♡</div>
-            <h3>Empatía</h3>
-            <p>Entendemos lo complicado que puede ser la tartamudez porque hemos pasado lo mismo que tú.</p>
+            <div class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 28s-12-7-12-15a8 8 0 0 1 12-6.93A8 8 0 0 1 28 13c0 8-12 15-12 15z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="value-card__title">Empatía</h3>
+            <p class="value-card__text">Entendemos lo complicado que puede ser la tartamudez porque hemos pasado lo mismo que tú.</p>
           </article>
 
           <article class="value-card">
-            <div class="value-icon">✦</div>
-            <h3>Compromiso</h3>
-            <p>Nuestra misión es que hables con confianza cuando quieras y donde quieras.</p>
+            <div class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="value-card__title">Compromiso</h3>
+            <p class="value-card__text">Nuestra misión es que hables con confianza cuando quieras y donde quieras.</p>
           </article>
 
           <article class="value-card">
-            <div class="value-icon">★</div>
-            <h3>Experiencia</h3>
-            <p>Desde hace más de 4 años trabajamos exclusivamente con personas que tartamudean.</p>
+            <div class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M4 26h24M12 26V12l4-6 4 6v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="10" y="18" width="4" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+                <rect x="18" y="18" width="4" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="value-card__title">Experiencia</h3>
+            <p class="value-card__text">Desde hace más de 4 años trabajamos exclusivamente con personas que tartamudean.</p>
           </article>
+
         </div>
       </div>
     </section>
 
-    <section class="section section-soft">
-      <div class="container">
-        <article class="person-card">
-          <div class="person-photo-wrap">
-            <img class="person-photo" src="images/adriano.jpg" alt="Adriano Vega" />
-          </div>
-          <div class="person-copy">
-            <h2 class="person-name">Adriano Vega</h2>
-            <p>Soy Lic. T.M. Terapeuta de Lenguaje de la Universidad Nacional Federico Villarreal en Perú. Además, realicé estudios de especialización en tartamudez. Actualmente soy co-director y mentor de la Escuela Con Confianza - tartamudez en la que me dedico a trabajar a tiempo completo.</p>
-            <div class="quote"><span class="quote-mark">“</span> Cada momento de dificultad es una oportunidad para poder mejorar. <span class="quote-mark">”</span></div>
-          </div>
-        </article>
-
-        <article class="person-card reverse">
-          <div class="person-copy">
-            <h2 class="person-name">Bruno Villegas</h2>
-            <p>Estudié ingeniería y educación. Me formé en el abordaje de la tartamudez con diplomados en las universidades Monteávila y Concepción. Soy presidente de la Asoc. Peruana Habla Libre, donde brindamos apoyo a la comunidad de personas con tartamudez y actualmente soy co-director y mentor de la Escuela Con Confianza.</p>
-            <div class="quote"><span class="quote-mark">“</span> No tienes que ser bueno para empezar, pero tienes que empezar para ser bueno. <span class="quote-mark">”</span> - Lagarde -</div>
-          </div>
-          <div class="person-photo-wrap">
-            <img class="person-photo" src="images/bruno.jpg" alt="Bruno Villegas" />
-          </div>
-        </article>
+    <!-- ========== PERFIL ADRIANO ========== -->
+    <section class="profile section" aria-labelledby="adriano-title">
+      <div class="container profile__inner profile__inner--normal">
+        <div class="profile__img-col">
+          <img src="images/adriano.jpg" alt="Adriano Vega, co-director y mentor de Escuela Con Confianza" class="profile__img" />
+        </div>
+        <div class="profile__text-col">
+          <p class="section__label">Co-director y mentor</p>
+          <h2 class="profile__name" id="adriano-title">Adriano Vega</h2>
+          <p class="profile__bio">
+            Soy Lic. T.M. Terapeuta de Lenguaje de la Universidad Nacional Federico Villarreal en Perú. Además, realicé estudios de especialización en tartamudez. Actualmente soy co-director y mentor de la Escuela Con Confianza - tartamudez en la que me dedico a trabajar a tiempo completo.
+          </p>
+          <blockquote class="profile__quote">
+            <p>"Cada momento de dificultad es una oportunidad para poder mejorar."</p>
+          </blockquote>
+        </div>
       </div>
     </section>
+
+    <!-- ========== PERFIL BRUNO ========== -->
+    <section class="profile section section--alt" aria-labelledby="bruno-title">
+      <div class="container profile__inner profile__inner--reversed">
+        <div class="profile__text-col">
+          <p class="section__label">Co-director y mentor</p>
+          <h2 class="profile__name" id="bruno-title">Bruno Villegas</h2>
+          <p class="profile__bio">
+            Estudié ingeniería y educación. Me formé en el abordaje de la tartamudez con diplomados en las universidades Monteávila y Concepción. Soy presidente de la Asoc. Peruana Habla Libre, donde brindamos apoyo a la comunidad de personas con tartamudez y actualmente soy co-director y mentor de la Escuela Con Confianza.
+          </p>
+          <blockquote class="profile__quote">
+            <p>"No tienes que ser bueno para empezar, pero tienes que empezar para ser bueno." <cite>— Lagarde</cite></p>
+          </blockquote>
+        </div>
+        <div class="profile__img-col">
+          <img src="images/bruno.jpg" alt="Bruno Villegas, co-director y mentor de Escuela Con Confianza" class="profile__img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA FINAL ========== -->
+    <section class="cta-band section" aria-label="Llamado a la acción">
+      <div class="container cta-band__inner">
+        <h2 class="cta-band__title">¿Listo para hablar con más confianza?</h2>
+        <p class="cta-band__text">Escríbenos y te contamos cómo podemos acompañarte.</p>
+        <a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="btn btn--primary" aria-label="Contáctanos por WhatsApp">
+          Contáctanos ahora
+        </a>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <img class="footer-logo" src="images/logo-con-confianza.png" alt="Con Confianza" />
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="images/logo-con-confianza.png" alt="Escuela Con Confianza" class="footer__logo" height="40" />
+        <p class="footer__tagline">Escuela de comunicación especializada en tartamudez.</p>
       </div>
-
-      <div>
-        <h3 class="footer-title">Síguenos</h3>
-        <div class="socials">
-          <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://www.instagram.com/conconfianza.ttm?igsh=MTNodGQzbXkwcWVnOQ==" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://www.tiktok.com/@conconfianza.ttm?_r=1&_t=ZS-95lcCdqQsJG" target="_blank" rel="noopener noreferrer">TikTok</a>
-          <a href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div>
-      </div>
-
-      <div>
-        <h3 class="footer-title">Contacto</h3>
-        <div class="footer-list">
-          <span>+51 926 687 682</span>
-          <span>Lima, Perú</span>
-        </div>
+      <nav class="footer__nav" aria-label="Navegación del pie de página">
+        <ul class="footer__nav-list">
+          <li><a href="index.html" class="footer__nav-link">Inicio</a></li>
+          <li><a href="quienes-somos.html" class="footer__nav-link">Quiénes somos</a></li>
+          <li><a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="footer__nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="footer__social">
+        <p class="footer__social-title">Síguenos</p>
+        <ul class="footer__social-list" aria-label="Redes sociales">
+          <li>
+            <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener" aria-label="Facebook" class="footer__social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/conconfianza.ttm?igsh=MTNodGQzbXkwcWVnOQ==" target="_blank" rel="noopener" aria-label="Instagram" class="footer__social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@conconfianza.ttm?_r=1&_t=ZS-95lcCdqQsJG" target="_blank" rel="noopener" aria-label="TikTok" class="footer__social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.79a8.18 8.18 0 0 0 4.78 1.52V6.87a4.85 4.85 0 0 1-1.01-.18z"/></svg>
+              TikTok
+            </a>
+          </li>
+          <li>
+            <a href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener" aria-label="YouTube" class="footer__social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+              YouTube
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-
-    <div class="container copyright">© 2026 Escuela Con Confianza. Todos los derechos reservados.</div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p class="footer__copy">&copy; 2025 Escuela Con Confianza. Todos los derechos reservados.</p>
+      </div>
+    </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">✆</a>
+  <!-- ========== WHATSAPP FLOTANTE ========== -->
+  <a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contáctanos por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+  </a>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-
-    menuToggle?.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
-
-    mobileNav?.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => mobileNav.classList.remove('open'));
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
