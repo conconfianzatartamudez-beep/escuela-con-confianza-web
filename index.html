@@ -7,14 +7,13 @@
   <style>
     :root {
       --turquesa: #01aeab;
-      --turquesa-oscuro: #028e8b;
       --negro: #111111;
-      --gris-texto: #4a4a4a;
-      --gris-suave: #eef6f6;
       --blanco: #ffffff;
-      --borde: #dbe7e7;
-      --radio: 18px;
-      --sombra: 0 10px 24px rgba(0,0,0,0.08);
+      --gris: #f3f3f3;
+      --gris-suave: #eef5f5;
+      --texto: #2f2f2f;
+      --texto-suave: #6b6b6b;
+      --borde: #d9e8e8;
       --max: 1180px;
     }
 
@@ -23,12 +22,11 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--negro);
+      color: var(--texto);
       background: var(--blanco);
-      line-height: 1.45;
     }
 
-    img { max-width: 100%; display: block; }
+    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
 
     .container {
@@ -36,576 +34,486 @@
       margin: 0 auto;
     }
 
-    .section {
-      padding: 72px 0;
-    }
-
-    .section-soft {
-      background: var(--gris-suave);
-    }
-
-    .eyebrow {
-      color: var(--turquesa);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .title {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 4vw, 3.7rem);
-      line-height: 1.05;
-      font-weight: 800;
-    }
-
-    .subtitle {
-      margin: 0;
-      font-size: 1.06rem;
-      color: rgba(255,255,255,0.94);
-      max-width: 560px;
-    }
-
-    .section-title {
-      font-size: clamp(1.9rem, 3vw, 2.8rem);
-      margin: 0 0 12px;
-      line-height: 1.05;
-      font-weight: 800;
-    }
-
-    .section-text {
-      margin: 0;
-      color: var(--gris-texto);
-      max-width: 760px;
-      font-size: 1.03rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border-radius: 12px;
-      padding: 14px 22px;
-      font-weight: 700;
-      transition: transform .18s ease, opacity .18s ease, background .18s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary {
-      background: var(--turquesa);
-      color: var(--blanco);
-    }
-    .btn-primary:hover { background: var(--turquesa-oscuro); }
-    .btn-secondary {
-      background: var(--negro);
-      color: var(--blanco);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--negro);
-      border: 1.5px solid #bfd6d6;
-    }
-
-    /* Header */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(17, 17, 17, 0.94);
-      backdrop-filter: blur(10px);
+      background: rgba(26, 26, 26, 0.96);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .header-inner {
-      min-height: 76px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
     }
 
-    .brand {
-      display: flex;
+    .logo-box {
+      background: rgba(0,0,0,0.35);
+      padding: 10px 14px;
+      display: inline-flex;
       align-items: center;
-      gap: 14px;
-      color: var(--blanco);
-      font-weight: 800;
+      justify-content: center;
     }
 
-    .brand-logo {
-      width: 118px;
-      max-width: 28vw;
+    .logo-box img {
+      width: 120px;
+      height: auto;
     }
 
     .desktop-nav {
       display: flex;
       align-items: center;
-      gap: 26px;
-      color: rgba(255,255,255,0.92);
-      font-size: 0.96rem;
+      gap: 24px;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.93rem;
     }
 
-    .desktop-nav a:hover,
-    .desktop-nav a.active {
+    .desktop-nav a.active,
+    .desktop-nav a:hover {
       color: var(--turquesa);
     }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .hamburger {
+    .menu-toggle {
       display: none;
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 58px;
+      height: 58px;
+      border: 1px solid rgba(255,255,255,0.1);
       background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
       color: var(--blanco);
-      font-size: 1.4rem;
+      font-size: 1.8rem;
     }
 
     .mobile-nav {
       display: none;
-      padding: 0 0 18px;
+      padding-bottom: 16px;
     }
 
     .mobile-nav.open { display: block; }
 
-    .mobile-nav-panel {
-      background: #181818;
+    .mobile-panel {
+      background: #1e1e1e;
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 14px;
-      box-shadow: var(--sombra);
+      padding: 10px;
+      border-radius: 14px;
     }
 
-    .mobile-nav-panel a,
-    .mobile-nav-panel button {
+    .mobile-panel a {
       display: block;
-      width: 100%;
-      text-align: left;
-      color: var(--blanco);
       padding: 14px 10px;
-      border-radius: 12px;
-      background: transparent;
-      border: none;
-      font-size: 1rem;
+      color: var(--blanco);
+      border-radius: 10px;
     }
 
-    .mobile-nav-panel a:hover,
-    .mobile-nav-panel button:hover {
-      background: rgba(255,255,255,0.06);
-    }
+    .mobile-panel a:hover { background: rgba(255,255,255,0.06); }
 
-    /* Hero */
     .hero {
       position: relative;
-      min-height: 78vh;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.5) 42%, rgba(0,0,0,.25) 100%),
+        url('images/hero-inicio.jpg') center/cover no-repeat;
+      color: var(--blanco);
+    }
+
+    .hero-inner {
+      min-height: 690px;
       display: flex;
       align-items: center;
-      color: var(--blanco);
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.74) 0%, rgba(0,0,0,0.52) 42%, rgba(0,0,0,0.28) 100%),
-        url('https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto -140px -140px auto;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(1,174,171,0.18), transparent 65%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 110px 0 90px;
+      padding: 56px 0 72px;
     }
 
     .hero-copy {
-      max-width: 690px;
+      max-width: 450px;
     }
 
-    .hero-actions {
+    .hero-logo {
+      width: 92px;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      margin: 0 0 18px;
+      font-size: clamp(2.1rem, 5vw, 4.1rem);
+      line-height: 1.02;
+      font-weight: 800;
+    }
+
+    .hero-text {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.92);
+      max-width: 360px;
+    }
+
+    .hero-dots {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 28px;
+      gap: 8px;
+      margin-top: 24px;
     }
 
-    /* Stats */
-    .stats-wrap {
-      margin-top: -42px;
-      position: relative;
-      z-index: 5;
+    .hero-dots span {
+      width: 34px;
+      height: 5px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.75);
+    }
+
+    .hero-dots span:first-child { background: var(--turquesa); }
+
+    .section { padding: 72px 0; }
+    .section-soft { background: var(--gris-suave); }
+
+    .eyebrow {
+      color: var(--turquesa);
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 800;
+      margin: 0 0 12px;
+    }
+
+    .title {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
+      line-height: 0.98;
+      font-weight: 800;
+      color: #0f0f0f;
+      max-width: 620px;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--texto-suave);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 720px;
     }
 
     .stats-grid {
+      margin-top: 26px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 18px;
     }
 
-    .stat-card {
+    .stat {
       background: var(--blanco);
-      border: 1px solid #e8efef;
-      border-radius: 20px;
-      padding: 26px 22px;
-      box-shadow: var(--sombra);
+      border-radius: 34px;
+      padding: 26px 24px;
       text-align: center;
+      border: 1px solid #ededed;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
 
     .stat-number {
       color: var(--turquesa);
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
       font-weight: 800;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      margin-bottom: 6px;
+      margin-bottom: 10px;
     }
 
     .stat-label {
-      color: var(--gris-texto);
-      font-size: 0.98rem;
-    }
-
-    /* Services */
-    .services-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 30px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #5d5d5d;
     }
 
     .services-grid {
+      margin-top: 32px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 26px;
     }
 
-    .card {
+    .service-card {
       background: var(--blanco);
-      border: 1px solid #e7efef;
-      border-radius: 20px;
+      border-radius: 0 0 16px 16px;
       overflow: hidden;
-      box-shadow: var(--sombra);
-      display: flex;
-      flex-direction: column;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+      border-bottom: 6px solid var(--turquesa);
     }
 
-    .card-media {
+    .service-card img {
+      width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
-      width: 100%;
     }
 
-    .card-body {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
+    .service-card .body {
+      padding: 20px 18px 26px;
     }
 
-    .card-title {
-      margin: 0 0 10px;
-      font-size: 1.25rem;
+    .service-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.08rem;
       font-weight: 800;
+      color: #111;
     }
 
-    .card-text {
-      margin: 0 0 22px;
-      color: var(--gris-texto);
-      min-height: 70px;
+    .service-card p {
+      margin: 0 0 28px;
+      color: #5e5e5e;
+      line-height: 1.65;
+      min-height: 104px;
     }
 
-    .link-more {
-      margin-top: auto;
-      color: var(--turquesa-oscuro);
+    .more-link {
+      color: var(--turquesa);
       font-weight: 700;
+      font-size: 0.98rem;
     }
 
-    /* About summary */
     .about-grid {
       display: grid;
-      grid-template-columns: 1.08fr 1fr;
-      gap: 52px;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
       align-items: center;
     }
 
-    .photo-frame {
+    .about-photo {
       position: relative;
+      padding-left: 14px;
+      padding-bottom: 14px;
     }
 
-    .photo-frame::before {
-      content: "";
+    .about-photo::before {
+      content: '';
       position: absolute;
-      left: -12px;
-      bottom: -12px;
-      width: 92%;
-      height: 92%;
-      border-radius: 24px;
+      left: 0;
+      bottom: 0;
+      width: calc(100% - 46px);
+      height: calc(100% - 28px);
       background: var(--turquesa);
       z-index: 0;
+      border-radius: 0 0 16px 16px;
     }
 
-    .photo-frame img {
+    .about-photo img {
       position: relative;
       z-index: 1;
-      border-radius: 24px;
-      box-shadow: var(--sombra);
+      width: calc(100% - 28px);
+      margin-left: 28px;
     }
 
     .pills {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 22px 0 28px;
+      flex-direction: column;
+      gap: 10px;
+      margin: 24px 0 26px;
+      max-width: 420px;
     }
 
     .pill {
+      border: 2px solid #8ad5d3;
       padding: 10px 14px;
-      border: 1.5px solid rgba(1,174,171,0.45);
-      border-radius: 999px;
-      color: var(--negro);
-      background: rgba(255,255,255,0.86);
+      background: transparent;
+      color: #1b1b1b;
+      font-weight: 500;
+    }
+
+    .btn-dark {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
       font-weight: 700;
     }
 
-    /* Guides */
-    .guides-banner {
-      background: linear-gradient(135deg, var(--turquesa) 0%, #0db9b6 100%);
-      border-radius: 28px;
+    .guide-band {
+      margin-top: 28px;
+      background: var(--turquesa);
       color: var(--blanco);
-      overflow: hidden;
+      border-radius: 18px;
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      align-items: center;
-      box-shadow: var(--sombra);
-    }
-
-    .guides-copy {
-      padding: 34px 34px 34px 36px;
-    }
-
-    .guides-copy h3 {
-      margin: 0 0 10px;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      line-height: 1.05;
-    }
-
-    .guides-copy p {
-      margin: 0 0 20px;
-      max-width: 560px;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .guides-art {
-      min-height: 100%;
-      display: flex;
+      grid-template-columns: 1.1fr .9fr;
       align-items: end;
-      justify-content: center;
-      padding: 18px 18px 0;
+      overflow: hidden;
     }
 
-    .guides-art img {
-      max-height: 310px;
+    .guide-copy {
+      padding: 30px 30px 30px 34px;
+    }
+
+    .guide-copy h3 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.02;
+    }
+
+    .guide-copy p {
+      margin: 0 0 18px;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    .guide-copy .btn-dark { background: #0a0a0a; }
+
+    .guide-art {
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      padding: 16px 18px 0;
+    }
+
+    .guide-art img {
+      max-height: 320px;
       object-fit: contain;
     }
 
-    /* Testimonial */
-    .testimonial-grid {
+    .testimonials-grid {
+      margin-top: 28px;
       display: grid;
       grid-template-columns: .9fr 1.1fr;
-      gap: 32px;
+      gap: 34px;
       align-items: center;
     }
 
     .video-card {
       background: var(--blanco);
-      border-radius: 22px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
       overflow: hidden;
-      box-shadow: var(--sombra);
-      border: 1px solid #e7efef;
+      position: relative;
     }
 
     .video-thumb {
       position: relative;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
       display: block;
     }
 
     .video-thumb img {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
     }
 
-    .play-badge {
+    .play {
       position: absolute;
       inset: 50% auto auto 50%;
       transform: translate(-50%, -50%);
-      width: 74px;
-      height: 74px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
-      background: rgba(1,174,171,0.92);
-      color: var(--blanco);
+      background: var(--turquesa);
+      color: #fff;
       display: grid;
       place-items: center;
-      font-size: 1.65rem;
-      box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+      font-size: 1.5rem;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.18);
     }
 
-    .video-info {
-      padding: 18px 20px 22px;
+    .video-caption {
+      background: var(--turquesa);
+      color: #fff;
+      padding: 12px 16px;
+      font-weight: 700;
     }
 
-    .video-info h4 {
-      margin: 0 0 8px;
-      font-size: 1.2rem;
-    }
-
-    .video-info p {
-      margin: 0;
-      color: var(--gris-texto);
-    }
-
-    /* CTA */
-    .cta-box {
-      border-radius: 28px;
-      background: var(--negro);
-      color: var(--blanco);
-      padding: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-
-    .cta-box h3 {
-      margin: 0 0 8px;
-      font-size: clamp(1.6rem, 3vw, 2.3rem);
-    }
-
-    .cta-box p {
-      margin: 0;
-      color: rgba(255,255,255,0.82);
-      max-width: 700px;
-    }
-
-    /* Footer */
     .site-footer {
-      background: #050505;
+      background: #060606;
       color: var(--blanco);
-      padding: 54px 0 24px;
+      padding: 44px 0 14px;
+      margin-top: 10px;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: .9fr .7fr 1fr;
-      gap: 30px;
+      gap: 28px;
       align-items: start;
     }
 
-    .footer-title {
-      margin: 0 0 14px;
-      color: rgba(255,255,255,0.92);
-      font-size: 1rem;
-      font-weight: 800;
+    .footer-logo {
+      width: 110px;
     }
 
-    .footer-list {
-      display: grid;
-      gap: 12px;
-      color: rgba(255,255,255,0.78);
-      font-size: 0.98rem;
+    .footer-title {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.92);
     }
 
     .socials {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
     .socials a {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+      color: var(--turquesa);
+      font-weight: 700;
+    }
+
+    .footer-list {
       display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.08);
-      color: var(--blanco);
-      font-weight: 800;
+      gap: 10px;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.96rem;
     }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.09);
-      margin-top: 30px;
-      padding-top: 18px;
-      color: rgba(255,255,255,0.58);
-      font-size: 0.92rem;
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 22px;
+      padding-top: 12px;
       text-align: center;
+      color: rgba(255,255,255,0.48);
+      font-size: 0.86rem;
     }
 
-    /* Floating WhatsApp */
     .whatsapp-float {
       position: fixed;
       right: 18px;
       bottom: 18px;
-      z-index: 1001;
-      background: #1fa855;
-      color: var(--blanco);
-      width: 58px;
-      height: 58px;
+      width: 76px;
+      height: 76px;
       border-radius: 50%;
+      background: #22b455;
+      color: #fff;
       display: grid;
       place-items: center;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.22);
-      font-size: 1.45rem;
+      z-index: 1001;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.2);
+      font-size: 1.7rem;
+      font-weight: 700;
     }
 
-    /* Responsive */
-    @media (max-width: 1080px) {
-      .desktop-nav,
-      .header-actions .btn { display: none; }
-      .hamburger { display: inline-grid; place-items: center; }
-      .services-grid,
+    @media (max-width: 1024px) {
+      .desktop-nav { display: none; }
+      .menu-toggle { display: inline-grid; place-items: center; }
       .stats-grid,
-      .footer-grid,
-      .testimonial-grid,
+      .services-grid,
       .about-grid,
-      .guides-banner {
+      .guide-band,
+      .testimonials-grid,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
-      .guides-art { padding-top: 0; }
-      .cta-box {
-        align-items: start;
-        flex-direction: column;
-      }
+      .hero-inner { min-height: 560px; }
+      .service-card p { min-height: auto; }
     }
 
-    @media (max-width: 720px) {
-      .section { padding: 56px 0; }
-      .hero { min-height: 72vh; }
-      .hero-content { padding: 90px 0 70px; }
-      .services-head { display: block; }
-      .card-text { min-height: auto; }
-      .stats-wrap { margin-top: -24px; }
-      .stat-card { padding: 22px 16px; }
-      .guides-copy { padding: 26px 22px; }
-      .cta-box { padding: 26px 22px; }
-      .brand-logo { width: 104px; }
-      .section-title { max-width: 12ch; }
+    @media (max-width: 680px) {
+      .header-inner { min-height: 92px; }
+      .logo-box img { width: 160px; max-width: 44vw; }
+      .hero-inner {
+        min-height: 740px;
+        align-items: end;
+        padding: 30px 0 48px;
+      }
+      .hero-copy { max-width: 100%; }
+      .hero-title { max-width: 330px; }
+      .hero-text { max-width: 320px; }
+      .title { max-width: 320px; }
+      .section { padding: 54px 0; }
+      .guide-copy { padding: 26px 22px; }
+      .about-photo img { width: calc(100% - 12px); margin-left: 12px; }
+      .about-photo::before { width: calc(100% - 24px); }
       .whatsapp-float {
-        width: 54px;
-        height: 54px;
+        width: 66px;
+        height: 66px;
         right: 14px;
         bottom: 14px;
       }
@@ -615,8 +523,8 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="Escuela Con Confianza">
-        <img class="brand-logo" src="https://dummyimage.com/240x96/111111/ffffff&text=CON+CONFIANZA" alt="Con Confianza" />
+      <a class="logo-box" href="index.html" aria-label="Inicio">
+        <img src="images/logo-con-confianza.png" alt="Con Confianza" />
       </a>
 
       <nav class="desktop-nav" aria-label="Principal">
@@ -627,91 +535,83 @@
         <a href="#guias">Recursos didácticos</a>
       </nav>
 
-      <div class="header-actions">
-        <a class="btn btn-primary" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Escríbenos</a>
-        <button class="hamburger" id="menuBtn" aria-label="Abrir menú">☰</button>
-      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
     </div>
 
     <div class="container mobile-nav" id="mobileNav">
-      <div class="mobile-nav-panel">
+      <div class="mobile-panel">
         <a href="index.html">Inicio</a>
         <a href="quienes-somos.html">Quiénes somos</a>
         <a href="#servicios">Cursos y mentorías</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#guias">Recursos didácticos</a>
-        <a href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
       </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container hero-content">
+      <div class="container hero-inner">
         <div class="hero-copy">
-          <div class="eyebrow">Escuela Con Confianza</div>
-          <h1 class="title">Escuela de comunicación dirigida por y para personas con tartamudez.</h1>
-          <p class="subtitle">Habla con más seguridad en tus clases, tu entorno laboral y tus amistades, con estrategias prácticas y acompañamiento humano.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#servicios">Conoce nuestros servicios</a>
-            <a class="btn btn-secondary" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
+          <img class="hero-logo" src="images/logo-con-confianza.png" alt="Con Confianza" />
+          <h1 class="hero-title">Escuela de comunicación dirigida por y para personas con tartamudez.</h1>
+          <p class="hero-text">Habla con seguridad en tus clases, entorno laboral y amistades.</p>
+          <div class="hero-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="container stats-wrap">
-      <section class="stats-grid" aria-label="Indicadores principales">
-        <article class="stat-card">
-          <div class="stat-number">2000+</div>
-          <div class="stat-label">Participantes en espacios grupales</div>
-        </article>
-        <article class="stat-card">
-          <div class="stat-number">1300+</div>
-          <div class="stat-label">Estudiantes atendidos en sesiones individuales</div>
-        </article>
-        <article class="stat-card">
-          <div class="stat-number">500+</div>
-          <div class="stat-label">Terapeutas capacitados en tartamudez</div>
-        </article>
-      </section>
-    </div>
-
-    <section class="section" id="servicios">
+    <section class="section">
       <div class="container">
-        <div class="services-head">
-          <div>
-            <div class="eyebrow">Nuestros servicios</div>
-            <h2 class="section-title">Aprende nuevas estrategias y habla con confianza.</h2>
-          </div>
-          <p class="section-text">Contamos con opciones individuales y grupales para que puedas avanzar a tu ritmo, con un enfoque cercano, práctico y especializado en tartamudez.</p>
+        <h2 class="eyebrow">Nuestros servicios</h2>
+
+        <div class="stats-grid">
+          <article class="stat">
+            <div class="stat-number">2000+</div>
+            <div class="stat-label">Participantes en espacios grupales</div>
+          </article>
+          <article class="stat">
+            <div class="stat-number">1300+</div>
+            <div class="stat-label">Estudiantes atendidos en sesiones individuales</div>
+          </article>
+          <article class="stat">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Terapeutas capacitados en tartamudez</div>
+          </article>
         </div>
 
-        <div class="services-grid">
-          <article class="card">
-            <img class="card-media" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Curso grabado" />
-            <div class="card-body">
-              <h3 class="card-title">Curso grabado</h3>
-              <p class="card-text">Aprende estrategias a tu propio ritmo y tiempo con contenidos preparados para avanzar de forma clara y práctica.</p>
-              <a class="link-more" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Ver más →</a>
+        <div style="margin-top:52px;">
+          <h3 class="title">Aprende nuevas estrategias y habla con confianza.</h3>
+          <p class="lead">Contamos con opciones individuales y grupales para que puedas avanzar a tu ritmo, con un enfoque cercano, práctico y especializado en tartamudez.</p>
+        </div>
+
+        <div class="services-grid" id="servicios">
+          <article class="service-card">
+            <img src="images/servicio-curso.jpg" alt="Curso grabado" />
+            <div class="body">
+              <h3>Curso grabado</h3>
+              <p>Aprende estrategias a tu propio ritmo y tiempo con contenidos preparados para avanzar de forma clara y práctica.</p>
+              <a class="more-link" href="https://wa.me/51926687682">Ver más →</a>
             </div>
           </article>
 
-          <article class="card">
-            <img class="card-media" src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop" alt="Mentorías personalizadas" />
-            <div class="card-body">
-              <h3 class="card-title">Mentorías personalizadas</h3>
-              <p class="card-text">Aprende estrategias guiadas paso a paso por un mentor, con acompañamiento enfocado en tus necesidades y metas.</p>
-              <a class="link-more" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Ver más →</a>
+          <article class="service-card">
+            <img src="images/servicio-mentorias.jpg" alt="Mentorías personalizadas" />
+            <div class="body">
+              <h3>Mentorías personalizadas</h3>
+              <p>Aprende estrategias guiadas paso a paso por un mentor, con acompañamiento enfocado en tus necesidades y metas.</p>
+              <a class="more-link" href="https://wa.me/51926687682">Ver más →</a>
             </div>
           </article>
 
-          <article class="card">
-            <img class="card-media" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop" alt="Talleres grupales" />
-            <div class="card-body">
-              <h3 class="card-title">Talleres grupales</h3>
-              <p class="card-text">Aprende y practica estrategias de manera grupal en espacios de confianza, participación e intercambio de experiencias.</p>
-              <a class="link-more" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Ver más →</a>
+          <article class="service-card">
+            <img src="images/servicio-talleres.jpg" alt="Talleres grupales" />
+            <div class="body">
+              <h3>Talleres grupales</h3>
+              <p>Aprende y practica estrategias de manera grupal en espacios de confianza, participación e intercambio de experiencias.</p>
+              <a class="more-link" href="https://wa.me/51926687682">Ver más →</a>
             </div>
           </article>
         </div>
@@ -720,73 +620,58 @@
 
     <section class="section section-soft">
       <div class="container about-grid">
-        <div class="photo-frame">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Equipo de Escuela Con Confianza" />
+        <div class="about-photo">
+          <img src="images/foto-grupal.jpg" alt="Equipo Escuela Con Confianza" />
         </div>
 
         <div>
-          <div class="eyebrow">Quiénes somos</div>
-          <h2 class="section-title">Personas con tartamudez acompañando a otras personas con tartamudez.</h2>
-          <p class="section-text">Somos personas con tartamudez que decidimos especializarnos para orientar a quienes sienten que aún viven sin poder decir lo que quieren.</p>
+          <h2 class="eyebrow">¿Quiénes somos?</h2>
+          <h3 class="title">Personas con tartamudez acompañando a otras personas con tartamudez.</h3>
+          <p class="lead">Especialistas en tartamudez que también tartamudean y aprendimos a manejar nuestra tartamudez. Compartimos estrategias respaldadas por expertos para ayudarte a manejar tu habla con más confianza y menos esfuerzo. Ofrecemos servicios presenciales y virtuales hacia cualquier parte del mundo.</p>
+
           <div class="pills">
-            <span class="pill">Entendemos la tartamudez</span>
-            <span class="pill">Hemos pasado lo mismo que tú</span>
-            <span class="pill">Queremos que hables con confianza</span>
+            <div class="pill">Entendemos la tartamudez.</div>
+            <div class="pill">Hemos pasado lo mismo que tú.</div>
+            <div class="pill">Queremos que hables con confianza.</div>
           </div>
-          <a class="btn btn-secondary" href="quienes-somos.html">Conócenos</a>
+
+          <a class="btn-dark" href="quienes-somos.html">Conócenos</a>
         </div>
       </div>
     </section>
 
     <section class="section" id="guias">
       <div class="container">
-        <div class="guides-banner">
-          <div class="guides-copy">
-            <div class="eyebrow" style="color:#dffefe;">Recurso destacado</div>
+        <div class="guide-band">
+          <div class="guide-copy">
             <h3>Guías para el manejo de la tartamudez</h3>
-            <p>Accede a nuestras 06 guías de estudio para entender y manejar la tartamudez con ejemplos y orientaciones claras.</p>
-            <a class="btn btn-secondary" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Quiero más información</a>
+            <p>Accede a nuestras 06 guías de estudio para entender y manejar la tartamudez.</p>
+            <a class="btn-dark" href="https://wa.me/51926687682">¡Quiero más información!</a>
           </div>
-          <div class="guides-art">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=900&auto=format&fit=crop" alt="Guías para el manejo de la tartamudez" />
+          <div class="guide-art">
+            <img src="images/guia-destacada.png" alt="Guías para el manejo de la tartamudez" />
           </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="testimonios">
-      <div class="container testimonial-grid">
+      <div class="container testimonials-grid">
         <div>
-          <div class="eyebrow">Historias reales</div>
-          <h2 class="section-title">Conoce las historias de nuestros estudiantes.</h2>
-          <p class="section-text">Sus experiencias pueden ser de gran ayuda para quienes también enfrentan dificultades al hablar debido a la tartamudez.</p>
-          <div style="margin-top: 24px;">
-            <a class="btn btn-secondary" href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener noreferrer">Conoce más experiencias</a>
+          <h2 class="title" style="max-width:420px;">Conoce la historia de nuestros estudiantes</h2>
+          <p class="lead">Sus historias pueden ser de gran ayuda para quienes también enfrentan dificultades al hablar debido a la tartamudez.</p>
+          <div style="margin-top:24px;">
+            <a class="btn-dark" href="https://youtu.be/CipshmXVVZg?si=p-mjtrR3MDqK2tZZ" target="_blank" rel="noopener noreferrer">Conoce más experiencias</a>
           </div>
         </div>
 
         <article class="video-card">
-          <a class="video-thumb" href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener noreferrer" aria-label="Ver testimonio en YouTube">
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop" alt="Testimonio destacado" />
-            <span class="play-badge">▶</span>
+          <a class="video-thumb" href="https://youtu.be/CipshmXVVZg?si=p-mjtrR3MDqK2tZZ" target="_blank" rel="noopener noreferrer" aria-label="Ver testimonio en YouTube">
+            <img src="images/testimonio-video.jpg" alt="Testimonio destacado" />
+            <span class="play">▶</span>
           </a>
-          <div class="video-info">
-            <h4>Testimonio destacado</h4>
-            <p>Aquí podrás mostrar un testimonio real de YouTube sin volver pesada la carga inicial de la página.</p>
-          </div>
+          <div class="video-caption">Testimonio destacado</div>
         </article>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="cta-box">
-          <div>
-            <h3>¿Quieres recibir información sobre nuestros servicios?</h3>
-            <p>Podemos orientarte para que elijas la opción que más te conviene según tus objetivos, disponibilidad y etapa del proceso.</p>
-          </div>
-          <a class="btn btn-primary" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Escríbenos</a>
-        </div>
       </div>
     </section>
   </main>
@@ -794,49 +679,44 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <img class="brand-logo" src="https://dummyimage.com/240x96/000000/ffffff&text=CON+CONFIANZA" alt="Con Confianza" />
+        <img class="footer-logo" src="images/logo-con-confianza.png" alt="Con Confianza" />
       </div>
 
       <div>
         <h3 class="footer-title">Síguenos</h3>
         <div class="socials">
-          <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
-          <a href="https://www.instagram.com/conconfianza.ttm?igsh=MTNodGQzbXkwcWVnOQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
-          <a href="https://www.tiktok.com/@conconfianza.ttm?_r=1&_t=ZS-95lcCdqQsJG" target="_blank" rel="noopener noreferrer" aria-label="TikTok">t</a>
-          <a href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener noreferrer" aria-label="YouTube">yt</a>
+          <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/conconfianza.ttm?igsh=MTNodGQzbXkwcWVnOQ==" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.tiktok.com/@conconfianza.ttm?_r=1&_t=ZS-95lcCdqQsJG" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
       </div>
 
       <div>
         <h3 class="footer-title">Contacto</h3>
         <div class="footer-list">
-          <span>con.confianza.tartamudez@gmail.com</span>
           <span>+51 926 687 682</span>
           <span>Lima, Perú</span>
         </div>
       </div>
     </div>
 
-    <div class="container footer-bottom">
-      © 2026 Escuela Con Confianza. Todos los derechos reservados.
-    </div>
+    <div class="container copyright">© 2026 Escuela Con Confianza. Todos los derechos reservados.</div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">✆</a>
+  <a class="whatsapp-float" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">✆</a>
 
   <script>
-    const menuBtn = document.getElementById('menuBtn');
+    const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
 
-    if (menuBtn && mobileNav) {
-      menuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
-      });
+    menuToggle?.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
 
-      mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => mobileNav.classList.remove('open'));
-      });
-    }
+    mobileNav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
   </script>
 </body>
 </html>
