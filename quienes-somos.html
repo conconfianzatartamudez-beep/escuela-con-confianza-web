@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiénes somos | Escuela Con Confianza</title>
+  <style>
+    :root {
+      --turquesa: #01aeab;
+      --turquesa-oscuro: #028e8b;
+      --negro: #111111;
+      --gris-texto: #4a4a4a;
+      --gris-suave: #eef6f6;
+      --blanco: #ffffff;
+      --borde: #dbe7e7;
+      --radio: 18px;
+      --sombra: 0 10px 24px rgba(0,0,0,0.08);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--negro);
+      background: var(--blanco);
+      line-height: 1.45;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .section { padding: 72px 0; }
+    .section-soft { background: var(--gris-suave); }
+
+    .eyebrow {
+      color: var(--turquesa);
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .title {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 1.04rem;
+      color: rgba(255,255,255,.92);
+      max-width: 640px;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      margin: 0 0 12px;
+      line-height: 1.05;
+      font-weight: 800;
+    }
+
+    .section-text {
+      margin: 0;
+      color: var(--gris-texto);
+      max-width: 760px;
+      font-size: 1.02rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 12px;
+      padding: 14px 22px;
+      font-weight: 700;
+      transition: transform .18s ease, opacity .18s ease, background .18s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--turquesa); color: var(--blanco); }
+    .btn-primary:hover { background: var(--turquesa-oscuro); }
+    .btn-secondary { background: var(--negro); color: var(--blanco); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(17,17,17,.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand { display: flex; align-items: center; color: var(--blanco); font-weight: 800; }
+    .brand-logo { width: 118px; max-width: 28vw; }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: rgba(255,255,255,.92);
+      font-size: .96rem;
+    }
+    .desktop-nav a:hover,
+    .desktop-nav a.active { color: var(--turquesa); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hamburger {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--blanco);
+      font-size: 1.4rem;
+    }
+
+    .mobile-nav { display: none; padding: 0 0 18px; }
+    .mobile-nav.open { display: block; }
+    .mobile-nav-panel {
+      background: #181818;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: var(--sombra);
+    }
+    .mobile-nav-panel a {
+      display: block;
+      width: 100%;
+      text-align: left;
+      color: var(--blanco);
+      padding: 14px 10px;
+      border-radius: 12px;
+    }
+    .mobile-nav-panel a:hover { background: rgba(255,255,255,.06); }
+
+    .hero {
+      min-height: 62vh;
+      display: flex;
+      align-items: center;
+      color: var(--blanco);
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.58) 46%, rgba(0,0,0,.34) 100%),
+        url('https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+
+    .hero-content { padding: 100px 0 84px; }
+    .hero-copy { max-width: 700px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+
+    .values-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .value-card {
+      background: var(--blanco);
+      border: 1px solid #e7efef;
+      border-radius: 22px;
+      box-shadow: var(--sombra);
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .value-icon {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 18px;
+      border-radius: 22px;
+      background: var(--turquesa);
+      color: var(--blanco);
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .value-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+    }
+
+    .value-card p {
+      margin: 0;
+      color: var(--gris-texto);
+    }
+
+    .person-card {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+      background: var(--blanco);
+      border: 1px solid #e7efef;
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: var(--sombra);
+      overflow: hidden;
+    }
+
+    .person-card.reverse { grid-template-columns: 1.1fr .9fr; }
+    .person-card + .person-card { margin-top: 28px; }
+
+    .person-photo-wrap { position: relative; }
+    .person-photo-wrap::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      bottom: -10px;
+      width: 92%;
+      height: 92%;
+      border-radius: 24px;
+      background: var(--turquesa);
+      z-index: 0;
+    }
+    .person-card.reverse .person-photo-wrap::before {
+      left: auto;
+      right: -10px;
+    }
+
+    .person-photo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .person-role {
+      color: var(--turquesa-oscuro);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .person-name {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1.02;
+    }
+
+    .person-text {
+      color: var(--gris-texto);
+      margin: 0 0 18px;
+      font-size: 1rem;
+    }
+
+    .quote {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--turquesa);
+      background: rgba(1,174,171,.07);
+      border-radius: 14px;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .cta-box {
+      border-radius: 28px;
+      background: var(--negro);
+      color: var(--blanco);
+      padding: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .cta-box h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+    }
+
+    .cta-box p {
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      max-width: 700px;
+    }
+
+    .site-footer {
+      background: #050505;
+      color: var(--blanco);
+      padding: 54px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: .9fr .7fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .footer-title {
+      margin: 0 0 14px;
+      color: rgba(255,255,255,.92);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .footer-list {
+      display: grid;
+      gap: 12px;
+      color: rgba(255,255,255,.78);
+      font-size: .98rem;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.08);
+      color: var(--blanco);
+      font-weight: 800;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.09);
+      margin-top: 30px;
+      padding-top: 18px;
+      color: rgba(255,255,255,.58);
+      font-size: .92rem;
+      text-align: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1001;
+      background: #1fa855;
+      color: var(--blanco);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 24px rgba(0,0,0,.22);
+      font-size: 1.45rem;
+    }
+
+    @media (max-width: 1080px) {
+      .desktop-nav,
+      .header-actions .btn { display: none; }
+      .hamburger { display: inline-grid; place-items: center; }
+      .values-grid,
+      .footer-grid,
+      .person-card,
+      .person-card.reverse {
+        grid-template-columns: 1fr;
+      }
+      .person-card.reverse .person-copy { order: 2; }
+      .person-card.reverse .person-photo-wrap { order: 1; }
+      .cta-box { align-items: start; flex-direction: column; }
+    }
+
+    @media (max-width: 720px) {
+      .section { padding: 56px 0; }
+      .hero { min-height: 58vh; }
+      .hero-content { padding: 88px 0 68px; }
+      .brand-logo { width: 104px; }
+      .person-card { padding: 20px; }
+      .cta-box { padding: 26px 22px; }
+      .whatsapp-float {
+        width: 54px;
+        height: 54px;
+        right: 14px;
+        bottom: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Escuela Con Confianza">
+        <img class="brand-logo" src="https://dummyimage.com/240x96/111111/ffffff&text=CON+CONFIANZA" alt="Con Confianza" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="Principal">
+        <a href="index.html">Inicio</a>
+        <a class="active" href="quienes-somos.html">Quiénes somos</a>
+        <a href="index.html#servicios">Cursos y mentorías</a>
+        <a href="index.html#testimonios">Testimonios</a>
+        <a href="index.html#guias">Recursos didácticos</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Escríbenos</a>
+        <button class="hamburger" id="menuBtn" aria-label="Abrir menú">☰</button>
+      </div>
+    </div>
+
+    <div class="container mobile-nav" id="mobileNav">
+      <div class="mobile-nav-panel">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="index.html#servicios">Cursos y mentorías</a>
+        <a href="index.html#testimonios">Testimonios</a>
+        <a href="index.html#guias">Recursos didácticos</a>
+        <a href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <div class="eyebrow">Quiénes somos</div>
+          <h1 class="title">Aprendimos a manejar nuestra tartamudez y hoy acompañamos a otras personas a hacer lo mismo.</h1>
+          <p class="subtitle">Nos especializamos en ofrecer orientación cercana, estrategias prácticas y espacios de confianza para que puedas comunicarte con mayor seguridad.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
+            <a class="btn btn-secondary" href="index.html#servicios">Ver servicios</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">Nuestros valores</div>
+        <h2 class="section-title">Una forma de acompañar basada en experiencia, compromiso y comprensión real.</h2>
+        <p class="section-text">Queremos que la Escuela Con Confianza se sienta cercana, clara y útil para quienes buscan orientación frente a la tartamudez.</p>
+
+        <div class="values-grid">
+          <article class="value-card">
+            <div class="value-icon">♡</div>
+            <h3>Empatía</h3>
+            <p>Entendemos lo complicado que puede ser la tartamudez porque hemos pasado por lo mismo que tú.</p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">✦</div>
+            <h3>Compromiso</h3>
+            <p>Nuestra misión es que hables con confianza cuando quieras y donde quieras.</p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">★</div>
+            <h3>Experiencia</h3>
+            <p>Desde hace más de 4 años trabajamos exclusivamente con personas que tartamudean.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <article class="person-card">
+          <div class="person-photo-wrap">
+            <img class="person-photo" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop" alt="Adriano Vega" />
+          </div>
+          <div class="person-copy">
+            <div class="person-role">Co-director y mentor</div>
+            <h2 class="person-name">Adriano Vega</h2>
+            <p class="person-text">Estudió terapia de lenguaje en Perú y posteriormente realizó estudios de especialización en tartamudez. Actualmente es co-director y mentor de la Escuela Con Confianza, donde trabaja a tiempo completo acompañando a personas que desean comunicarse con mayor seguridad y menos esfuerzo.</p>
+            <div class="quote">“Cada momento de dificultad es una oportunidad para poder mejorar.”</div>
+          </div>
+        </article>
+
+        <article class="person-card reverse">
+          <div class="person-copy">
+            <div class="person-role">Co-director y mentor</div>
+            <h2 class="person-name">Bruno Villegas</h2>
+            <p class="person-text">Estudió ingeniería y educación. Se formó en el abordaje de la tartamudez con diplomados en universidades de Monteávila y Concepción. También es presidente de la Asociación Peruana Habla Libre, desde donde brinda apoyo a la comunidad de personas con tartamudez y actualmente co-dirige la Escuela Con Confianza.</p>
+            <div class="quote">“No tienes que ser bueno para empezar, pero tienes que empezar para ser bueno.”</div>
+          </div>
+          <div class="person-photo-wrap">
+            <img class="person-photo" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop" alt="Bruno Villegas" />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h3>¿Quieres conocer cuál de nuestros servicios podría ayudarte más?</h3>
+            <p>Podemos orientarte para que identifiques la opción más adecuada según tu momento actual, tus objetivos y el tipo de acompañamiento que buscas.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer">Escríbenos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img class="brand-logo" src="https://dummyimage.com/240x96/000000/ffffff&text=CON+CONFIANZA" alt="Con Confianza" />
+      </div>
+
+      <div>
+        <h3 class="footer-title">Síguenos</h3>
+        <div class="socials">
+          <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/conconfianza.ttm?igsh=MTNodGQzbXkwcWVnOQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
+          <a href="https://www.tiktok.com/@conconfianza.ttm?_r=1&_t=ZS-95lcCdqQsJG" target="_blank" rel="noopener noreferrer" aria-label="TikTok">t</a>
+          <a href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener noreferrer" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="footer-title">Contacto</h3>
+        <div class="footer-list">
+          <span>con.confianza.tartamudez@gmail.com</span>
+          <span>+51 926 687 682</span>
+          <span>Lima, Perú</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      © 2026 Escuela Con Confianza. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">✆</a>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+      });
+
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => mobileNav.classList.remove('open'));
+      });
+    }
+  </script>
+</body>
+</html>
