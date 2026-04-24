@@ -896,15 +896,31 @@ button {
 }
 
 .profile__img-col {
+  position: relative;
   width: 100%;
 }
 
+.profile__img-col::before {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: 88%;
+  height: 88%;
+  background: #01aeab;
+  border-radius: 18px;
+  z-index: 0;
+}
+
 .profile__img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   aspect-ratio: 3/4;
   object-fit: cover;
   object-position: top;
   max-height: 500px;
+  border-radius: 18px;
 }
 
 .profile__text-col {
