@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Escuela de comunicación para personas con tartamudez. Habla con seguridad en tus clases, trabajo y amistades." />
-  <title>Escuela Con Confianza – Tartamudez</title>
+  <meta name="description" content="Escuela de comunicación para personas con tartamudez. Habla con seguridad en tus..." />
+  <title>Escuela Con Confianza - Tartamudez</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -149,10 +155,18 @@
     </div>
 
 <div class="testimonials__video-col">
-  <a href="https://youtu.be/CipshmXVVZg?si=p-mjtrR3MDqK2tZZ" target="_blank" rel="noopener" class="testimonials__video-link" aria-label="Ver video testimonio en YouTube">
-    <span class="testimonials__video-thumb-wrap">
-      <img src="images/testimonio-video.jpg" alt="Miniatura de video testimonio de estudiante" class="testimonials__video-thumb">
-      <span class="testimonials__video-play">▶</span>
+  <a href="https://youtu.be/CipshmXVVZg?si=p-mjtrR3MDqK2tZZ"
+     target="_blank"
+     rel="noopener"
+     class="testimonials__video-link"
+     aria-label="Ver testimonio en video">
+
+    <img src="images/testimonio-video.jpg"
+         alt="Miniatura de video testimonio de estudiante"
+         class="testimonials__video-thumb">
+
+    <span class="testimonials__play-btn">
+      <span class="testimonials__play-icon"></span>
     </span>
   </a>
 </div>
@@ -162,42 +176,71 @@
 
   <!-- ========== FOOTER ========== -->
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <img src="images/logo-con-confianza.png" alt="Escuela Con Confianza" class="footer__logo">
-      <p class="footer__text">
-        Escuela de comunicación especializada en tartamudez.
+  <div class="footer__top-line"></div>
+
+  <div class="footer__container">
+    <div class="footer__grid">
+      
+      <!-- Marca -->
+      <div class="footer__brand">
+<img
+  src="images/logo-footer-bn.png"
+  alt="Escuela Con Confianza"
+  class="footer__logo"
+>
+
+        <p class="footer__text">
+          Escuela de comunicación especializada en tartamudez.
+        </p>
+
+        <p class="footer__subtext">
+          Acompañamos a niños, adolescentes y adultos a comunicarse con más seguridad y menos esfuerzo.
+        </p>
+      </div>
+
+      <!-- Navegación -->
+      <div class="footer__col">
+        <h3 class="footer__title">Navegación</h3>
+
+        <nav class="footer__links">
+          <a href="index.html" class="footer__link">Inicio</a>
+          <a href="quienes-somos.html" class="footer__link">Quiénes somos</a>
+          <a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="footer__link">Contáctanos</a>
+        </nav>
+      </div>
+
+      <!-- Redes -->
+<!-- Redes -->
+<div class="footer__col">
+  <h3 class="footer__title">Síguenos</h3>
+
+  <div class="footer__links">
+    <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener" class="footer__link footer__social-link">
+      <i class="fa-brands fa-facebook-f"></i>
+      <span>Facebook</span>
+    </a>
+
+    <a href="https://www.instagram.com/conconfianza.ttm?igsh=MTNodGQzbXkwcWVnOQ==" target="_blank" rel="noopener" class="footer__link footer__social-link">
+      <i class="fa-brands fa-instagram"></i>
+      <span>Instagram</span>
+    </a>
+
+    <a href="https://www.tiktok.com/@conconfianza.ttm?_r=1&_t=ZS-951cCdqQsJG" target="_blank" rel="noopener" class="footer__link footer__social-link">
+      <i class="fa-brands fa-tiktok"></i>
+      <span>TikTok</span>
+    </a>
+
+    <a href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener" class="footer__link footer__social-link">
+      <i class="fa-brands fa-youtube"></i>
+      <span>YouTube</span>
+    </a>
+  </div>
+</div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        © 2025 Escuela Con Confianza. Todos los derechos reservados.
       </p>
     </div>
-
-    <div class="footer__nav">
-      <h3 class="footer__title">Navegación</h3>
-      <a href="index.html">Inicio</a>
-      <a href="quienes-somos.html">Quiénes somos</a>
-      <a href="https://wa.me/51926687682" target="_blank" rel="noopener">Contáctanos</a>
-    </div>
-
-    <div class="footer__social">
-      <h3 class="footer__title">Síguenos</h3>
-      <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.instagram.com/conconfianza.ttm?igsh=MTNodGQzbXkwcWVnOQ==" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tiktok.com/@conconfianza.ttm?_r=1&_t=ZS-95lcCdqQsJG" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener">YouTube</a>
-    </div>
-  </div>
-
-  <div class="container footer__bottom">
-    <p>© 2025 Escuela Con Confianza. Todos los derechos reservados.</p>
   </div>
 </footer>
-
-  <!-- ========== WHATSAPP FLOTANTE ========== -->
-  <a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contáctanos por WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-    </svg>
-  </a>
-
-  <script src="script.js"></script>
-</body>
-</html>
