@@ -169,7 +169,6 @@ button {
   margin-bottom: var(--space-lg);
 }
 
-
 /* ============================================================
    3. BOTONES
    ============================================================ */
@@ -384,10 +383,10 @@ button {
 
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 84vh;
   display: flex;
   align-items: flex-end;
-  padding-bottom: var(--space-2xl);
+  padding-bottom: 5rem;
 }
 
 .hero__bg {
@@ -408,46 +407,81 @@ button {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.15) 0%,
-    rgba(0,0,0,0.65) 60%,
-    rgba(0,0,0,0.82) 100%
+    rgba(0,0,0,0.16) 0%,
+    rgba(0,0,0,0.58) 48%,
+    rgba(0,0,0,0.92) 100%
   );
 }
 
 .hero__content {
   position: relative;
   z-index: 1;
-  max-width: 680px;
+  max-width: 520px;
   color: var(--color-white);
-  padding-top: calc(var(--header-height) + var(--space-lg));
+  padding-top: calc(var(--header-height) + var(--space-md));
 }
 
 .hero__eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-brand);
-  margin-bottom: var(--space-sm);
+  color: var(--color-white);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+  margin-bottom: 0.85rem;
 }
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-size: clamp(2.75rem, 8.2vw, 3.75rem);
   font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: var(--space-md);
+  line-height: 1.11;
+  margin-bottom: 1rem;
   color: var(--color-white);
+}
+
+.hero__title > span {
+  display: inline;
+}
+
+.hero__title-accent {
+  display: inline;
+  color: #01aeab;
 }
 
 .hero__subtitle {
   font-size: clamp(1rem, 2vw, 1.2rem);
   color: rgba(255,255,255,0.85);
-  margin-bottom: var(--space-lg);
-  max-width: 48ch;
+  margin-top: 8px;
+  margin-bottom: 2.2rem;
+  max-width: 36ch;
   line-height: 1.65;
 }
 
+@media (max-width: 640px) {
+  .hero__title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.15;
+    max-width: 100%;
+  }
+
+  .hero__title > span {
+    display: block;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .hero__content {
+    max-width: 480px;
+    margin-left: 0;
+  }
+
+  .hero__title {
+    font-size: clamp(2.6rem, 4vw, 3.25rem);
+  }
+}
 
 /* ============================================================
    6. MÉTRICAS
