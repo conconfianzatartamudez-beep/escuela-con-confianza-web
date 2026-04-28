@@ -73,6 +73,7 @@ export async function onRequestPost({ request, env }) {
   try {
     const appsScriptUrl = getAppsScriptUrl(env);
     const body = await request.json();
+    const action = body.action === "actualizar" ? "actualizar" : "confirmar";
 
     const response = await fetch(appsScriptUrl, {
       method: "POST",
@@ -81,7 +82,7 @@ export async function onRequestPost({ request, env }) {
         "accept": "application/json",
       },
       body: JSON.stringify({
-        action: "confirmar",
+        action,
         codigo: body.codigo,
         slotsSeleccionados: body.slotsSeleccionados,
       }),
