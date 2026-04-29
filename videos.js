@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Listado de artículos de Escuela Con Confianza sobre tartamudez, comunicación y acompañamiento." />
+  <title>Artículos | Recursos didácticos</title>
+  <link rel="canonical" href="https://escuelaconconfianza.com/recursos-didacticos/articulos">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="../../styles.css?v=6">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="../../index.html" class="header__logo" aria-label="Inicio - Escuela Con Confianza">
+        <img src="../../images/logo-con-confianza.png" alt="Escuela Con Confianza" height="44" />
+      </a>
+      <nav class="header__nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="header__nav-list">
+          <li><a href="../../index.html" class="header__nav-link">Inicio</a></li>
+          <li><a href="../../quienes-somos.html" class="header__nav-link">Quiénes somos</a></li>
+          <li><a href="../../recursos-didacticos.html" class="header__nav-link is-active" aria-current="page">Recursos</a></li>
+          <li><a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="header__nav-cta" aria-label="Contáctanos por WhatsApp">Contáctanos</a></li>
+        </ul>
+      </nav>
+      <button class="header__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="resources-page resources-list-page">
+    <section class="resources-list-hero section">
+      <div class="container">
+        <a href="../../recursos-didacticos.html" class="resources-section__link">← Volver a recursos</a>
+        <h1 class="resources-hero__title">Artículos</h1>
+        <p class="resources-hero__subtitle">Lecturas para acompañar el proceso de comunicación con más información, calma y confianza.</p>
+      </div>
+    </section>
+
+    <section class="resources-section resources-articles" aria-labelledby="all-articles-title">
+      <div class="container">
+        <div class="resources-section__header">
+          <h2 class="resources-section__title" id="all-articles-title">Todos los artículos</h2>
+        </div>
+        <div class="resources-articles__grid" data-all-articles></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top-line"></div>
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../../images/logo-footer-bn.png" alt="Escuela Con Confianza" class="footer__logo">
+          <p class="footer__text">Escuela de comunicación especializada en tartamudez.</p>
+          <p class="footer__subtext">Acompañamos a niños, adolescentes y adultos a comunicarse con más seguridad y menos esfuerzo.</p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Navegación</h3>
+          <nav class="footer__links">
+            <a href="../../index.html" class="footer__link">Inicio</a>
+            <a href="../../quienes-somos.html" class="footer__link">Quiénes somos</a>
+            <a href="../../recursos-didacticos.html" class="footer__link">Recursos</a>
+            <a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="footer__link">Contáctanos</a>
+          </nav>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Síguenos</h3>
+          <div class="footer__links">
+            <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener" class="footer__link footer__social-link"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
+            <a href="https://www.instagram.com/conconfianza.ttm?igsh=MTNodGQzbXkwcWVnOQ==" target="_blank" rel="noopener" class="footer__link footer__social-link"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+            <a href="https://www.tiktok.com/@conconfianza.ttm?_r=1&_t=ZS-951cCdqQsJG" target="_blank" rel="noopener" class="footer__link footer__social-link"><i class="fa-brands fa-tiktok"></i><span>TikTok</span></a>
+            <a href="https://youtube.com/@escuelaconconfianza?si=EJPSmECChiXnn4Vo" target="_blank" rel="noopener" class="footer__link footer__social-link"><i class="fa-brands fa-youtube"></i><span>YouTube</span></a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__copyright">© 2025 Escuela Con Confianza. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contáctanos por WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+  <script src="../../script.js"></script>
+  <script src="../../data/recursos/articulos.js"></script>
+  <script src="../../recursos.js"></script>
+</body>
+</html>
