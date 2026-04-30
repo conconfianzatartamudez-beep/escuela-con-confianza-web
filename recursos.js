@@ -257,6 +257,7 @@
 
     if (
       window.location.pathname.indexOf('/recursos-didacticos/articulos/') !== -1 ||
+      window.location.pathname.indexOf('/recursos-didacticos/publicaciones/') !== -1 ||
       window.location.pathname.indexOf('/recursos-didacticos/guias/') !== -1
     ) {
       return '../../' + path;

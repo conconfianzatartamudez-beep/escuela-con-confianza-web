@@ -12,7 +12,7 @@ window.RECURSOS_ARTICULOS = [
   {
     id: 'tecnicas-manejar-tartamudez',
     title: '¿Qué técnicas existen para manejar la tartamudez?',
-    description: 'Una recopilación de estrategias de modelado y modificación de la tartamudez.',
+    description: 'Recopilación de estrategias de modelado y modificación de la tartamudez.',
     image: 'images/recursos/tecnicas-manejar-tartamudez.png',
     mobileImage: 'images/recursos/tecnicas-manejar-tartamudez-cuadrado.png',
     url: '#',

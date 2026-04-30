@@ -8,15 +8,15 @@ window.RECURSOS_GUIAS = [
   },
   {
     id: 'guia-familiares-tartamudez-infantil',
-    title: 'Tartamudez infantil Consejos Prácticos. - Escuela Con Confianza Tartamudez',
-    description: 'Orientación para acompañar a un niño que tartamudea.',
+    title: 'Tartamudez infantil',
+    description: 'Dirigido a familiares de menores con tartamudez.',
     icon: 'fa-solid fa-user-group',
     downloadUrl: 'recursos-didacticos/descargas/guia-familiares-tartamudez-infantil.pdf'
   },
   {
     id: 'guia-profesores-aula',
     title: 'Consejos prácticos para apoyar a un estudiante que tartamudea en el aula.',
-    description: 'Para apoyar a un niño que tartamudea en el aula.',
+    description: 'Dirigido a maestros.',
     icon: 'fa-solid fa-book-open',
     downloadUrl: 'recursos-didacticos/descargas/guia-profesores-aula.pdf'
   }
