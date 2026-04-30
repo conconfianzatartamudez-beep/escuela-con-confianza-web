@@ -1,23 +1,23 @@
 window.RECURSOS_GUIAS = [
   {
-    id: 'guia-basica-tartamudez',
-    title: 'Guía básica sobre tartamudez',
-    description: 'Aprende sobre las causas y generalidades de la tartamudez.',
+    id: 'guias-basico-1-y-2',
+    title: 'Guías de estudio sobre tartamudez:\nBásico 1 y 2.',
+    description: 'Causas, generalidades e introducción al manejo de la tartamudez.',
     icon: 'fa-regular fa-file-lines',
-    downloadUrl: 'https://wa.me/51926687682'
+    downloadUrl: 'recursos-didacticos/descargas/guias-basico-1-y-2.zip'
   },
   {
-    id: 'guia-familiares',
-    title: 'Guía para familiares',
-    description: 'Orientación para acompañar a un ser querido que tartamudea.',
+    id: 'guia-familiares-tartamudez-infantil',
+    title: 'Tartamudez infantil Consejos Prácticos. - Escuela Con Confianza Tartamudez',
+    description: 'Orientación para acompañar a un niño que tartamudea.',
     icon: 'fa-solid fa-user-group',
-    downloadUrl: 'https://wa.me/51926687682'
+    downloadUrl: 'recursos-didacticos/descargas/guia-familiares-tartamudez-infantil.pdf'
   },
   {
-    id: 'guia-estudio',
-    title: 'Guía de estudio',
-    description: 'Materiales de apoyo para profundizar y practicar.',
+    id: 'guia-profesores-aula',
+    title: 'Consejos prácticos para apoyar a un estudiante que tartamudea en el aula.',
+    description: 'Para apoyar a un niño que tartamudea en el aula.',
     icon: 'fa-solid fa-book-open',
-    downloadUrl: 'https://wa.me/51926687682'
+    downloadUrl: 'recursos-didacticos/descargas/guia-profesores-aula.pdf'
   }
 ];

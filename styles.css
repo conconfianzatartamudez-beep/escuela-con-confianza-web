@@ -1796,6 +1796,10 @@ button {
   margin-bottom: 8px;
 }
 
+.resources-guide-card__body h3 {
+  white-space: pre-line;
+}
+
 .resources-guide-card__body p,
 .resources-article-card__body p {
   color: #4b4b4b;
@@ -1838,6 +1842,18 @@ button {
   margin-top: 12px;
   color: var(--color-brand);
   font-weight: 700;
+}
+
+.resources-article-card__badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(1, 174, 171, 0.12);
+  color: var(--color-brand);
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
 .resources-article-card__arrow {
@@ -1903,6 +1919,50 @@ button {
 
 .resources-list-hero .resources-hero__subtitle {
   color: rgba(255, 255, 255, 0.82);
+}
+
+.resources-article-detail {
+  padding: 54px 0 72px;
+}
+
+.resources-article-detail__inner {
+  max-width: 920px;
+}
+
+.resources-article-detail__image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 24px 0 30px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.resources-article-detail__header h1 {
+  max-width: 880px;
+  color: #111111;
+  font-size: clamp(2rem, 5vw, 3.9rem);
+  line-height: 1.08;
+  margin-bottom: 24px;
+}
+
+.resources-article-detail__content {
+  max-width: 760px;
+}
+
+.resources-article-detail__content p {
+  color: #2f2f2f;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  margin-bottom: 18px;
+}
+
+.resources-article-detail__author {
+  margin-top: 34px;
+  padding-top: 20px;
+  border-top: 1px solid #e4e8ea;
+  color: #111111 !important;
+  font-weight: 800;
 }
 
 @media (min-width: 901px) {
@@ -2012,6 +2072,8 @@ button {
     height: 100%;
     border-radius: inherit;
     background: var(--color-brand);
+    transform: translateX(0);
+    transition: width 0.18s ease, transform 0.18s ease;
   }
 
   .resources-section__header--row {
@@ -2082,6 +2144,12 @@ button {
 
   .resources-article-card__body a {
     display: none;
+  }
+
+  .resources-article-card__badge {
+    margin-top: 6px;
+    padding: 4px 8px;
+    font-size: 0.72rem;
   }
 
   .resources-article-card__arrow {

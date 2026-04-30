@@ -108,6 +108,7 @@
 
     if (!video || !getEmbedUrl(video)) {
       container.innerHTML = '<div class="resources-video-main__placeholder">Video pendiente de publicación.</div>';
+      setupVideoScrollBar();
       return;
     }
 
@@ -146,6 +147,40 @@
         '<strong>' + escapeHtml(video.title) + '</strong>' +
       '</' + tag + '>';
     }).join('');
+
+    setupVideoScrollBar();
+  }
+
+  function setupVideoScrollBar() {
+    var strip = document.querySelector('[data-video-related]');
+    var thumb = document.querySelector('.resources-video-strip__bar span');
+    if (!strip || !thumb) return;
+
+    function update() {
+      var maxScroll = strip.scrollWidth - strip.clientWidth;
+
+      if (maxScroll <= 0) {
+        thumb.style.width = '100%';
+        thumb.style.transform = 'translateX(0)';
+        return;
+      }
+
+      var visibleRatio = strip.clientWidth / strip.scrollWidth;
+      var thumbWidth = Math.max(visibleRatio * 100, 24);
+      var travel = 100 - thumbWidth;
+      var progress = strip.scrollLeft / maxScroll;
+
+      thumb.style.width = thumbWidth + '%';
+      thumb.style.transform = 'translateX(' + (progress * travel / (thumbWidth / 100)) + '%)';
+    }
+
+    if (strip._resourcesScrollBarUpdate) {
+      strip.removeEventListener('scroll', strip._resourcesScrollBarUpdate);
+    }
+
+    strip._resourcesScrollBarUpdate = update;
+    strip.addEventListener('scroll', update, { passive: true });
+    window.requestAnimationFrame(update);
   }
 
   function renderVideos() {
@@ -161,13 +196,14 @@
     if (!container) return;
 
     container.innerHTML = (window.RECURSOS_GUIAS || []).map(function (guide) {
+      var downloadUrl = resolveAssetPath(guide.downloadUrl);
       return '<article class="resources-guide-card">' +
         '<i class="' + escapeHtml(guide.icon) + '" aria-hidden="true"></i>' +
         '<div class="resources-guide-card__body">' +
           '<h3>' + escapeHtml(guide.title) + '</h3>' +
           '<p>' + escapeHtml(guide.description) + '</p>' +
         '</div>' +
-        '<a href="' + escapeHtml(guide.downloadUrl) + '" target="_blank" rel="noopener" class="resources-guide-card__btn">Descargar</a>' +
+        '<a href="' + escapeHtml(downloadUrl) + '" target="_blank" rel="noopener" class="resources-guide-card__btn" download>Descargar</a>' +
       '</article>';
     }).join('');
   }
@@ -182,12 +218,17 @@
 
   function articleCard(article) {
     var image = resolveAssetPath(article.image);
+    var url = resolveAssetPath(article.url);
+    var action = article.badge ?
+      '<span class="resources-article-card__badge">' + escapeHtml(article.badge) + '</span>' :
+      '<a href="' + escapeHtml(url) + '" aria-label="Leer más sobre ' + escapeHtml(article.title) + '">Leer más <span aria-hidden="true">-></span></a>';
+
     return '<article class="resources-article-card">' +
       '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.title) + '" />' +
       '<div class="resources-article-card__body">' +
         '<h3>' + escapeHtml(article.title) + '</h3>' +
         '<p>' + escapeHtml(article.description) + '</p>' +
-        '<a href="' + escapeHtml(article.url) + '" aria-label="Leer más sobre ' + escapeHtml(article.title) + '">Leer más <span aria-hidden="true">-></span></a>' +
+        action +
       '</div>' +
       '<span class="resources-article-card__arrow" aria-hidden="true">›</span>' +
     '</article>';
@@ -198,7 +239,10 @@
       return path;
     }
 
-    if (window.location.pathname.indexOf('/recursos-didacticos/articulos/') !== -1) {
+    if (
+      window.location.pathname.indexOf('/recursos-didacticos/articulos/') !== -1 ||
+      window.location.pathname.indexOf('/recursos-didacticos/guias/') !== -1
+    ) {
       return '../../' + path;
     }
 
