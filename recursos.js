@@ -218,13 +218,17 @@
 
   function articleCard(article) {
     var image = resolveAssetPath(article.image);
+    var mobileImage = resolveAssetPath(article.mobileImage || article.image);
     var url = resolveAssetPath(article.url);
     var action = article.badge ?
       '<span class="resources-article-card__badge">' + escapeHtml(article.badge) + '</span>' :
       '<a href="' + escapeHtml(url) + '" aria-label="Leer más sobre ' + escapeHtml(article.title) + '">Leer más <span aria-hidden="true">-></span></a>';
 
     return '<article class="resources-article-card">' +
-      '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.title) + '" />' +
+      '<picture>' +
+        '<source media="(max-width: 700px)" srcset="' + escapeHtml(mobileImage) + '" />' +
+        '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.title) + '" />' +
+      '</picture>' +
       '<div class="resources-article-card__body">' +
         '<h3>' + escapeHtml(article.title) + '</h3>' +
         '<p>' + escapeHtml(article.description) + '</p>' +
