@@ -135,11 +135,11 @@
 
     container.innerHTML = related.map(function (video) {
       var hasVideo = Boolean(getYouTubeId(video));
-      var tag = hasVideo ? 'a' : 'div';
-      var href = hasVideo ? ' href="' + getWatchUrl(video) + '" target="_blank" rel="noopener"' : '';
+      var tag = hasVideo ? 'button' : 'div';
+      var attrs = hasVideo ? ' type="button" data-video-id="' + escapeHtml(video.id) + '"' : '';
       var duration = video.duration || (hasVideo ? 'YouTube' : 'Pronto');
 
-      return '<' + tag + href + ' class="resources-video-card">' +
+      return '<' + tag + attrs + ' class="resources-video-card">' +
         '<span class="resources-video-card__thumb">' +
           '<img src="' + getThumbUrl(video) + '" alt="Miniatura de ' + escapeHtml(video.title) + '" />' +
           '<span class="resources-video-card__time">' + escapeHtml(duration) + '</span>' +
@@ -191,6 +191,12 @@
     renderRelatedVideos(videos, mainVideo);
   }
 
+  function findVideoById(id) {
+    return (window.RECURSOS_VIDEOS || []).find(function (video) {
+      return video.id === id;
+    });
+  }
+
   function renderGuides() {
     var container = document.querySelector('[data-guides-list]');
     if (!container) return;
@@ -224,7 +230,13 @@
       '<span class="resources-article-card__badge">' + escapeHtml(article.badge) + '</span>' :
       '<a href="' + escapeHtml(url) + '" aria-label="Leer más sobre ' + escapeHtml(article.title) + '">Leer más <span aria-hidden="true">-></span></a>';
 
-    return '<article class="resources-article-card">' +
+    if (!article.badge) {
+      action = '<span class="resources-article-card__link">Leer más <span aria-hidden="true">-></span></span>';
+    }
+    var tag = article.badge ? 'article' : 'a';
+    var attrs = article.badge ? '' : ' href="' + escapeHtml(url) + '" aria-label="Leer artículo: ' + escapeHtml(article.title) + '"';
+
+    return '<' + tag + attrs + ' class="resources-article-card">' +
       '<picture>' +
         '<source media="(max-width: 700px)" srcset="' + escapeHtml(mobileImage) + '" />' +
         '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.title) + '" />' +
@@ -235,7 +247,7 @@
         action +
       '</div>' +
       '<span class="resources-article-card__arrow" aria-hidden="true">›</span>' +
-    '</article>';
+    '</' + tag + '>';
   }
 
   function resolveAssetPath(path) {
@@ -291,9 +303,23 @@
     });
   }
 
+  function bindRelatedVideoButtons() {
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-video-id]');
+      if (!button) return;
+
+      var video = findVideoById(button.getAttribute('data-video-id'));
+      if (!video || !getYouTubeId(video)) return;
+
+      renderMainVideo(video);
+      renderRelatedVideos(getFilteredVideos(), video);
+    });
+  }
+
   function init() {
     bindAudienceButtons();
     bindCategoryButtons();
+    bindRelatedVideoButtons();
     renderVideos();
     renderGuides();
     renderFeaturedArticles();
