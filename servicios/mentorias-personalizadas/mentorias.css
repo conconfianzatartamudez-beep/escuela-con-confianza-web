@@ -1,0 +1,614 @@
+/* ============================================================
+   Mentorías personalizadas - estilos de pagina específica
+   ============================================================ */
+
+.mentorias-page {
+  background: #ffffff;
+}
+
+.mentorias-split,
+.mentorias-signup,
+.mentorias-cta__inner {
+  display: grid;
+  gap: 34px;
+  align-items: center;
+}
+
+.mentorias-hero__content {
+  max-width: 48ch;
+}
+
+.mentorias-section p,
+.mentorias-clarification {
+  color: var(--color-text);
+  line-height: 1.78;
+}
+
+.mentorias-split__card img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.mentorias-section {
+  padding: 58px 0;
+}
+
+.mentorias-section--soft {
+  background: #f7f7f7;
+}
+
+.mentorias-section--aqua,
+.mentorias-cta {
+  background: #eefafa;
+}
+
+.mentorias-section--faq {
+  background: #ffffff;
+}
+
+.mentorias-section__header {
+  max-width: 780px;
+  margin-bottom: 26px;
+}
+
+.mentorias-section__title {
+  color: var(--color-black);
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.55rem);
+  font-weight: 800;
+  line-height: 1.16;
+  margin-bottom: 14px;
+}
+
+.mentorias-split__content {
+  max-width: 690px;
+}
+
+.mentorias-split__content p + p {
+  margin-top: 14px;
+}
+
+.mentorias-split__card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.08);
+}
+
+.mentorias-benefits,
+.mentorias-pricing,
+.mentorias-community {
+  display: grid;
+  gap: 18px;
+}
+
+.mentorias-process {
+  position: relative;
+  display: grid;
+  gap: 18px;
+}
+
+.mentorias-process::before {
+  content: "";
+  position: absolute;
+  top: 48px;
+  bottom: 48px;
+  left: 50%;
+  width: 2px;
+  border-left: 3px dashed rgba(1, 174, 171, 0.22);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.mentorias-card,
+.mentorias-benefits article,
+.mentorias-price-card,
+.mentorias-community article,
+.mentorias-signup__card,
+.mentorias-facts article {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+
+.mentorias-card--numbered {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.mentorias-card__number {
+  display: inline-grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  color: var(--color-brand);
+  background: rgba(1, 174, 171, 0.12);
+  border-radius: 50%;
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.mentorias-card__copy {
+  min-width: 0;
+}
+
+.mentorias-card__icon {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.mentorias-card--numbered:nth-child(2) {
+  margin-left: min(9vw, 96px);
+}
+
+.mentorias-card--numbered:nth-child(3) {
+  margin-right: min(9vw, 96px);
+}
+
+.mentorias-card h3,
+.mentorias-benefits h3,
+.mentorias-price-card h3,
+.mentorias-community strong,
+.mentorias-signup__card h3,
+.mentorias-facts h3 {
+  color: var(--color-black);
+  font-size: 1.16rem;
+  line-height: 1.24;
+  margin-bottom: 8px;
+}
+
+.mentorias-facts {
+  display: grid;
+  gap: 14px;
+}
+
+.mentorias-facts article {
+  padding: 18px;
+}
+
+.mentorias-signup__card i {
+  color: var(--color-brand);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.mentorias-mini-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  margin-bottom: 10px;
+}
+
+.mentorias-benefits article {
+  padding: 20px;
+}
+
+.mentorias-benefit-icon {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  margin-bottom: 10px;
+}
+
+.mentorias-price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.mentorias-price-card--featured {
+  border-color: rgba(1, 174, 171, 0.55);
+  box-shadow: 0 18px 38px rgba(1, 174, 171, 0.12);
+}
+
+.mentorias-price-card__badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(1, 174, 171, 0.12);
+  color: var(--color-brand-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.mentorias-price-card__options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+  margin: 8px 0 4px;
+}
+
+.mentorias-price-card__options div {
+  display: grid;
+  gap: 3px;
+  padding: 12px;
+  background: #f7fafa;
+  border: 1px solid rgba(1, 174, 171, 0.14);
+  border-radius: 8px;
+}
+
+.mentorias-price-card__options span {
+  color: var(--color-text-muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.mentorias-price-card__options strong {
+  color: var(--color-black);
+  font-size: 1.25rem;
+  line-height: 1.1;
+}
+
+.mentorias-price-card__options small {
+  color: var(--color-brand-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.mentorias-price-card__usd {
+  color: var(--color-text-muted) !important;
+  font-weight: 700;
+  margin: 6px 0 18px;
+}
+
+.mentorias-price-card .btn {
+  margin-top: auto;
+}
+
+.mentorias-note {
+  display: inline-flex;
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: rgba(1, 174, 171, 0.08);
+  border-left: 4px solid var(--color-brand);
+  color: var(--color-dark) !important;
+  font-weight: 700;
+}
+
+.mentorias-note--stacked {
+  display: grid;
+  gap: 4px;
+  max-width: 760px;
+}
+
+.mentorias-note--stacked p {
+  margin: 0;
+  color: var(--color-dark);
+  line-height: 1.55;
+}
+
+.mentorias-community {
+  position: relative;
+}
+
+.mentorias-community::before {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(1, 174, 171, 0.08), rgba(1, 174, 171, 0.35), rgba(1, 174, 171, 0.08));
+  transform: translateY(-50%);
+}
+
+.mentorias-community article {
+  position: relative;
+  z-index: 1;
+  padding: 22px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  text-align: center;
+}
+
+.mentorias-community span {
+  display: block;
+  color: var(--color-brand-dark);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.mentorias-community__icon {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.mentorias-clarification {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  max-width: 920px;
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: rgba(1, 174, 171, 0.08);
+  border: 1px solid rgba(1, 174, 171, 0.16);
+  border-radius: 8px;
+}
+
+.mentorias-clarification i {
+  color: var(--color-brand);
+  font-size: 1.2rem;
+  margin-top: 3px;
+}
+
+.mentorias-clarification strong {
+  display: block;
+  color: var(--color-black);
+  margin-bottom: 2px;
+}
+
+.mentorias-clarification p {
+  margin: 0;
+}
+
+.mentorias-signup__card {
+  padding: 24px;
+}
+
+.mentorias-signup__card ul {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 22px;
+}
+
+.mentorias-signup__card li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.mentorias-faq {
+  display: grid;
+  gap: 10px;
+  max-width: 920px;
+}
+
+.mentorias-faq details {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.mentorias-faq summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  color: var(--color-dark);
+  font-weight: 800;
+  line-height: 1.35;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mentorias-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.mentorias-faq summary::after {
+  content: "+";
+  color: var(--color-brand);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.mentorias-faq details[open] summary::after {
+  content: "-";
+}
+
+.mentorias-faq p {
+  padding: 0 18px 18px;
+  color: var(--color-text-muted);
+}
+
+.mentorias-cta {
+  border-top: 1px solid rgba(1, 174, 171, 0.16);
+}
+
+.mentorias-cta__inner {
+  align-items: center;
+}
+
+.mentorias-cta h2 {
+  color: var(--color-black);
+  font-size: clamp(1.75rem, 4vw, 2.55rem);
+  line-height: 1.14;
+  margin-bottom: 10px;
+}
+
+.mentorias-cta p {
+  max-width: 620px;
+}
+
+@media (min-width: 700px) {
+  .mentorias-pricing,
+  .mentorias-community {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mentorias-price-card__options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mentorias-benefits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mentorias-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .mentorias-hero__content {
+    max-width: 760px;
+  }
+
+  .mentorias-hero .resources-hero__title {
+    max-width: 820px;
+  }
+
+  .mentorias-hero .resources-hero__subtitle {
+    max-width: 620px;
+  }
+
+  .mentorias-split,
+  .mentorias-signup {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.82fr);
+  }
+
+  .mentorias-cta__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .mentorias-benefits {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .mentorias-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mentorias-facts__wide {
+    grid-column: span 3;
+  }
+
+  .mentorias-process {
+    grid-template-columns: 1fr;
+    max-width: 980px;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .mentorias-section {
+    padding: 42px 0;
+  }
+
+  .mentorias-price-card .btn,
+  .mentorias-signup__card .btn,
+  .mentorias-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mentorias-card--numbered,
+  .mentorias-benefits article,
+  .mentorias-price-card,
+  .mentorias-community article,
+  .mentorias-signup__card,
+  .mentorias-facts article {
+    padding: 18px;
+  }
+
+  .mentorias-process::before {
+    display: none;
+  }
+
+  .mentorias-card--numbered {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .mentorias-card--numbered:nth-child(2),
+  .mentorias-card--numbered:nth-child(3) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .mentorias-card__number {
+    display: none;
+  }
+
+  .mentorias-card__icon {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    justify-self: start;
+    width: 86px;
+    height: 86px;
+  }
+
+  .mentorias-card__copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .mentorias-note {
+    display: flex;
+  }
+
+  .mentorias-note--stacked {
+    display: grid;
+  }
+
+  .mentorias-community::before {
+    top: 24px;
+    bottom: 24px;
+    left: 56px;
+    right: auto;
+    width: 3px;
+    height: auto;
+    transform: none;
+    background: linear-gradient(180deg, rgba(1, 174, 171, 0.08), rgba(1, 174, 171, 0.35), rgba(1, 174, 171, 0.08));
+  }
+
+  .mentorias-community article {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 14px;
+    justify-items: start;
+    align-items: center;
+    text-align: left;
+  }
+
+  .mentorias-community__icon {
+    width: 76px;
+    height: 76px;
+  }
+
+  .mentorias-clarification {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .mentorias-facts article {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+  }
+
+  .mentorias-mini-icon {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 0;
+  }
+}

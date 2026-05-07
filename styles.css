@@ -140,6 +140,34 @@ button {
   border-radius: 999px;
 }
 
+.page-back-link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 18px;
+  color: var(--color-brand);
+  font-weight: 800;
+  font-size: 0.98rem;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.page-back-link:hover {
+  color: var(--color-brand-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.page-back-link--light {
+  color: #ffffff;
+  opacity: 0.92;
+}
+
+.page-back-link--light:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
 .section__label--light {
   color: var(--color-brand);
 }
