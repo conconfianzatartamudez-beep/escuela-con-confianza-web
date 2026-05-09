@@ -1339,6 +1339,14 @@ button {
   margin-top: 0;
 }
 
+.site-footer::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #01aeab 0%, #08d1ce 100%);
+}
+
 .footer__top-line {
   width: 100%;
   height: 3px;
