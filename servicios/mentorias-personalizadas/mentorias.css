@@ -176,6 +176,10 @@
 }
 
 .mentorias-facts article {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
   padding: 18px;
 }
 
@@ -186,11 +190,10 @@
 }
 
 .mentorias-mini-icon {
-  width: 72px;
-  height: 72px;
+  width: 76px;
+  height: 76px;
   object-fit: contain;
   mix-blend-mode: multiply;
-  margin-bottom: 10px;
 }
 
 .mentorias-benefits article {
@@ -468,7 +471,7 @@
 
 @media (min-width: 900px) {
   .mentorias-hero__content {
-    max-width: 760px;
+    max-width: var(--max-width);
   }
 
   .mentorias-hero .resources-hero__title {
@@ -494,10 +497,6 @@
 
   .mentorias-facts {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .mentorias-facts__wide {
-    grid-column: span 3;
   }
 
   .mentorias-process {
@@ -599,16 +598,8 @@
 }
 
 @media (max-width: 700px) {
-  .mentorias-facts article {
-    display: grid;
-    grid-template-columns: 76px minmax(0, 1fr);
-    gap: 14px;
-    align-items: center;
-  }
-
   .mentorias-mini-icon {
     width: 76px;
     height: 76px;
-    margin-bottom: 0;
   }
 }
