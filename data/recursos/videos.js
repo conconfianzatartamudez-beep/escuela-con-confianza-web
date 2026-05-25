@@ -6,7 +6,7 @@ window.RECURSOS_VIDEOS = [
     categories: ['destacados', 'abordaje', 'estrategias'],
     title: '¿Cómo manejar la ansiedad al hablar?',
     use: 'principal',
-    youtubeUrl: 'https://www.youtube.com/watch?v=YzJttHHIO2A',
+    youtubeUrl: 'https://www.youtube.com/watch?v=20260525-1155',
     duration: ''
   },
   {
@@ -16,7 +16,7 @@ window.RECURSOS_VIDEOS = [
     categories: ['destacados', 'abordaje', 'estrategias'],
     title: 'La técnica del inicio suave',
     use: 'secundario',
-    youtubeUrl: 'https://www.youtube.com/watch?v=iw9KQ_NgWWg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=20260525-1155_NgWWg',
     duration: ''
   },
   {
@@ -26,7 +26,7 @@ window.RECURSOS_VIDEOS = [
     categories: ['destacados', 'abordaje'],
     title: '¿Cómo disminuir la vergüenza de tartamudear?',
     use: 'secundario',
-    youtubeUrl: 'https://www.youtube.com/watch?v=GyiEhzzoctw',
+    youtubeUrl: 'https://www.youtube.com/watch?v=20260525-1155',
     duration: ''
   },
   {
@@ -36,7 +36,7 @@ window.RECURSOS_VIDEOS = [
     categories: ['destacados', 'abordaje', 'estrategias'],
     title: 'El camino para ganar fluidez y confianza',
     use: 'secundario',
-    youtubeUrl: 'https://www.youtube.com/watch?v=zfHqSw8wSU8',
+    youtubeUrl: 'https://www.youtube.com/watch?v=20260525-1155',
     duration: ''
   },
   {
@@ -58,7 +58,7 @@ window.RECURSOS_VIDEOS = [
     categories: ['podcast'],
     title: 'Cómo enfrentamos el miedo a hablar en público | Podcast 1 piloto',
     use: 'principal',
-    youtubeUrl: 'https://www.youtube.com/watch?v=tpVvAf087CY',
+    youtubeUrl: 'https://www.youtube.com/watch?v=20260525-1155',
     duration: ''
   },
   {
@@ -68,7 +68,7 @@ window.RECURSOS_VIDEOS = [
     categories: ['destacados', 'abordaje', 'familias'],
     title: '¿Cómo ayudar a mi hijo que tartamudea?',
     use: 'principal',
-    youtubeUrl: 'https://www.youtube.com/watch?v=nmD0Bh_MI04',
+    youtubeUrl: 'https://www.youtube.com/watch?v=20260525-1155_MI04',
     duration: ''
   },
   {
@@ -78,7 +78,7 @@ window.RECURSOS_VIDEOS = [
     categories: ['destacados', 'abordaje', 'familias'],
     title: 'Comentarios innecesarios a personas con tartamudez',
     use: 'secundario',
-    youtubeUrl: 'https://www.youtube.com/watch?v=eEh6ztFGI9Y',
+    youtubeUrl: 'https://www.youtube.com/watch?v=20260525-1155',
     duration: ''
   },
   {
@@ -88,7 +88,7 @@ window.RECURSOS_VIDEOS = [
     categories: ['invitaciones'],
     title: 'Invitación a TV Perú',
     use: 'principal',
-    youtubeUrl: 'https://www.youtube.com/watch?v=CAGEIwoDpII',
+    youtubeUrl: 'https://www.youtube.com/watch?v=20260525-1155',
     duration: ''
   }
 ];
