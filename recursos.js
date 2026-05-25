@@ -109,18 +109,15 @@
     var container = document.querySelector('[data-video-main]');
     if (!container) return;
 
-    if (!video || !getWatchUrl(video) || getWatchUrl(video) === '#') {
+    if (!video || !getEmbedUrl(video, autoplay)) {
       container.innerHTML = '<div class="resources-video-main__placeholder">Video pendiente de publicación.</div>';
       setupVideoScrollBar();
       return;
     }
 
     container.innerHTML =
-      '<a class="resources-video-main__link" href="' + getWatchUrl(video) + '" target="_blank" rel="noopener" aria-label="Ver video en YouTube: ' + escapeHtml(video.title) + '">' +
-        '<img src="' + getThumbUrl(video) + '" alt="Miniatura de ' + escapeHtml(video.title) + '" />' +
-        '<span class="resources-video-main__play"><i class="fa-solid fa-play" aria-hidden="true"></i></span>' +
-        '<span class="youtube-fallback-link">Ver en YouTube</span>' +
-      '</a>';
+      '<iframe src="' + getEmbedUrl(video, autoplay) + '" title="' + escapeHtml(video.title) + '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>' +
+      '<a class="youtube-fallback-link" href="' + getWatchUrl(video) + '" target="_blank" rel="noopener">Ver en YouTube</a>';
   }
 
   function renderRelatedVideos(videos, mainVideo) {
@@ -142,8 +139,8 @@
 
     container.innerHTML = related.map(function (video) {
       var hasVideo = Boolean(getYouTubeId(video));
-      var tag = hasVideo ? 'a' : 'div';
-      var attrs = hasVideo ? ' href="' + getWatchUrl(video) + '" target="_blank" rel="noopener"' : '';
+      var tag = hasVideo ? 'button' : 'div';
+      var attrs = hasVideo ? ' type="button" data-video-id="' + escapeHtml(video.id) + '"' : '';
       var duration = video.duration || (hasVideo ? 'YouTube' : 'Pronto');
 
       return '<' + tag + attrs + ' class="resources-video-card">' +
