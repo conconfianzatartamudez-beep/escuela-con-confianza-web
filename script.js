@@ -124,4 +124,21 @@
 
   }
 
+  /* ----------------------------------------------------------
+     4. FAQ: mantener solo una respuesta abierta por grupo
+  ---------------------------------------------------------- */
+  document.querySelectorAll('.services-faq__list, .mentorias-faq, .curso-faq, .talleres-faq').forEach(function (faqGroup) {
+    faqGroup.querySelectorAll('details').forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (!item.open) return;
+
+        faqGroup.querySelectorAll('details[open]').forEach(function (openItem) {
+          if (openItem !== item) {
+            openItem.open = false;
+          }
+        });
+      });
+    });
+  });
+
 })();

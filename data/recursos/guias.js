@@ -1,7 +1,7 @@
 window.RECURSOS_GUIAS = [
   {
     id: 'guias-basico-1-y-2',
-    title: 'Guías de estudio sobre tartamudez:\nBásico 1 y 2.',
+    title: 'Guías sobre tartamudez:\nBásico 1 y 2.',
     description: 'Causas, generalidades e introducción al manejo de la tartamudez.',
     icon: 'fa-regular fa-file-lines',
     downloadUrl: 'recursos-didacticos/descargas/guias-basico-1-y-2.zip'
@@ -15,7 +15,7 @@ window.RECURSOS_GUIAS = [
   },
   {
     id: 'guia-profesores-aula',
-    title: 'Consejos prácticos para apoyar a un estudiante que tartamudea en el aula.',
+    title: 'Cómo para apoyar a un estudiante que tartamudea en el aula.',
     description: 'Dirigido a maestros.',
     icon: 'fa-solid fa-book-open',
     downloadUrl: 'recursos-didacticos/descargas/guia-profesores-aula.pdf'

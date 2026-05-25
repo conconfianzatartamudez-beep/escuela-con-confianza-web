@@ -929,7 +929,6 @@ button {
   border-radius: 14px;
 }
 
-
 /* ============================================================
    14. VALORES
    ============================================================ */
@@ -1819,7 +1818,7 @@ button {
 
 .resources-hero {
   position: relative;
-  min-height: 340px;
+  min-height: 430px;
   display: flex;
   align-items: center;
   overflow: hidden;
