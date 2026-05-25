@@ -141,4 +141,20 @@
     });
   });
 
+  /* ----------------------------------------------------------
+     5. VIDEOS DE YOUTUBE EMBEBIDOS EN TESTIMONIOS
+  ---------------------------------------------------------- */
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest('[data-youtube-inline]');
+    if (!button) return;
+
+    event.preventDefault();
+    var id = button.getAttribute('data-youtube-inline');
+    if (!id) return;
+
+    var title = button.getAttribute('aria-label') || 'Video de YouTube';
+    button.classList.add('is-playing');
+    button.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="' + title + '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+  });
+
 })();
