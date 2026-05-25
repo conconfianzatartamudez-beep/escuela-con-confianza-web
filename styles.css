@@ -2018,6 +2018,43 @@ button {
   touch-action: pan-y;
 }
 
+.resources-video-main__link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.resources-video-main__link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.72);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.resources-video-main__link:hover img,
+.resources-video-main__link:focus-visible img {
+  transform: scale(1.03);
+  filter: brightness(0.58);
+}
+
+.resources-video-main__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  color: #ffffff;
+  background: var(--color-brand);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
 .youtube-fallback-link {
   position: absolute;
   right: 12px;
