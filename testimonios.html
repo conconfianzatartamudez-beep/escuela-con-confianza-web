@@ -27,8 +27,8 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=20260509" />
   <link rel="manifest" href="/site.webmanifest?v=20260509" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css?v=20260525-1725">
-  <link rel="stylesheet" href="testimonios.css?v=20260525-1725">
+  <link rel="stylesheet" href="styles.css?v=20260525-1745">
+  <link rel="stylesheet" href="testimonios.css?v=20260525-1745">
 </head>
 <body>
 
@@ -126,23 +126,26 @@
         </div>
         <div class="youtube-grid">
           <article class="video-card">
-            <div class="video-card__media video-card__media--embed">
-              <iframe src="https://www.youtube-nocookie.com/embed/0HRyon79UhI?rel=0&modestbranding=1&playsinline=1" title="Testimonio de Claudia en YouTube" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            <button class="video-card__media" type="button" data-youtube-inline="0HRyon79UhI" aria-label="Reproducir testimonio de Claudia">
+              <img src="https://img.youtube.com/vi/0HRyon79UhI/hqdefault.jpg" alt="Testimonio de Claudia" />
+              <span><i class="fa-solid fa-play" aria-hidden="true"></i></span>
+            </button>
             <h3>Claudia</h3>
             <p>"...te permite darte a conocer que la vida no es tan difícil en ese aspecto...”</p>
           </article>
           <article class="video-card">
-            <div class="video-card__media video-card__media--embed">
-              <iframe src="https://www.youtube-nocookie.com/embed/h1LfZ9mCEis?rel=0&modestbranding=1&playsinline=1" title="Testimonio de Pilar en YouTube" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            <button class="video-card__media" type="button" data-youtube-inline="h1LfZ9mCEis" aria-label="Reproducir testimonio de Pilar">
+              <img src="https://img.youtube.com/vi/h1LfZ9mCEis/hqdefault.jpg" alt="Testimonio de Pilar" />
+              <span><i class="fa-solid fa-play" aria-hidden="true"></i></span>
+            </button>
             <h3>Pilar</h3>
             <p>"Lo más importante es aceptarnos porque si no nos aceptamos nadie más lo hará"</p>
           </article>
           <article class="video-card">
-            <div class="video-card__media video-card__media--embed">
-              <iframe src="https://www.youtube-nocookie.com/embed/QmitCmBlr2Y?rel=0&modestbranding=1&playsinline=1" title="Testimonio de otros estudiantes en YouTube" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            <button class="video-card__media" type="button" data-youtube-inline="QmitCmBlr2Y" aria-label="Reproducir testimonio de otros estudiantes">
+              <img src="https://img.youtube.com/vi/QmitCmBlr2Y/hqdefault.jpg" alt="Testimonio de otros estudiantes" />
+              <span><i class="fa-solid fa-play" aria-hidden="true"></i></span>
+            </button>
             <h3>Otros estudiantes</h3>
             <p>"Cualquier obstáculo que yo lo vea difícil, yo voy y lo enfrento"</p>
           </article>
@@ -286,6 +289,15 @@
 
       document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape' && !modal.hidden) closeModal();
+      });
+
+      document.querySelectorAll('[data-youtube-inline]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var id = button.getAttribute('data-youtube-inline');
+          var title = button.getAttribute('aria-label') || 'Video de YouTube';
+          button.classList.add('is-playing');
+          button.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="' + title + '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        });
       });
 
       var carousel = document.querySelector('[data-memory-carousel]');

@@ -77,7 +77,8 @@
   transition: transform 0.28s ease;
 }
 
-.video-card__media--embed iframe {
+.video-card__media--embed iframe,
+.video-card__media iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -103,6 +104,15 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 12px 30px rgba(1, 174, 171, 0.35);
+}
+
+.video-card__media.is-playing {
+  cursor: default;
+}
+
+.video-card__media.is-playing img,
+.video-card__media.is-playing span {
+  display: none;
 }
 
 .story-card__body {

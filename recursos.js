@@ -53,7 +53,7 @@
     if (!id) return '';
     var params = 'rel=0&modestbranding=1&playsinline=1';
     if (autoplay) params = 'autoplay=1&' + params;
-    return 'https://www.youtube-nocookie.com/embed/' + id + '?' + params;
+    return 'https://www.youtube.com/embed/' + id + '?' + params;
   }
 
   function getWatchUrl(video) {
