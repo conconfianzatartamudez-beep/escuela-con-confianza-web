@@ -324,6 +324,12 @@
   border-radius: 8px;
 }
 
+.video-modal__content .youtube-fallback-link {
+  position: static;
+  margin-top: 12px;
+  color: #ffffff;
+}
+
 .video-modal__content .tiktok-embed {
   margin: 0 auto !important;
 }

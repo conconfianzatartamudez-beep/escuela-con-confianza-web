@@ -27,8 +27,8 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=20260509" />
   <link rel="manifest" href="/site.webmanifest?v=20260509" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css?v=20260525">
-  <link rel="stylesheet" href="testimonios.css?v=20260509">
+  <link rel="stylesheet" href="styles.css?v=20260525-1705">
+  <link rel="stylesheet" href="testimonios.css?v=20260525-1705">
 </head>
 <body>
 
@@ -265,7 +265,7 @@
 
         if (kind !== 'youtube') return;
         var id = trigger.getAttribute('data-video-id');
-        content.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="Testimonio en YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        content.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Testimonio en YouTube" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><a class="youtube-fallback-link" href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener">Ver en YouTube</a>';
 
         modal.hidden = false;
         document.body.style.overflow = 'hidden';

@@ -48,9 +48,12 @@
     return '';
   }
 
-  function getEmbedUrl(video) {
+  function getEmbedUrl(video, autoplay) {
     var id = getYouTubeId(video);
-    return id ? 'https://www.youtube.com/embed/' + id + '?rel=0' : '';
+    if (!id) return '';
+    var params = 'rel=0&modestbranding=1&playsinline=1';
+    if (autoplay) params = 'autoplay=1&' + params;
+    return 'https://www.youtube-nocookie.com/embed/' + id + '?' + params;
   }
 
   function getWatchUrl(video) {
@@ -102,18 +105,19 @@
     }).join('');
   }
 
-  function renderMainVideo(video) {
+  function renderMainVideo(video, autoplay) {
     var container = document.querySelector('[data-video-main]');
     if (!container) return;
 
-    if (!video || !getEmbedUrl(video)) {
+    if (!video || !getEmbedUrl(video, autoplay)) {
       container.innerHTML = '<div class="resources-video-main__placeholder">Video pendiente de publicación.</div>';
       setupVideoScrollBar();
       return;
     }
 
     container.innerHTML =
-      '<iframe src="' + getEmbedUrl(video) + '" title="' + escapeHtml(video.title) + '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      '<iframe src="' + getEmbedUrl(video, autoplay) + '" title="' + escapeHtml(video.title) + '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>' +
+      '<a class="youtube-fallback-link" href="' + getWatchUrl(video) + '" target="_blank" rel="noopener">Ver en YouTube</a>';
   }
 
   function renderRelatedVideos(videos, mainVideo) {
@@ -187,7 +191,7 @@
     var videos = getFilteredVideos();
     var mainVideo = chooseMainVideo(videos);
     renderVideoCategories();
-    renderMainVideo(mainVideo);
+    renderMainVideo(mainVideo, false);
     renderRelatedVideos(videos, mainVideo);
   }
 
@@ -312,7 +316,7 @@
       var video = findVideoById(button.getAttribute('data-video-id'));
       if (!video || !getYouTubeId(video)) return;
 
-      renderMainVideo(video);
+      renderMainVideo(video, true);
       renderRelatedVideos(getFilteredVideos(), video);
     });
   }
