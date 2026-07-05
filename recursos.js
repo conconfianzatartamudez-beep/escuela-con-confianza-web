@@ -15,6 +15,10 @@
     category: 'destacados'
   };
 
+  // Contenido editable por el equipo desde el panel (Pages CMS).
+  // Se carga desde data/recursos/*.json en init().
+  var data = { videos: [], guias: [], articulos: [] };
+
   function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, function (char) {
       return {
@@ -78,7 +82,7 @@
   }
 
   function getFilteredVideos() {
-    var videos = window.RECURSOS_VIDEOS || [];
+    var videos = data.videos;
     return videos.filter(function (video) {
       return matchesAudience(video) && matchesCategory(video);
     });
@@ -196,7 +200,7 @@
   }
 
   function findVideoById(id) {
-    return (window.RECURSOS_VIDEOS || []).find(function (video) {
+    return data.videos.find(function (video) {
       return video.id === id;
     });
   }
@@ -205,7 +209,7 @@
     var container = document.querySelector('[data-guides-list]');
     if (!container) return;
 
-    container.innerHTML = (window.RECURSOS_GUIAS || []).map(function (guide) {
+    container.innerHTML = data.guias.map(function (guide) {
       var downloadUrl = resolveAssetPath(guide.downloadUrl);
       return '<article class="resources-guide-card">' +
         '<i class="' + escapeHtml(guide.icon) + '" aria-hidden="true"></i>' +
@@ -219,7 +223,7 @@
   }
 
   function getFeaturedArticles() {
-    return (window.RECURSOS_ARTICULOS || []).slice().sort(function (a, b) {
+    return data.articulos.slice().sort(function (a, b) {
       return String(b.date || '').localeCompare(String(a.date || ''));
     }).filter(function (article) {
       return article.featured;
@@ -279,7 +283,7 @@
   function renderAllArticles() {
     var container = document.querySelector('[data-all-articles]');
     if (!container) return;
-    var articles = (window.RECURSOS_ARTICULOS || []).slice().sort(function (a, b) {
+    var articles = data.articulos.slice().sort(function (a, b) {
       return String(b.date || '').localeCompare(String(a.date || ''));
     });
     container.innerHTML = articles.map(articleCard).join('');
@@ -321,14 +325,33 @@
     });
   }
 
+  function loadJson(url, key) {
+    return fetch(url, { cache: 'no-cache' }).then(function (response) {
+      return response.ok ? response.json() : {};
+    }).then(function (json) {
+      return (json && json[key]) || [];
+    }).catch(function () {
+      return [];
+    });
+  }
+
   function init() {
-    bindAudienceButtons();
-    bindCategoryButtons();
-    bindRelatedVideoButtons();
-    renderVideos();
-    renderGuides();
-    renderFeaturedArticles();
-    renderAllArticles();
+    Promise.all([
+      loadJson('/data/recursos/videos.json', 'videos'),
+      loadJson('/data/recursos/guias.json', 'guias'),
+      loadJson('/data/recursos/articulos.json', 'articulos')
+    ]).then(function (results) {
+      data.videos = results[0];
+      data.guias = results[1];
+      data.articulos = results[2];
+      bindAudienceButtons();
+      bindCategoryButtons();
+      bindRelatedVideoButtons();
+      renderVideos();
+      renderGuides();
+      renderFeaturedArticles();
+      renderAllArticles();
+    });
   }
 
   document.addEventListener('DOMContentLoaded', init);

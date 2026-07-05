@@ -12,3 +12,7 @@
   Cache-Control: public, max-age=604800
 /*.js
   Cache-Control: public, max-age=604800
+
+# Contenido editable desde el panel: cache corta para que los cambios se vean rapido
+/data/*
+  Cache-Control: public, max-age=300

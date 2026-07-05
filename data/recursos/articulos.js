@@ -1,3 +1,4 @@
+// OBSOLETO desde 2026-07-05: el contenido ahora vive en data/recursos/articulos.json (editable desde el panel Pages CMS). Este archivo ya no se carga en ninguna página y puede eliminarse en una limpieza futura.
 window.RECURSOS_ARTICULOS = [
   {
     id: 'tecnicas-dejar-tartamudear',

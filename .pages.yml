@@ -1,0 +1,177 @@
+# Configuración de Pages CMS (https://pagescms.org)
+# Panel de contenidos para el equipo de Escuela Con Confianza.
+# Permite editar videos, guías y publicaciones sin tocar código.
+
+media:
+  - name: imagenes
+    label: Imágenes de recursos
+    input: images/recursos
+    output: /images/recursos
+  - name: descargas
+    label: Descargas (PDF y ZIP)
+    input: recursos-didacticos/descargas
+    output: /recursos-didacticos/descargas
+
+content:
+  - name: videos
+    label: Videos
+    description: Videos de YouTube que se muestran en la página de Recursos.
+    type: file
+    path: data/recursos/videos.json
+    format: json
+    fields:
+      - name: videos
+        label: Lista de videos
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Identificador único
+            description: En minúsculas y con guiones, sin espacios. Ejemplo, ansiedad-al-hablar. No repetir uno existente.
+            type: string
+            required: true
+          - name: title
+            label: Título del video
+            type: string
+            required: true
+          - name: youtubeId
+            label: Código del video de YouTube
+            description: Son los 11 caracteres que aparecen después de watch?v= en el enlace. Ejemplo, para youtube.com/watch?v=YzJttHHIO2A el código es YzJttHHIO2A. Si se deja vacío, el video aparece como pendiente.
+            type: string
+          - name: youtubeUrl
+            label: Enlace completo de YouTube (opcional)
+            description: Solo informativo. Lo que manda es el código de arriba.
+            type: string
+          - name: audience
+            label: Público al que va dirigido
+            type: select
+            options:
+              - value: personas
+                label: Personas con tartamudez
+              - value: familiares
+                label: Familiares
+              - value: todos
+                label: Todos
+          - name: categories
+            label: Categorías donde aparece
+            description: Puedes marcar varias. Destacados hace que aparezca en la vista inicial.
+            type: select
+            list: true
+            options:
+              - value: destacados
+                label: Destacados
+              - value: abordaje
+                label: Abordaje
+              - value: podcast
+                label: Podcast
+              - value: invitaciones
+                label: Invitaciones
+              - value: familias
+                label: Familias
+              - value: estrategias
+                label: Estrategias
+          - name: use
+            label: Rol del video
+            description: El video principal es el que se reproduce en grande en su categoría.
+            type: select
+            options:
+              - value: principal
+                label: Principal
+              - value: secundario
+                label: Relacionado
+          - name: duration
+            label: Duración (opcional)
+            description: Ejemplo, 12:30. Se muestra sobre la miniatura.
+            type: string
+
+  - name: guias
+    label: Guías descargables
+    description: Guías en PDF o ZIP que se ofrecen en la página de Recursos.
+    type: file
+    path: data/recursos/guias.json
+    format: json
+    fields:
+      - name: guias
+        label: Lista de guías
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Identificador único
+            description: En minúsculas y con guiones, sin espacios.
+            type: string
+            required: true
+          - name: title
+            label: Título de la guía
+            type: string
+            required: true
+          - name: description
+            label: Descripción corta
+            type: string
+          - name: icon
+            label: Icono
+            type: select
+            options:
+              - value: fa-regular fa-file-lines
+                label: Documento
+              - value: fa-solid fa-user-group
+                label: Familia (dos personas)
+              - value: fa-solid fa-book-open
+                label: Libro abierto
+              - value: fa-solid fa-graduation-cap
+                label: Birrete (educación)
+          - name: downloadUrl
+            label: Archivo a descargar
+            description: Sube primero el PDF o ZIP en la sección Media (carpeta Descargas) y escribe aquí la ruta. Ejemplo, recursos-didacticos/descargas/mi-guia.pdf
+            type: string
+            required: true
+
+  - name: articulos
+    label: Publicaciones
+    description: Tarjetas de publicaciones que se muestran en Recursos y en la página de Publicaciones.
+    type: file
+    path: data/recursos/articulos.json
+    format: json
+    fields:
+      - name: articulos
+        label: Lista de publicaciones
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Identificador único
+            description: En minúsculas y con guiones, sin espacios.
+            type: string
+            required: true
+          - name: title
+            label: Título
+            type: string
+            required: true
+          - name: description
+            label: Descripción corta
+            type: string
+          - name: image
+            label: Imagen (versión horizontal, para computadora)
+            type: image
+            options:
+              media: imagenes
+          - name: mobileImage
+            label: Imagen (versión cuadrada, para celular)
+            type: image
+            options:
+              media: imagenes
+          - name: url
+            label: Enlace del artículo
+            description: "Si el artículo ya tiene página, la ruta. Ejemplo: /recursos-didacticos/articulos/nombre-del-articulo/. Si todavía no existe, escribe solo: #"
+            type: string
+          - name: featured
+            label: Mostrar en la página principal de Recursos
+            description: Solo se muestran las 3 más recientes marcadas.
+            type: boolean
+          - name: date
+            label: Fecha de publicación
+            type: date
+          - name: badge
+            label: Etiqueta especial (opcional)
+            description: Por ejemplo, Próximamente. Si tiene etiqueta, la tarjeta no es clicable. Dejar vacío para publicaciones normales.
+            type: string
