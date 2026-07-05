@@ -1,0 +1,9 @@
+# Redirecciones (solo las usa Cloudflare Pages; GitHub Pages ignora este archivo)
+# Paginas de servicios movidas (antes resueltas con meta refresh)
+/servicios/mentorias.html /servicios/mentorias-personalizadas/ 301
+/servicios/mentorias /servicios/mentorias-personalizadas/ 301
+/servicios/talleres.html /servicios/talleres/ 301
+/servicios/curso-grabado.html /servicios/curso-grabado/ 301
+# Consolidacion del duplicado articulos/ -> publicaciones/ (solo el indice; los articulos individuales no se tocan)
+/recursos-didacticos/articulos/ /recursos-didacticos/publicaciones/ 301
+/recursos-didacticos/articulos /recursos-didacticos/publicaciones/ 301

@@ -15,7 +15,7 @@ window.RECURSOS_GUIAS = [
   },
   {
     id: 'guia-profesores-aula',
-    title: 'Cómo para apoyar a un estudiante que tartamudea en el aula.',
+    title: 'Cómo apoyar a un estudiante que tartamudea en el aula.',
     description: 'Dirigido a maestros.',
     icon: 'fa-solid fa-book-open',
     downloadUrl: 'recursos-didacticos/descargas/guia-profesores-aula.pdf'

@@ -191,21 +191,13 @@
     <section class="testimonials-cta section" aria-label="Contactar por WhatsApp">
       <div class="container testimonials-cta__inner">
         <div>
-          <h2>¿Tienes dudas o quieres saber más</h2>
+          <h2>¿Tienes dudas o quieres saber más?</h2>
           <p>Escríbenos por WhatsApp y te ayudamos a encontrar el servicio más adecuado para ti.</p>
         </div>
         <a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="btn btn--primary">Escribir por WhatsApp</a>
       </div>
     </section>
   </main>
-
-  <div class="video-modal" data-video-modal hidden>
-    <div class="video-modal__backdrop" data-video-close></div>
-    <div class="video-modal__dialog" role="dialog" aria-modal="true" aria-label="Testimonio en video">
-      <button type="button" class="video-modal__close" data-video-close aria-label="Cerrar video"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-      <div class="video-modal__content" data-video-content></div>
-    </div>
-  </div>
 
       <footer class="footer site-footer">
     <div class="footer__container">
@@ -229,9 +221,9 @@
           <h3 class="footer__title">Redes</h3>
           <div class="footer__links footer__social-links">
             <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com/conconfianza.ttmigsh=MTNodGQzbXkwcWVnOQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a href="https://www.tiktok.com/@conconfianza.ttm_r=1&_t=ZS-951cCdqQsJG" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
-            <a href="https://youtube.com/@escuelaconconfianzasi=EJPSmECChiXnn4Vo" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/conconfianza.ttm/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.tiktok.com/@conconfianza.ttm" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/@escuelaconconfianza" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
           </div>
         </div>
         <div class="site-footer__contact">
@@ -254,52 +246,7 @@
   <script src="script.js?v=20260525-1805"></script>
   <script>
     (function () {
-      var modal = document.querySelector('[data-video-modal]');
-      var content = document.querySelector('[data-video-content]');
-      var lastTrigger = null;
-
-      function openModal(trigger) {
-        lastTrigger = trigger;
-        var kind = trigger.getAttribute('data-video-kind');
-        content.innerHTML = '';
-
-        if (kind !== 'youtube') return;
-        var id = trigger.getAttribute('data-video-id');
-        content.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Testimonio en YouTube" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><a class="youtube-fallback-link" href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener">Ver en YouTube</a>';
-
-        modal.hidden = false;
-        document.body.style.overflow = 'hidden';
-        modal.querySelector('[data-video-close]').focus();
-      }
-
-      function closeModal() {
-        modal.hidden = true;
-        content.innerHTML = '';
-        document.body.style.overflow = '';
-        if (lastTrigger) lastTrigger.focus();
-      }
-
-      document.querySelectorAll('[data-video-kind]').forEach(function (button) {
-        button.addEventListener('click', function () { openModal(button); });
-      });
-
-      document.querySelectorAll('[data-video-close]').forEach(function (button) {
-        button.addEventListener('click', closeModal);
-      });
-
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && !modal.hidden) closeModal();
-      });
-
-      document.querySelectorAll('[data-youtube-inline]').forEach(function (button) {
-        button.addEventListener('click', function () {
-          var id = button.getAttribute('data-youtube-inline');
-          var title = button.getAttribute('aria-label') || 'Video de YouTube';
-          button.classList.add('is-playing');
-          button.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="' + title + '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
-        });
-      });
-
+      // La reproducción de videos (data-youtube-inline) la maneja script.js
       var carousel = document.querySelector('[data-memory-carousel]');
       var slides = Array.prototype.slice.call(document.querySelectorAll('.memory-slide'));
       var prev = document.querySelector('[data-memory-prev]');
@@ -322,7 +269,7 @@
         slides.forEach(function (slide) { slide.classList.toggle('is-active', slide === best); });
         if (progress) {
           var max = Math.max(1, carousel.scrollWidth - carousel.clientWidth);
-          var percent = max <= 1  100 : (carousel.scrollLeft / max) * 100;
+          var percent = max <= 1 ? 100 : (carousel.scrollLeft / max) * 100;
           var width = Math.max(8, Math.min(100, percent));
           progress.style.width = width + '%';
           progress.style.transform = 'none';

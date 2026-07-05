@@ -1,0 +1,14 @@
+# Reglas de cache (solo las usa Cloudflare Pages; GitHub Pages ignora este archivo)
+# Las imagenes cambian poco: cache de 30 dias
+/images/*
+  Cache-Control: public, max-age=2592000
+
+# Descargas (PDF/ZIP): cache de 1 dia
+/recursos-didacticos/descargas/*
+  Cache-Control: public, max-age=86400
+
+# CSS y JS usan parametros ?v= para invalidar: cache de 7 dias
+/*.css
+  Cache-Control: public, max-age=604800
+/*.js
+  Cache-Control: public, max-age=604800
