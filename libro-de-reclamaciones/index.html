@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Libro de Reclamaciones virtual de Escuela Con Confianza." />
+  <title>Libro de Reclamaciones | Escuela Con Confianza</title>
+  <link rel="canonical" href="https://escuelaconconfianza.com/libro-de-reclamaciones/">
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#01aeab" />
+  <link rel="icon" href="/favicon.ico?v=20260509" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260509" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=20260509" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="/styles.css?v=20260705-2">
+  <style>
+    .lr-page { padding: 42px 0 70px; }
+    .lr-page .container { max-width: 860px; }
+    .lr-header { text-align: center; margin-bottom: 26px; }
+    .lr-header__icon { font-size: 40px; color: #01aeab; margin-bottom: 10px; }
+    .lr-header h1 { margin: 0 0 8px; }
+    .lr-header p { color: #555; margin: 0; }
+    .lr-proveedor { background: #f2fbfb; border: 1px solid #d4efee; border-radius: 12px; padding: 16px 20px; margin: 22px 0; font-size: 15px; color: #333; }
+    .lr-proveedor strong { color: #0e6e6c; }
+    .lr-form fieldset { border: 1px solid #e3e3e3; border-radius: 12px; padding: 20px 22px 24px; margin: 0 0 22px; }
+    .lr-form legend { font-weight: 700; color: #0e6e6c; padding: 0 8px; }
+    .lr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+    .lr-field--full { grid-column: 1 / -1; }
+    .lr-form label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 5px; color: #333; }
+    .lr-form label .lr-req { color: #c0392b; }
+    .lr-form input[type="text"], .lr-form input[type="email"], .lr-form input[type="tel"], .lr-form input[type="number"], .lr-form select, .lr-form textarea {
+      width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; font-size: 15px; box-sizing: border-box; background: #fff;
+    }
+    .lr-form textarea { min-height: 110px; resize: vertical; }
+    .lr-radio-row { display: flex; gap: 18px; flex-wrap: wrap; }
+    .lr-radio-row label { display: flex; align-items: flex-start; gap: 8px; font-weight: 500; max-width: 340px; }
+    .lr-radio-row input { margin-top: 3px; }
+    .lr-hint { font-size: 13px; color: #777; margin: 4px 0 0; }
+    .lr-legal { font-size: 13px; color: #666; background: #fafafa; border-radius: 10px; padding: 14px 16px; margin: 8px 0 20px; line-height: 1.55; }
+    .lr-consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; margin-bottom: 22px; }
+    .lr-consent input { margin-top: 3px; }
+    .lr-submit { text-align: center; }
+    .lr-status { display: none; border-radius: 12px; padding: 22px 24px; margin-top: 22px; text-align: center; }
+    .lr-status--ok { display: block; background: #eefaf3; border: 1px solid #bfe8d0; color: #1e6b43; }
+    .lr-status--error { display: block; background: #fdf0ef; border: 1px solid #f0c4c0; color: #a4392f; }
+    .lr-status strong { font-size: 20px; display: block; margin: 6px 0; }
+    @media (max-width: 640px) { .lr-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo" aria-label="Inicio - Escuela Con Confianza">
+        <img src="/images/logo-con-confianza.png?v=20260509" alt="Escuela Con Confianza" height="44" />
+      </a>
+      <nav class="header__nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="header__nav-list">
+          <li><a href="/" class="header__nav-link">Inicio</a></li>
+          <li><a href="/quienes-somos" class="header__nav-link">Quiénes somos</a></li>
+          <li><a href="/servicios" class="header__nav-link">Servicios</a></li>
+          <li><a href="/testimonios" class="header__nav-link">Testimonios</a></li>
+          <li><a href="/recursos-didacticos" class="header__nav-link">Recursos</a></li>
+          <li><a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="header__nav-cta" aria-label="Contáctanos por WhatsApp">Contáctanos</a></li>
+        </ul>
+      </nav>
+      <button class="header__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="lr-page">
+    <div class="container">
+      <div class="lr-header">
+        <div class="lr-header__icon" aria-hidden="true"><i class="fa-solid fa-book"></i></div>
+        <h1>Libro de Reclamaciones</h1>
+        <p>Hoja de reclamación virtual, conforme al Código de Protección y Defensa del Consumidor (Ley N.º 29571).</p>
+      </div>
+
+      <div class="lr-proveedor">
+        <strong>Proveedor:</strong> <span data-prov-razon></span> ·
+        <strong>RUC:</strong> <span data-prov-ruc></span> ·
+        <strong>Domicilio:</strong> <span data-prov-direccion></span>
+      </div>
+
+      <form class="lr-form" id="lr-form" novalidate>
+        <fieldset>
+          <legend>1. Identificación del consumidor</legend>
+          <div class="lr-grid">
+            <div class="lr-field--full">
+              <label for="lr-nombre">Nombre completo <span class="lr-req">*</span></label>
+              <input type="text" id="lr-nombre" name="nombre" required autocomplete="name" />
+            </div>
+            <div>
+              <label for="lr-doc-tipo">Tipo de documento <span class="lr-req">*</span></label>
+              <select id="lr-doc-tipo" name="docTipo" required>
+                <option value="DNI">DNI</option>
+                <option value="CE">Carné de extranjería</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div>
+              <label for="lr-doc-numero">Número de documento <span class="lr-req">*</span></label>
+              <input type="text" id="lr-doc-numero" name="docNumero" required />
+            </div>
+            <div>
+              <label for="lr-telefono">Teléfono</label>
+              <input type="tel" id="lr-telefono" name="telefono" autocomplete="tel" />
+            </div>
+            <div>
+              <label for="lr-email">Correo electrónico <span class="lr-req">*</span></label>
+              <input type="email" id="lr-email" name="email" required autocomplete="email" />
+              <p class="lr-hint">A este correo te enviaremos la copia de tu hoja de reclamación.</p>
+            </div>
+            <div class="lr-field--full">
+              <label for="lr-domicilio">Domicilio</label>
+              <input type="text" id="lr-domicilio" name="domicilio" autocomplete="street-address" />
+            </div>
+            <div class="lr-field--full">
+              <label for="lr-apoderado">Si eres menor de edad: nombre del padre, madre o apoderado</label>
+              <input type="text" id="lr-apoderado" name="apoderado" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Identificación del bien contratado</legend>
+          <div class="lr-grid">
+            <div>
+              <label>Tipo <span class="lr-req">*</span></label>
+              <div class="lr-radio-row">
+                <label><input type="radio" name="bienTipo" value="Servicio" checked /> Servicio</label>
+                <label><input type="radio" name="bienTipo" value="Producto" /> Producto</label>
+              </div>
+            </div>
+            <div>
+              <label for="lr-monto">Monto reclamado (S/, opcional)</label>
+              <input type="number" id="lr-monto" name="monto" min="0" step="0.01" />
+            </div>
+            <div class="lr-field--full">
+              <label for="lr-bien">Descripción del producto o servicio <span class="lr-req">*</span></label>
+              <input type="text" id="lr-bien" name="bienDescripcion" required placeholder="Ej. Sesiones individuales, taller, curso grabado, guía…" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Detalle de la reclamación</legend>
+          <div class="lr-grid">
+            <div class="lr-field--full">
+              <label>Tipo <span class="lr-req">*</span></label>
+              <div class="lr-radio-row">
+                <label><input type="radio" name="tipo" value="Reclamo" checked /> <span><strong>Reclamo</strong>: disconformidad relacionada con los productos o servicios.</span></label>
+                <label><input type="radio" name="tipo" value="Queja" /> <span><strong>Queja</strong>: malestar o descontento respecto a la atención al público.</span></label>
+              </div>
+            </div>
+            <div class="lr-field--full">
+              <label for="lr-detalle">Detalle <span class="lr-req">*</span></label>
+              <textarea id="lr-detalle" name="detalle" required></textarea>
+            </div>
+            <div class="lr-field--full">
+              <label for="lr-pedido">Pedido del consumidor <span class="lr-req">*</span></label>
+              <textarea id="lr-pedido" name="pedido" required placeholder="¿Qué solución esperas?"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="lr-legal">
+          <p>· La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante INDECOPI.</p>
+          <p>· El proveedor deberá dar respuesta al reclamo o queja en un plazo no mayor a quince (15) días hábiles, conforme a la normativa vigente.</p>
+          <p>· Recibirás una copia de tu hoja de reclamación con su código correlativo en el correo indicado.</p>
+        </div>
+
+        <label class="lr-consent">
+          <input type="checkbox" id="lr-consent" required />
+          <span>Declaro que la información proporcionada es verdadera y autorizo su tratamiento para la gestión de este reclamo o queja. <span class="lr-req">*</span></span>
+        </label>
+
+        <div class="lr-submit">
+          <button type="submit" class="btn btn--primary" id="lr-btn">Enviar hoja de reclamación</button>
+        </div>
+
+        <div class="lr-status" id="lr-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer site-footer">
+    <div class="footer__container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 Escuela Con Confianza. Todos los derechos reservados. &middot; <a href="/libro-de-reclamaciones/">Libro de Reclamaciones</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js?v=20260705-2"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      // ============ CONFIGURACIÓN ============
+      // URL del Web App de Google Apps Script que recibe las hojas de reclamación.
+      // Mientras esté vacía, el formulario muestra un aviso y no envía.
+      var APPS_SCRIPT_LIBRO_URL = '';
+
+      var PROVEEDOR = {
+        razonSocial: 'Escuela Con Confianza',
+        ruc: 'En trámite',
+        direccion: 'Lima, Perú'
+      };
+      // =======================================
+
+      document.querySelector('[data-prov-razon]').textContent = PROVEEDOR.razonSocial;
+      document.querySelector('[data-prov-ruc]').textContent = PROVEEDOR.ruc;
+      document.querySelector('[data-prov-direccion]').textContent = PROVEEDOR.direccion;
+
+      var form = document.getElementById('lr-form');
+      var status = document.getElementById('lr-status');
+      var button = document.getElementById('lr-btn');
+
+      function showStatus(kind, html) {
+        status.className = 'lr-status lr-status--' + kind;
+        status.innerHTML = html;
+        status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        if (!form.reportValidity()) return;
+
+        if (!APPS_SCRIPT_LIBRO_URL) {
+          showStatus('error', 'El registro en línea está en proceso de habilitación. Por favor envía tu reclamo a <strong>con.confianza.tartamudez@gmail.com</strong> o escríbenos por WhatsApp al +51 926 687 682.');
+          return;
+        }
+
+        var payload = {
+          proveedor: PROVEEDOR,
+          nombre: form.nombre.value.trim(),
+          docTipo: form.docTipo.value,
+          docNumero: form.docNumero.value.trim(),
+          telefono: form.telefono.value.trim(),
+          email: form.email.value.trim(),
+          domicilio: form.domicilio.value.trim(),
+          apoderado: form.apoderado.value.trim(),
+          bienTipo: form.bienTipo.value,
+          bienDescripcion: form.bienDescripcion.value.trim(),
+          monto: form.monto.value,
+          tipo: form.tipo.value,
+          detalle: form.detalle.value.trim(),
+          pedido: form.pedido.value.trim(),
+          pagina: window.location.href
+        };
+
+        button.disabled = true;
+        button.textContent = 'Enviando…';
+
+        fetch(APPS_SCRIPT_LIBRO_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        }).then(function (response) {
+          return response.json();
+        }).then(function (result) {
+          if (result && result.ok) {
+            form.reset();
+            showStatus('ok', 'Tu hoja de reclamación fue registrada correctamente.<strong>Código: ' + result.codigo + '</strong>Te enviamos una copia al correo indicado. Responderemos en un plazo máximo de 15 días hábiles.');
+          } else {
+            throw new Error((result && result.mensaje) || 'Respuesta inválida');
+          }
+        }).catch(function () {
+          showStatus('error', 'No pudimos registrar tu hoja en este momento. Por favor inténtalo de nuevo en unos minutos, o envíala a <strong>con.confianza.tartamudez@gmail.com</strong>.');
+        }).finally(function () {
+          button.disabled = false;
+          button.textContent = 'Enviar hoja de reclamación';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
