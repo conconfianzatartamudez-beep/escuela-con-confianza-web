@@ -149,7 +149,7 @@
 
       return '<' + tag + attrs + ' class="resources-video-card">' +
         '<span class="resources-video-card__thumb">' +
-          '<img src="' + getThumbUrl(video) + '" alt="Miniatura de ' + escapeHtml(video.title) + '" />' +
+          '<img loading="lazy" decoding="async" src="' + getThumbUrl(video) + '" alt="Miniatura de ' + escapeHtml(video.title) + '" />' +
           '<span class="resources-video-card__time">' + escapeHtml(duration) + '</span>' +
         '</span>' +
         '<strong>' + escapeHtml(video.title) + '</strong>' +
@@ -247,7 +247,7 @@
     return '<' + tag + attrs + ' class="resources-article-card">' +
       '<picture>' +
         '<source media="(max-width: 700px)" srcset="' + escapeHtml(mobileImage) + '" />' +
-        '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.title) + '" />' +
+        '<img loading="lazy" decoding="async" src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.title) + '" />' +
       '</picture>' +
       '<div class="resources-article-card__body">' +
         '<h3>' + escapeHtml(article.title) + '</h3>' +
