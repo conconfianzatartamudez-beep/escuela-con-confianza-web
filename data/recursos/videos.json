@@ -11,7 +11,11 @@
         "abordaje",
         "estrategias"
       ],
-      "use": "principal",
+      "principalCategories": [
+        "destacados",
+        "abordaje",
+        "estrategias"
+      ],
       "duration": ""
     },
     {
@@ -25,7 +29,7 @@
         "abordaje",
         "estrategias"
       ],
-      "use": "secundario",
+      "principalCategories": [],
       "duration": ""
     },
     {
@@ -37,7 +41,7 @@
       "categories": [
         "abordaje"
       ],
-      "use": "secundario",
+      "principalCategories": [],
       "duration": ""
     },
     {
@@ -50,7 +54,7 @@
         "abordaje",
         "estrategias"
       ],
-      "use": "secundario",
+      "principalCategories": [],
       "duration": ""
     },
     {
@@ -62,7 +66,7 @@
       "categories": [
         "abordaje"
       ],
-      "use": "secundario",
+      "principalCategories": [],
       "duration": ""
     },
     {
@@ -74,7 +78,9 @@
       "categories": [
         "podcast"
       ],
-      "use": "principal",
+      "principalCategories": [
+        "podcast"
+      ],
       "duration": ""
     },
     {
@@ -88,7 +94,9 @@
         "abordaje",
         "familias"
       ],
-      "use": "principal",
+      "principalCategories": [
+        "familias"
+      ],
       "duration": ""
     },
     {
@@ -101,7 +109,7 @@
         "abordaje",
         "familias"
       ],
-      "use": "secundario",
+      "principalCategories": [],
       "duration": ""
     },
     {
@@ -114,7 +122,9 @@
         "destacados",
         "invitaciones"
       ],
-      "use": "principal",
+      "principalCategories": [
+        "invitaciones"
+      ],
       "duration": ""
     },
     {
@@ -127,7 +137,7 @@
         "destacados",
         "abordaje"
       ],
-      "use": "principal",
+      "principalCategories": [],
       "duration": ""
     }
   ]

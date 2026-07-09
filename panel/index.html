@@ -919,7 +919,13 @@ function chipsDe(elemento) {
   const chips = [];
   if (pestanaActual === "videos") {
     if (!elemento.youtubeId) chips.push('<span class="chip pendiente">Pendiente: sin video</span>');
-    if (elemento.use === "principal") chips.push('<span class="chip">★ Principal</span>');
+    if (Array.isArray(elemento.principalCategories) && elemento.principalCategories.length) {
+      const nombres = elemento.principalCategories.map((c) => {
+        const cat = CATEGORIAS.find((x) => x[0] === c);
+        return cat ? cat[1].replace(" (aparece al inicio de Recursos)", "") : c;
+      });
+      chips.push('<span class="chip">★ Primero en: ' + escapar(nombres.join(", ")) + "</span>");
+    }
     const publico = PUBLICOS.find((p) => p[0] === elemento.audience);
     if (publico) chips.push('<span class="chip">' + publico[1] + "</span>");
     (elemento.categories || []).forEach((c) => {
@@ -1164,6 +1170,12 @@ function formularioVideo(v) {
       '<option value="' + valor + '"' +
       (v && v.audience === valor ? " selected" : "") + ">" + etiqueta + "</option>"
   ).join("");
+  const principales = CATEGORIAS.map(
+    ([valor, etiqueta]) =>
+      '<label><input type="checkbox" name="principal-cat" value="' + valor + '"' +
+      (v && Array.isArray(v.principalCategories) && v.principalCategories.includes(valor) ? " checked" : "") +
+      ">" + etiqueta.replace(" (aparece al inicio de Recursos)", "") + "</label>"
+  ).join("");
   return `<div class="ventana">
     <h3>${v ? "Editar video" : "Agregar video"}</h3>
     <div class="campo">
@@ -1186,11 +1198,9 @@ function formularioVideo(v) {
       <div class="opciones-casillas">${categorias}</div>
     </div>
     <div class="campo">
-      <label>¿Es el video principal de su sección?</label>
-      <div class="opciones-radio">
-        <label><input type="radio" name="rol" value="principal" ${v && v.use === "principal" ? "checked" : ""}>Sí, se reproduce en grande</label>
-        <label><input type="radio" name="rol" value="secundario" ${!v || v.use !== "principal" ? "checked" : ""}>No, es un video relacionado</label>
-      </div>
+      <label>¿En cuáles de esas secciones se muestra primero (en grande)?</label>
+      <div class="opciones-casillas">${principales}</div>
+      <div class="ayuda">Marca las secciones donde ESTE video debe salir de primero. En cada sección solo puede haber un "primero": si lo marcas aquí, el video que estaba de primero antes pasa a relacionado automáticamente. (Solo aplica a las secciones donde el video aparece, marcadas arriba.)</div>
     </div>
     <div class="campo">
       <label>Duración (opcional)</label>
@@ -1330,14 +1340,26 @@ async function guardarFormulario(indice) {
     let elemento;
     if (pestanaActual === "videos") {
       const youtubeId = extraerYoutubeId($("#campo-enlace").value);
+      const categories = Array.from(document.querySelectorAll('input[name="categoria"]:checked')).map((c) => c.value);
+      // Solo puede ser "primero" en secciones donde el video realmente aparece.
+      const principalCategories = Array.from(document.querySelectorAll('input[name="principal-cat"]:checked'))
+        .map((c) => c.value)
+        .filter((c) => categories.indexOf(c) !== -1);
+      // Un solo "primero" por sección: quitar estas secciones a los demás videos.
+      lista.forEach((otro, i) => {
+        if (editando && i === indice) return;
+        if (Array.isArray(otro.principalCategories)) {
+          otro.principalCategories = otro.principalCategories.filter((c) => principalCategories.indexOf(c) === -1);
+        }
+      });
       elemento = {
         id,
         title: titulo,
         youtubeId,
         youtubeUrl: youtubeId ? "https://www.youtube.com/watch?v=" + youtubeId : "",
         audience: $("#campo-publico").value,
-        categories: Array.from(document.querySelectorAll('input[name="categoria"]:checked')).map((c) => c.value),
-        use: document.querySelector('input[name="rol"]:checked').value,
+        categories,
+        principalCategories,
         duration: $("#campo-duracion").value.trim(),
       };
     } else if (pestanaActual === "guias") {

@@ -89,8 +89,16 @@
   }
 
   function chooseMainVideo(videos) {
+    var cat = state.category;
+    // 1) El video elegido como "primero" para esta categoría en particular.
     return videos.find(function (video) {
+      return getYouTubeId(video) &&
+        Array.isArray(video.principalCategories) &&
+        video.principalCategories.indexOf(cat) !== -1;
+    // 2) Compatibilidad con el sistema anterior (video principal global).
+    }) || videos.find(function (video) {
       return video.use === 'principal' && getYouTubeId(video);
+    // 3) Si no hay nada marcado, el primero con video disponible.
     }) || videos.find(function (video) {
       return getYouTubeId(video);
     }) || videos[0];
