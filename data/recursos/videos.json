@@ -6,7 +6,11 @@
       "youtubeId": "YzJttHHIO2A",
       "youtubeUrl": "https://www.youtube.com/watch?v=YzJttHHIO2A",
       "audience": "personas",
-      "categories": ["destacados", "abordaje", "estrategias"],
+      "categories": [
+        "destacados",
+        "abordaje",
+        "estrategias"
+      ],
       "use": "principal",
       "duration": ""
     },
@@ -16,7 +20,11 @@
       "youtubeId": "iw9KQ_NgWWg",
       "youtubeUrl": "https://www.youtube.com/watch?v=iw9KQ_NgWWg",
       "audience": "personas",
-      "categories": ["destacados", "abordaje", "estrategias"],
+      "categories": [
+        "destacados",
+        "abordaje",
+        "estrategias"
+      ],
       "use": "secundario",
       "duration": ""
     },
@@ -26,7 +34,10 @@
       "youtubeId": "GyiEhzzoctw",
       "youtubeUrl": "https://www.youtube.com/watch?v=GyiEhzzoctw",
       "audience": "personas",
-      "categories": ["destacados", "abordaje"],
+      "categories": [
+        "destacados",
+        "abordaje"
+      ],
       "use": "secundario",
       "duration": ""
     },
@@ -36,27 +47,35 @@
       "youtubeId": "zfHqSw8wSU8",
       "youtubeUrl": "https://www.youtube.com/watch?v=zfHqSw8wSU8",
       "audience": "personas",
-      "categories": ["destacados", "abordaje", "estrategias"],
+      "categories": [
+        "destacados",
+        "abordaje",
+        "estrategias"
+      ],
       "use": "secundario",
       "duration": ""
     },
     {
       "id": "burlas-tartamudez",
       "title": "¿Cómo responder a las burlas de tartamudez?",
-      "youtubeId": "",
-      "youtubeUrl": "",
+      "youtubeId": "tpVvAf087CY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=tpVvAf087CY",
       "audience": "personas",
-      "categories": ["abordaje"],
+      "categories": [
+        "abordaje"
+      ],
       "use": "secundario",
-      "duration": "Pronto"
+      "duration": ""
     },
     {
       "id": "podcast-miedo-publico",
       "title": "Cómo enfrentamos el miedo a hablar en público | Podcast 1 piloto",
-      "youtubeId": "tpVvAf087CY",
-      "youtubeUrl": "https://www.youtube.com/watch?v=tpVvAf087CY",
+      "youtubeId": "Rz2DevwSRoI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Rz2DevwSRoI",
       "audience": "personas",
-      "categories": ["podcast"],
+      "categories": [
+        "podcast"
+      ],
       "use": "principal",
       "duration": ""
     },
@@ -66,7 +85,11 @@
       "youtubeId": "nmD0Bh_MI04",
       "youtubeUrl": "https://www.youtube.com/watch?v=nmD0Bh_MI04",
       "audience": "familiares",
-      "categories": ["destacados", "abordaje", "familias"],
+      "categories": [
+        "destacados",
+        "abordaje",
+        "familias"
+      ],
       "use": "principal",
       "duration": ""
     },
@@ -76,7 +99,11 @@
       "youtubeId": "eEh6ztFGI9Y",
       "youtubeUrl": "https://www.youtube.com/watch?v=eEh6ztFGI9Y",
       "audience": "familiares",
-      "categories": ["destacados", "abordaje", "familias"],
+      "categories": [
+        "destacados",
+        "abordaje",
+        "familias"
+      ],
       "use": "secundario",
       "duration": ""
     },
@@ -86,7 +113,22 @@
       "youtubeId": "CAGEIwoDpII",
       "youtubeUrl": "https://www.youtube.com/watch?v=CAGEIwoDpII",
       "audience": "todos",
-      "categories": ["invitaciones"],
+      "categories": [
+        "invitaciones"
+      ],
+      "use": "principal",
+      "duration": ""
+    },
+    {
+      "id": "como-manejar-la-tartamudez-a-largo-plazo",
+      "title": "CÓMO MANEJAR LA TARTAMUDEZ A LARGO PLAZO",
+      "youtubeId": "SrWXBC-Yh8Q",
+      "youtubeUrl": "https://www.youtube.com/watch?v=SrWXBC-Yh8Q",
+      "audience": "personas",
+      "categories": [
+        "destacados",
+        "abordaje"
+      ],
       "use": "principal",
       "duration": ""
     }
