@@ -271,6 +271,35 @@
     margin-bottom: 8px;
     border: 2px solid var(--borde);
   }
+  .caja-ia {
+    background: var(--verde-suave);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 18px;
+  }
+  .caja-ia .titulo-ia { font-weight: 600; margin-bottom: 4px; }
+  .caja-ia .ayuda { color: var(--gris); font-size: 0.85rem; margin-bottom: 10px; line-height: 1.4; }
+  .caja-ia textarea {
+    font-size: 0.9rem;
+    background: #fff;
+    resize: vertical;
+    min-height: 96px;
+    line-height: 1.45;
+  }
+  .caja-ia .boton-copiar {
+    margin-top: 10px;
+    width: 100%;
+    background: var(--verde);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 11px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .caja-ia .boton-copiar:hover { background: var(--verde-oscuro); }
+  .caja-ia .boton-copiar.copiado { background: #2e8b57; }
 
   /* ---------- Barra de publicar ---------- */
   #barra-publicar {
@@ -496,6 +525,23 @@ function archivoABase64(archivo) {
   });
 }
 
+// Arma el texto listo para pegar en ChatGPT y generar la imagen de una publicación.
+function generarPromptImagen(titulo, descripcion) {
+  const tema = (titulo || "").trim() || "(escribe primero el título de la publicación)";
+  const detalle = (descripcion || "").trim();
+  return (
+    "Crea una imagen horizontal en formato apaisado 16:9 (ideal para 1600 x 900 píxeles), " +
+    "para acompañar una publicación de Escuela Con Confianza, una organización que acompaña " +
+    "a personas con tartamudez.\n\n" +
+    "Tema de la publicación: «" + tema + "».\n" +
+    (detalle ? "Contexto: " + detalle + "\n" : "") +
+    "\nEstilo: cálido, humano y profesional; tonos serenos (verdes suaves y neutros); " +
+    "sensación de calma, confianza y respeto. Sin texto ni letras dentro de la imagen. " +
+    "Coloca los elementos importantes hacia el centro, para que también se vea bien " +
+    "recortada en un cuadrado central (versión para celular)."
+  );
+}
+
 // Recorta y ajusta cualquier imagen al tamaño exacto que usa la web
 // (recorte centrado, como "rellenar" en las apps de fotos). Devuelve JPEG en base64.
 function procesarImagen(archivo, ancho, alto) {
@@ -684,6 +730,39 @@ function abrirFormulario(indice) {
     campoEnlace.addEventListener("input", refrescarVistaPrevia);
     refrescarVistaPrevia();
   }
+
+  if (pestanaActual === "articulos") {
+    const campoPrompt = velo.querySelector("#campo-prompt-ia");
+    const campoTitulo = velo.querySelector("#campo-titulo");
+    const campoDescripcion = velo.querySelector("#campo-descripcion");
+    const refrescarPrompt = () => {
+      campoPrompt.value = generarPromptImagen(campoTitulo.value, campoDescripcion.value);
+    };
+    campoTitulo.addEventListener("input", refrescarPrompt);
+    campoDescripcion.addEventListener("input", refrescarPrompt);
+    refrescarPrompt();
+
+    const botonCopiar = velo.querySelector("#boton-copiar-prompt");
+    botonCopiar.addEventListener("click", async () => {
+      try {
+        campoPrompt.select();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(campoPrompt.value);
+        } else {
+          document.execCommand("copy");
+        }
+        botonCopiar.textContent = "✅ ¡Copiado! Pégalo en ChatGPT";
+        botonCopiar.classList.add("copiado");
+        setTimeout(() => {
+          botonCopiar.textContent = "📋 Copiar el texto para la IA";
+          botonCopiar.classList.remove("copiado");
+        }, 2500);
+      } catch (e) {
+        mostrarAviso("No se pudo copiar solo. Selecciona el texto y usa Ctrl+C.", true);
+      }
+    });
+  }
+
   const campoArchivo = velo.querySelector("#campo-archivo");
   if (campoArchivo) {
     campoArchivo.addEventListener("change", () => {
@@ -814,6 +893,12 @@ function formularioArticulo(a) {
     <div class="campo">
       <label>Fecha</label>
       <input type="date" id="campo-fecha" value="${escapar(a && a.date ? a.date : new Date().toISOString().slice(0, 10))}">
+    </div>
+    <div class="caja-ia">
+      <div class="titulo-ia">🎨 ¿Necesitas la imagen? Genérala con IA</div>
+      <div class="ayuda">Copia este texto y pégalo en ChatGPT (o el generador de imágenes que uses). Ya incluye las medidas correctas. Luego sube aquí abajo la imagen que te dé.</div>
+      <textarea id="campo-prompt-ia" readonly></textarea>
+      <button type="button" class="boton-copiar" id="boton-copiar-prompt">📋 Copiar el texto para la IA</button>
     </div>
     <div class="campo">
       <label>${a && a.image ? "Cambiar la imagen (opcional)" : "Imagen de la publicación"}</label>
