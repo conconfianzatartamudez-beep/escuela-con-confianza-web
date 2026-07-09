@@ -264,6 +264,13 @@
     margin-top: 24px;
   }
   .nota-archivo { font-size: 0.9rem; color: var(--verde-oscuro); margin-top: 6px; font-weight: 600; }
+  .img-actual {
+    width: 150px;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 8px;
+    border: 2px solid var(--borde);
+  }
 
   /* ---------- Barra de publicar ---------- */
   #barra-publicar {
@@ -486,6 +493,43 @@ function archivoABase64(archivo) {
     lector.onload = () => resolver(String(lector.result).split(",")[1] || "");
     lector.onerror = () => rechazar(new Error("No se pudo leer el archivo."));
     lector.readAsDataURL(archivo);
+  });
+}
+
+// Recorta y ajusta cualquier imagen al tamaño exacto que usa la web
+// (recorte centrado, como "rellenar" en las apps de fotos). Devuelve JPEG en base64.
+function procesarImagen(archivo, ancho, alto) {
+  return new Promise((resolver, rechazar) => {
+    const imagen = new Image();
+    const urlTemporal = URL.createObjectURL(archivo);
+    imagen.onload = () => {
+      try {
+        const lienzo = document.createElement("canvas");
+        lienzo.width = ancho;
+        lienzo.height = alto;
+        const contexto = lienzo.getContext("2d");
+        const escala = Math.max(ancho / imagen.width, alto / imagen.height);
+        const anchoFinal = imagen.width * escala;
+        const altoFinal = imagen.height * escala;
+        contexto.drawImage(
+          imagen,
+          (ancho - anchoFinal) / 2,
+          (alto - altoFinal) / 2,
+          anchoFinal,
+          altoFinal
+        );
+        resolver(lienzo.toDataURL("image/jpeg", 0.85).split(",")[1]);
+      } catch (e) {
+        rechazar(new Error("No se pudo procesar la imagen."));
+      } finally {
+        URL.revokeObjectURL(urlTemporal);
+      }
+    };
+    imagen.onerror = () => {
+      URL.revokeObjectURL(urlTemporal);
+      rechazar(new Error("El archivo no parece ser una imagen válida."));
+    };
+    imagen.src = urlTemporal;
   });
 }
 
@@ -772,15 +816,19 @@ function formularioArticulo(a) {
       <input type="date" id="campo-fecha" value="${escapar(a && a.date ? a.date : new Date().toISOString().slice(0, 10))}">
     </div>
     <div class="campo">
-      <label>Imagen para computadora (horizontal)</label>
+      <label>${a && a.image ? "Cambiar la imagen (opcional)" : "Imagen de la publicación"}</label>
+      ${a && a.image ? '<img class="img-actual" src="/' + escapar(a.image) + '" alt="Imagen actual">' : ""}
       <input type="file" id="campo-archivo" accept=".jpg,.jpeg,.png,.webp">
       <div class="nota-archivo" id="nota-archivo"></div>
-      <div class="ayuda">${a && a.image ? "Ya tiene imagen. Solo elige una nueva si quieres cambiarla." : ""}</div>
+      <div class="ayuda">${a && a.image
+        ? "Esta de arriba es la imagen actual. Solo elige un archivo si quieres reemplazarla."
+        : "Sube cualquier imagen sin preocuparte por el tamaño: el panel la recorta y ajusta solo para computadora y celular."}</div>
     </div>
     <div class="campo">
-      <label>Imagen para celular (cuadrada)</label>
+      <label>${a && a.mobileImage ? "Cambiar la imagen de celular (opcional)" : "Imagen para celular (opcional)"}</label>
+      ${a && a.mobileImage ? '<img class="img-actual" style="width:100px" src="/' + escapar(a.mobileImage) + '" alt="Imagen actual para celular">' : ""}
       <input type="file" id="campo-archivo-movil" accept=".jpg,.jpeg,.png,.webp">
-      <div class="ayuda">${a && a.mobileImage ? "Ya tiene imagen. Solo elige una nueva si quieres cambiarla." : "Si no eliges, se usa la misma de computadora."}</div>
+      <div class="ayuda">Normalmente no necesitas tocar esto: la versión de celular la fabrico yo, recortando la imagen principal. Úsalo solo si quieres una imagen distinta para celular.</div>
     </div>
     <div class="campo">
       <label>Enlace del artículo (opcional)</label>
@@ -869,18 +917,24 @@ async function guardarFormulario(indice) {
       const imagen = $("#campo-archivo").files[0];
       const imagenMovil = $("#campo-archivo-movil").files[0];
       if (imagen) {
-        const extension = imagen.name.slice(imagen.name.lastIndexOf(".")).toLowerCase();
-        const ruta = "images/recursos/" + id + extension;
-        botonGuardar.textContent = "Subiendo imagen…";
-        await llamarApi("POST", { ruta, base64: await archivoABase64(imagen) });
-        elemento.image = ruta;
+        // Versión horizontal (computadora): 1600x900, recortada automáticamente.
+        const rutaHorizontal = "images/recursos/" + id + ".jpg";
+        botonGuardar.textContent = "Ajustando imagen…";
+        await llamarApi("POST", { ruta: rutaHorizontal, base64: await procesarImagen(imagen, 1600, 900) });
+        elemento.image = rutaHorizontal;
+        if (!imagenMovil) {
+          // Si no eligió una imagen aparte para celular, la fabricamos
+          // recortando la misma imagen en cuadrado: 1254x1254.
+          const rutaCuadrada = "images/recursos/" + id + "-cuadrado.jpg";
+          await llamarApi("POST", { ruta: rutaCuadrada, base64: await procesarImagen(imagen, 1254, 1254) });
+          elemento.mobileImage = rutaCuadrada;
+        }
       }
       if (imagenMovil) {
-        const extension = imagenMovil.name.slice(imagenMovil.name.lastIndexOf(".")).toLowerCase();
-        const ruta = "images/recursos/" + id + "-cuadrado" + extension;
-        botonGuardar.textContent = "Subiendo imagen…";
-        await llamarApi("POST", { ruta, base64: await archivoABase64(imagenMovil) });
-        elemento.mobileImage = ruta;
+        const rutaCuadrada = "images/recursos/" + id + "-cuadrado.jpg";
+        botonGuardar.textContent = "Ajustando imagen…";
+        await llamarApi("POST", { ruta: rutaCuadrada, base64: await procesarImagen(imagenMovil, 1254, 1254) });
+        elemento.mobileImage = rutaCuadrada;
       }
       if (!elemento.mobileImage) elemento.mobileImage = elemento.image;
     }
