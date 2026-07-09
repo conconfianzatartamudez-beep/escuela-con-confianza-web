@@ -1,0 +1,8 @@
+# Este sitio ya NO se aloja en Netlify: vive en Cloudflare Pages.
+# Quedó un proyecto antiguo de Netlify conectado a este mismo repositorio que
+# construía una copia sin uso en cada push y gastaba créditos.
+# La siguiente línea le indica a Netlify que CANCELE toda construcción
+# (exit 0 = "sin cambios, no construyas"), deteniendo ese gasto.
+# Cloudflare Pages ignora este archivo, así que no afecta a la web real.
+[build]
+  ignore = "exit 0"
