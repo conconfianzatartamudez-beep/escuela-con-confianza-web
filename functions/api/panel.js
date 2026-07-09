@@ -145,6 +145,11 @@ export async function onRequestPut({ request, env }) {
     return error(400, "El cuerpo de la petición no es JSON válido.");
   }
 
+  // Caso especial: escribir la página HTML de un artículo.
+  if (cuerpo && cuerpo.pagina) {
+    return await escribirPaginaArticulo(env, cuerpo);
+  }
+
   const { tipo, datos } = cuerpo || {};
   const ruta = ARCHIVOS[tipo];
   if (!ruta) return error(400, "Tipo de contenido no reconocido.");
@@ -167,6 +172,36 @@ export async function onRequestPut({ request, env }) {
     return json({ ok: true, mensaje: "Cambios publicados. La web se actualiza en 1-2 minutos." });
   } catch (e) {
     return error(502, e.message || "No se pudo publicar el cambio.");
+  }
+}
+
+// Escribe la página HTML completa de un artículo en
+// recursos-didacticos/articulos/<id>/index.html (solo texto, generado por el panel).
+async function escribirPaginaArticulo(env, cuerpo) {
+  const ruta = String(cuerpo.pagina || "");
+  const html = String(cuerpo.html || "");
+
+  const rutaValida =
+    /^recursos-didacticos\/articulos\/[a-z0-9-]+\/index\.html$/.test(ruta) &&
+    !ruta.includes("..");
+
+  if (!rutaValida) return error(400, "Ruta de artículo no permitida.");
+  if (!html || html.length > 400 * 1024) {
+    return error(400, "El artículo está vacío o es demasiado largo.");
+  }
+
+  try {
+    const existente = await leerArchivo(env, ruta);
+    await escribirArchivo(
+      env,
+      ruta,
+      textoABase64(html),
+      `Panel web: página de artículo ${ruta}`,
+      existente ? existente.sha : undefined
+    );
+    return json({ ok: true, ruta });
+  } catch (e) {
+    return error(502, e.message || "No se pudo guardar la página del artículo.");
   }
 }
 

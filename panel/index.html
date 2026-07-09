@@ -301,6 +301,51 @@
   .caja-ia .boton-copiar:hover { background: var(--verde-oscuro); }
   .caja-ia .boton-copiar.copiado { background: #2e8b57; }
 
+  /* ---------- Editor de contenido del artículo ---------- */
+  #bloques-articulo { display: flex; flex-direction: column; gap: 10px; margin: 10px 0; }
+  .bloque {
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #fbfdfc;
+  }
+  .bloque-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .bloque-tipo { font-size: 0.8rem; font-weight: 700; color: var(--verde-oscuro); text-transform: uppercase; letter-spacing: 0.03em; }
+  .bloque-controles { display: flex; gap: 2px; }
+  .bloque textarea, .bloque input[type="text"] { font-size: 0.95rem; }
+  .bloque textarea { min-height: 70px; resize: vertical; }
+  .bloque .pie-imagen { margin-top: 8px; }
+  .bloque .previa-imagen {
+    max-width: 100%;
+    max-height: 180px;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 8px;
+    border: 1px solid var(--borde);
+  }
+  .agregar-bloque {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .agregar-bloque button {
+    border: 2px dashed var(--verde);
+    background: #fff;
+    color: var(--verde-oscuro);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .agregar-bloque button:hover { background: var(--verde-suave); }
+  .bloque-vacio { color: var(--gris); font-size: 0.9rem; padding: 8px 2px; }
+
   /* ---------- Barra de publicar ---------- */
   #barra-publicar {
     position: fixed;
@@ -420,6 +465,7 @@ let clave = sessionStorage.getItem("panel_clave") || "";
 let datos = { videos: null, guias: null, articulos: null };
 let publicado = { videos: null, guias: null, articulos: null };
 let pestanaActual = "videos";
+let bloquesArticulo = []; // contenido del artículo que se está editando
 
 const CATEGORIAS = [
   ["destacados", "⭐ Destacados (aparece al inicio de Recursos)"],
@@ -452,7 +498,7 @@ const $ = (sel) => document.querySelector(sel);
 function escapar(texto) {
   const div = document.createElement("div");
   div.textContent = texto == null ? "" : String(texto);
-  return div.innerHTML;
+  return div.innerHTML.replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
 function crearId(titulo, existentes) {
@@ -522,6 +568,203 @@ function archivoABase64(archivo) {
     lector.onload = () => resolver(String(lector.result).split(",")[1] || "");
     lector.onerror = () => rechazar(new Error("No se pudo leer el archivo."));
     lector.readAsDataURL(archivo);
+  });
+}
+
+// Convierte texto simple a HTML seguro, aplicando **negritas**.
+function textoRico(texto) {
+  return escapar(texto).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
+// Convierte los bloques del editor en el HTML del cuerpo del artículo.
+function bloquesAHtml(bloques) {
+  return bloques
+    .map((b) => {
+      if (b.tipo === "parrafo" && (b.texto || "").trim()) {
+        return "          <p>" + textoRico(b.texto.trim()) + "</p>";
+      }
+      if (b.tipo === "subtitulo" && (b.texto || "").trim()) {
+        return "          <h2>" + escapar(b.texto.trim()) + "</h2>";
+      }
+      if (b.tipo === "lista") {
+        const items = (b.texto || "")
+          .split("\n").map((s) => s.trim()).filter(Boolean);
+        if (!items.length) return "";
+        return "          <ul>\n" +
+          items.map((i) => "            <li>" + textoRico(i) + "</li>").join("\n") +
+          "\n          </ul>";
+      }
+      if (b.tipo === "imagen" && b.src) {
+        return '          <figure class="resources-article-detail__figure" style="margin:1.5rem 0;">\n' +
+          '            <img loading="lazy" decoding="async" src="/' + escapar(b.src) +
+          '" alt="' + escapar(b.pie || "") + '" style="max-width:100%;height:auto;border-radius:12px;display:block;margin:0 auto;" />\n' +
+          (b.pie
+            ? '            <figcaption style="text-align:center;color:#6b7c78;font-size:0.9rem;margin-top:6px;">' +
+              escapar(b.pie) + "</figcaption>\n"
+            : "") +
+          "          </figure>";
+      }
+      return "";
+    })
+    .filter(Boolean)
+    .join("\n");
+}
+
+// Genera la página HTML completa del artículo, con el diseño del sitio.
+function paginaArticuloHtml(datos) {
+  const { title, description, image, cuerpoHtml, autor, slug } = datos;
+  const canonica = "https://escuelaconconfianza.com/recursos-didacticos/articulos/" + slug + "/";
+  const tituloPagina = escapar(title) + " | Escuela Con Confianza";
+  const desc = escapar(description || title);
+  const imgAbs = image
+    ? "https://escuelaconconfianza.com/" + escapar(image)
+    : "https://escuelaconconfianza.com/images/og-image-20260508.png";
+  const heroImg = image ? '\n        <img loading="lazy" decoding="async" class="resources-article-detail__image" src="/' +
+    escapar(image) + '" alt="Imagen de la publicación ' + escapar(title) + '" />' : "";
+  const autorHtml = autor
+    ? '\n          <p class="resources-article-detail__author">Autor: ' + escapar(autor) + "</p>"
+    : "";
+
+  return `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="${desc}" />
+  <title>${tituloPagina}</title>
+  <link rel="canonical" href="${canonica}">
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#01aeab" />
+  <meta property="og:site_name" content="Escuela Con Confianza" />
+  <meta property="og:locale" content="es_PE" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="${tituloPagina}" />
+  <meta property="og:description" content="${desc}" />
+  <meta property="og:url" content="${canonica}" />
+  <meta property="og:image" content="${imgAbs}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${tituloPagina}" />
+  <meta name="twitter:description" content="${desc}" />
+  <meta name="twitter:image" content="${imgAbs}" />
+  <link rel="icon" href="/favicon.ico?v=20260509" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260509" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=20260509" />
+  <link rel="manifest" href="/site.webmanifest?v=20260509" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="/styles.css?v=20260509">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo" aria-label="Inicio - Escuela Con Confianza">
+        <img src="/images/logo-con-confianza.png?v=20260509" alt="Escuela Con Confianza" height="44" />
+      </a>
+      <nav class="header__nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="header__nav-list">
+          <li><a href="/" class="header__nav-link">Inicio</a></li>
+          <li><a href="/quienes-somos" class="header__nav-link">Quiénes somos</a></li>
+          <li><a href="/servicios" class="header__nav-link">Servicios</a></li>
+          <li><a href="/testimonios" class="header__nav-link">Testimonios</a></li>
+          <li><a href="/recursos-didacticos" class="header__nav-link is-active" aria-current="page">Recursos</a></li>
+          <li><a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="header__nav-cta" aria-label="Contáctanos por WhatsApp">Contáctanos</a></li>
+        </ul>
+      </nav>
+      <button class="header__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="resources-page">
+    <article class="resources-article-detail">
+      <div class="container resources-article-detail__inner">
+        <a href="/recursos-didacticos/publicaciones/" class="resources-section__link">← Volver a publicaciones</a>${heroImg}
+        <header class="resources-article-detail__header">
+          <p class="section__label">Publicación</p>
+          <h1>${escapar(title)}</h1>
+        </header>
+
+        <div class="resources-article-detail__content">
+${cuerpoHtml}${autorHtml}
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer site-footer">
+    <div class="footer__container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="/" aria-label="Ir al inicio">
+            <img src="/images/logo-con-confianza-footer.svg?v=20260509" alt="Escuela Con Confianza" class="footer__logo">
+          </a>
+        </div>
+        <nav class="site-footer__nav" aria-label="Navegacion secundaria">
+          <h3 class="footer__title">Navegaci&oacute;n</h3>
+          <ul class="footer__links">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/quienes-somos">Qui&eacute;nes somos</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/testimonios">Testimonios</a></li>
+            <li><a href="/recursos-didacticos">Recursos</a></li>
+          </ul>
+        </nav>
+        <div class="site-footer__social">
+          <h3 class="footer__title">Redes</h3>
+          <div class="footer__links footer__social-links">
+            <a href="https://www.facebook.com/share/1HGKuWx5Jx/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/conconfianza.ttm/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.tiktok.com/@conconfianza.ttm" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/@escuelaconconfianza" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="site-footer__contact">
+          <h3 class="footer__title">Contacto</h3>
+          <div class="footer__links footer__contact-links">
+            <a href="https://wa.me/51926687682" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>+51 926 687 682</span></a>
+            <a href="https://maps.app.goo.gl/SDBSp1u9EvL1XJZg7" target="_blank" rel="noopener noreferrer" aria-label="Ubicacion en Google Maps"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Virtual internacional y presencial en Lima, Per&uacute;</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Escuela Con Confianza. Todos los derechos reservados. &middot; <a href="/libro-de-reclamaciones/">Libro de Reclamaciones</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/51926687682" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contáctanos por WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+  <script src="/script.js?v=20260509"></script>
+</body>
+</html>
+`;
+}
+
+// Recorta la imagen a un ancho máximo (para imágenes dentro del texto), sin deformar.
+function procesarImagenMax(archivo, anchoMaximo) {
+  return new Promise((resolver, rechazar) => {
+    const imagen = new Image();
+    const urlTemporal = URL.createObjectURL(archivo);
+    imagen.onload = () => {
+      try {
+        const escala = Math.min(1, anchoMaximo / imagen.width);
+        const lienzo = document.createElement("canvas");
+        lienzo.width = Math.round(imagen.width * escala);
+        lienzo.height = Math.round(imagen.height * escala);
+        lienzo.getContext("2d").drawImage(imagen, 0, 0, lienzo.width, lienzo.height);
+        resolver(lienzo.toDataURL("image/jpeg", 0.85).split(",")[1]);
+      } catch (e) {
+        rechazar(new Error("No se pudo procesar la imagen."));
+      } finally {
+        URL.revokeObjectURL(urlTemporal);
+      }
+    };
+    imagen.onerror = () => {
+      URL.revokeObjectURL(urlTemporal);
+      rechazar(new Error("El archivo no parece ser una imagen válida."));
+    };
+    imagen.src = urlTemporal;
   });
 }
 
@@ -732,6 +975,14 @@ function abrirFormulario(indice) {
   }
 
   if (pestanaActual === "articulos") {
+    bloquesArticulo = (elemento && Array.isArray(elemento.body))
+      ? copiar(elemento.body)
+      : [];
+    renderBloques();
+    velo.querySelectorAll("[data-agregar]").forEach((boton) => {
+      boton.addEventListener("click", () => agregarBloque(boton.dataset.agregar));
+    });
+
     const campoPrompt = velo.querySelector("#campo-prompt-ia");
     const campoTitulo = velo.querySelector("#campo-titulo");
     const campoDescripcion = velo.querySelector("#campo-descripcion");
@@ -778,6 +1029,114 @@ function abrirFormulario(indice) {
 function cerrarFormulario() {
   $("#velo").classList.add("oculto");
   $("#velo").innerHTML = "";
+  bloquesArticulo = [];
+}
+
+/* ===== Editor de bloques del artículo ===== */
+const ETIQUETA_BLOQUE = {
+  parrafo: "Párrafo",
+  subtitulo: "Subtítulo",
+  lista: "Lista (un punto por línea)",
+  imagen: "Imagen",
+};
+
+function agregarBloque(tipo) {
+  const nuevo = { tipo, texto: "", pie: "", src: "" };
+  bloquesArticulo.push(nuevo);
+  renderBloques();
+}
+
+function renderBloques() {
+  const cont = $("#bloques-articulo");
+  if (!cont) return;
+  cont.innerHTML = "";
+
+  if (!bloquesArticulo.length) {
+    const vacio = document.createElement("div");
+    vacio.className = "bloque-vacio";
+    vacio.textContent = "Todavía no hay contenido. Usa los botones de abajo para agregar párrafos, subtítulos, listas o imágenes.";
+    cont.appendChild(vacio);
+    return;
+  }
+
+  bloquesArticulo.forEach((bloque, indice) => {
+    const div = document.createElement("div");
+    div.className = "bloque";
+
+    const cabecera = document.createElement("div");
+    cabecera.className = "bloque-cabecera";
+    cabecera.innerHTML =
+      '<span class="bloque-tipo">' + escapar(ETIQUETA_BLOQUE[bloque.tipo] || bloque.tipo) + "</span>" +
+      '<span class="bloque-controles">' +
+      '<button type="button" class="boton-suave" data-c="subir" title="Subir">▲</button>' +
+      '<button type="button" class="boton-suave" data-c="bajar" title="Bajar">▼</button>' +
+      '<button type="button" class="boton-suave" data-c="quitar" title="Quitar">🗑️</button>' +
+      "</span>";
+    div.appendChild(cabecera);
+
+    if (bloque.tipo === "imagen") {
+      if (bloque._preview || bloque.src) {
+        const img = document.createElement("img");
+        img.className = "previa-imagen";
+        img.src = bloque._preview || "/" + bloque.src;
+        div.appendChild(img);
+      }
+      const file = document.createElement("input");
+      file.type = "file";
+      file.accept = ".jpg,.jpeg,.png,.webp";
+      file.addEventListener("change", () => {
+        const archivo = file.files[0];
+        if (!archivo) return;
+        bloque._archivo = archivo;
+        bloque._preview = URL.createObjectURL(archivo);
+        renderBloques();
+      });
+      div.appendChild(file);
+
+      const pie = document.createElement("input");
+      pie.type = "text";
+      pie.className = "pie-imagen";
+      pie.placeholder = "Texto debajo de la imagen (opcional)";
+      pie.value = bloque.pie || "";
+      pie.addEventListener("input", () => { bloque.pie = pie.value; });
+      div.appendChild(pie);
+    } else if (bloque.tipo === "subtitulo") {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "Escribe el subtítulo";
+      input.value = bloque.texto || "";
+      input.addEventListener("input", () => { bloque.texto = input.value; });
+      div.appendChild(input);
+    } else {
+      const area = document.createElement("textarea");
+      area.placeholder = bloque.tipo === "lista"
+        ? "Un punto por línea"
+        : "Escribe el párrafo. Usa **asteriscos** para negritas.";
+      area.value = bloque.texto || "";
+      area.addEventListener("input", () => { bloque.texto = area.value; });
+      div.appendChild(area);
+    }
+
+    cabecera.querySelectorAll("[data-c]").forEach((boton) => {
+      boton.addEventListener("click", () => {
+        const accion = boton.dataset.c;
+        if (accion === "subir" && indice > 0) {
+          [bloquesArticulo[indice - 1], bloquesArticulo[indice]] =
+            [bloquesArticulo[indice], bloquesArticulo[indice - 1]];
+        } else if (accion === "bajar" && indice < bloquesArticulo.length - 1) {
+          [bloquesArticulo[indice + 1], bloquesArticulo[indice]] =
+            [bloquesArticulo[indice], bloquesArticulo[indice + 1]];
+        } else if (accion === "quitar") {
+          bloquesArticulo.splice(indice, 1);
+        } else {
+          return;
+        }
+        renderBloques();
+      });
+    });
+
+    cont.appendChild(div);
+  });
 }
 
 function refrescarVistaPrevia() {
@@ -916,9 +1275,25 @@ function formularioArticulo(a) {
       <div class="ayuda">Normalmente no necesitas tocar esto: la versión de celular la fabrico yo, recortando la imagen principal. Úsalo solo si quieres una imagen distinta para celular.</div>
     </div>
     <div class="campo">
+      <label>Contenido del artículo</label>
+      <div class="ayuda">Arma tu publicación por bloques. Puedes agregar párrafos, subtítulos, listas e imágenes, y ordenarlos con las flechas. En los párrafos, rodea una palabra con **dos asteriscos** para ponerla en negrita. Si escribes contenido aquí, el panel crea la página completa del artículo automáticamente.</div>
+      <div id="bloques-articulo"></div>
+      <div class="agregar-bloque">
+        <button type="button" data-agregar="parrafo">＋ Párrafo</button>
+        <button type="button" data-agregar="subtitulo">＋ Subtítulo</button>
+        <button type="button" data-agregar="lista">＋ Lista</button>
+        <button type="button" data-agregar="imagen">＋ Imagen</button>
+      </div>
+    </div>
+    <div class="campo">
+      <label>Autor (opcional)</label>
+      <input type="text" id="campo-autor" value="${escapar(a && a.author ? a.author : "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.")}">
+      <div class="ayuda">Aparece al final del artículo. Déjalo vacío si no quieres mostrar autor.</div>
+    </div>
+    <div class="campo">
       <label>Enlace del artículo (opcional)</label>
       <input type="text" id="campo-enlace-articulo" value="${escapar(a ? a.url : "#")}">
-      <div class="ayuda">Si el artículo todavía no tiene página propia, deja solo: #</div>
+      <div class="ayuda">No necesitas tocar esto si escribes el contenido arriba (el panel lo llena solo). Úsalo solo si quieres enlazar a una página externa, o deja # si aún no hay página.</div>
     </div>
     <div class="campo">
       <div class="opciones-casillas">
@@ -998,6 +1373,7 @@ async function guardarFormulario(indice) {
         featured: $("#campo-portada").checked,
         date: $("#campo-fecha").value,
         badge: $("#campo-etiqueta").value.trim(),
+        author: $("#campo-autor").value.trim(),
       };
       const imagen = $("#campo-archivo").files[0];
       const imagenMovil = $("#campo-archivo-movil").files[0];
@@ -1022,6 +1398,51 @@ async function guardarFormulario(indice) {
         elemento.mobileImage = rutaCuadrada;
       }
       if (!elemento.mobileImage) elemento.mobileImage = elemento.image;
+
+      // --- Contenido del artículo (bloques -> página completa) ---
+      // Mantener el enlace de un artículo ya existente para no romper su URL.
+      let slug = id;
+      const urlActual = editando ? (lista[indice].url || "") : "";
+      const coincide = urlActual.match(/^\/recursos-didacticos\/articulos\/([a-z0-9-]+)\/?$/);
+      if (coincide) slug = coincide[1];
+
+      // Subir las imágenes nuevas que haya dentro del contenido.
+      for (let n = 0; n < bloquesArticulo.length; n++) {
+        const b = bloquesArticulo[n];
+        if (b.tipo === "imagen" && b._archivo) {
+          const rutaImg = "images/recursos/articulos/" + slug + "-" + (n + 1) + ".jpg";
+          botonGuardar.textContent = "Subiendo imágenes…";
+          await llamarApi("POST", { ruta: rutaImg, base64: await procesarImagenMax(b._archivo, 1200) });
+          b.src = rutaImg;
+        }
+      }
+
+      // Guardar el contenido (limpio, sin datos temporales) en la publicación.
+      const cuerpo = bloquesArticulo.map((b) => ({
+        tipo: b.tipo,
+        texto: b.texto || "",
+        pie: b.pie || "",
+        src: b.src || "",
+      }));
+      elemento.body = cuerpo;
+
+      const cuerpoHtml = bloquesAHtml(cuerpo);
+      if (cuerpoHtml.trim()) {
+        botonGuardar.textContent = "Creando la página…";
+        const html = paginaArticuloHtml({
+          title: titulo,
+          description: elemento.description,
+          image: elemento.image,
+          cuerpoHtml,
+          autor: elemento.author,
+          slug,
+        });
+        await llamarApi("PUT", {
+          pagina: "recursos-didacticos/articulos/" + slug + "/index.html",
+          html,
+        });
+        elemento.url = "/recursos-didacticos/articulos/" + slug + "/";
+      }
     }
 
     if (editando) lista[indice] = elemento;
