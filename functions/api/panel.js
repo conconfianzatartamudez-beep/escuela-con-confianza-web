@@ -39,12 +39,12 @@ function error(status, mensaje) {
 }
 
 function ramaDestino(env) {
-  return env.PANEL_RAMA || "main";
+  return (env.PANEL_RAMA || "main").trim();
 }
 
 function claveValida(request, env) {
   const clave = request.headers.get("x-panel-clave") || "";
-  const esperada = env.PANEL_CLAVE || "";
+  const esperada = (env.PANEL_CLAVE || "").trim();
   if (!esperada) return false;
   if (clave.length !== esperada.length) return false;
   let distintos = 0;
@@ -69,7 +69,7 @@ function textoABase64(texto) {
 
 function cabecerasGitHub(env) {
   return {
-    authorization: `Bearer ${env.GITHUB_TOKEN}`,
+    authorization: `Bearer ${(env.GITHUB_TOKEN || "").trim()}`,
     accept: "application/vnd.github+json",
     "user-agent": "panel-escuela-con-confianza",
     "x-github-api-version": "2022-11-28",
