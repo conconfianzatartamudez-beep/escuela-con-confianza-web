@@ -11,11 +11,7 @@
         "abordaje",
         "estrategias"
       ],
-      "principalCategories": [
-        "destacados",
-        "abordaje",
-        "estrategias"
-      ],
+      "principalCategories": [],
       "duration": ""
     },
     {
@@ -137,7 +133,9 @@
         "destacados",
         "abordaje"
       ],
-      "principalCategories": [],
+      "principalCategories": [
+        "abordaje"
+      ],
       "duration": ""
     }
   ]
