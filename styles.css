@@ -1926,6 +1926,12 @@ button {
   padding-top: 48px;
 }
 
+/* En las paginas de listado (Todas las publicaciones / Todas las guias),
+   la ultima seccion va directo contra el footer: darle aire abajo. */
+main > .resources-section:last-child {
+  padding-bottom: 64px;
+}
+
 .resources-section__header {
   margin-bottom: 20px;
 }
@@ -2533,7 +2539,8 @@ a.resources-article-card:focus-visible {
   }
 
   .resources-article-card__date {
-    display: none;
+    font-size: 0.72rem;
+    margin-bottom: 2px;
   }
 
   .resources-guide-card {
