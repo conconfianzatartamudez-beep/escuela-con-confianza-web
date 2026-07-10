@@ -432,7 +432,7 @@
     <div class="pestanas">
       <button class="pestana activa" data-tipo="videos">🎬 Videos</button>
       <button class="pestana" data-tipo="guias">📄 Guías</button>
-      <button class="pestana" data-tipo="articulos">📰 Publicaciones</button>
+      <button class="pestana" data-tipo="articulos">📰 Lecturas</button>
     </div>
 
     <div class="barra-seccion">
@@ -489,7 +489,7 @@ const ICONOS_GUIA = [
 const DESCRIPCIONES = {
   videos: "Los videos de YouTube que se muestran en la página de Recursos.",
   guias: "Las guías en PDF o ZIP que la gente puede descargar.",
-  articulos: "Las tarjetas de publicaciones de Recursos.",
+  articulos: "Las tarjetas de lecturas de Recursos.",
 };
 
 /* ================= Utilidades ================= */
@@ -620,7 +620,7 @@ function paginaArticuloHtml(datos) {
     ? "https://escuelaconconfianza.com/" + escapar(image)
     : "https://escuelaconconfianza.com/images/og-image-20260508.png";
   const heroImg = image ? '\n        <img loading="lazy" decoding="async" class="resources-article-detail__image" src="/' +
-    escapar(image) + '" alt="Imagen de la publicación ' + escapar(title) + '" />' : "";
+    escapar(image) + '" alt="Imagen de la lectura ' + escapar(title) + '" />' : "";
   const autorHtml = autor
     ? '\n          <p class="resources-article-detail__author">Autor: ' + escapar(autor) + "</p>"
     : "";
@@ -678,9 +678,9 @@ function paginaArticuloHtml(datos) {
   <main class="resources-page">
     <article class="resources-article-detail">
       <div class="container resources-article-detail__inner">
-        <a href="/recursos-didacticos/publicaciones/" class="resources-section__link">← Volver a publicaciones</a>${heroImg}
+        <a href="/recursos-didacticos/publicaciones/" class="resources-section__link">← Volver a lecturas</a>${heroImg}
         <header class="resources-article-detail__header">
-          <p class="section__label">Publicación</p>
+          <p class="section__label">Lectura</p>
           <h1>${escapar(title)}</h1>
         </header>
 
@@ -768,15 +768,15 @@ function procesarImagenMax(archivo, anchoMaximo) {
   });
 }
 
-// Arma el texto listo para pegar en ChatGPT y generar la imagen de una publicación.
+// Arma el texto listo para pegar en ChatGPT y generar la imagen de una lectura.
 function generarPromptImagen(titulo, descripcion) {
-  const tema = (titulo || "").trim() || "(escribe primero el título de la publicación)";
+  const tema = (titulo || "").trim() || "(escribe primero el título de la lectura)";
   const detalle = (descripcion || "").trim();
   return (
     "Crea una imagen horizontal en formato apaisado 16:9 (ideal para 1600 x 900 píxeles), " +
-    "para acompañar una publicación de Escuela Con Confianza, una organización que acompaña " +
+    "para acompañar una lectura de Escuela Con Confianza, una organización que acompaña " +
     "a personas con tartamudez.\n\n" +
-    "Tema de la publicación: «" + tema + "».\n" +
+    "Tema de la lectura: «" + tema + "».\n" +
     (detalle ? "Contexto: " + detalle + "\n" : "") +
     "\nEstilo: cálido, humano y profesional; tonos serenos (verdes suaves y neutros); " +
     "sensación de calma, confianza y respeto. Sin texto ni letras dentro de la imagen. " +
@@ -859,7 +859,7 @@ async function cargarTodo() {
 function pintarLista() {
   $("#titulo-seccion").textContent =
     pestanaActual === "videos" ? "Videos" :
-    pestanaActual === "guias" ? "Guías descargables" : "Publicaciones";
+    pestanaActual === "guias" ? "Guías descargables" : "Lecturas";
   $("#descripcion-seccion").textContent = DESCRIPCIONES[pestanaActual];
 
   const contenedor = $("#contenedor-lista");
@@ -1250,7 +1250,7 @@ function formularioGuia(g) {
 
 function formularioArticulo(a) {
   return `<div class="ventana">
-    <h3>${a ? "Editar publicación" : "Agregar publicación"}</h3>
+    <h3>${a ? "Editar lectura" : "Agregar lectura"}</h3>
     <div class="campo">
       <label>Título</label>
       <input type="text" id="campo-titulo" value="${escapar(a ? a.title : "")}">
@@ -1270,7 +1270,7 @@ function formularioArticulo(a) {
       <button type="button" class="boton-copiar" id="boton-copiar-prompt">📋 Copiar el texto para la IA</button>
     </div>
     <div class="campo">
-      <label>${a && a.image ? "Cambiar la imagen (opcional)" : "Imagen de la publicación"}</label>
+      <label>${a && a.image ? "Cambiar la imagen (opcional)" : "Imagen de la lectura"}</label>
       ${a && a.image ? '<img class="img-actual" src="/' + escapar(a.image) + '" alt="Imagen actual">' : ""}
       <input type="file" id="campo-archivo" accept=".jpg,.jpeg,.png,.webp">
       <div class="nota-archivo" id="nota-archivo"></div>
@@ -1286,7 +1286,7 @@ function formularioArticulo(a) {
     </div>
     <div class="campo">
       <label>Contenido del artículo</label>
-      <div class="ayuda">Arma tu publicación por bloques. Puedes agregar párrafos, subtítulos, listas e imágenes, y ordenarlos con las flechas. En los párrafos, rodea una palabra con **dos asteriscos** para ponerla en negrita. Si escribes contenido aquí, el panel crea la página completa del artículo automáticamente.</div>
+      <div class="ayuda">Arma tu lectura por bloques. Puedes agregar párrafos, subtítulos, listas e imágenes, y ordenarlos con las flechas. En los párrafos, rodea una palabra con **dos asteriscos** para ponerla en negrita. Si escribes contenido aquí, el panel crea la página completa del artículo automáticamente.</div>
       <div id="bloques-articulo"></div>
       <div class="agregar-bloque">
         <button type="button" data-agregar="parrafo">＋ Párrafo</button>
@@ -1313,7 +1313,7 @@ function formularioArticulo(a) {
     <div class="campo">
       <label>Etiqueta especial (opcional)</label>
       <input type="text" id="campo-etiqueta" value="${escapar(a ? a.badge : "")}" placeholder="Ej. Próximamente">
-      <div class="ayuda">Si tiene etiqueta, la tarjeta no se puede abrir. Déjalo vacío para publicaciones normales.</div>
+      <div class="ayuda">Si tiene etiqueta, la tarjeta no se puede abrir. Déjalo vacío para lecturas normales.</div>
     </div>
     <div class="pie-ventana">
       <button class="boton boton-secundario" data-cerrar>Cancelar</button>
