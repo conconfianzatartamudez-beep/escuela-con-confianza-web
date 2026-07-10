@@ -27,13 +27,19 @@
       "body": [
         {
           "tipo": "parrafo",
-          "texto": "Hay momentos en los que una persona con tartamudez puede hablar con bastante fluidez y otros en los que las palabras se atascan con mayor frecuencia. Incluso puede pasar varios días con pocas dificultades y, de pronto, volver a experimentar bloqueos más intensos. Estos cambios suelen generar incertidumbre, sobre todo cuando no encontramos una explicación inmediata.\nDistintos estudios han registrado variaciones marcadas en la frecuencia de la tartamudez dentro de un mismo día, entre días diferentes y según la situación de habla. Tampoco se ha encontrado un patrón que se repita de la misma manera en todas las personas (Constantino et al., 2016; Tichenor & Yaruss, 2021).\n\nLa tartamudez es variable. Las interrupciones no aparecen siempre con la misma frecuencia ni intensidad. Esta característica puede resultar frustrante porque nos mantiene pendientes de lo que ocurrirá con la siguiente palabra. También explica por qué comentarios como “ahora estás hablando bien, ¿ves que sí puedes?” no reflejan lo que realmente vive una persona que tartamudea. Poder hablar con fluidez en un momento no significa que la dificultad haya desaparecido.\n\nAlgunas variaciones están relacionadas con situaciones que podemos identificar. Otras ocurren sin una razón evidente (Constantino et al., 2016).",
+          "texto": "Hay momentos en los que una persona con tartamudez puede hablar con bastante fluidez y otros en los que las palabras se atascan con mayor frecuencia. Incluso puede pasar varios días con pocas dificultades y, de pronto, volver a experimentar bloqueos más intensos. Estos cambios suelen generar incertidumbre, sobre todo cuando no encontramos una explicación inmediata.\nDistintos estudios han registrado variaciones marcadas en la frecuencia de la tartamudez dentro de un mismo día, entre días diferentes y según la situación de habla. Tampoco se ha encontrado un patrón que se repita de la misma manera en todas las personas (Constantino et al., 2016; Tichenor & Yaruss, 2021).",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "La tartamudez es variable. Las interrupciones no aparecen siempre con la misma frecuencia ni intensidad. Esta característica puede resultar frustrante porque nos mantiene pendientes de lo que ocurrirá con la siguiente palabra. También explica por qué comentarios como “ahora estás hablando bien, ¿ves que sí puedes?” no reflejan lo que realmente vive una persona que tartamudea. Poder hablar con fluidez en un momento no significa que la dificultad haya desaparecido.\n\nAlgunas variaciones están relacionadas con situaciones que podemos identificar. Otras ocurren sin una razón evidente (Constantino et al., 2016).",
           "pie": "",
           "src": ""
         },
         {
           "tipo": "subtitulo",
-          "texto": "**Hablar más rápido puede aumentar la dificultad**",
+          "texto": "Hablar más rápido puede aumentar la dificultad",
           "pie": "",
           "src": ""
         },
@@ -45,7 +51,7 @@
         },
         {
           "tipo": "subtitulo",
-          "texto": "**El estrés también puede influir**",
+          "texto": "El estrés también puede influir",
           "pie": "",
           "src": ""
         },
@@ -57,7 +63,7 @@
         },
         {
           "tipo": "subtitulo",
-          "texto": "**El miedo puede aumentar el esfuerzo**",
+          "texto": "El miedo puede aumentar el esfuerzo",
           "pie": "",
           "src": ""
         },
@@ -69,7 +75,7 @@
         },
         {
           "tipo": "subtitulo",
-          "texto": "**Los contextos nuevos pueden exigirnos más*",
+          "texto": "Los contextos nuevos pueden exigirnos más",
           "pie": "",
           "src": ""
         },
@@ -81,7 +87,7 @@
         },
         {
           "tipo": "subtitulo",
-          "texto": "**Situaciones en las que la tartamudez puede disminuir**",
+          "texto": "Situaciones en las que la tartamudez puede disminuir",
           "pie": "",
           "src": ""
         },
@@ -93,7 +99,7 @@
         },
         {
           "tipo": "subtitulo",
-          "texto": "**El ciclo menstrual necesita mayor estudio**",
+          "texto": "El ciclo menstrual necesita mayor estudio",
           "pie": "",
           "src": ""
         },
@@ -105,7 +111,7 @@
         },
         {
           "tipo": "subtitulo",
-          "texto": "**El consumo de alimentos siguen siendo experiencias personales**",
+          "texto": "El consumo de alimentos siguen siendo experiencias personales",
           "pie": "",
           "src": ""
         },
@@ -117,7 +123,7 @@
         },
         {
           "tipo": "subtitulo",
-          "texto": "**Un periodo de mayor tartamudez no significa que estemos retrocediendo**",
+          "texto": "Un periodo de mayor tartamudez no significa que estemos retrocediendo",
           "pie": "",
           "src": ""
         },
