@@ -618,7 +618,7 @@ function bloquesAHtml(bloques) {
 
 // Genera la página HTML completa del artículo, con el diseño del sitio.
 function paginaArticuloHtml(datos) {
-  const { title, description, image, cuerpoHtml, autor, slug } = datos;
+  const { title, description, image, cuerpoHtml, autor, referencias, slug } = datos;
   const canonica = "https://escuelaconconfianza.com/recursos-didacticos/articulos/" + slug + "/";
   const tituloPagina = escapar(title) + " | Escuela Con Confianza";
   const desc = escapar(description || title);
@@ -629,6 +629,15 @@ function paginaArticuloHtml(datos) {
     escapar(image) + '" alt="Imagen de la lectura ' + escapar(title) + '" />' : "";
   const autorHtml = autor
     ? '\n          <p class="resources-article-detail__author">Autor: ' + escapar(autor) + "</p>"
+    : "";
+  const refsHtml = (Array.isArray(referencias) && referencias.length)
+    ? '\n          <section class="resources-article-detail__refs" style="margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid rgba(1,174,171,0.25);">\n' +
+      '            <h2 style="font-size:1.1rem;margin-bottom:0.9rem;">Referencias</h2>\n' +
+      referencias.map((r) =>
+        '            <p style="font-size:0.88rem;line-height:1.55;color:#6b7c78;margin:0 0 0.65rem;padding-left:1.6rem;text-indent:-1.6rem;">' +
+        escapar(r) + "</p>"
+      ).join("\n") +
+      "\n          </section>"
     : "";
 
   return `<!DOCTYPE html>
@@ -691,7 +700,7 @@ function paginaArticuloHtml(datos) {
         </header>
 
         <div class="resources-article-detail__content">
-${cuerpoHtml}${autorHtml}
+${cuerpoHtml}${autorHtml}${refsHtml}
         </div>
       </div>
     </article>
@@ -788,6 +797,26 @@ function generarPromptImagen(titulo, descripcion) {
     "sensación de calma, confianza y respeto. Sin texto ni letras dentro de la imagen. " +
     "Coloca los elementos importantes hacia el centro, para que también se vea bien " +
     "recortada en un cuadrado central (versión para celular)."
+  );
+}
+
+// Arma el texto listo para pegar en ChatGPT y generar una imagen que va
+// dentro del artículo, entre párrafos. Mismo formato apaisado que la portada
+// para que todas las imágenes del artículo se vean parejas.
+function generarPromptImagenBloque(tituloArticulo, pie) {
+  const tema = (pie || "").trim() ||
+    "(escribe primero, en el cuadro de arriba, el texto que irá debajo de la imagen)";
+  const titulo = (tituloArticulo || "").trim();
+  return (
+    "Crea una imagen horizontal en formato apaisado 16:9 (ideal para 1600 x 900 píxeles), " +
+    "para ilustrar una sección dentro de una lectura de Escuela Con Confianza, " +
+    "una organización que acompaña a personas con tartamudez.\n\n" +
+    "La imagen debe representar: «" + tema + "».\n" +
+    (titulo ? "Título de la lectura donde irá: «" + titulo + "».\n" : "") +
+    "\nEstilo: cálido, humano y profesional; tonos serenos (verdes suaves y neutros); " +
+    "sensación de calma, confianza y respeto. Sin texto ni letras dentro de la imagen. " +
+    "Debe combinar con las demás ilustraciones de la lectura: misma paleta de colores " +
+    "y mismo estilo visual."
   );
 }
 
@@ -1112,6 +1141,41 @@ function renderBloques() {
       pie.value = bloque.pie || "";
       pie.addEventListener("input", () => { bloque.pie = pie.value; });
       div.appendChild(pie);
+
+      const ayudaImg = document.createElement("div");
+      ayudaImg.className = "ayuda";
+      ayudaImg.textContent = "La imagen debe ser horizontal (16:9). Si la vas a crear con IA, copia este texto, pégalo en ChatGPT y sube aquí la imagen que te dé. El panel la ajusta sola al tamaño correcto.";
+      div.appendChild(ayudaImg);
+
+      const botonPromptImg = document.createElement("button");
+      botonPromptImg.type = "button";
+      botonPromptImg.className = "boton-copiar";
+      botonPromptImg.textContent = "📋 Copiar el texto para crear esta imagen con IA";
+      botonPromptImg.addEventListener("click", async () => {
+        const titulo = $("#campo-titulo") ? $("#campo-titulo").value : "";
+        const prompt = generarPromptImagenBloque(titulo, bloque.pie);
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(prompt);
+          } else {
+            const aux = document.createElement("textarea");
+            aux.value = prompt;
+            document.body.appendChild(aux);
+            aux.select();
+            document.execCommand("copy");
+            document.body.removeChild(aux);
+          }
+          botonPromptImg.textContent = "✅ ¡Copiado! Pégalo en ChatGPT";
+          botonPromptImg.classList.add("copiado");
+          setTimeout(() => {
+            botonPromptImg.textContent = "📋 Copiar el texto para crear esta imagen con IA";
+            botonPromptImg.classList.remove("copiado");
+          }, 2500);
+        } catch (e) {
+          mostrarAviso("No se pudo copiar solo. Inténtalo de nuevo.", true);
+        }
+      });
+      div.appendChild(botonPromptImg);
     } else if (bloque.tipo === "subtitulo") {
       const input = document.createElement("input");
       input.type = "text";
@@ -1270,7 +1334,7 @@ function formularioArticulo(a) {
       <input type="date" id="campo-fecha" value="${escapar(a && a.date ? a.date : new Date().toISOString().slice(0, 10))}">
     </div>
     <div class="caja-ia">
-      <div class="titulo-ia">🎨 ¿Necesitas la imagen? Genérala con IA</div>
+      <div class="titulo-ia">🎨 ¿Necesitas la imagen de portada? Genérala con IA</div>
       <div class="ayuda">Copia este texto y pégalo en ChatGPT (o el generador de imágenes que uses). Ya incluye las medidas correctas. Luego sube aquí abajo la imagen que te dé.</div>
       <textarea id="campo-prompt-ia" readonly></textarea>
       <button type="button" class="boton-copiar" id="boton-copiar-prompt">📋 Copiar el texto para la IA</button>
@@ -1305,6 +1369,11 @@ function formularioArticulo(a) {
       <label>Autor (opcional)</label>
       <input type="text" id="campo-autor" value="${escapar(a && a.author ? a.author : "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.")}">
       <div class="ayuda">Aparece al final del artículo. Déjalo vacío si no quieres mostrar autor.</div>
+    </div>
+    <div class="campo">
+      <label>Referencias (opcional)</label>
+      <textarea id="campo-referencias" rows="5" placeholder="Ejemplo:&#10;Constantino, C. D., Leslie, P., Quesal, R. W., & Yaruss, J. S. (2016). A preliminary investigation of daily variability of stuttering in adults. Journal of Communication Disorders, 60, 39-50.">${escapar(a && Array.isArray(a.references) ? a.references.join("\n") : "")}</textarea>
+      <div class="ayuda">Escribe una referencia por línea (da Enter entre una y otra). Aparecen al final del artículo, después del autor, bajo el título "Referencias", con letra más pequeña y en el mismo orden en que las escribas (se acostumbra orden alfabético por apellido). Déjalo vacío si la lectura no lleva referencias.</div>
     </div>
     <div class="campo">
       <label>Enlace del artículo (opcional)</label>
@@ -1402,6 +1471,8 @@ async function guardarFormulario(indice) {
         date: $("#campo-fecha").value,
         badge: $("#campo-etiqueta").value.trim(),
         author: $("#campo-autor").value.trim(),
+        references: $("#campo-referencias").value
+          .split("\n").map((s) => s.trim()).filter(Boolean),
       };
       const imagen = $("#campo-archivo").files[0];
       const imagenMovil = $("#campo-archivo-movil").files[0];
@@ -1440,7 +1511,9 @@ async function guardarFormulario(indice) {
         if (b.tipo === "imagen" && b._archivo) {
           const rutaImg = "images/recursos/articulos/" + slug + "-" + (n + 1) + ".jpg";
           botonGuardar.textContent = "Subiendo imágenes…";
-          await llamarApi("POST", { ruta: rutaImg, base64: await procesarImagenMax(b._archivo, 1200) });
+          // Recorte automático a 16:9 para que todas las imágenes del
+          // artículo se vean parejas, igual que la portada.
+          await llamarApi("POST", { ruta: rutaImg, base64: await procesarImagen(b._archivo, 1600, 900) });
           b.src = rutaImg;
         }
       }
@@ -1463,6 +1536,7 @@ async function guardarFormulario(indice) {
           image: elemento.image,
           cuerpoHtml,
           autor: elemento.author,
+          referencias: elemento.references,
           slug,
         });
         await llamarApi("PUT", {
