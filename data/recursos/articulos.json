@@ -19,8 +19,10 @@
       "mobileImage": "images/recursos/tecnicas-manejar-tartamudez-cuadrado.jpg",
       "url": "#",
       "featured": true,
-      "date": "2026-04-28",
-      "badge": "Próximamente"
+      "date": "2026-07-10",
+      "badge": "Próximamente",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "body": []
     },
     {
       "id": "dias-tartamudeo-mas",
@@ -30,8 +32,10 @@
       "mobileImage": "images/recursos/dias-tartamudeo-mas-cuadrado.jpg",
       "url": "#",
       "featured": true,
-      "date": "2026-04-27",
-      "badge": "Próximamente"
+      "date": "2026-07-09",
+      "badge": "Próximamente",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "body": []
     }
   ]
 }
