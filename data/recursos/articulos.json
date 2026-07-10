@@ -2,14 +2,16 @@
   "articulos": [
     {
       "id": "tecnicas-dejar-tartamudear",
-      "title": "“Técnicas para dejar de tartamudear”: ¿se puede dejar de tartamudear practicando técnicas?",
-      "description": "Una reflexión sobre el rol de las técnicas, la confianza y el proceso para ganar fluidez.",
+      "title": "“Técnicas para dejar de tartamudear”: ¿Se puede dejar de tartamudear practicando técnicas?",
+      "description": "Reflexión sobre el rol de las técnicas y la confianza sobre el proceso para ganar fluidez.",
       "image": "images/recursos/tecnicas-dejar-tartamudear.jpg",
       "mobileImage": "images/recursos/tecnicas-dejar-tartamudear-cuadrado.jpg",
       "url": "/recursos-didacticos/articulos/tecnicas-para-dejar-de-tartamudear/",
       "featured": true,
       "date": "2026-04-29",
-      "badge": ""
+      "badge": "",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "body": []
     },
     {
       "id": "tecnicas-manejar-tartamudez",
@@ -30,12 +32,115 @@
       "description": "Factores que influyen en la variabilidad de la tartamudez.",
       "image": "images/recursos/dias-tartamudeo-mas.jpg",
       "mobileImage": "images/recursos/dias-tartamudeo-mas-cuadrado.jpg",
-      "url": "#",
+      "url": "/recursos-didacticos/articulos/dias-tartamudeo-mas/",
       "featured": true,
       "date": "2026-07-09",
-      "badge": "Próximamente",
+      "badge": "",
       "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
-      "body": []
+      "body": [
+        {
+          "tipo": "parrafo",
+          "texto": "Hay momentos en los que una persona con tartamudez puede hablar con bastante fluidez y otros en los que las palabras se atascan con mayor frecuencia. Incluso puede pasar varios días con pocas dificultades y, de pronto, volver a experimentar bloqueos más intensos. Estos cambios suelen generar incertidumbre, sobre todo cuando no encontramos una explicación inmediata.\nDistintos estudios han registrado variaciones marcadas en la frecuencia de la tartamudez dentro de un mismo día, entre días diferentes y según la situación de habla. Tampoco se ha encontrado un patrón que se repita de la misma manera en todas las personas (Constantino et al., 2016; Tichenor & Yaruss, 2021).\n\nLa tartamudez es variable. Las interrupciones no aparecen siempre con la misma frecuencia ni intensidad. Esta característica puede resultar frustrante porque nos mantiene pendientes de lo que ocurrirá con la siguiente palabra. También explica por qué comentarios como “ahora estás hablando bien, ¿ves que sí puedes?” no reflejan lo que realmente vive una persona que tartamudea. Poder hablar con fluidez en un momento no significa que la dificultad haya desaparecido.\n\nAlgunas variaciones están relacionadas con situaciones que podemos identificar. Otras ocurren sin una razón evidente (Constantino et al., 2016).",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "**Hablar más rápido puede aumentar la dificultad**",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Cuando estamos emocionados y queremos contar algo con entusiasmo, podemos acelerar el habla. También puede ocurrir al dar una explicación o defendernos en una situación que sentimos urgente.\n\nAlgunas personas notan que tartamudean más cuando intentan hablar rápido. Sin embargo, no con todos ocurre lo mismo. Un estudio que comparó una velocidad promedio con una velocidad rápida no encontró un aumento estadísticamente significativo de la frecuencia de tartamudez. Otros estudios sugieren que la velocidad, la extensión de las frases y la complejidad de la tarea pueden interactuar de manera diferente en cada hablante (Blomgren & Goberman, 2008; Kalinowski et al., 1995).\n\nEntonces, para algunos hablar más rápido puede complicarse y para otros no. Si una persona nota repetidamente que la prisa le dificulta hablar, puede observar en qué situaciones aparece y cómo reacciona. Esto no significa que deba obligarse a hablar lentamente todo el tiempo. Tal vez puede ser útil regular la velocidad solo cuando el nivel de dificultad lo amerite. \n\nA veces aceleramos para intentar escapar de una palabra que creemos que no saldrá. Queremos atravesar ese momento antes de que aparezca el bloqueo. En ese caso, la sensación de urgencia y el esfuerzo por evitar la tartamudez pueden generar más dificultades.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "**El estrés también puede influir**",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "El cuerpo no funciona de la misma manera cuando estamos bajo estrés. En esos periodos puede costarnos más realizar tareas que normalmente hacemos con menos esfuerzo, incluida el habla.\nUna conversación difícil, una discusión o una situación en la que sentimos que debemos responder de inmediato puede aumentar la presión. En esos momentos también podemos estar más pendientes de nuestras palabras y de la reacción de quien nos escucha.\n\nMuchas personas nos han dicho que tartamudean más cuando han dormido poco. Algunos autores plantearon que el sueño podría relacionarse con la variabilidad diaria de la tartamudez (Jacobs et al., 2021).\n\nSin embargo, no con todos es igual y por eso es preciso decir que algunas personas perciben mayores dificultades después de descansar poco. Esta observación puede registrarse como un patrón personal, sin presentarla como una regla general.\n",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "**El miedo puede aumentar el esfuerzo**",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Cuando sentimos miedo, los músculos se preparan para reaccionar ante lo que interpretamos como un peligro. Si ese temor aparece mientras hablamos, podemos hacer más fuerza para intentar que la palabra salga. \n\nLa tensión muscular puede dificultar el movimiento de los músculos del habla y puede prolongar el bloqueo.\n\nLa tensión física forma parte de la experiencia de muchas personas con tartamudez, aunque no siempre es visible para quien escucha (Tichenor et al., 2017).\n\nTambién podemos tratar de hablar rápidamente con la intención de evitar que los demás noten nuestra tartamudez. En lugar de facilitar el habla, ese intento de escape puede aumentar las interrupciones. Por eso el miedo y la vergüenza pueden hacer que ciertos momentos resulten más complicados.\n\nLa reacción de las personas que nos escuchan también influye. Interrumpir, completar palabras o decir “cálmate y habla más despacio” puede hacer que la persona se sienta observada y presionada y al final se termine complicando más. ## Los contextos nuevos requieren más atención",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "**Los contextos nuevos pueden exigirnos más*",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Muchas personas cuentan que tartamudean más cuando empiezan a estudiar en un lugar nuevo, conocen a otras personas o ingresan a un grupo al que todavía no están acostumbradas.\n\nCon personas cercanas ya conocemos la dinámica de la conversación. En un entorno nuevo debemos adaptarnos a otras formas de interacción y podemos prestar más atención a la impresión que estamos causando. Los estudios sobre variabilidad confirman que la frecuencia de la tartamudez puede cambiar entre situaciones, mientras que las investigaciones sobre estrés social muestran modificaciones en la producción del habla cuando hay otras personas observando (Constantino et al., 2016; Jackson et al., 2016).\n\nAlgo parecido puede ocurrir al exponer un tema que todavía no dominamos. Mientras hablamos, también debemos recordar la información y organizar la explicación. La extensión de las frases y la complejidad de la tarea pueden influir en la frecuencia de la tartamudez (Blomgren & Goberman, 2008).\n\nUna investigación reciente encontró que las palabras con mayor carga de información tienen más probabilidades de presentar tartamudez. Esto sugiere que la cantidad de información que necesitamos formular y transmitir puede contribuir a que ciertos momentos del habla resulten más difíciles (Warner et al., 2026).\n\nEsto ayuda a entender por qué una persona puede hablar con facilidad sobre un asunto conocido y experimentar mayores dificultades durante una exposición académica. Aunque hay que resaltar que no con todos ocurre de la misma manera.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "**Situaciones en las que la tartamudez puede disminuir**",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "La tartamudez suele reducirse en algunas condiciones especiales de habla. Se ha observado, por ejemplo, una disminución durante el canto y la lectura en coro, cuando la persona habla al mismo tiempo que alguien más. Aunque no sucede igual con todos (Healey et al., 1976; Ritto et al., 2016).\n\n\nEn algunas personas, sentirse cómodo con las personas y conocer bien el tema de conversación puede facilitar el habla. Otros también presentan pocas dificultades cuando hablan solas. Una posible explicación es que esta actividad no funciona de la misma manera en el cerebro que una conversación espontánea con otra persona.\n\nTambién puede haber periodos de menor tartamudez sin una causa reconocible. ",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "**El ciclo menstrual necesita mayor estudio**",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Algunas mujeres han comentado que su tartamudez cambia durante el ciclo menstrual. En 2025 se publicó un estudio que siguió a cinco mujeres con tartamudez durante dos ciclos. Las participantes reportaron cambios en la severidad según la fase del ciclo, pero los resultados no fueron uniformes en todas las mujeres ni en todos los ciclos (Mohammadi et al., 2025).\n\nEl número de participantes fue muy pequeño y la severidad se evaluó mediante autorreportes. Por ello, estos resultados deben considerarse preliminares. Todavía no permiten afirmar que los cambios hormonales produzcan un aumento determinado de la tartamudez ni establecer qué fase sería más difícil para todas las mujeres.\n\nPuede ser útil registrar la experiencia individual cuando se percibe un patrón repetido. Ese registro no sustituye una investigación con una muestra más amplia, pero anima a que se siga investigando y a reconocer cómo reacciona el cuerpo de cada persona.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "**El consumo de alimentos siguen siendo experiencias personales**",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Algunas personas de la comunidad han comentado que tartamudean más después de consumir café, leche, chocolate o azúcar. Estas experiencias pueden ser reales para quienes las perciben, pero actualmente no contamos con evidencia directa suficiente para presentar esos alimentos como factores que aumentan la tartamudez.\n\nTampoco sería adecuado recomendar que una persona elimine alimentos basándose únicamente en testimonios. Si alguien identifica un patrón, puede registrarlo durante un periodo y considerar otras variables que podrían coincidir, como el descanso o la situación de habla.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "**Un periodo de mayor tartamudez no significa que estemos retrocediendo**",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Uno de los errores más comunes es medir el progreso únicamente por la cantidad de veces que tartamudeamos. Cuando aparece un periodo con más bloqueos, podemos pensar que estamos perdiendo lo aprendido o sufriendo una recaída. Esa interpretación puede disminuir la confianza y aumentar el miedo durante las conversaciones.\n\nAprender a manejar la tartamudez no garantiza que hablaremos con la misma fluidez todos los días. Habrá momentos con mayor dificultad, incluso cuando hayamos desarrollado herramientas para afrontar los bloqueos.\n\nPodemos identificar los contextos que suelen exigirnos más y prepararnos para ellos. Es importante que desarrollemos tolerancia con nosotros mismos y no ser tan autoexigentes en esas situaciones. La paciencia es muy importante. Es como aceptar que uno va a sentir frío si es invierno. Uno no lucha para que no haya frío en el invierno, simplemente lo acepta y se va a abrigar, entendiendo que eso es lo que debe hacer en ese tipo de situaciones, ya que es normal tener frío en invierno. \n\nComprender la variabilidad permite atravesar los periodos difíciles con menos incertidumbre. Si empezamos las clases y tartamudeamos más, podemos reconocer que estamos adaptándonos a un ambiente nuevo. Cuando la situación se vuelve familiar, es posible que la dificultad disminuya. Y, si no encontramos una explicación clara, podemos aceptar que la tartamudez también cambia sin que siempre exista una causa visible.\n\nLa cantidad de tartamudeos puede variar. La forma en que respondemos a esos cambios sí puede aprenderse y entrenarse.",
+          "pie": "",
+          "src": ""
+        }
+      ]
     }
   ]
 }
