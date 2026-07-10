@@ -238,6 +238,16 @@
     }).slice(0, 3);
   }
 
+  function formatearFecha(iso) {
+    var meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    var partes = String(iso || '').split('-');
+    if (partes.length !== 3) return '';
+    var mes = parseInt(partes[1], 10);
+    var dia = parseInt(partes[2], 10);
+    if (!mes || !dia || mes > 12) return '';
+    return dia + ' de ' + meses[mes - 1] + ' de ' + partes[0];
+  }
+
   function articleCard(article) {
     var image = resolveAssetPath(article.image);
     var mobileImage = resolveAssetPath(article.mobileImage || article.image);
@@ -258,6 +268,7 @@
         '<img loading="lazy" decoding="async" src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.title) + '" />' +
       '</picture>' +
       '<div class="resources-article-card__body">' +
+        (formatearFecha(article.date) ? '<p class="resources-article-card__date">' + formatearFecha(article.date) + '</p>' : '') +
         '<h3>' + escapeHtml(article.title) + '</h3>' +
         '<p>' + escapeHtml(article.description) + '</p>' +
         action +
