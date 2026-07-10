@@ -231,9 +231,8 @@
   }
 
   function getFeaturedArticles() {
-    return data.articulos.slice().sort(function (a, b) {
-      return String(b.date || '').localeCompare(String(a.date || ''));
-    }).filter(function (article) {
+    // Respeta el orden elegido en el panel (flechas), no la fecha.
+    return data.articulos.filter(function (article) {
       return article.featured;
     }).slice(0, 3);
   }
@@ -302,10 +301,8 @@
   function renderAllArticles() {
     var container = document.querySelector('[data-all-articles]');
     if (!container) return;
-    var articles = data.articulos.slice().sort(function (a, b) {
-      return String(b.date || '').localeCompare(String(a.date || ''));
-    });
-    container.innerHTML = articles.map(articleCard).join('');
+    // Respeta el orden elegido en el panel (flechas), no la fecha.
+    container.innerHTML = data.articulos.map(articleCard).join('');
   }
 
   function bindAudienceButtons() {

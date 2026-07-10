@@ -581,7 +581,13 @@ function bloquesAHtml(bloques) {
   return bloques
     .map((b) => {
       if (b.tipo === "parrafo" && (b.texto || "").trim()) {
-        return "          <p>" + textoRico(b.texto.trim()) + "</p>";
+        // Cada Enter dentro del cuadro crea un párrafo aparte en la página.
+        return b.texto
+          .split(/\n+/)
+          .map((s) => s.trim())
+          .filter(Boolean)
+          .map((p) => "          <p>" + textoRico(p) + "</p>")
+          .join("\n");
       }
       if (b.tipo === "subtitulo" && (b.texto || "").trim()) {
         return "          <h2>" + escapar(b.texto.trim()) + "</h2>";
@@ -1286,7 +1292,7 @@ function formularioArticulo(a) {
     </div>
     <div class="campo">
       <label>Contenido del artículo</label>
-      <div class="ayuda">Arma tu lectura por bloques. Puedes agregar párrafos, subtítulos, listas e imágenes, y ordenarlos con las flechas. En los párrafos, rodea una palabra con **dos asteriscos** para ponerla en negrita. Si escribes contenido aquí, el panel crea la página completa del artículo automáticamente.</div>
+      <div class="ayuda">Arma tu lectura por bloques. Puedes agregar párrafos, subtítulos, listas e imágenes, y ordenarlos con las flechas. Dentro de un cuadro de párrafo, cada Enter empieza un párrafo nuevo en la página (como en Word); usa el botón ＋ solo si quieres meter un subtítulo, lista o imagen en medio. Rodea una palabra con **dos asteriscos** para ponerla en negrita. Si escribes contenido aquí, el panel crea la página completa del artículo automáticamente.</div>
       <div id="bloques-articulo"></div>
       <div class="agregar-bloque">
         <button type="button" data-agregar="parrafo">＋ Párrafo</button>
