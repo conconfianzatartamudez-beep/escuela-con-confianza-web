@@ -14,19 +14,6 @@
       "body": []
     },
     {
-      "id": "tecnicas-manejar-tartamudez",
-      "title": "¿Qué técnicas existen para manejar la tartamudez?",
-      "description": "Recopilación de estrategias de modelado y modificación de la tartamudez.",
-      "image": "images/recursos/tecnicas-manejar-tartamudez.jpg",
-      "mobileImage": "images/recursos/tecnicas-manejar-tartamudez-cuadrado.jpg",
-      "url": "#",
-      "featured": true,
-      "date": "2026-07-10",
-      "badge": "Próximamente",
-      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
-      "body": []
-    },
-    {
       "id": "dias-tartamudeo-mas",
       "title": "¿Por qué hay días en los que tartamudeo más que otros?",
       "description": "Factores que influyen en la variabilidad de la tartamudez.",
@@ -141,6 +128,19 @@
           "src": ""
         }
       ]
+    },
+    {
+      "id": "tecnicas-manejar-tartamudez",
+      "title": "¿Qué técnicas existen para manejar la tartamudez?",
+      "description": "Recopilación de estrategias de modelado y modificación de la tartamudez.",
+      "image": "images/recursos/tecnicas-manejar-tartamudez.jpg",
+      "mobileImage": "images/recursos/tecnicas-manejar-tartamudez-cuadrado.jpg",
+      "url": "#",
+      "featured": true,
+      "date": "2026-07-10",
+      "badge": "Próximamente",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "body": []
     }
   ]
 }
