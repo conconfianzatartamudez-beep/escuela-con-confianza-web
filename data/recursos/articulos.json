@@ -183,10 +183,11 @@
       "image": "images/recursos/tecnicas-manejar-tartamudez.jpg",
       "mobileImage": "images/recursos/tecnicas-manejar-tartamudez-cuadrado.jpg",
       "url": "#",
-      "featured": true,
+      "featured": false,
       "date": "2026-07-10",
       "badge": "Próximamente",
       "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "references": [],
       "body": []
     },
     {
