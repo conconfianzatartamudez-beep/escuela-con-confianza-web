@@ -106,19 +106,6 @@
       ]
     },
     {
-      "id": "tecnicas-dejar-tartamudear",
-      "title": "“Técnicas para dejar de tartamudear”: ¿Se puede dejar de tartamudear practicando técnicas?",
-      "description": "Reflexión sobre el rol de las técnicas y la confianza sobre el proceso para ganar fluidez.",
-      "image": "images/recursos/tecnicas-dejar-tartamudear.jpg",
-      "mobileImage": "images/recursos/tecnicas-dejar-tartamudear-cuadrado.jpg",
-      "url": "/recursos-didacticos/articulos/tecnicas-para-dejar-de-tartamudear/",
-      "featured": true,
-      "date": "2026-04-29",
-      "badge": "",
-      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
-      "body": []
-    },
-    {
       "id": "dias-tartamudeo-mas",
       "title": "¿Por qué hay días en los que tartamudeo más que otros?",
       "description": "Factores que influyen en la variabilidad de la tartamudez.",
@@ -282,6 +269,19 @@
       ]
     },
     {
+      "id": "tecnicas-dejar-tartamudear",
+      "title": "“Técnicas para dejar de tartamudear”: ¿Se puede dejar de tartamudear practicando técnicas?",
+      "description": "Reflexión sobre el rol de las técnicas y la confianza sobre el proceso para ganar fluidez.",
+      "image": "images/recursos/tecnicas-dejar-tartamudear.jpg",
+      "mobileImage": "images/recursos/tecnicas-dejar-tartamudear-cuadrado.jpg",
+      "url": "/recursos-didacticos/articulos/tecnicas-para-dejar-de-tartamudear/",
+      "featured": true,
+      "date": "2026-04-29",
+      "badge": "",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "body": []
+    },
+    {
       "id": "tecnicas-manejar-tartamudez",
       "title": "¿Qué técnicas existen para manejar la tartamudez?",
       "description": "Recopilación de estrategias de modelado y modificación de la tartamudez.",
@@ -289,7 +289,7 @@
       "mobileImage": "images/recursos/tecnicas-manejar-tartamudez-cuadrado.jpg",
       "url": "#",
       "featured": false,
-      "date": "2026-07-10",
+      "date": "",
       "badge": "Próximamente",
       "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
       "references": [],
