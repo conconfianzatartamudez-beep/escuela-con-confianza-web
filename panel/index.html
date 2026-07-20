@@ -453,6 +453,70 @@
   </div>
 </div>
 
+<style>
+  #btn-buzon{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--verde,#0f766e); color:#fff; border:none; border-radius:999px;
+    padding:12px 18px; font-size:15px; font-weight:700; cursor:pointer;
+    box-shadow:0 6px 18px rgba(15,60,50,.32);
+  }
+  #btn-buzon:active{transform:translateY(1px)}
+  #buzon-velo{position:fixed; inset:0; background:rgba(15,40,34,.45); z-index:70;
+    display:none; align-items:flex-start; justify-content:center; padding:24px 14px; overflow:auto}
+  #buzon-velo.abierto{display:flex}
+  .bz-caja{background:#fff; border-radius:16px; width:100%; max-width:520px; padding:18px 18px 20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25)}
+  .bz-cab{display:flex; align-items:center; gap:8px; margin-bottom:6px}
+  .bz-cab h2{font-size:18px; margin:0; flex:1}
+  .bz-cerrar{background:none; border:none; font-size:22px; cursor:pointer; color:#64748b; line-height:1}
+  .bz-intro{font-size:13px; color:#64748b; line-height:1.5; margin-bottom:12px}
+  .bz-campo{margin-bottom:10px}
+  .bz-campo label{display:block; font-size:12.5px; font-weight:700; color:#475569; margin-bottom:4px}
+  .bz-campo select,.bz-campo input,.bz-campo textarea{
+    width:100%; border:1.5px solid #e2e8f0; border-radius:10px; padding:9px 11px; font-size:14px;
+    font-family:inherit; outline:none}
+  .bz-campo textarea{min-height:70px; resize:vertical}
+  .bz-campo select:focus,.bz-campo input:focus,.bz-campo textarea:focus{border-color:var(--verde,#0f766e)}
+  .bz-enviar{width:100%; background:var(--verde,#0f766e); color:#fff; border:none; border-radius:10px;
+    padding:11px; font-size:15px; font-weight:700; cursor:pointer}
+  .bz-enviar:disabled{opacity:.6; cursor:wait}
+  .bz-lista{margin-top:16px; border-top:1px solid #e2e8f0; padding-top:12px}
+  .bz-lista h3{font-size:13px; text-transform:uppercase; letter-spacing:.8px; color:#0f766e; margin:0 0 10px}
+  .bz-msj{border:1px solid #e2e8f0; border-radius:10px; padding:9px 11px; margin-bottom:8px}
+  .bz-msj .top{font-size:12px; color:#64748b; margin-bottom:3px}
+  .bz-msj .tt{font-size:11px; font-weight:800; color:#fff; border-radius:999px; padding:1px 7px; margin-right:5px}
+  .bz-msj .cuerpo{font-size:13.5px; line-height:1.45; white-space:pre-wrap}
+  .bz-msj .resp{margin-top:6px; font-size:12.5px; color:#0f766e; background:#f0fdfa; border-radius:8px; padding:6px 9px}
+  .bz-estado{display:inline-block; font-size:11px; font-weight:700; border-radius:999px; padding:1px 8px}
+  .bz-estado.ab{background:#fdf3dc; color:#9a7407} .bz-estado.re{background:#e6f3ea; color:#3f9d63}
+  .bz-vacio{font-size:13px; color:#94a3b8; padding:8px 0}
+</style>
+
+<button id="btn-buzon" class="oculto" title="Enviar una sugerencia, pregunta o error">💬 Buzón</button>
+<div id="buzon-velo">
+  <div class="bz-caja">
+    <div class="bz-cab">
+      <h2>💬 Buzón del equipo</h2>
+      <button class="bz-cerrar" id="bz-cerrar" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="bz-intro">Reporta una <b>sugerencia</b>, <b>pregunta</b> o <b>error</b> sobre el panel de contenidos. Se guarda para el equipo y también aparece en el Portal.</div>
+    <div class="bz-campo"><label>Tipo</label>
+      <select id="bz-tipo">
+        <option value="sugerencia">💡 Sugerencia</option>
+        <option value="pregunta">❓ Pregunta</option>
+        <option value="error">🐞 Error</option>
+      </select>
+    </div>
+    <div class="bz-campo"><label>Tu nombre (opcional)</label><input type="text" id="bz-autor" placeholder="Ej. Adriano, Bruno…"></div>
+    <div class="bz-campo"><label>Mensaje</label><textarea id="bz-texto" placeholder="Escribe aquí…"></textarea></div>
+    <button class="bz-enviar" id="bz-enviar">Enviar</button>
+    <div class="bz-lista">
+      <h3>Mensajes del equipo</h3>
+      <div id="bz-lista"><div class="bz-vacio">Cargando…</div></div>
+    </div>
+  </div>
+</div>
+
 <div id="velo" class="oculto"></div>
 <div id="aviso" class="oculto"></div>
 
@@ -871,6 +935,7 @@ async function entrar() {
     $("#vista-entrada").classList.add("oculto");
     $("#vista-panel").classList.remove("oculto");
     pintarLista();
+    mostrarBotonBuzon();
   } catch (e) {
     $("#error-entrada").textContent = e.message;
   } finally {
@@ -1607,12 +1672,83 @@ document.querySelectorAll(".pestana").forEach((boton) => {
 });
 window.addEventListener("beforeunload", (e) => { if (hayCambios()) e.preventDefault(); });
 
+/* ================= Buzón del equipo ================= */
+const BZ_TIPO = {
+  sugerencia: { em: "💡", rot: "Sugerencia", color: "#3b82c4" },
+  pregunta:   { em: "❓", rot: "Pregunta",   color: "#7a6fd0" },
+  error:      { em: "🐞", rot: "Error",      color: "#d64545" },
+};
+function bzFecha(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return "";
+  return d.toLocaleDateString("es-PE", { day: "2-digit", month: "short" }) + " " +
+    d.toLocaleTimeString("es-PE", { hour: "2-digit", minute: "2-digit" });
+}
+function mostrarBotonBuzon() { $("#btn-buzon").classList.remove("oculto"); }
+
+async function abrirBuzon() {
+  $("#buzon-velo").classList.add("abierto");
+  await cargarBuzon();
+}
+function cerrarBuzon() { $("#buzon-velo").classList.remove("abierto"); }
+
+async function cargarBuzon() {
+  const cont = $("#bz-lista");
+  cont.innerHTML = '<div class="bz-vacio">Cargando…</div>';
+  try {
+    const r = await llamarApi("GET", null, "?buzon=1");
+    const reportes = r.reportes || [];
+    if (!reportes.length) { cont.innerHTML = '<div class="bz-vacio">Aún no hay mensajes. ¡Escribe el primero!</div>'; return; }
+    cont.innerHTML = reportes.map((m) => {
+      const t = BZ_TIPO[m.tipo] || BZ_TIPO.sugerencia;
+      const resuelto = m.estado === "resuelto" || m.estado === "respondido";
+      return '<div class="bz-msj">' +
+        '<div class="top"><span class="tt" style="background:' + t.color + '">' + t.em + " " + t.rot + '</span>' +
+        '<span class="bz-estado ' + (resuelto ? "re\">✓ resuelto" : "ab\">pendiente") + '</span> · ' +
+        escapar(m.autor || "sin nombre") + " · " + bzFecha(m.creado) + '</div>' +
+        '<div class="cuerpo">' + escapar(m.texto) + '</div>' +
+        (m.respuesta ? '<div class="resp">↳ <b>' + escapar(m.respondido_por || "Equipo") + ':</b> ' + escapar(m.respuesta) + '</div>' : "") +
+      '</div>';
+    }).join("");
+  } catch (e) {
+    cont.innerHTML = '<div class="bz-vacio">No se pudo cargar: ' + escapar(e.message) + '</div>';
+  }
+}
+
+async function enviarBuzon() {
+  const texto = $("#bz-texto").value.trim();
+  if (!texto) { mostrarAviso("Escribe el mensaje.", true); return; }
+  const boton = $("#bz-enviar");
+  boton.disabled = true; boton.textContent = "Enviando…";
+  try {
+    await llamarApi("POST", {
+      accion: "buzon_crear",
+      tipo: $("#bz-tipo").value,
+      autor: $("#bz-autor").value.trim(),
+      texto,
+    });
+    $("#bz-texto").value = "";
+    mostrarAviso("Mensaje enviado ✓ ¡Gracias!");
+    await cargarBuzon();
+  } catch (e) {
+    mostrarAviso(e.message, true);
+  } finally {
+    boton.disabled = false; boton.textContent = "Enviar";
+  }
+}
+
+$("#btn-buzon").addEventListener("click", abrirBuzon);
+$("#bz-cerrar").addEventListener("click", cerrarBuzon);
+$("#buzon-velo").addEventListener("click", (e) => { if (e.target === $("#buzon-velo")) cerrarBuzon(); });
+$("#bz-enviar").addEventListener("click", enviarBuzon);
+
 if (clave) {
   cargarTodo()
     .then(() => {
       $("#vista-entrada").classList.add("oculto");
       $("#vista-panel").classList.remove("oculto");
       pintarLista();
+      mostrarBotonBuzon();
     })
     .catch(() => { clave = ""; sessionStorage.removeItem("panel_clave"); });
 }

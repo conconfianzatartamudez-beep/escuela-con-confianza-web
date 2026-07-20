@@ -113,13 +113,66 @@ async function escribirArchivo(env, ruta, contenidoBase64, mensaje, sha) {
   }
 }
 
+// ---- Buzón del equipo (mensajes de sugerencias / preguntas / errores) ----
+// Se guardan en Supabase (proyecto compartido) vía RPC. Las llaves y la clave
+// del equipo viven en variables de entorno del proyecto (BUZON_*), nunca en el
+// código, porque este repositorio es público.
+async function rpcBuzon(env, fn, cuerpo) {
+  const base = (env.BUZON_URL || "").trim();
+  const anon = (env.BUZON_ANON || "").trim();
+  if (!base || !anon) throw new Error("El buzón no está configurado.");
+  const respuesta = await fetch(base + "/rest/v1/rpc/" + fn, {
+    method: "POST",
+    headers: {
+      apikey: anon,
+      authorization: `Bearer ${anon}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(cuerpo),
+  });
+  const datos = await respuesta.json().catch(() => ({}));
+  if (datos && datos.error) throw new Error(datos.error);
+  return datos;
+}
+
+async function buzonListar(env) {
+  try {
+    const datos = await rpcBuzon(env, "panel_reportes_listar", {
+      p_clave: (env.BUZON_CLAVE || "").trim(),
+    });
+    return json({ ok: true, reportes: (datos && datos.reportes) || [] });
+  } catch (e) {
+    return error(502, e.message || "No se pudo leer el buzón.");
+  }
+}
+
+async function buzonCrear(env, cuerpo) {
+  try {
+    await rpcBuzon(env, "panel_reporte_crear", {
+      p_clave: (env.BUZON_CLAVE || "").trim(),
+      p_tipo: String(cuerpo.tipo || "sugerencia"),
+      p_autor: String(cuerpo.autor || ""),
+      p_texto: String(cuerpo.texto || ""),
+    });
+    return json({ ok: true });
+  } catch (e) {
+    return error(502, e.message || "No se pudo enviar el mensaje.");
+  }
+}
+
 // GET /api/panel?tipo=videos|guias|articulos -> contenido actual.
+// GET /api/panel?buzon=1 -> lista de mensajes del buzón del equipo.
 export async function onRequestGet({ request, env }) {
   if (!claveValida(request, env)) {
     return error(401, "Contraseña incorrecta.");
   }
 
-  const tipo = new URL(request.url).searchParams.get("tipo") || "";
+  const url = new URL(request.url);
+  if (url.searchParams.get("buzon") === "1") {
+    return await buzonListar(env);
+  }
+
+  const tipo = url.searchParams.get("tipo") || "";
   const ruta = ARCHIVOS[tipo];
   if (!ruta) return error(400, "Tipo de contenido no reconocido.");
 
@@ -216,6 +269,11 @@ export async function onRequestPost({ request, env }) {
     cuerpo = await request.json();
   } catch {
     return error(400, "El cuerpo de la petición no es JSON válido.");
+  }
+
+  // Enviar un mensaje al buzón del equipo.
+  if (cuerpo && cuerpo.accion === "buzon_crear") {
+    return await buzonCrear(env, cuerpo);
   }
 
   const ruta = (cuerpo && cuerpo.ruta) || "";
