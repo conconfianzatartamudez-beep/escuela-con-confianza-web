@@ -8,6 +8,12 @@
 //                    SOLO sobre el repo escuela-con-confianza-web.
 //   PANEL_RAMA    -> (opcional) rama donde se publica. Si falta, usa "main".
 
+import {
+  PAGINAS_CON_LISTADO,
+  generarSitemap,
+  actualizarPagina,
+} from "../../lib/generar-web.js";
+
 const REPO_API =
   "https://api.github.com/repos/conconfianzatartamudez-beep/escuela-con-confianza-web/contents/";
 
@@ -222,10 +228,66 @@ export async function onRequestPut({ request, env }) {
       `Panel web: actualizar ${tipo}`,
       actual ? actual.sha : undefined
     );
-    return json({ ok: true, mensaje: "Cambios publicados. La web se actualiza en 1-2 minutos." });
+
+    let mensaje = "Cambios publicados. La web se actualiza en 1-2 minutos.";
+
+    // Al tocar las lecturas hay que rehacer el sitemap y los listados en HTML,
+    // para que Google encuentre los artículos sin depender de JavaScript.
+    if (tipo === "articulos") {
+      const aviso = await regenerarSeo(env, datos.articulos);
+      if (aviso) mensaje += ` ${aviso}`;
+    }
+
+    return json({ ok: true, mensaje });
   } catch (e) {
     return error(502, e.message || "No se pudo publicar el cambio.");
   }
+}
+
+// Rehace sitemap.xml y los listados de lecturas a partir de la lista de artículos.
+// Nunca lanza error: si algo falla, el contenido ya quedó publicado y solo devolvemos
+// un aviso para que el equipo sepa que hay que revisarlo.
+async function regenerarSeo(env, articulos) {
+  const problemas = [];
+
+  async function guardarSiCambia(ruta, contenido, mensaje) {
+    const existente = await leerArchivo(env, ruta);
+    if (existente && base64aTexto(existente.contenidoBase64) === contenido) return;
+    await escribirArchivo(env, ruta, textoABase64(contenido), mensaje, existente ? existente.sha : undefined);
+  }
+
+  try {
+    await guardarSiCambia("sitemap.xml", generarSitemap(articulos), "Panel web: actualizar sitemap");
+  } catch (e) {
+    problemas.push("sitemap.xml");
+  }
+
+  for (const pagina of PAGINAS_CON_LISTADO) {
+    try {
+      const existente = await leerArchivo(env, pagina.ruta);
+      if (!existente) {
+        problemas.push(pagina.ruta);
+        continue;
+      }
+      const resultado = actualizarPagina(base64aTexto(existente.contenidoBase64), articulos, pagina);
+      if (resultado.error) {
+        problemas.push(pagina.ruta);
+      } else if (!resultado.sinCambios) {
+        await escribirArchivo(
+          env,
+          pagina.ruta,
+          textoABase64(resultado.html),
+          `Panel web: actualizar listado de lecturas (${pagina.ruta})`,
+          existente.sha
+        );
+      }
+    } catch (e) {
+      problemas.push(pagina.ruta);
+    }
+  }
+
+  if (!problemas.length) return "";
+  return `Aviso: no se pudo actualizar ${problemas.join(", ")}; avisa al administrador para que lo revise.`;
 }
 
 // Escribe la página HTML completa de un artículo en
