@@ -60,6 +60,26 @@ La lógica vive en un solo archivo, `lib/generar-web.js`, que usan tanto el pane
 script. Si cambias el diseño de las tarjetas en `recursos.js`, cámbialo también ahí para
 que el HTML generado siga siendo idéntico a lo que dibuja el navegador.
 
+### Lo que se genera dentro de cada página de artículo
+
+Además del sitemap y los listados, cada página de artículo
+(`recursos-didacticos/articulos/<id>/index.html`) recibe dos bloques generados:
+
+1. **Ficha de datos estructurados** (JSON-LD, antes de `</head>`): le dice a Google que
+   la página es un artículo, con su título, imagen, fecha y autor. Ayuda a que aparezca
+   mejor presentado en los resultados de búsqueda. El nombre del autor se limpia solo
+   (de `"Lic. T.M. Terapeuta de lenguaje, Adriano Vega."` saca `"Adriano Vega"`).
+2. **"Sigue leyendo"** (antes de `</main>`): enlaces a las otras lecturas publicadas.
+   Sirve a los lectores y también a Google, que así encuentra los artículos siguiendo
+   enlaces entre ellos.
+
+Van entre marcadores igual que los listados
+(`<!-- DATOS-ESTRUCTURADOS:inicio/fin -->` y `<!-- SIGUE-LEYENDO:inicio/fin -->`) y, si
+no existen, el generador los inserta en el sitio correcto. Cuando el panel guarda la
+página de un artículo se los pone en el momento, así que una lectura nueva ya nace con
+todo. Los estilos del bloque van en línea, a propósito, para no tener que tocar
+`styles.css` ni subir su `?v=`.
+
 ### Páginas nuevas hechas a mano
 
 Si algún día se crea una página nueva que no venga del panel (por ejemplo, un servicio

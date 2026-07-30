@@ -12,6 +12,9 @@ import {
   PAGINAS_CON_LISTADO,
   generarSitemap,
   actualizarPagina,
+  actualizarPaginaArticulo,
+  articulosPublicados,
+  rutaPaginaArticulo,
 } from "../../lib/generar-web.js";
 
 const REPO_API =
@@ -286,6 +289,34 @@ async function regenerarSeo(env, articulos) {
     }
   }
 
+  // Cada página de artículo lleva su ficha de datos estructurados y su "Sigue leyendo".
+  for (const articulo of articulosPublicados(articulos)) {
+    const ruta = rutaPaginaArticulo(articulo);
+    if (!ruta) continue;
+    try {
+      const existente = await leerArchivo(env, ruta);
+      if (!existente) continue; // la página todavía no existe; se hará al guardarla
+      const resultado = actualizarPaginaArticulo(
+        base64aTexto(existente.contenidoBase64),
+        articulo,
+        articulos
+      );
+      if (resultado.error) {
+        problemas.push(ruta);
+      } else if (!resultado.sinCambios) {
+        await escribirArchivo(
+          env,
+          ruta,
+          textoABase64(resultado.html),
+          `Panel web: datos estructurados y "Sigue leyendo" (${ruta})`,
+          existente.sha
+        );
+      }
+    } catch (e) {
+      problemas.push(ruta);
+    }
+  }
+
   if (!problemas.length) return "";
   return `Aviso: no se pudo actualizar ${problemas.join(", ")}; avisa al administrador para que lo revise.`;
 }
@@ -306,11 +337,27 @@ async function escribirPaginaArticulo(env, cuerpo) {
   }
 
   try {
+    // La página nace ya con su ficha de datos estructurados y su "Sigue leyendo".
+    // Si algo falla aquí, se guarda la página tal cual: el siguiente guardado de
+    // las lecturas (regenerarSeo) los añade.
+    let htmlFinal = html;
+    try {
+      const datos = await leerArchivo(env, ARCHIVOS.articulos);
+      const articulos = datos ? JSON.parse(base64aTexto(datos.contenidoBase64)).articulos || [] : [];
+      const articulo = articulos.find((a) => rutaPaginaArticulo(a) === ruta);
+      if (articulo) {
+        const resultado = actualizarPaginaArticulo(html, articulo, articulos);
+        if (resultado.html) htmlFinal = resultado.html;
+      }
+    } catch (e) {
+      // sin bloques extra; se completan en el siguiente guardado
+    }
+
     const existente = await leerArchivo(env, ruta);
     await escribirArchivo(
       env,
       ruta,
-      textoABase64(html),
+      textoABase64(htmlFinal),
       `Panel web: página de artículo ${ruta}`,
       existente ? existente.sha : undefined
     );

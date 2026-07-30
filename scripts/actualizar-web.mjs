@@ -16,7 +16,9 @@ import {
   PAGINAS_CON_LISTADO,
   generarSitemap,
   actualizarPagina,
+  actualizarPaginaArticulo,
   articulosPublicados,
+  rutaPaginaArticulo,
 } from '../lib/generar-web.js';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -64,6 +66,26 @@ for (const pagina of PAGINAS_CON_LISTADO) {
     console.log(`  = ${pagina.ruta} (sin cambios)`);
   } else {
     await escribirSiCambia(pagina.ruta, resultado.html);
+  }
+}
+
+// Cada página de artículo lleva su ficha de datos estructurados y su "Sigue leyendo".
+for (const articulo of publicados) {
+  const ruta = rutaPaginaArticulo(articulo);
+  const html = await readFile(join(RAIZ, ruta), 'utf8').catch(() => null);
+  if (html === null) {
+    console.error(`  ✖ No se encontró ${ruta}`);
+    hayError = true;
+    continue;
+  }
+  const resultado = actualizarPaginaArticulo(html, articulo, articulos);
+  if (resultado.error) {
+    console.error(`  ✖ ${ruta}: ${resultado.error}`);
+    hayError = true;
+  } else if (resultado.sinCambios) {
+    console.log(`  = ${ruta} (sin cambios)`);
+  } else {
+    await escribirSiCambia(ruta, resultado.html);
   }
 }
 
