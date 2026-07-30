@@ -36,6 +36,54 @@
 />
 
 <link rel="stylesheet" href="styles.css?v=20260525-1155">
+<!-- Ficha de identidad del equipo para buscadores. Solo lleva datos que ya están
+     escritos en las biografías de esta misma página. Si cambia una biografía,
+     conviene revisar que esto siga coincidiendo. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://escuelaconconfianza.com/#organizacion",
+      "name": "Escuela Con Confianza",
+      "url": "https://escuelaconconfianza.com/",
+      "logo": "https://escuelaconconfianza.com/images/logo-con-confianza.png",
+      "description": "Escuela especializada en tartamudez: mentorías, talleres y cursos para adolescentes y adultos que tartamudean.",
+      "areaServed": "Perú",
+      "sameAs": [
+        "https://www.instagram.com/conconfianza.ttm/",
+        "https://www.facebook.com/conconfianza.ttm/",
+        "https://www.youtube.com/@escuelaconconfianza",
+        "https://www.tiktok.com/@conconfianza.ttm"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://escuelaconconfianza.com/quienes-somos#adriano-title",
+      "name": "Adriano Vega",
+      "jobTitle": "Co-director y especialista en tartamudez",
+      "worksFor": { "@id": "https://escuelaconconfianza.com/#organizacion" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Nacional Federico Villarreal" },
+      "knowsAbout": ["Tartamudez", "Terapia de lenguaje"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://escuelaconconfianza.com/quienes-somos#bruno-title",
+      "name": "Bruno Villegas",
+      "jobTitle": "Co-director y especialista en tartamudez",
+      "worksFor": { "@id": "https://escuelaconconfianza.com/#organizacion" },
+      "knowsAbout": ["Tartamudez"],
+      "sameAs": ["https://www.facebook.com/brunove.ttm/"],
+      "subjectOf": {
+        "@type": "VideoObject",
+        "name": "Alcanzando una tartamudez con libertad",
+        "url": "https://www.ted.com/talks/bruno_villegas_alcanzando_una_tartamudez_con_libertad_bruno_villegas"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -165,7 +213,7 @@
           <p class="section__label">Co-director y especialista</p>
           <h2 class="profile__name" id="bruno-title">Bruno Villegas</h2>
           <p class="profile__bio">
-            Estudié ingeniería y educación. Me formé en el abordaje de la tartamudez con diplomados en las universidades Monteávila y Concepción. Soy presidente de la Asoc. Peruana Habla Libre, donde brindamos apoyo a la comunidad de personas con tartamudez y actualmente soy co-director y especialista de la Escuela Con Confianza.
+            Estudié ingeniería y educación. Me formé en el abordaje de la tartamudez con diplomados en las universidades Monteávila y Concepción. En 2017 di una charla en TEDxLima: <a href="https://www.ted.com/talks/bruno_villegas_alcanzando_una_tartamudez_con_libertad_bruno_villegas" target="_blank" rel="noopener">Alcanzando una tartamudez con libertad</a>. Soy presidente de la Asoc. Peruana Habla Libre, donde brindamos apoyo a la comunidad de personas con tartamudez y actualmente soy co-director y especialista de la Escuela Con Confianza.
           </p>
           <blockquote class="profile__quote">
             <p>"No tienes que ser bueno para empezar, pero tienes que empezar para ser bueno." <cite>— Lagarde</cite></p>

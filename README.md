@@ -73,6 +73,13 @@ Además del sitemap y los listados, cada página de artículo
    Sirve a los lectores y también a Google, que así encuentra los artículos siguiendo
    enlaces entre ellos.
 
+Además, el nombre del autor al final del artículo se convierte en un enlace a su
+biografía en `/quienes-somos`. Quién es quién está en la lista `AUTORES` de
+`lib/generar-web.js`: si algún día firma alguien nuevo, hay que añadirlo ahí (con el
+ancla de su biografía) o su nombre saldrá sin enlace. La página `quienes-somos.html`
+lleva a mano su propia ficha de identidad (Organization + una Person por cada
+co-director); si se cambia una biografía, conviene revisar que siga coincidiendo.
+
 Van entre marcadores igual que los listados
 (`<!-- DATOS-ESTRUCTURADOS:inicio/fin -->` y `<!-- SIGUE-LEYENDO:inicio/fin -->`) y, si
 no existen, el generador los inserta en el sitio correcto. Cuando el panel guarda la
