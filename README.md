@@ -21,7 +21,8 @@ Por eso, los enlaces de las lecturas también se escriben **dentro del HTML**, y
 - `sitemap.xml`
 - `recursos-didacticos.html` (lecturas destacadas)
 - `recursos-didacticos/publicaciones/index.html` (todas)
-- `recursos-didacticos/articulos/index.html` (todas)
+- `recursos-didacticos/articulos/index.html` (todas; hoy no se ve, porque `_redirects`
+  manda esa dirección a `/publicaciones/`, pero se mantiene al día por si acaso)
 
 En esos tres HTML hay un bloque delimitado así:
 
