@@ -97,6 +97,72 @@
     return html;
   }
 
+  // Enciende las flechas solo si de verdad hay tarjetas escondidas a los costados,
+  // y las apaga cuando ya no se puede seguir en esa dirección.
+  function prepararFlechas(seccion) {
+    var grid = seccion.querySelector('[data-greviews-grid]');
+    var prev = seccion.querySelector('[data-greviews-prev]');
+    var next = seccion.querySelector('[data-greviews-next]');
+    if (!grid || !prev || !next) return;
+
+    function refrescar() {
+      var sobra = grid.scrollWidth - grid.clientWidth;
+      if (sobra < 8) {
+        prev.hidden = true;
+        next.hidden = true;
+        return;
+      }
+      prev.hidden = grid.scrollLeft < 8;
+      next.hidden = grid.scrollLeft > sobra - 8;
+    }
+
+    // La animación se hace a mano. El "behavior: smooth" del navegador no funciona
+    // dentro de una fila con ajuste automático de tarjetas: se queda quieta.
+    function deslizarHasta(destino) {
+      var tope = grid.scrollWidth - grid.clientWidth;
+      var fin = Math.max(0, Math.min(tope, destino));
+      var inicio = grid.scrollLeft;
+      var distancia = fin - inicio;
+      if (!distancia) return;
+
+      var lento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (lento || !window.requestAnimationFrame) {
+        grid.scrollLeft = fin;
+        return;
+      }
+
+      var duracion = 380;
+      var comienzo = null;
+      function paso(ahora) {
+        if (comienzo === null) comienzo = ahora;
+        var t = Math.min(1, (ahora - comienzo) / duracion);
+        var suave = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // arranca y frena suave
+        grid.scrollLeft = inicio + distancia * suave;
+        if (t < 1) window.requestAnimationFrame(paso);
+      }
+      window.requestAnimationFrame(paso);
+    }
+
+    function mover(direccion) {
+      var tarjeta = grid.querySelector('.greview');
+      var paso = tarjeta ? tarjeta.getBoundingClientRect().width + 24 : grid.clientWidth * 0.8;
+      deslizarHasta(grid.scrollLeft + direccion * paso);
+    }
+
+    if (!grid.dataset.flechasListas) {
+      prev.addEventListener('click', function () { mover(-1); });
+      next.addEventListener('click', function () { mover(1); });
+      grid.addEventListener('scroll', refrescar, { passive: true });
+      window.addEventListener('resize', refrescar);
+      // Al girar el teléfono o cambiar el ancho, la fila pasa de rejilla a riel (o al
+      // revés) y hay que volver a decidir si las flechas hacen falta. El "resize" de
+      // la ventana no siempre alcanza, así que además vigilamos la fila en sí.
+      if (window.ResizeObserver) new ResizeObserver(refrescar).observe(grid);
+      grid.dataset.flechasListas = '1';
+    }
+    refrescar();
+  }
+
   function pintar(seccion, datos) {
     var grid = seccion.querySelector('[data-greviews-grid]');
     if (!grid || !datos.opiniones || !datos.opiniones.length) return;
@@ -128,6 +194,8 @@
 
     var escribir = seccion.querySelector('[data-greviews-link-write]');
     if (escribir && datos.urlEscribir) escribir.setAttribute('href', datos.urlEscribir);
+
+    prepararFlechas(seccion);
   }
 
   // La insignia chiquita de las páginas de Servicios: solo el puntaje.
@@ -146,6 +214,10 @@
     var total = caja.querySelector('[data-gbadge-count]');
     if (total && datos.total) total.textContent = datos.total + ' opiniones';
   }
+
+  // Las flechas tienen que funcionar aunque Google no conteste, porque entonces se
+  // quedan las tarjetas de respaldo que ya vienen escritas en el HTML.
+  for (var k = 0; k < secciones.length; k++) prepararFlechas(secciones[k]);
 
   fetch('/api/resenas', { headers: { accept: 'application/json' } })
     .then(function (r) {
