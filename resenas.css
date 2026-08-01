@@ -226,6 +226,7 @@
 }
 
 .greview {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
@@ -327,6 +328,9 @@
   color: var(--color-text);
 }
 
+/* Toda la tarjeta lleva a Google. El truco: este enlace estira un rectángulo
+   invisible (::after) sobre la tarjeta entera, así se puede pulsar en cualquier
+   punto sin meter un enlace dentro de otro, que sería HTML inválido. */
 .greview__more {
   align-self: flex-start;
   font-size: 0.86rem;
@@ -336,9 +340,38 @@
   text-underline-offset: 3px;
 }
 
-.greview__more:hover,
+.greview__more::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+}
+
+.greview:hover .greview__more,
 .greview__more:focus-visible {
   color: var(--color-brand);
+}
+
+.greview:hover {
+  cursor: pointer;
+}
+
+/* Con teclado, el recuadro de foco se dibuja alrededor de TODA la tarjeta,
+   que es lo que se va a activar al pulsar Intro. */
+.greview__more:focus-visible {
+  outline: none;
+}
+
+.greview:focus-within {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+/* El nombre enlaza al perfil de quien escribió (lo exige Google cuando los datos
+   vienen de su API). Va por encima del rectángulo para seguir siendo pulsable. */
+.greview__name a {
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------- Botones de abajo ---------- */

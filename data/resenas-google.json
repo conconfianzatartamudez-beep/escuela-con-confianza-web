@@ -15,8 +15,9 @@
       "estrellas": 5,
       "fecha": "agosto de 2026",
       "fechaOrden": "2026-08-01",
-      "completa": true,
-      "texto": "A nivel mundial es muy competitivo. Gracias a Dios que está en Perú. Además, tiene un trato muy amable con sus clientes. Es el mejor especialista que conozco, especialmente Bruno Villegas. El abordaje de la tartamudez acá es clara y prácticable, ideal para todos los tartamudos. Fui a muchos terapistas de lenguaje, él fue el único especialista que me ayudó de verdad. Gracias a Dios."
+      "completa": false,
+      "texto": "A nivel mundial es muy competitivo. Gracias a Dios que está en Perú. Además, tiene un trato muy amable con sus clientes. Es el mejor especialista que conozco, especialmente Bruno Villegas. El abordaje de la tartamudez acá es clara y prácticable, ideal para todos los tartamudos.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT25rNVNVVnZVVVJHV1dneVFtcHJhblE1WldSb04yYxAB"
     },
     {
       "nombre": "Holly",
@@ -144,5 +145,6 @@
   ],
   "plantillaResena": "https://www.google.com/maps/reviews/@-12.0958668,-77.0284821,17z/data=!3m1!4b1!4m6!14m5!1m4!2m3!1s{id}!2m1!1s0x0:0xda3ffd0a746bd117",
   "_plantillaResena": "Con \"resenaId\" se arma el enlace directo a ESA opinión en Google, sustituyendo {id}. El identificador se saca del atributo data-review-id de cada opinión en el mapa (mira la nota _de-donde-salen). Si una opinión no tiene resenaId, el enlace cae al listado general; por eso a las que aún no están publicadas en el mapa se les pone el texto entero y \"completa\": true, para no necesitar enlace.",
-  "_no_incluidas": "4 de las 18 son solo estrellas o no se muestran: eze ves, giselle carmona y Fidelia Parfum luxury (3 estrellas) no escribieron texto. Cuentan para el 4,9 y para el total."
+  "_no_incluidas": "4 de las 18 son solo estrellas o no se muestran: eze ves, giselle carmona y Fidelia Parfum luxury (3 estrellas) no escribieron texto. Cuentan para el 4,9 y para el total.",
+  "_enlace_en_toda_la_tarjeta": "TODAS las tarjetas enlazan a Google, tengan el texto entero o recortado: se puede pulsar en cualquier punto de la tarjeta. Por eso conviene que cada opinión tenga su \"resenaId\"; las que no lo tengan caen al listado general de la ficha, que funciona pero es menos preciso."
 }

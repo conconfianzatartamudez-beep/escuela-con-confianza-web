@@ -87,12 +87,17 @@
       estrellas(op.estrellas) +
       '</p>';
     html += '<blockquote class="greview__text"><p>' + escapeHtml(op.texto) + '</p></blockquote>';
-    if (op.completa === false) {
-      html +=
-        '<a class="greview__more" href="' +
-        escapeHtml(op.resenaUrl || urlOpiniones) +
-        '" target="_blank" rel="noopener nofollow">Leer la opinión completa en Google</a>';
-    }
+    // Va siempre: el CSS lo estira sobre toda la tarjeta para que se pueda pulsar
+    // en cualquier punto. Ojo: si cambias esto, cambia también lib/generar-resenas.js.
+    var recortada = op.completa === false;
+    html +=
+      '<a class="greview__more" href="' +
+      escapeHtml(op.resenaUrl || urlOpiniones) +
+      '" target="_blank" rel="noopener nofollow" aria-label="' +
+      escapeHtml((recortada ? 'Leer la opinión completa de ' : 'Ver la opinión de ') + op.nombre + ' en Google') +
+      '">' +
+      (recortada ? 'Leer la opinión completa en Google' : 'Ver esta opinión en Google') +
+      '</a>';
     html += '</article>';
     return html;
   }
