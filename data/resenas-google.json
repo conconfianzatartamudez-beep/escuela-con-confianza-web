@@ -1,6 +1,9 @@
 {
-  "_leeme": "Opiniones copiadas de la ficha de Google Maps de Escuela Con Confianza. Se editan a mano aquí y luego se corre: node scripts/actualizar-resenas.mjs (eso reescribe las secciones de index.html y testimonios.html y la insignia de Servicios). El texto es el de Google; solo se corrigieron espacios y tildes. Si la opinión estaba cortada en Google con el botón 'Más', aquí va el comienzo textual y 'completa' queda en false para que la tarjeta enlace a Google.",
-  "_orden": "Las opiniones se muestran de la MÁS NUEVA a la más antigua. El campo 'fechaOrden' (AAAA-MM-DD) es el que manda: el script ordena por él, así que no importa en qué orden estén escritas aquí. Google solo dice 'hace un mes', 'hace 9 meses', etc., así que la fecha es aproximada; con que el orden salga bien, basta. La portada muestra las 3 primeras.",
+  "_leeme": "Opiniones de la ficha de Google de Escuela Con Confianza. Se editan a mano aquí y luego se corre: node scripts/actualizar-resenas.mjs (reescribe las secciones de index.html y testimonios.html y la insignia de Servicios). El texto es el de Google; solo se corrigieron espacios y tildes, nunca las palabras.",
+  "_de-donde-salen": "Del PANEL DEL NEGOCIO (business.google.com/reviews), no del mapa público. Importante: en el mapa las opiniones salen ordenadas por 'relevancia', no por fecha, y no se cargan todas; por eso ahí se pueden pasar por alto las recién llegadas. El panel del negocio las muestra todas, por fecha, y con el texto entero.",
+  "_orden": "Se muestran de la MÁS NUEVA a la más antigua. Manda 'fechaOrden' (AAAA-MM-DD): el script ordena por él, así que no importa en qué orden estén escritas aquí. La portada muestra las 3 primeras.",
+  "_completa": "Si 'completa' es false, el texto es el COMIENZO TEXTUAL de una opinión más larga, cortado en un punto, y la tarjeta muestra el enlace 'Leer la opinión completa en Google'. Se recorta cuando el original pasa de unos 290 caracteres: por encima de eso las tarjetas crecen mucho y, como todas las de una fila miden lo mismo, una sola opinión larga estira toda la sección.",
+  "_no-incluidas": "3 de las 17 son solo estrellas, sin texto (eze ves, giselle carmona, Fidelia Parfum luxury). No se muestran porque no hay nada que leer, pero sí cuentan para el 4,9 y para el total de 17.",
   "actualizado": "2026-07-31",
   "puntaje": "4,9",
   "total": 17,
@@ -9,84 +12,116 @@
   "urlEscribir": "https://search.google.com/local/writereview?placeid=ChIJxTzXduvIBZERF9FrdAr9P9o",
   "opiniones": [
     {
+      "nombre": "Holly",
+      "estrellas": 5,
+      "fecha": "julio de 2026",
+      "fechaOrden": "2026-07-31",
+      "completa": true,
+      "texto": "Mi experiencia es bueno, el especialista da un buen trato, es amable, tiene paciencia, sabe como debe tratar al paciente. Tienen un bonito ambiente, en la entrada tienen para que te sirvas un café, agua o chocolate. Lo recomiendo totalmente."
+    },
+    {
+      "nombre": "Jean Pierre de la Cruz",
+      "estrellas": 5,
+      "fecha": "julio de 2026",
+      "fechaOrden": "2026-07-30",
+      "completa": false,
+      "texto": "Llevaba un tiempo viendo dónde abordar mi tartamudez, hasta que encontré este lugar, donde no solo se aborda la fluidez del habla, sino la autoaceptación para con ella sobrellevar de mejor forma este tema."
+    },
+    {
+      "nombre": "Sofía Miranda",
+      "estrellas": 5,
+      "fecha": "julio de 2026",
+      "fechaOrden": "2026-07-29",
+      "completa": false,
+      "texto": "Llegué buscando terapia para mejorar mi confianza y manejo de mi habla, luego de ser rechazada en mi primera entrevista buscando trabajo. No solo me ayudaron a sentirme mejor conmigo misma y a mejorar mi fluidez."
+    },
+    {
       "nombre": "Aracely Perez Pacco",
       "estrellas": 5,
       "fecha": "junio de 2026",
-      "fechaOrden": "2026-06-30",
+      "fechaOrden": "2026-06-12",
       "completa": true,
       "texto": "Tuvimos una buena experiencia, mi niña recibió un acompañamiento cercano y profesional del Lic. Adriano con mucha paciencia dedicación y compromiso que le permitió ganar mucha confianza a mi pequeña. Estamos agradecidos."
-    },
-    {
-      "nombre": "Mariana Berlanga",
-      "estrellas": 5,
-      "fecha": "mayo de 2026",
-      "fechaOrden": "2026-05-31",
-      "completa": false,
-      "texto": "Queremos agradecer muchísimo al maestro Adriano por todo el apoyo y la tranquilidad que nos brindó durante el proceso de terapia con nuestra hija."
     },
     {
       "nombre": "Lucia Jimenez",
       "estrellas": 5,
       "fecha": "mayo de 2026",
-      "fechaOrden": "2026-05-30",
+      "fechaOrden": "2026-05-15",
       "completa": false,
       "texto": "Nunca pensé que podría hacer muchas de las cosas que hago ahora. Antes hasta enviar un audio de voz me parecía algo imposible, peor con el tema de las exposiciones. Pero ahora puedo hacer esas cosas sin tanto miedo."
     },
     {
-      "nombre": "Natalia R.",
+      "nombre": "Mariana Berlanga",
       "estrellas": 5,
-      "fecha": "octubre de 2025",
-      "fechaOrden": "2025-10-31",
+      "fecha": "mayo de 2026",
+      "fechaOrden": "2026-05-08",
       "completa": false,
-      "texto": "Estoy muy agradecida con la escuela y sus tutores. Aprendí muchísimo sobre la tartamudez, sobre lo que me ocurre a mí específicamente cuando tartamudeo, y las técnicas que puedo aplicar."
-    },
-    {
-      "nombre": "Nicole Suárez Barreto",
-      "estrellas": 5,
-      "fecha": "octubre de 2025",
-      "fechaOrden": "2025-10-30",
-      "completa": false,
-      "texto": "Un lugar en el que comenzó mi proceso de aceptación y de crecimiento con la tartamudez, aprendiendo a mejorarla y a trabajar en ella."
-    },
-    {
-      "nombre": "Jimmy Zamudio Milla",
-      "estrellas": 5,
-      "fecha": "octubre de 2025",
-      "fechaOrden": "2025-10-29",
-      "completa": false,
-      "texto": "Estoy muy agradecido con la escuela CON CONFIANZA y sus tutores, gracias a ellos acepté mi tartamudez. No sé qué hubiera sido de mí si no hubiera pedido ayuda a ellos, me enseñaron técnicas y cómo sobrellevar mi tartamudez."
-    },
-    {
-      "nombre": "Celia Cruz",
-      "estrellas": 5,
-      "fecha": "octubre de 2025",
-      "fechaOrden": "2025-10-28",
-      "completa": true,
-      "texto": "Mi sobrina asistió a clases presenciales con Bruno Villegas, excelente profesional. Gracias por el aporte. Muy recomendado."
+      "texto": "Queremos agradecer muchísimo al maestro Adriano por todo el apoyo y la tranquilidad que nos brindó durante el proceso de terapia con nuestra hija. Desde el primer momento nos ayudó a aclarar muchas dudas sobre la tartamudez que comenzamos a notar en ella."
     },
     {
       "nombre": "Carlos Magan",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "fechaOrden": "2025-10-27",
+      "fechaOrden": "2025-10-31",
       "completa": true,
       "texto": "Una excelente experiencia, muy recomendable, ya que he aprendido que no debo tener miedo a expresarme con tartamudez. Nuestra voz es muy importante."
     },
     {
-      "nombre": "Roger Villarreal",
+      "nombre": "Celia Cruz",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "fechaOrden": "2025-10-26",
+      "fechaOrden": "2025-10-20",
       "completa": true,
-      "texto": "Muy buenos instructores, en especial Bruno Villegas, quien me ayudó a poder ver de otra forma mi tartamudez y ayudarme con técnicas para poder controlarla."
+      "texto": "Mi sobrina asistió a clases presenciales con Bruno Villegas, excelente profesional. Gracias por el aporte. Muy recomendado."
+    },
+    {
+      "nombre": "Nicole Suárez Barreto",
+      "estrellas": 5,
+      "fecha": "octubre de 2025",
+      "fechaOrden": "2025-10-19",
+      "completa": false,
+      "texto": "Un lugar en el que comenzó mi proceso de aceptación y de crecimiento con la tartamudez, aprendiendo a mejorarla y a trabajar en ella. Durante muchos años me guardé sentimientos angustiantes, situaciones feas, y una enorme mochila a causa de lo que esta condición me hacía sentir."
+    },
+    {
+      "nombre": "Jimmy Zamudio Milla",
+      "estrellas": 5,
+      "fecha": "octubre de 2025",
+      "fechaOrden": "2025-10-18",
+      "completa": true,
+      "texto": "Estoy muy agradecido con la escuela CON CONFIANZA y sus tutores, gracias a ellos acepté mi tartamudez. No sé qué hubiera sido de mí si no hubiera pedido ayuda a ellos, me enseñaron técnicas y cómo sobrellevar mi tartamudez. Gracias escuela CON CONFIANZA."
+    },
+    {
+      "nombre": "Natalia R.",
+      "estrellas": 5,
+      "fecha": "octubre de 2025",
+      "fechaOrden": "2025-10-17",
+      "completa": false,
+      "texto": "Estoy muy agradecida con la escuela y sus tutores. Aprendí muchísimo sobre la tartamudez, sobre lo que me ocurre a mí específicamente cuando tartamudeo, y las técnicas que puedo aplicar."
     },
     {
       "nombre": "Fidel Alvarado Choque",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "fechaOrden": "2025-10-25",
+      "fechaOrden": "2025-10-16",
       "completa": true,
       "texto": "La verdad muy muy buenos instructores, les admiro, especialmente a Bruno Villegas, y gracias a la escuela CON CONFIANZA. Muchas gracias."
+    },
+    {
+      "nombre": "Roger Villarreal",
+      "estrellas": 5,
+      "fecha": "octubre de 2025",
+      "fechaOrden": "2025-10-15",
+      "completa": true,
+      "texto": "Muy buenos instructores, en especial Bruno Villegas, quien me ayudó a poder ver de otra forma mi tartamudez y ayudarme con técnicas para poder controlarla."
+    },
+    {
+      "nombre": "Aldo Cortegana Sanchez",
+      "estrellas": 5,
+      "fecha": "octubre de 2025",
+      "fechaOrden": "2025-10-14",
+      "completa": true,
+      "texto": "Excelentes profesionales, fueron de gran ayuda en nuestra familia."
     }
   ]
 }
