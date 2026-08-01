@@ -3,14 +3,21 @@
   "_de-donde-salen": "Del PANEL DEL NEGOCIO (business.google.com/reviews), no del mapa público. Importante: en el mapa las opiniones salen ordenadas por 'relevancia', no por fecha, y no se cargan todas; por eso ahí se pueden pasar por alto las recién llegadas. El panel del negocio las muestra todas, por fecha, y con el texto entero.",
   "_orden": "Se muestran de la MÁS NUEVA a la más antigua. Manda 'fechaOrden' (AAAA-MM-DD): el script ordena por él, así que no importa en qué orden estén escritas aquí. La portada muestra las 3 primeras.",
   "_completa": "Si 'completa' es false, el texto es el COMIENZO TEXTUAL de una opinión más larga, cortado en un punto, y la tarjeta muestra el enlace 'Leer la opinión completa en Google'. Se recorta cuando el original pasa de unos 290 caracteres: por encima de eso las tarjetas crecen mucho y, como todas las de una fila miden lo mismo, una sola opinión larga estira toda la sección.",
-  "_no-incluidas": "3 de las 17 son solo estrellas, sin texto (eze ves, giselle carmona, Fidelia Parfum luxury). No se muestran porque no hay nada que leer, pero sí cuentan para el 4,9 y para el total de 17.",
-  "actualizado": "2026-07-31",
+  "actualizado": "2026-08-01",
   "puntaje": "4,9",
-  "total": 17,
+  "total": 18,
   "urlFicha": "https://maps.app.goo.gl/SDBSp1u9EvL1XJZg7",
   "urlOpiniones": "https://www.google.com/maps/place/Escuela+Con+Confianza/@-12.0958668,-77.0284821,17z/data=!4m8!3m7!1s0x9105c8eb76d73cc5:0xda3ffd0a746bd117!8m2!3d-12.0958668!4d-77.0284821!9m1!1b1!16s%2Fg%2F11jzsd95sf",
   "urlEscribir": "https://search.google.com/local/writereview?placeid=ChIJxTzXduvIBZERF9FrdAr9P9o",
   "opiniones": [
+    {
+      "nombre": "Samuel Elí Huamanñahui Lorenzo",
+      "estrellas": 5,
+      "fecha": "agosto de 2026",
+      "fechaOrden": "2026-08-01",
+      "completa": true,
+      "texto": "A nivel mundial es muy competitivo. Gracias a Dios que está en Perú. Además, tiene un trato muy amable con sus clientes. Es el mejor especialista que conozco, especialmente Bruno Villegas. El abordaje de la tartamudez acá es clara y prácticable, ideal para todos los tartamudos. Fui a muchos terapistas de lenguaje, él fue el único especialista que me ayudó de verdad. Gracias a Dios."
+    },
     {
       "nombre": "Holly",
       "estrellas": 5,
@@ -133,5 +140,6 @@
     }
   ],
   "plantillaResena": "https://www.google.com/maps/reviews/@-12.0958668,-77.0284821,17z/data=!3m1!4b1!4m6!14m5!1m4!2m3!1s{id}!2m1!1s0x0:0xda3ffd0a746bd117",
-  "_plantillaResena": "Con \"resenaId\" se arma el enlace directo a ESA opinión en Google, sustituyendo {id}. El identificador se saca del atributo data-review-id de cada opinión en el mapa (mira la nota _de-donde-salen). Si una opinión no tiene resenaId, el enlace cae al listado general; por eso a las que aún no están publicadas en el mapa se les pone el texto entero y \"completa\": true, para no necesitar enlace."
+  "_plantillaResena": "Con \"resenaId\" se arma el enlace directo a ESA opinión en Google, sustituyendo {id}. El identificador se saca del atributo data-review-id de cada opinión en el mapa (mira la nota _de-donde-salen). Si una opinión no tiene resenaId, el enlace cae al listado general; por eso a las que aún no están publicadas en el mapa se les pone el texto entero y \"completa\": true, para no necesitar enlace.",
+  "_no_incluidas": "4 de las 18 son solo estrellas o no se muestran: eze ves, giselle carmona y Fidelia Parfum luxury (3 estrellas) no escribieron texto. Cuentan para el 4,9 y para el total."
 }
