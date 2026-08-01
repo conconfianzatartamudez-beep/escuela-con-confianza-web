@@ -16,16 +16,25 @@ import {
   PAGINAS_CON_INSIGNIA,
   actualizarPagina,
   actualizarInsignia,
+  ordenarPorFecha,
 } from '../lib/generar-resenas.js';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const datos = JSON.parse(await readFile(join(RAIZ, 'data/resenas-google.json'), 'utf8'));
 const opiniones = datos.opiniones || [];
-const destacadas = opiniones.filter((o) => o.destacada);
+const enOrden = ordenarPorFecha(opiniones);
 
 console.log(`Ficha de Google: ${datos.puntaje} con ${datos.total} opiniones.`);
-console.log(`Opiniones en el archivo: ${opiniones.length} (destacadas para la portada: ${destacadas.length})`);
+console.log(`Opiniones en el archivo: ${opiniones.length}. De la más nueva a la más antigua:`);
+enOrden.forEach((o, i) => {
+  const marca = i < 3 ? '  ← sale en la portada' : '';
+  console.log(`  ${String(i + 1).padStart(2)}. ${o.fechaOrden || '(sin fecha)'}  ${o.nombre}${marca}`);
+});
+const sinFecha = opiniones.filter((o) => !o.fechaOrden);
+if (sinFecha.length) {
+  console.log(`  ⚠ ${sinFecha.length} sin "fechaOrden": van al final. Conviene ponérsela.`);
+}
 
 if (!opiniones.length) {
   console.error('No hay opiniones en data/resenas-google.json. No se cambió nada.');

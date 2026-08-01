@@ -1,5 +1,6 @@
 {
-  "_leeme": "Opiniones copiadas de la ficha de Google Maps de Escuela Con Confianza. Se editan a mano aquí y luego se corre: node scripts/actualizar-resenas.mjs (eso reescribe las secciones de index.html y testimonios.html). El texto es el de Google; solo se corrigieron espacios y tildes. Si la opinión estaba cortada en Google con el botón 'Más', aquí va el comienzo textual y 'completa' queda en false para que la tarjeta enlace a Google.",
+  "_leeme": "Opiniones copiadas de la ficha de Google Maps de Escuela Con Confianza. Se editan a mano aquí y luego se corre: node scripts/actualizar-resenas.mjs (eso reescribe las secciones de index.html y testimonios.html y la insignia de Servicios). El texto es el de Google; solo se corrigieron espacios y tildes. Si la opinión estaba cortada en Google con el botón 'Más', aquí va el comienzo textual y 'completa' queda en false para que la tarjeta enlace a Google.",
+  "_orden": "Las opiniones se muestran de la MÁS NUEVA a la más antigua. El campo 'fechaOrden' (AAAA-MM-DD) es el que manda: el script ordena por él, así que no importa en qué orden estén escritas aquí. Google solo dice 'hace un mes', 'hace 9 meses', etc., así que la fecha es aproximada; con que el orden salga bien, basta. La portada muestra las 3 primeras.",
   "actualizado": "2026-07-31",
   "puntaje": "4,9",
   "total": 17,
@@ -11,7 +12,7 @@
       "nombre": "Aracely Perez Pacco",
       "estrellas": 5,
       "fecha": "junio de 2026",
-      "destacada": true,
+      "fechaOrden": "2026-06-30",
       "completa": true,
       "texto": "Tuvimos una buena experiencia, mi niña recibió un acompañamiento cercano y profesional del Lic. Adriano con mucha paciencia dedicación y compromiso que le permitió ganar mucha confianza a mi pequeña. Estamos agradecidos."
     },
@@ -19,7 +20,7 @@
       "nombre": "Mariana Berlanga",
       "estrellas": 5,
       "fecha": "mayo de 2026",
-      "destacada": false,
+      "fechaOrden": "2026-05-31",
       "completa": false,
       "texto": "Queremos agradecer muchísimo al maestro Adriano por todo el apoyo y la tranquilidad que nos brindó durante el proceso de terapia con nuestra hija."
     },
@@ -27,7 +28,7 @@
       "nombre": "Lucia Jimenez",
       "estrellas": 5,
       "fecha": "mayo de 2026",
-      "destacada": true,
+      "fechaOrden": "2026-05-30",
       "completa": false,
       "texto": "Nunca pensé que podría hacer muchas de las cosas que hago ahora. Antes hasta enviar un audio de voz me parecía algo imposible, peor con el tema de las exposiciones. Pero ahora puedo hacer esas cosas sin tanto miedo."
     },
@@ -35,7 +36,7 @@
       "nombre": "Natalia R.",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "destacada": true,
+      "fechaOrden": "2025-10-31",
       "completa": false,
       "texto": "Estoy muy agradecida con la escuela y sus tutores. Aprendí muchísimo sobre la tartamudez, sobre lo que me ocurre a mí específicamente cuando tartamudeo, y las técnicas que puedo aplicar."
     },
@@ -43,7 +44,7 @@
       "nombre": "Nicole Suárez Barreto",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "destacada": false,
+      "fechaOrden": "2025-10-30",
       "completa": false,
       "texto": "Un lugar en el que comenzó mi proceso de aceptación y de crecimiento con la tartamudez, aprendiendo a mejorarla y a trabajar en ella."
     },
@@ -51,7 +52,7 @@
       "nombre": "Jimmy Zamudio Milla",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "destacada": false,
+      "fechaOrden": "2025-10-29",
       "completa": false,
       "texto": "Estoy muy agradecido con la escuela CON CONFIANZA y sus tutores, gracias a ellos acepté mi tartamudez. No sé qué hubiera sido de mí si no hubiera pedido ayuda a ellos, me enseñaron técnicas y cómo sobrellevar mi tartamudez."
     },
@@ -59,7 +60,7 @@
       "nombre": "Celia Cruz",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "destacada": false,
+      "fechaOrden": "2025-10-28",
       "completa": true,
       "texto": "Mi sobrina asistió a clases presenciales con Bruno Villegas, excelente profesional. Gracias por el aporte. Muy recomendado."
     },
@@ -67,7 +68,7 @@
       "nombre": "Carlos Magan",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "destacada": false,
+      "fechaOrden": "2025-10-27",
       "completa": true,
       "texto": "Una excelente experiencia, muy recomendable, ya que he aprendido que no debo tener miedo a expresarme con tartamudez. Nuestra voz es muy importante."
     },
@@ -75,7 +76,7 @@
       "nombre": "Roger Villarreal",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "destacada": false,
+      "fechaOrden": "2025-10-26",
       "completa": true,
       "texto": "Muy buenos instructores, en especial Bruno Villegas, quien me ayudó a poder ver de otra forma mi tartamudez y ayudarme con técnicas para poder controlarla."
     },
@@ -83,7 +84,7 @@
       "nombre": "Fidel Alvarado Choque",
       "estrellas": 5,
       "fecha": "octubre de 2025",
-      "destacada": false,
+      "fechaOrden": "2025-10-25",
       "completa": true,
       "texto": "La verdad muy muy buenos instructores, les admiro, especialmente a Bruno Villegas, y gracias a la escuela CON CONFIANZA. Muchas gracias."
     }

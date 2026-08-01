@@ -42,7 +42,18 @@ function puntajeBonito(valor) {
 }
 
 function normalizar(datos, placeId) {
-  const opiniones = (datos.reviews || [])
+  // Google las entrega por "relevancia", no por fecha, y la API nueva no deja pedir
+  // otro orden. Así que las ordenamos aquí: primero la más reciente.
+  const enOrden = (datos.reviews || []).slice().sort((a, b) => {
+    const fa = a.publishTime || '';
+    const fb = b.publishTime || '';
+    if (fa === fb) return 0;
+    if (!fa) return 1;
+    if (!fb) return -1;
+    return fa < fb ? 1 : -1;
+  });
+
+  const opiniones = enOrden
     .map((r) => {
       const autor = r.authorAttribution || {};
       const texto = ((r.originalText && r.originalText.text) || (r.text && r.text.text) || "").trim();
