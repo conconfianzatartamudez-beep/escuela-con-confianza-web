@@ -24,23 +24,26 @@
       "fecha": "julio de 2026",
       "fechaOrden": "2026-07-31",
       "completa": true,
-      "texto": "Mi experiencia es bueno, el especialista da un buen trato, es amable, tiene paciencia, sabe como debe tratar al paciente. Tienen un bonito ambiente, en la entrada tienen para que te sirvas un café, agua o chocolate. Lo recomiendo totalmente."
+      "texto": "Mi experiencia es bueno, el especialista da un buen trato, es amable, tiene paciencia, sabe como debe tratar al paciente. Tienen un bonito ambiente, en la entrada tienen para que te sirvas un café, agua o chocolate. Lo recomiendo totalmente.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT25sQlp6bFFNM1ZCV0ZoUU5YZ3djbTh5UzJ4TFoxRRAB"
     },
     {
       "nombre": "Jean Pierre de la Cruz",
       "estrellas": 5,
       "fecha": "julio de 2026",
       "fechaOrden": "2026-07-30",
-      "completa": true,
-      "texto": "Llevaba un tiempo viendo dónde abordar mi tartamudez, hasta que encontré este lugar, donde no solo se aborda la fluidez del habla, sino la autoaceptación para con ella sobrellevar de mejor forma este tema. Además, la generación de un espacio de comunidad entre personas con tartamudez con quienes puedes compartir, hace más amena la experiencia."
+      "completa": false,
+      "texto": "Llevaba un tiempo viendo dónde abordar mi tartamudez, hasta que encontré este lugar, donde no solo se aborda la fluidez del habla, sino la autoaceptación para con ella sobrellevar de mejor forma este tema.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT2trNVpqQk9kbHB1YkdKTFJVeEZXREZ2WkdGdmJuYxAB"
     },
     {
       "nombre": "Sofía Miranda",
       "estrellas": 5,
       "fecha": "julio de 2026",
       "fechaOrden": "2026-07-29",
-      "completa": true,
-      "texto": "Llegué buscando terapia para mejorar mi confianza y manejo de mi habla, luego de ser rechazada en mi primera entrevista buscando trabajo. No solo me ayudaron a sentirme mejor conmigo misma y a mejorar mi fluidez, también dejé de sentirme sola al ser parte del grupo de personas con tartamudez."
+      "completa": false,
+      "texto": "Llegué buscando terapia para mejorar mi confianza y manejo de mi habla, luego de ser rechazada en mi primera entrevista buscando trabajo. No solo me ayudaron a sentirme mejor conmigo misma y a mejorar mi fluidez, también dejé de sentirme sola al ser parte del grupo de personas con tartamudez.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT25sRGQzWkJaazB3WTA5cWFYQXdTVTV2Y1VoaFFtYxAB"
     },
     {
       "nombre": "Aracely Perez Pacco",
