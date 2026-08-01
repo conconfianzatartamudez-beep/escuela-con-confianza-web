@@ -24,16 +24,16 @@
       "estrellas": 5,
       "fecha": "julio de 2026",
       "fechaOrden": "2026-07-30",
-      "completa": false,
-      "texto": "Llevaba un tiempo viendo dónde abordar mi tartamudez, hasta que encontré este lugar, donde no solo se aborda la fluidez del habla, sino la autoaceptación para con ella sobrellevar de mejor forma este tema."
+      "completa": true,
+      "texto": "Llevaba un tiempo viendo dónde abordar mi tartamudez, hasta que encontré este lugar, donde no solo se aborda la fluidez del habla, sino la autoaceptación para con ella sobrellevar de mejor forma este tema. Además, la generación de un espacio de comunidad entre personas con tartamudez con quienes puedes compartir, hace más amena la experiencia."
     },
     {
       "nombre": "Sofía Miranda",
       "estrellas": 5,
       "fecha": "julio de 2026",
       "fechaOrden": "2026-07-29",
-      "completa": false,
-      "texto": "Llegué buscando terapia para mejorar mi confianza y manejo de mi habla, luego de ser rechazada en mi primera entrevista buscando trabajo. No solo me ayudaron a sentirme mejor conmigo misma y a mejorar mi fluidez."
+      "completa": true,
+      "texto": "Llegué buscando terapia para mejorar mi confianza y manejo de mi habla, luego de ser rechazada en mi primera entrevista buscando trabajo. No solo me ayudaron a sentirme mejor conmigo misma y a mejorar mi fluidez, también dejé de sentirme sola al ser parte del grupo de personas con tartamudez."
     },
     {
       "nombre": "Aracely Perez Pacco",
@@ -41,7 +41,8 @@
       "fecha": "junio de 2026",
       "fechaOrden": "2026-06-12",
       "completa": true,
-      "texto": "Tuvimos una buena experiencia, mi niña recibió un acompañamiento cercano y profesional del Lic. Adriano con mucha paciencia dedicación y compromiso que le permitió ganar mucha confianza a mi pequeña. Estamos agradecidos."
+      "texto": "Tuvimos una buena experiencia, mi niña recibió un acompañamiento cercano y profesional del Lic. Adriano con mucha paciencia dedicación y compromiso que le permitió ganar mucha confianza a mi pequeña. Estamos agradecidos.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT21rMVVIZFlkM04zWVZWZmR5MWxWR3hQUlRSeGNWRRAB"
     },
     {
       "nombre": "Lucia Jimenez",
@@ -49,7 +50,8 @@
       "fecha": "mayo de 2026",
       "fechaOrden": "2026-05-15",
       "completa": false,
-      "texto": "Nunca pensé que podría hacer muchas de las cosas que hago ahora. Antes hasta enviar un audio de voz me parecía algo imposible, peor con el tema de las exposiciones. Pero ahora puedo hacer esas cosas sin tanto miedo."
+      "texto": "Nunca pensé que podría hacer muchas de las cosas que hago ahora. Antes hasta enviar un audio de voz me parecía algo imposible, peor con el tema de las exposiciones. Pero ahora puedo hacer esas cosas sin tanto miedo.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT21aRVZXaFBXSGhxUVRaNlJUZHRObEI2YWxRMVIzYxAB"
     },
     {
       "nombre": "Mariana Berlanga",
@@ -57,7 +59,8 @@
       "fecha": "mayo de 2026",
       "fechaOrden": "2026-05-08",
       "completa": false,
-      "texto": "Queremos agradecer muchísimo al maestro Adriano por todo el apoyo y la tranquilidad que nos brindó durante el proceso de terapia con nuestra hija. Desde el primer momento nos ayudó a aclarar muchas dudas sobre la tartamudez que comenzamos a notar en ella."
+      "texto": "Queremos agradecer muchísimo al maestro Adriano por todo el apoyo y la tranquilidad que nos brindó durante el proceso de terapia con nuestra hija. Desde el primer momento nos ayudó a aclarar muchas dudas sobre la tartamudez que comenzamos a notar en ella.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT2trNE1ITmxlbGRSTXpoMVYyVkVlV3AxVGxsRFRsRRAB"
     },
     {
       "nombre": "Carlos Magan",
@@ -65,7 +68,8 @@
       "fecha": "octubre de 2025",
       "fechaOrden": "2025-10-31",
       "completa": true,
-      "texto": "Una excelente experiencia, muy recomendable, ya que he aprendido que no debo tener miedo a expresarme con tartamudez. Nuestra voz es muy importante."
+      "texto": "Una excelente experiencia, muy recomendable, ya que he aprendido que no debo tener miedo a expresarme con tartamudez. Nuestra voz es muy importante.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT21oQ1JsSlFielZTWTJSRVpWbGpZVWRxWDNSdFYzYxAB"
     },
     {
       "nombre": "Celia Cruz",
@@ -73,7 +77,8 @@
       "fecha": "octubre de 2025",
       "fechaOrden": "2025-10-20",
       "completa": true,
-      "texto": "Mi sobrina asistió a clases presenciales con Bruno Villegas, excelente profesional. Gracias por el aporte. Muy recomendado."
+      "texto": "Mi sobrina asistió a clases presenciales con Bruno Villegas, excelente profesional. Gracias por el aporte. Muy recomendado.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT25GNGRscFNVMkoxY25sck1rZ3RVVUZuWlhGNGQxRRAB"
     },
     {
       "nombre": "Nicole Suárez Barreto",
@@ -81,7 +86,8 @@
       "fecha": "octubre de 2025",
       "fechaOrden": "2025-10-19",
       "completa": false,
-      "texto": "Un lugar en el que comenzó mi proceso de aceptación y de crecimiento con la tartamudez, aprendiendo a mejorarla y a trabajar en ella. Durante muchos años me guardé sentimientos angustiantes, situaciones feas, y una enorme mochila a causa de lo que esta condición me hacía sentir."
+      "texto": "Un lugar en el que comenzó mi proceso de aceptación y de crecimiento con la tartamudez, aprendiendo a mejorarla y a trabajar en ella. Durante muchos años me guardé sentimientos angustiantes, situaciones feas, y una enorme mochila a causa de lo que esta condición me hacía sentir.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT21aelRVaGpabEJCZEV0cU5uWmlNVGwzY0ZwdFJIYxAB"
     },
     {
       "nombre": "Jimmy Zamudio Milla",
@@ -89,7 +95,8 @@
       "fecha": "octubre de 2025",
       "fechaOrden": "2025-10-18",
       "completa": true,
-      "texto": "Estoy muy agradecido con la escuela CON CONFIANZA y sus tutores, gracias a ellos acepté mi tartamudez. No sé qué hubiera sido de mí si no hubiera pedido ayuda a ellos, me enseñaron técnicas y cómo sobrellevar mi tartamudez. Gracias escuela CON CONFIANZA."
+      "texto": "Estoy muy agradecido con la escuela CON CONFIANZA y sus tutores, gracias a ellos acepté mi tartamudez. No sé qué hubiera sido de mí si no hubiera pedido ayuda a ellos, me enseñaron técnicas y cómo sobrellevar mi tartamudez. Gracias escuela CON CONFIANZA.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT2xwbVdHNUpXRmhFYlZWdk4xQkxZa3R2VkdaMFlrRRAB"
     },
     {
       "nombre": "Natalia R.",
@@ -97,7 +104,8 @@
       "fecha": "octubre de 2025",
       "fechaOrden": "2025-10-17",
       "completa": false,
-      "texto": "Estoy muy agradecida con la escuela y sus tutores. Aprendí muchísimo sobre la tartamudez, sobre lo que me ocurre a mí específicamente cuando tartamudeo, y las técnicas que puedo aplicar."
+      "texto": "Estoy muy agradecida con la escuela y sus tutores. Aprendí muchísimo sobre la tartamudez, sobre lo que me ocurre a mí específicamente cuando tartamudeo, y las técnicas que puedo aplicar.",
+      "resenaId": "Ci9DQUlRQUNvZENodHljRjlvT2xWSGRISjRUbTl1YmxNeE1XVTNjRTlHWmtWRlFrRRAB"
     },
     {
       "nombre": "Fidel Alvarado Choque",
@@ -123,5 +131,7 @@
       "completa": true,
       "texto": "Excelentes profesionales, fueron de gran ayuda en nuestra familia."
     }
-  ]
+  ],
+  "plantillaResena": "https://www.google.com/maps/reviews/@-12.0958668,-77.0284821,17z/data=!3m1!4b1!4m6!14m5!1m4!2m3!1s{id}!2m1!1s0x0:0xda3ffd0a746bd117",
+  "_plantillaResena": "Con \"resenaId\" se arma el enlace directo a ESA opinión en Google, sustituyendo {id}. El identificador se saca del atributo data-review-id de cada opinión en el mapa (mira la nota _de-donde-salen). Si una opinión no tiene resenaId, el enlace cae al listado general; por eso a las que aún no están publicadas en el mapa se les pone el texto entero y \"completa\": true, para no necesitar enlace."
 }
