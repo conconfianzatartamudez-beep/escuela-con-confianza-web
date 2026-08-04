@@ -7,7 +7,6 @@
       "youtubeUrl": "https://www.youtube.com/watch?v=YzJttHHIO2A",
       "audience": "personas",
       "categories": [
-        "destacados",
         "abordaje",
         "estrategias"
       ],
@@ -94,6 +93,7 @@
       "youtubeUrl": "https://www.youtube.com/watch?v=LD78XdMjqK0",
       "audience": "personas",
       "categories": [
+        "destacados",
         "estrategias"
       ],
       "principalCategories": [
