@@ -157,4 +157,64 @@
     button.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="' + title + '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
   });
 
+  /* ----------------------------------------------------------
+     COPIAR ENLACE (botón de compartir de las lecturas)
+     El texto a copiar viaja en data-copiar. Se usa la API moderna
+     del navegador y, si no está disponible (páginas sin HTTPS o
+     navegadores viejos), se cae al método de toda la vida.
+  ---------------------------------------------------------- */
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest('[data-copiar]');
+    if (!button) return;
+
+    event.preventDefault();
+
+    var texto = button.getAttribute('data-copiar');
+    if (!texto) return;
+
+    var etiqueta = button.querySelector('span');
+    var original = etiqueta ? etiqueta.textContent : '';
+
+    function avisar(mensaje) {
+      if (!etiqueta) return;
+      etiqueta.textContent = mensaje;
+      button.classList.add('is-copiado');
+      window.setTimeout(function () {
+        etiqueta.textContent = original;
+        button.classList.remove('is-copiado');
+      }, 2200);
+    }
+
+    // Método de toda la vida. Es el que se usa cuando el navegador no tiene
+    // la API moderna, y también cuando la API moderna dice que no (pasa si el
+    // navegador no reconoce el clic como un gesto de la persona).
+    function copiarAlaAntigua() {
+      var campo = document.createElement('textarea');
+      campo.value = texto;
+      campo.setAttribute('readonly', '');
+      campo.style.position = 'absolute';
+      campo.style.left = '-9999px';
+      document.body.appendChild(campo);
+      campo.select();
+      var listo = false;
+      try {
+        listo = document.execCommand('copy');
+      } catch (error) {
+        listo = false;
+      }
+      document.body.removeChild(campo);
+      avisar(listo ? 'Enlace copiado' : 'No se pudo copiar');
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(texto).then(
+        function () { avisar('Enlace copiado'); },
+        copiarAlaAntigua
+      );
+      return;
+    }
+
+    copiarAlaAntigua();
+  });
+
 })();
