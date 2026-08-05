@@ -636,8 +636,31 @@ function archivoABase64(archivo) {
 }
 
 // Convierte texto simple a HTML seguro, aplicando **negritas**.
+// Convierte el texto que se escribe en el panel al HTML del artículo.
+// Entiende dos cosas, y solo dos:
+//   **negrita**
+//   [el texto del enlace](la-direccion)
+//
+// Lo de los enlaces existe porque antes NO se podía: si alguien escribía un enlace
+// a mano en el archivo de la página, la siguiente edición desde el panel lo borraba,
+// porque la página se vuelve a dibujar desde este texto. Pasó el 04/08/2026 con los
+// enlaces a las guías gratuitas de la lectura de tartamudez infantil.
+//
+// Direcciones permitidas: las de la propia web (empiezan con "/"), las que empiezan
+// con https:// y los correos (mailto:). Cualquier otra cosa se deja como texto plano,
+// para que nadie pueda meter un enlace peligroso desde el panel.
 function textoRico(texto) {
-  return escapar(texto).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  return escapar(texto)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (original, etiqueta, direccion) {
+      const url = direccion.trim();
+      const permitida = url.startsWith("/") || /^https:\/\//i.test(url) || /^mailto:/i.test(url);
+      if (!permitida) return original;
+      // Las direcciones de fuera de la web se abren en una pestaña nueva.
+      const esDeFuera = /^https:\/\//i.test(url) && !/^https:\/\/(www\.)?escuelaconconfianza\.com/i.test(url);
+      const extra = esDeFuera ? ' target="_blank" rel="noopener"' : "";
+      return '<a href="' + url + '"' + extra + ">" + etiqueta + "</a>";
+    });
 }
 
 // Convierte los bloques del editor en el HTML del cuerpo del artículo.
