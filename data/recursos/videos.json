@@ -7,7 +7,6 @@
       "youtubeUrl": "https://www.youtube.com/watch?v=YzJttHHIO2A",
       "audience": "personas",
       "categories": [
-        "destacados",
         "abordaje",
         "estrategias"
       ],
@@ -57,6 +56,21 @@
       "duration": ""
     },
     {
+      "id": "como-manejar-la-tartamudez-a-largo-plazo",
+      "title": "CÓMO MANEJAR LA TARTAMUDEZ A LARGO PLAZO",
+      "youtubeId": "SrWXBC-Yh8Q",
+      "youtubeUrl": "https://www.youtube.com/watch?v=SrWXBC-Yh8Q",
+      "audience": "personas",
+      "categories": [
+        "destacados",
+        "abordaje"
+      ],
+      "principalCategories": [
+        "abordaje"
+      ],
+      "duration": ""
+    },
+    {
       "id": "invitacion-tv-peru",
       "title": "Invitación a TV Perú",
       "youtubeId": "CAGEIwoDpII",
@@ -73,19 +87,19 @@
       "duration": ""
     },
     {
-      "id": "como-manejar-la-tartamudez-a-largo-plazo",
-      "title": "CÓMO MANEJAR LA TARTAMUDEZ A LARGO PLAZO",
-      "youtubeId": "SrWXBC-Yh8Q",
-      "youtubeUrl": "https://www.youtube.com/watch?v=SrWXBC-Yh8Q",
+      "id": "tartamudez-en-la-entrevista",
+      "title": "Tartamudez en la entrevista.",
+      "youtubeId": "LD78XdMjqK0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=LD78XdMjqK0",
       "audience": "personas",
       "categories": [
         "destacados",
-        "abordaje"
+        "estrategias"
       ],
       "principalCategories": [
-        "abordaje"
+        "estrategias"
       ],
-      "duration": ""
+      "duration": "27 min"
     }
   ]
 }
