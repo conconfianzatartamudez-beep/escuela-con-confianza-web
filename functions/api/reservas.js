@@ -174,6 +174,9 @@ export async function onRequestPost(context) {
           accion: "reservar",
           codigo: body.codigo || "",
           keys,
+          // Zona horaria del dispositivo del cliente: el motor la guarda para
+          // que el equipo pueda mostrarle los horarios en su hora local.
+          tz: typeof body.tz === "string" ? body.tz.slice(0, 60) : "",
         }),
         155000,
       );
