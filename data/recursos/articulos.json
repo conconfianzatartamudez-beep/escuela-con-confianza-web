@@ -8,20 +8,20 @@
       "mobileImage": "images/recursos/es-mi-culpa-que-mi-hijo-tartamudee-cuadrado.jpg",
       "url": "/recursos-didacticos/articulos/es-mi-culpa-que-mi-hijo-tartamudee/",
       "featured": true,
-      "date": "2026-08-04",
+      "date": "2026-08-06",
       "badge": "",
       "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
       "references": [],
       "body": [
         {
           "tipo": "parrafo",
-          "texto": "No es tu culpa. Tampoco del papá, ni de la abuela que lo corregía, ni de algo que hayas hecho o dejado de hacer durante el embarazo.",
+          "texto": "No es tu culpa. Tampoco de algún familiar, ni de algo que hayan hecho o dejado de hacer durante el embarazo.",
           "pie": "",
           "src": ""
         },
         {
           "tipo": "parrafo",
-          "texto": "Te lo pongo primero porque sé que es lo que viniste a leer. Ahora te explico por qué te lo puedo decir con esa seguridad.",
+          "texto": "Te lo ponemos primero porque sabemos que es lo que viniste a leer. Ahora te explicamos por qué.",
           "pie": "",
           "src": ""
         },
@@ -69,7 +69,19 @@
         },
         {
           "tipo": "parrafo",
-          "texto": "Con la tartamudez sí pasa, y ahí empieza un problema aparte. La culpa empuja a corregir. Y corregir es lo que sí le hace daño. Los comentarios que le dejan la idea de que tiene algo malo que arreglar son los que le van bajando la confianza, en la casa y en el colegio.",
+          "texto": "Sin embargo, cuando un niño empieza a tartamudear, muchos quieren buscar quién fue el culpable, y ahí empieza un problema aparte. La culpa empuja a querer remediar un error en el niño. Esa preocupación es percibida por él y termina perjudicando su confianza porque podría creer que algo grave le pasa.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Los comentarios que le dejan la idea de que tiene algo malo que arreglar le van bajando la confianza, en la casa y en el colegio.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Mientras tanto la familia sigue pensando en qué fallaron.",
           "pie": "",
           "src": ""
         },
@@ -81,19 +93,31 @@
         },
         {
           "tipo": "parrafo",
-          "texto": "Él también puede quedarse con la idea de que hace algo malo cada vez que habla, y eso es justo lo que se busca evitar. Por eso, desde muy temprano, con los más pequeños trabajamos que puedan ver que la tartamudez no es nada raro y no es nada malo, y que puedan nombrar lo que les pasa sin juzgarlo. Cuando la tartamudez viene sola, sin miedo ni vergüenza encima, se complica bastante menos.",
+          "texto": "Él también puede quedarse con la idea de que hace algo malo cada vez que habla, y eso es justo lo que buscamos evitar. Por eso, desde muy temprano, con los más pequeños trabajamos para que puedan ver que la tartamudez no es nada raro y no es nada malo. Cuando la tartamudez no se acompaña de miedo ni vergüenza, se complica bastante menos.",
           "pie": "",
           "src": ""
         },
         {
           "tipo": "subtitulo",
-          "texto": "Lo que sí está en tus manos",
+          "texto": "¿Qué puedes hacer al respecto?",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/es-mi-culpa-que-mi-hijo-tartamudee-1.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "No busques resolver la causa ni quitar la tartamudez de tu hijo. Aún los investigadores siguen estudiando al respecto.",
           "pie": "",
           "src": ""
         },
         {
           "tipo": "parrafo",
-          "texto": "La causa no. La forma en que se habla en tu casa cuando aparece un bloqueo, sí.",
+          "texto": "Lo que sí puedes hacer es reducir las probabilidades de que tu hijo desarrolle falta de autoestima o confianza, que al mismo tiempo haría que se le complique aún más comunicarse. Por eso es útil saber cómo reaccionar cuando tu hijo tartamudea para que le transmitas la sensación de que no está pasando nada malo y él sepa que no tiene que forcejear para hablar porque tú tienes paciencia para escucharlo.",
           "pie": "",
           "src": ""
         },
@@ -104,14 +128,20 @@
           "src": ""
         },
         {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/es-mi-culpa-que-mi-hijo-tartamudee-2.jpg"
+        },
+        {
           "tipo": "parrafo",
-          "texto": "Si tu hijo llora porque la palabra no sale, lo primero es que entiendas que tiene todo el sentido del mundo que se sienta así. No hay nada que quitarle ahí.",
+          "texto": "Si tu hijo llora porque la palabra no sale, lo primero es que entiendas que tiene todo el sentido del mundo que se sienta frustrado. No intentes minimizar sus sentimientos.",
           "pie": "",
           "src": ""
         },
         {
           "tipo": "parrafo",
-          "texto": "Después, díselo. Que entiendes que es difícil. Y agrégale lo que más sirve, que si se demora en hablar no hay ningún problema, porque tú lo vas a esperar. Que si la palabra no sale ahora, te la puede decir más tarde. Que no hay ninguna prisa.",
+          "texto": "Después, dile que entiendes que es difícil. Y agrégale tranquilidad diciendo que si se demora en hablar no hay ningún problema, porque tú lo vas a esperar. Que si la palabra no sale ahora, te la puede decir más tarde. Que no hay ninguna prisa.",
           "pie": "",
           "src": ""
         },
@@ -129,7 +159,7 @@
         },
         {
           "tipo": "subtitulo",
-          "texto": "Y si la culpa igual no se va",
+          "texto": "Y si la culpa igual no se te va",
           "pie": "",
           "src": ""
         },
@@ -147,7 +177,7 @@
         },
         {
           "tipo": "parrafo",
-          "texto": "En la web puedes descargar gratis la [guía para familiares de menores con tartamudez](/recursos-didacticos/descargas/guia-familiares-tartamudez-infantil.pdf), sin haber contratado nada. Y si lo que te está apurando es la duda de si conviene esperar o mover algo ahora, eso lo respondo en [la otra lectura](/recursos-didacticos/articulos/mi-hijo-empezo-a-tartamudear-hay-que-esperar/).",
+          "texto": "En la web puedes descargar gratis la [guía para familiares de menores con tartamudez](/recursos-didacticos/descargas/guia-familiares-tartamudez-infantil.pdf). Y si lo que te está apurando es la duda de si conviene esperar para comenzar a llevarlo a terapia o no, eso lo respondemos en [la otra lectura](/recursos-didacticos/articulos/mi-hijo-empezo-a-tartamudear-hay-que-esperar/).",
           "pie": "",
           "src": ""
         }
