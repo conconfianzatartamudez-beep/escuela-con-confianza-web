@@ -1,6 +1,159 @@
 {
   "articulos": [
     {
+      "id": "es-mi-culpa-que-mi-hijo-tartamudee",
+      "title": "¿Es mi culpa que mi hijo tartamudee?",
+      "description": "La causa de la tartamudez no se conoce. Qué se sabe hoy, por qué no hay culpables, y qué hacer cuando el niño se frustra porque la palabra no sale.",
+      "image": "images/recursos/es-mi-culpa-que-mi-hijo-tartamudee.jpg",
+      "mobileImage": "images/recursos/es-mi-culpa-que-mi-hijo-tartamudee-cuadrado.jpg",
+      "url": "/recursos-didacticos/articulos/es-mi-culpa-que-mi-hijo-tartamudee/",
+      "featured": true,
+      "date": "2026-08-04",
+      "badge": "",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "references": [],
+      "body": [
+        {
+          "tipo": "parrafo",
+          "texto": "No es tu culpa. Tampoco del papá, ni de la abuela que lo corregía, ni de algo que hayas hecho o dejado de hacer durante el embarazo.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Te lo pongo primero porque sé que es lo que viniste a leer. Ahora te explico por qué te lo puedo decir con esa seguridad.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "La causa no se conoce",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "No se sabe qué causa la tartamudez. Eso es lo que hay hoy, y cualquier explicación que te den con más seguridad que esta va más allá de lo que se sabe.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Lo que sí se sabe es que hay un impacto en el procesamiento neurológico del habla. Ocurre en cómo el cerebro organiza el hablar. La causa de fondo puede ser multifactorial.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Sobre la herencia hay indicios de una base genética. Indicios, nada más. Hasta hoy no se ha determinado nada exacto, así que si en tu familia hay alguien más que tartamudea, eso tampoco convierte a nadie en responsable.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Hoy se entiende como una característica más",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "La tartamudez se entiende como una característica de la persona, igual que a alguien le sale un lunar o le aparece miopía a cierta edad. Es algo que tu hijo tiene.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "A nadie se le ocurre buscar un culpable por una miopía.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Con la tartamudez sí pasa, y ahí empieza un problema aparte. La culpa empuja a corregir. Y corregir es lo que sí le hace daño. Los comentarios que le dejan la idea de que tiene algo malo que arreglar son los que le van bajando la confianza, en la casa y en el colegio.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "En la lista de los que no tienen culpa está también tu hijo",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Él también puede quedarse con la idea de que hace algo malo cada vez que habla, y eso es justo lo que se busca evitar. Por eso, desde muy temprano, con los más pequeños trabajamos que puedan ver que la tartamudez no es nada raro y no es nada malo, y que puedan nombrar lo que les pasa sin juzgarlo. Cuando la tartamudez viene sola, sin miedo ni vergüenza encima, se complica bastante menos.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Lo que sí está en tus manos",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "La causa no. La forma en que se habla en tu casa cuando aparece un bloqueo, sí.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Cuando se frustra o llora",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si tu hijo llora porque la palabra no sale, lo primero es que entiendas que tiene todo el sentido del mundo que se sienta así. No hay nada que quitarle ahí.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Después, díselo. Que entiendes que es difícil. Y agrégale lo que más sirve, que si se demora en hablar no hay ningún problema, porque tú lo vas a esperar. Que si la palabra no sale ahora, te la puede decir más tarde. Que no hay ninguna prisa.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si además están buscando ayuda, cuéntaselo, que van a buscar a alguien que los oriente para que a él le resulte más fácil hablar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Lo que no hay que hacer nunca es pasar por alto el momento. Si haces como que no viste nada, él lo nota, y lo que entiende es que nadie está atento a lo que le pasa. Un comentario corto rompe el hielo y le deja claro que estás ahí para ayudarlo.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Y si la culpa igual no se va",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Sentirte culpable no es raro y no se arregla leyendo un artículo. Mientras tanto, enfócate en hacer lo que sí es útil. Si te dedicas a decirle que respire y que hable bien, lo estás alejando de lo que necesita. Si buscas a alguien que los oriente, vas bien.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Por dónde seguir",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "En la web puedes descargar gratis la [guía para familiares de menores con tartamudez](/recursos-didacticos/descargas/guia-familiares-tartamudez-infantil.pdf), sin haber contratado nada. Y si lo que te está apurando es la duda de si conviene esperar o mover algo ahora, eso lo respondo en [la otra lectura](/recursos-didacticos/articulos/mi-hijo-empezo-a-tartamudear-hay-que-esperar/).",
+          "pie": "",
+          "src": ""
+        }
+      ]
+    },
+    {
       "id": "mi-hijo-empezo-a-tartamudear-hay-que-esperar",
       "title": "Mi hijo empezó a tartamudear, ¿hay que esperar?",
       "description": "Por qué se interviene apenas aparecen los signos de tartamudez, qué se trabaja con la familia y con el colegio, y qué se puede prometer y qué no.",
