@@ -161,14 +161,28 @@ export async function onRequestPost(context) {
     }
 
     // 1) Motor nuevo: reserva con validación propia, eventos atómicos y
-    //    rollback total si algo falla. Si la respuesta no llega (red caída,
-    //    timeout), caer al Apps Script es SEGURO: ambos motores re-verifican
-    //    el estado "pendiente" del link bajo el mismo candado y el perdedor
-    //    revierte sus eventos.
+    //    rollback total si algo falla.
+    //
+    // ⚠️ EL SALVAVIDAS NO PUEDE ENTRAR SIEMPRE (arreglado el 12/08/2026).
+    // Aquí decía que caer al Apps Script era seguro "porque ambos motores
+    // re-verifican el link bajo el mismo candado". NO ES CIERTO: el motor
+    // marca el link como usado en la BASE, y la HOJA (que es lo que mira el
+    // Apps Script) tarda unos segundos en enterarse, porque su contabilidad
+    // va por detrás desde la 18ª tanda. En esa ventana el salvavidas ve el
+    // link libre y crea un SEGUNDO juego de eventos. Eso es exactamente lo
+    // que le dejó dos pre-reservas a Milagros Palomino el 12/08.
+    //
+    // REGLA NUEVA: el salvavidas solo entra si el motor falló RÁPIDO (menos
+    // de 10 s), que es la única señal fiable de que ni llegó a tocar nada
+    // (Supabase caído, DNS, red). Si falló tarde, pudo haber puesto ya el
+    // candado y creado eventos → no se repite NADA y se le dice al cliente
+    // que su reserva se está terminando de registrar.
+    const MOTOR_NO_TOCO_NADA_MS = 10000;
     if (body.motor !== 0 && body.motor !== "0") {
       const keys = Array.isArray(body.slotsSeleccionados)
         ? body.slotsSeleccionados.join(",")
         : "";
+      const arranque = Date.now();
       const data = await llamarMotor(
         new URLSearchParams({
           accion: "reservar",
@@ -178,11 +192,23 @@ export async function onRequestPost(context) {
           // que el equipo pueda mostrarle los horarios en su hora local.
           tz: typeof body.tz === "string" ? body.tz.slice(0, 60) : "",
         }),
-        155000,
+        // Antes eran 155 s. Esperar más de 100 s no sirve de nada: Cloudflare
+        // ya cortó la conexión con el navegador y el cliente vio un error.
+        // El motor, además, ahora responde a los ~55 s pase lo que pase.
+        75000,
       );
 
       if (data) {
         return json(data);
+      }
+
+      if (Date.now() - arranque >= MOTOR_NO_TOCO_NADA_MS) {
+        return json({
+          ok: false,
+          tipo: "reserva_en_proceso",
+          mensaje: "Su reserva se está terminando de registrar. No la vuelva a enviar: " +
+            "en un momento le confirmaremos por WhatsApp. Si no recibe nada en unos minutos, escríbanos.",
+        });
       }
     }
 
