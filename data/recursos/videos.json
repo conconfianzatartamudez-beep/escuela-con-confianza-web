@@ -14,18 +14,6 @@
       "duration": ""
     },
     {
-      "id": "verguenza-tartamudear",
-      "title": "Exposición progresiva en tartamudez",
-      "youtubeId": "3ojyeA5OVvY",
-      "youtubeUrl": "https://www.youtube.com/watch?v=3ojyeA5OVvY",
-      "audience": "personas",
-      "categories": [
-        "abordaje"
-      ],
-      "principalCategories": [],
-      "duration": ""
-    },
-    {
       "id": "podcast-miedo-publico",
       "title": "Cómo enfrentamos el miedo a hablar en público | Podcast 1 piloto",
       "youtubeId": "Rz2DevwSRoI",
@@ -81,7 +69,6 @@
         "invitaciones"
       ],
       "principalCategories": [
-        "destacados",
         "invitaciones"
       ],
       "duration": ""
@@ -100,6 +87,20 @@
         "estrategias"
       ],
       "duration": "27 min"
+    },
+    {
+      "id": "burlas-y-tartamudez-como-responder",
+      "title": "Burlas y tartamudez - Cómo responder",
+      "youtubeId": "Zg8OeU9TxBM",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Zg8OeU9TxBM",
+      "audience": "familiares",
+      "categories": [
+        "destacados"
+      ],
+      "principalCategories": [
+        "destacados"
+      ],
+      "duration": "10 min"
     }
   ]
 }
