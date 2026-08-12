@@ -1,6 +1,18 @@
 {
   "videos": [
     {
+      "id": "burlas-y-tartamudez-como-responder",
+      "title": "Burlas y tartamudez - Cómo responder",
+      "youtubeId": "Zg8OeU9TxBM",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Zg8OeU9TxBM",
+      "audience": "familiares",
+      "categories": [
+        "destacados"
+      ],
+      "principalCategories": [],
+      "duration": "10 min"
+    },
+    {
       "id": "ansiedad-al-hablar",
       "title": "¿Cómo manejar la ansiedad al hablar?",
       "youtubeId": "YzJttHHIO2A",
@@ -87,18 +99,6 @@
         "estrategias"
       ],
       "duration": "27 min"
-    },
-    {
-      "id": "burlas-y-tartamudez-como-responder",
-      "title": "Burlas y tartamudez - Cómo responder",
-      "youtubeId": "Zg8OeU9TxBM",
-      "youtubeUrl": "https://www.youtube.com/watch?v=Zg8OeU9TxBM",
-      "audience": "familiares",
-      "categories": [
-        "destacados"
-      ],
-      "principalCategories": [],
-      "duration": "10 min"
     }
   ]
 }
