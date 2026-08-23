@@ -60,6 +60,23 @@ La lógica vive en un solo archivo, `lib/generar-web.js`, que usan tanto el pane
 script. Si cambias el diseño de las tarjetas en `recursos.js`, cámbialo también ahí para
 que el HTML generado siga siendo idéntico a lo que dibuja el navegador.
 
+### Revisar que el sitemap no ofrezca desvíos
+
+```bash
+node scripts/revisar-sitemap.mjs
+```
+
+Lee el sitemap publicado y comprueba que **todas** sus direcciones responden `200`. Un
+sitemap solo debe listar direcciones finales: si una desvía (`301`), Google la descarta y
+esa página no se indexa.
+
+⚠️ **Al renombrar o mover una página hay que cambiar los DOS sitios:** `PAGINAS_FIJAS` en
+`lib/generar-web.js` **y** `sitemap.xml`. `sitemap.xml` es un archivo *generado* — el panel
+lo rehace desde `generar-web.js` cada vez que se publica una lectura, así que corregirlo
+solo a mano se deshace en la siguiente publicación. Eso pasó en agosto de 2026 y Google
+tardó 12 días en avisar. Las reglas de `_redirects` sí se quedan: mantienen vivos los
+enlaces viejos que la gente tenga guardados.
+
 ### Lo que se genera dentro de cada página de artículo
 
 Además del sitemap y los listados, cada página de artículo
