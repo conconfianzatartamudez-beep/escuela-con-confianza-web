@@ -1,6 +1,291 @@
 {
   "articulos": [
     {
+      "id": "como-responder-ante-las-burlas",
+      "title": "Cómo responder ante las burlas",
+      "description": "Que la tartamudez se vaya no está en nuestro control. Que tu hijo sepa cómo responder si se burlan de él, sí. Las respuestas que le enseño y lo que pasa cuando el otro insiste.",
+      "image": "images/recursos/como-responder-ante-las-burlas.jpg",
+      "mobileImage": "images/recursos/como-responder-ante-las-burlas-cuadrado.jpg",
+      "url": "/recursos-didacticos/articulos/como-responder-ante-las-burlas/",
+      "featured": true,
+      "date": "2026-08-27",
+      "badge": "",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "references": [],
+      "body": [
+        {
+          "tipo": "parrafo",
+          "texto": "Muchas familias traen a su hijo a terapia para que deje de tartamudear porque tienen miedo a que se burlen de él en el colegio.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Que la tartamudez se vaya no está en nuestro control. Que sepa cómo reaccionar si se burlan, sí. Y eso le podemos enseñar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Hay chicos que casi no hablan con nadie, porque ya sufrieron bullying antes y tienen miedo a pasar por lo mismo. Otros no han recibido burlas pero han visto cómo se burlan de los demás y temen que les pase igual.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "De quién es el problema",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/como-responder-ante-las-burlas-1.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Que se burlen de tu hijo no tiene que ver con que él tenga la culpa por tartamudear. La razón tiene que ver con quien se está burlando.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "El que se burla suele tener la autoestima baja y busca sentirse con poder al herir a alguien. Se da cuenta de que con sus palabras pudo lastimar a otro, y eso le sube la autoestima. Hay otros que no buscan herir, quieren ser los payasos del salón y tener la atención del público, y no toman en cuenta que pueden herir a un compañero.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Cuando tu hijo entiende esto, deja de tomárselo como algo personal. Y en lugar de tenerle miedo al que se burla, hasta puede tenerle compasión, sabiendo que el que necesita ayuda es el otro.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Aunque dejara de tartamudear",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/como-responder-ante-las-burlas-2.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Les pregunto a los niños: «Si dejaras de tartamudear, ¿crees que nunca más se van a burlar de ti?» Todos me dicen que sí.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Y no. El que quiere burlarse se puede burlar de cualquier cosa. De tus ojos, de tu cabeza, de tu mochila, de lo que sea.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "A veces se los demuestro ahí mismo. Les aviso, «ahorita yo me voy a burlar de ti, mira», y le empiezo a decir cualquier cosa simulando una burla real. Él sabe que no lo digo en serio y entiende desde antes qué va a pasar. Lo hago porque quiero que vea que si alguien quiere burlarse, encuentra de qué.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Luego entendemos que si la tartamudez se va, habrá otras características de las que se puedan burlar. Siempre hay un creativo para encontrar cosas de qué burlarse.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "En un salón de treinta, se burlan uno o dos",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/como-responder-ante-las-burlas-3.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "De hecho no se burla todo el mundo. En un salón de treinta niños se burlan uno o dos.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si la culpa fuera de tu hijo, se burlarían los treinta. Lo verían tartamudear y se burlarían todos. Eso no pasa porque el problema no lo tiene tu hijo, sino esos pocos niños que disfrutan de burlarse.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Una entre mil características",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "La tartamudez es una de las mil características que uno puede tener, y andar tapando todo lo que no nos gusta no nos deja vivir tranquilos. A veces es más liberador aceptar nuestras diferencias que estar buscando taparlas todas.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si por A o B la tartamudez se va, va a haber otra cosa de nosotros que tampoco nos guste. Aunque pensemos que hay gente perfecta, todos tenemos algo que quisiéramos cambiar. Aceptar que es normal tener diferencias puede dar mayor confianza.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Ahora, qué le enseño a responder",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Sería mejor que no le importe lo que le digan. Pero no es tan sencillo.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Quedarse callado quizá sea lo ideal, pero no es muy fácil. Lo que pasa es que un niño que se queda callado se queda con la sensación de que algo debió decir, que debió defenderse. Hasta que llegue al punto de que de verdad no le importe, conviene que sepa cómo responder.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Lo primero es entender qué quiere el que se burla. Quiere que te enojes, que te ofendas, que te sientas triste, humillado, avergonzado. Ese gusto no se lo des.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Nada de insultar de vuelta",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Hay quien piensa que tiene que contestar con algo todavía más hiriente. Es un error.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si a mí me dicen tartamudo y yo contesto «sí, pero tú tienes una cara fea», lo que estoy demostrando es que me dolió. Y queda de precedente para la próxima, porque ya saben cuál es mi punto débil.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Las respuestas que sí le sirven",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/como-responder-ante-las-burlas-4.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "La idea es responder de manera que quede claro que no te importa lo que te dijeron.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "«¡Eres tartamudo!»\n«No soy tartamudo. Soy recontra tartamudo.»",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "«¡Oye, habla bien!»\n«Ah sí, yo hablo mal y tú hablas bien, te felicito.»",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Ahí la tartamudez deja de ser su punto débil. El otro entiende que por ese lado no se puede meter contigo.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Cuando lo remedan",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si alguien lo remeda, en vez de avergonzarse puede corregirlo. Yo le enseño a responder así: «si quieres tartamudear, tienes que tartamudear bien. Es A-A-Adriano. Así se tartamudea. Repite.»",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Yo puedo tartamudear más exagerado que él, y no me da vergüenza.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Prepararse para lo que viene después",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/como-responder-ante-las-burlas-5.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Avísale de una cosa. Cuando empiece a responder así, el otro no se va a quedar tranquilo. Va a intentar burlarse peor, buscándole cualquier cosita de qué burlarse.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Ahí el niño aprende a decir «ah, sí pues, ajá, sí», y a quedarse inmutable mientras el otro se llena de cólera porque siente que no le puede hacer daño.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Sin levantar un dedo, gana respeto.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Por dónde seguir",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Esto lo cuento completo en el video [Burlas y tartamudez, cómo responder](https://www.youtube.com/watch?v=Zg8OeU9TxBM).",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "En la web puedes descargar gratis la [guía para familiares de menores con tartamudez](/recursos-didacticos/descargas/guia-familiares-tartamudez-infantil.pdf), y si lo que te preocupa es cómo lo tratan sus profesores en el colegio, está también la [guía para apoyar a un estudiante que tartamudea en el aula](/recursos-didacticos/descargas/guia-profesores-aula.pdf), que le puedes pasar a su profesora. Y si prefieres una atención personalizada para tu hijo, escríbenos.",
+          "pie": "",
+          "src": ""
+        }
+      ]
+    },
+    {
       "id": "es-mi-culpa-que-mi-hijo-tartamudee",
       "title": "¿Es mi culpa que mi hijo tartamudee?",
       "description": "La causa de la tartamudez no se conoce. Qué se sabe hoy, por qué no hay culpables, y qué hacer cuando el niño se frustra porque la palabra no sale.",
