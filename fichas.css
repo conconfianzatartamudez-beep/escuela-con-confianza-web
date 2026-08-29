@@ -230,30 +230,14 @@
   background: #01807e; border-color: #01807e; color: #fff;
 }
 
-/* ============================================================
-   4. COMPARTIR
-   ============================================================ */
-.ficha-compartir {
-  display: flex; flex-wrap: wrap; align-items: center; gap: .6rem .95rem; margin: 1.1rem 0 0;
-}
-.ficha-compartir__texto { font-size: .88rem; font-weight: 600; color: #5c6f6e; }
-.ficha-compartir__botones { display: flex; flex-wrap: wrap; gap: .5rem; }
-.ficha-compartir__btn {
-  display: inline-flex; align-items: center; gap: .42rem;
-  font-family: inherit; font-size: .85rem; font-weight: 600; line-height: 1.2;
-  color: #01807e; text-decoration: none; cursor: pointer;
-  background: #fff; border: 1px solid #cfe7e6; border-radius: 999px; padding: .42rem .9rem;
-  transition: background-color .18s ease, color .18s ease, border-color .18s ease;
-}
-.ficha-compartir__btn:hover, .ficha-compartir__btn:focus-visible {
-  background: #01807e; border-color: #01807e; color: #fff;
-}
-.ficha-compartir__btn.is-copiado { background: #14764f; border-color: #14764f; color: #fff; }
-.ficha-compartir__btn i { font-size: .95rem; }
-.fichas-portada .ficha-compartir { margin-top: 1.4rem; }
+/* El compartir usa el componente `article-share` de styles.css, el mismo de
+   las lecturas. Aqui solo se le da el aire que necesita dentro de la ficha. */
+.ficha-web .article-share { margin: 1.6rem 0 0; }
+.ficha-web .article-share__inner,
+.resources-section .article-share__inner { max-width: none; }
 
 /* ============================================================
-   5. EL INFORME FIRMADO
+   4. EL INFORME FIRMADO
    ============================================================ */
 .fichas-cta {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
