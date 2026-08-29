@@ -13,13 +13,6 @@
       "description": "Dirigido a familiares de menores con tartamudez.",
       "icon": "fa-solid fa-user-group",
       "downloadUrl": "recursos-didacticos/descargas/guia-familiares-tartamudez-infantil.pdf"
-    },
-    {
-      "id": "guia-profesores-aula",
-      "title": "Cómo apoyar a un estudiante que tartamudea en el aula.",
-      "description": "Dirigido a maestros.",
-      "icon": "fa-solid fa-book-open",
-      "downloadUrl": "recursos-didacticos/descargas/guia-profesores-aula.pdf"
     }
   ]
 }

@@ -9,3 +9,7 @@
 # Consolidacion del duplicado articulos/ -> publicaciones/ (solo el indice; los articulos individuales no se tocan)
 /recursos-didacticos/articulos/ /recursos-didacticos/publicaciones/ 301
 /recursos-didacticos/articulos /recursos-didacticos/publicaciones/ 301
+# La guia de docentes se reemplazo por las fichas por edad (29/08/2026).
+# El PDF viejo tenia una errata en la firma y ya no se publica, pero su
+# direccion sigue circulando por WhatsApp, asi que se redirige.
+/recursos-didacticos/descargas/guia-profesores-aula.pdf /recursos-didacticos/fichas-de-tartamudez/ 301
