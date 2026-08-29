@@ -128,25 +128,18 @@
 .fichas-portada__texto { min-width: 0; }
 /* el enlace de volver es inline-flex en styles.css y se pegaba al rótulo */
 .fichas-portada__texto .page-back-link { display: flex; margin-bottom: 14px; }
+/* Hector quito el 29/08 el rotulo «Recursos gratuitos» de encima del titular,
+   las pastillas de «7 fichas / PDF listo para imprimir» y la cuenta de fichas
+   de cada grupo: «huele a IA». No volver a ponerlos. */
 .fichas-portada h1 {
   font-family: var(--font-display);
   font-size: clamp(1.85rem, 4.4vw, 3rem); line-height: 1.08;
-  color: #111; margin: .3rem 0 .75rem;
+  color: #111; margin: .2rem 0 .75rem;
 }
 .fichas-portada__bajada {
   color: #41605e; font-size: clamp(1rem, 1.5vw, 1.1rem);
   line-height: 1.6; max-width: 52ch; margin: 0;
 }
-.fichas-portada__datos {
-  list-style: none; margin: 1.3rem 0 0; padding: 0;
-  display: flex; flex-wrap: wrap; gap: .5rem;
-}
-.fichas-portada__datos li {
-  display: inline-flex; align-items: center; gap: .45rem;
-  background: #fff; border: 1px solid #cfe7e6; color: #01706e;
-  font-size: .85rem; font-weight: 600; padding: .36rem .85rem; border-radius: 999px;
-}
-.fichas-portada__datos i { color: #01aeab; font-size: .8rem; }
 .fichas-portada__arte { position: relative; }
 .fichas-portada__arte::before {
   content: ""; position: absolute; inset: 9% -5% 5% 9%;
@@ -170,11 +163,6 @@
 }
 .fichas-grupo__cabecera h2 {
   font-size: clamp(1.2rem, 2.4vw, 1.5rem); color: #111; margin: 0 0 .2rem; line-height: 1.2;
-}
-.fichas-grupo__cuenta {
-  display: inline-block; margin-left: .5rem; vertical-align: middle;
-  font-size: .74rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
-  color: #01807e; background: #e3f5f5; border-radius: 999px; padding: .18rem .55rem;
 }
 .fichas-grupo__cabecera p { color: #5c6f6e; margin: 0; font-size: .95rem; line-height: 1.5; max-width: 64ch; }
 
