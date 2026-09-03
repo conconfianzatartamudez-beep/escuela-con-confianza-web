@@ -416,3 +416,30 @@
     grid-row: span 2;
   }
 }
+
+/* ── Enlaces al campus (añadido 03/09/2026) ─────────────────────── */
+.curso-hero__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.curso-probar {
+  max-width: 760px;
+}
+
+.curso-probar__acciones,
+.curso-cta__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.curso-price__enlace {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.92rem;
+  color: var(--color-brand-dark);
+}
