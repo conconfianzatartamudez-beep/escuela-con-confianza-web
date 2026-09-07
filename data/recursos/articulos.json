@@ -1,6 +1,450 @@
 {
   "articulos": [
     {
+      "id": "respiracion-y-masajes-para-la-tartamudez",
+      "title": "¿Los ejercicios de respiración y los masajes sirven para la tartamudez?",
+      "description": "Por qué respirar hondo no hace falta para hablar, por qué a algunos les va peor, y qué se trabaja de verdad en la terapia de tartamudez.",
+      "image": "images/recursos/respiracion-y-masajes-para-la-tartamudez.jpg",
+      "mobileImage": "images/recursos/respiracion-y-masajes-para-la-tartamudez-cuadrado.jpg",
+      "url": "/recursos-didacticos/articulos/respiracion-y-masajes-para-la-tartamudez/",
+      "featured": true,
+      "date": "2026-09-07",
+      "badge": "",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "references": [],
+      "body": [
+        {
+          "tipo": "parrafo",
+          "texto": "Llevas a tu hijo a terapia por su tartamudez y ahí le hacen soplar velas, ejercicios con la lengua, tomar aire y relajarse. Le dan masajes en la cara. Te pidieron un cuaderno y una cartuchera.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Para la tartamudez, nada de eso sirve.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Ahora te lo explico porque cada semana estás gastando pasajes y plata, y mereces saberlo antes de llevarlo seis meses más.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "El aire no es el problema",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Empecemos por la respiración, que es lo que más se receta.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Respirar hondo no hace falta para hablar. El volumen de aire que usas normalmente para respirar es suficiente. Nadie toma aire hondo antes de decir una frase.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Sí lo necesitas para otras cosas. Para decir muchas palabras seguidas sin parar ni una vez, para gritar fuerte, para cantar. Ahí tiene sentido llenarse de aire. Para hablar como hablamos siempre, no.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Entonces por qué a algunos les funciona",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Algunas personas con tartamudez dicen beneficiarse de tomar aire antes de hablar, sin embargo, lo que les ayuda en ese momento no es tomar aire en sí sino la pausa que hacen al tomar aire.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Cuando una persona se detiene a tomar aire, se está dando unos segundos. En esos segundos el cerebro tendría más tiempo para programar los movimientos que necesita para la secuencia de sonidos de las palabras que vienen, y también para organizar lo que quiere decir. Las dos cosas requieren trabajo cerebral. Cuando se juntan, el cerebro tiene trabajo complejo y eso interferiría en el procesamiento motor del habla.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "La pausa alivia ese esfuerzo porque le da un poco más de tiempo al cerebro para hacer su trabajo, y como consecuencia el habla sale más fluida. El aire no tiene nada que ver.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Se puede comprobar haciendo una pausa sin tomar aire profundamente, podremos notar que el efecto sigue estando igual, solo habiendo tomado la cantidad de aire habitual que usamos para mantenernos vivos.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "La respiración profunda puede empeorar la situación",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Hay personas que después de tomar aire hondo se quedan más bloqueadas. Lo que pasa es que al inspirar y retener todo ese aire tienen que hacer más fuerza en las cuerdas vocales para sostenerlo. Luego, cuando quieren soltarlo para seguir hablando, no logran reducir esa tensión muscular en las cuerdas vocales, y terminan haciendo más fuerza en el intento de expulsar el aire.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/respiracion-y-masajes-para-la-tartamudez-1.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "O sea que ese ejercicio influenció en que el bloqueo se ponga más intenso.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Por eso la respiración profunda, antes de hablar, no conviene.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Los masajes, la vela y la bolita",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Soplar una vela, soplar una bolita, mover la lengua de un lado a otro, masajes en la cara. Esos ejercicios existen y tienen su lugar en otros diagnósticos, pero no tienen relación con la tartamudez.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Algunos terapeutas hacen masajes porque piensan que un tartamudo se traba por tener los músculos tensos, ya que han observado a muchos haciendo tensión al trabarse. Sin embargo, por más masajes que le hagan, si una persona con tartamudez cree que haciendo fuerza sacará más rápido la palabra al trabarse, siempre seguirá tensando en esos momentos. Lo que hay que hacer es enseñarle a no hacer fuerza, no masajes.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Lo mismo pasa con los ejercicios de mover la lengua. No tiene nada que ver. Un tartamudo severo podría ser la persona que mueve la lengua más rápido en el mundo y aún así tartamudear al hablar. La tartamudez no se genera por no saber cómo mover la lengua o tener una limitación en los movimientos. Incluso hay tartamudos que no se bloquean absolutamente nada al hablar solos, lo cual quiere decir que no tienen dificultades para mover la lengua. La causa tiene que ver con un proceso de planificación motora del habla a nivel cerebral que ocurre durante el habla espontánea.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "En la tartamudez lo más importante, y lo que además complica el habla, es el aspecto emocional. Y aunque alguien quiera ver solo la parte técnica del habla, la parte técnica tampoco tiene que ver con ejercicios de lengua, soplo o masajes. Tiene que ver con aprender a reaccionar físicamente cuando ocurren los momentos de tartamudez como regular la tensión muscular o la velocidad al hablar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Prácticas que hacen daño",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si a tu hijo le hacen respirar y le dan masajes, eso no le va a hacer daño. Simplemente no le va a servir para nada. Lo peor es que pierdes tiempo y dinero.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "El daño podría aparecer en otra situación. Si en algún momento se le escapa a quien lo atiende un comentario del tipo \"tienes que hablar así\", ahí sí. Tu hijo se lleva la idea de que su forma de hablar está mal y que tiene que corregirse, y eso es algo que de verdad complica las cosas a largo plazo.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Qué se trabaja en su lugar",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Con un niño pequeño el trabajo apunta a que no se arme un complejo con su forma de hablar. Que pueda ver la tartamudez como algo normal, que sepa nombrar lo que le pasa, y que su casa y su colegio reaccionen de una manera que no le disminuya la confianza.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Con adolescentes y adultos se suma otra parte, la de aprender a hablar con menos esfuerzo y a manejar los momentos de tartamudez cuando aparecen (con niños también pero es más flexible).",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/respiracion-y-masajes-para-la-tartamudez-2.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Nada de eso se consigue soplando velas.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Si no sabes por dónde empezar",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si quieres orientarte primero, en la web puedes descargar gratis la guía para familiares de menores con tartamudez y si deseas una atención personalizada puedes agendarla mediante nuestro WhatsApp.",
+          "pie": "",
+          "src": ""
+        }
+      ]
+    },
+    {
+      "id": "como-ayudar-a-un-nino-con-tartamudez",
+      "title": "Cómo ayudar a un niño con tartamudez sin corregir su habla",
+      "description": "Le dices que respire o que hable despacio creyendo que ayudas. Qué entiende el niño, por qué a los cuatro años no funciona, y qué hacer cuando se traba.",
+      "image": "images/recursos/como-ayudar-a-un-nino-con-tartamudez.jpg",
+      "mobileImage": "images/recursos/como-ayudar-a-un-nino-con-tartamudez-cuadrado.jpg",
+      "url": "/recursos-didacticos/articulos/como-ayudar-a-un-nino-con-tartamudez/",
+      "featured": true,
+      "date": "2026-09-07",
+      "badge": "",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "references": [],
+      "body": [
+        {
+          "tipo": "parrafo",
+          "texto": "Tu hijo se traba y a ti se te ocurre decirle que respire. Que se calme. Que hable más despacio, que piense primero lo que va a decir.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Casi todas las familias hacen algo parecido, y lo hacen queriendo ayudar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Es lo que se le suele ocurrir a uno mientras mira a su hijo luchando con una palabra.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Sin embargo, esto podría ser un problema porque muchos niños interpretan estos “consejos” como mensajes de “estás hablando mal”, que prontamente dañan su autoestima y con ello aumentarían las dificultades en el habla.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "El problema de algunos consejos",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Él no entiende que le estás dando una técnica. Entiende que hay una forma correcta de hablar, que él no la tiene, y que tú te diste cuenta que habla mal.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Eso es lo que puede interpretar. Detrás de ese consejo va el mensaje de que hay algo que arreglar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Y desde ahí las cosas se complican. Si cada vez que habla tiene en la cabeza que debe corregirse, se pone tenso y esa tensión hace que se trabe más, por más que le hayas enseñado a hablar lento, suave, pausado, y todos los consejos que le diste.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Usa analogías para describir",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "En la Escuela Con Confianza usamos analogías con los niños pequeños para describir lo que sucede al tartamudear. La piedra, cuando las palabras se tensan al articular (bloqueos). Los sapitos, cuando las palabras saltan (repeticiones de sonidos o palabras). La serpiente, cuando se estiran algunos sonidos.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Es para que el niño pueda nombrar lo que le pasa y mirarlo sin que fuera algo misterioso, de tal manera que disminuya el temor a lo que le sucede al hablar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/como-ayudar-a-un-nino-con-tartamudez-1.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si quieres hablarle de la tartamudez a tu hijo, tiene que ser con pinzas, porque lo puede interpretar como que lo estás criticando y ahí puede desarrollar más temor. Por eso las analogías pueden ayudar a prevenir que eso suceda, ya que se presenta a la tartamudez de manera lúdica.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "A los cuatro años nadie se concentra para hablar",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Otra razón por la que los “consejos” no son útiles, sobre todo cuando son para niños pequeños, es que para que un niño se concentre en no hacer fuerza mientras habla, necesita cierto nivel de conciencia y concentración. Un niño de cuatro años difícilmente va a hacer eso. A esa edad uno no se quiere concentrar para hablar, simplemente quiere hablar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Eso no significa que nunca vaya a poder. Lo podría hacer después, cuando desarrolle un poco más de atención.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Por eso a esa edad no nos concentramos en enseñarle a no hacer fuerza. Sí le podríamos enseñar a reconocer conceptos relacionados a lo que posteriormente aplicaría en su habla para manejar los momentos de tartamudez, como qué es algo duro, suave, lento, rápido y entre otros, incluso podríamos jugar a hablar aplicando esos conceptos, pero no debemos pretender que desde ya un niño de 4 años se concentre en aplicarlo justo para trabarse menos o disminuir la intensidad de los bloqueos cuando ocurren.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "El miedo a ser juzgado",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Imagínate que tienes un lunar en la cara.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Cada vez que sales, alguien te lo mira. Uno te dice que eso se puede operar. Otro dice tener una crema que te lo va a quitar. A cada rato un comentario nuevo sobre tu lunar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Terminas acomplejado, buscando una clínica. Y en la clínica te dicen que no se puede sacar, porque si te lo sacan se te cae la cara. Entonces ya vives loco pensando en el lunar. Te pones un parche, el parche también se ve raro, prefieres no salir de tu casa.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/como-ayudar-a-un-nino-con-tartamudez-2.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Eso es lo que pasa cuando un niño escucha todos los días respira, habla más lento, hazlo suavecito como te lo enseñaron en la terapia. Empieza a vivir pensando en que habla mal y en que la gente lo está criticando.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Ahora compáralo con un susto. Una niña tartamudeó más el día de un temblor, y también cuando escucha una alarma. Ese susto se va cuando acaba el temblor y también su tartamudez disminuye luego de eso. Lo otro, el miedo a ser observado por tartamudear, se queda para largo, porque cada vez que abra la boca va a pensar que la van a mirar mal.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Entonces qué hacer cuando se traba",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Depende de cuánto dure.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si el bloqueo es cortito, de dos segundos y sin mucha tensión, no hagas ningún comentario. Ninguno. A tu hijo esos bloqueos ni siquiera le importan, no le van a dejar ningún recuerdo desagradable, y si tú no te preocupas, él tampoco tiene por qué. Ahí lo mejor que puedes hacer es seguir la conversación como si nada.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si se queda atascado un buen rato y se frustra, ahí sí conviene hacer algún comentario. Le podrías decir que entiendes que está siendo difícil sacar la palabra, que no importa, que tú lo esperas, que si te lo dice más tarde no hay problema.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Cuando tu hijo se traba no hagas dramas, nada de \"ya, hijito\", nada de tocarle la espaldita, nada de poner cara de sorpresa. Esas cosas le demuestran que algo malo está pasando. Yo sé que tienes la preocupación encima, pero eso es justo lo que no debemos transmitirle.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Lo mismo va para el colegio",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si vas a hablar con la profesora, díselo directo. Que tu hijo tiene tartamudez, que estás viendo el tema con un especialista, y que cuando lo vea trabarse simplemente lo escuche y no le dé ningún consejo para hablar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/como-ayudar-a-un-nino-con-tartamudez-3.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Y que ponga cara normal. Nada de cara de sorpresa.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Solo si ve frustración evidente, que el niño se quede atascado y mire al piso, conviene que le diga que no hay problema, que se tome su tiempo, que ella lo espera.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Por dónde seguir",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si te identificaste con esto, no te castigues. Le diste “consejos” a tu hijo porque parecía lo lógico, y porque hasta ahora nadie te había dicho otra cosa.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "En la web puedes descargar gratis la guía para familiares de menores con tartamudez. Y si quieres conversarlo, la primera sesión puede ser solo para ustedes, sin el niño.",
+          "pie": "",
+          "src": ""
+        }
+      ]
+    },
+    {
       "id": "como-responder-ante-las-burlas",
       "title": "Cómo responder ante las burlas",
       "description": "Que la tartamudez se vaya no está en nuestro control. Que tu hijo sepa cómo responder si se burlan de él, sí. Las respuestas que le enseño y lo que pasa cuando el otro insiste.",
