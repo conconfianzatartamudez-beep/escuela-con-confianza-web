@@ -10,8 +10,6 @@
   const error = $('form-error');
   const boton = $('form-enviar');
   const whatsapp = $('f-whatsapp');
-  const avisos = $('f-avisos');
-  const opcionAvisos = $('opcion-avisos');
 
   function actualizar(ev) {
     const quien = elegido('quien');
@@ -23,13 +21,8 @@
     $('campo-acompanantes').hidden = !acompanado;
     $('campo-ninos').hidden = quien !== 'familiar_nino';
 
-    const hayNumero = whatsapp.value.replace(/\D/g, '').length >= 6;
-    avisos.disabled = !hayNumero;
-    opcionAvisos.style.opacity = hayNumero ? '1' : '0.55';
-    if (!hayNumero) avisos.checked = false;
   }
   form.addEventListener('change', actualizar);
-  whatsapp.addEventListener('input', actualizar);
   actualizar();
 
   function mostrarError(texto, campo) {
@@ -57,7 +50,8 @@
       distrito: $('f-distrito').value,
       correo: $('f-correo').value.trim(),
       whatsapp: whatsapp.value.trim(),
-      avisos: avisos.checked,
+      // El campo de WhatsApp es solo para quien quiere avisos: dejarlo es aceptarlos.
+      avisos: whatsapp.value.replace(/\D/g, '').length >= 6,
       acepta: $('f-acepta').checked,
       web: $('f-web').value,
       evento: 'tartamudez-en-la-plaza-2026',
