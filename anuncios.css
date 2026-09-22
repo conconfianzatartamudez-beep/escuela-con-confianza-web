@@ -1,0 +1,117 @@
+/* Sección de Anuncios: la lista (/anuncios) y la página de cada evento con su formulario. */
+
+.anuncios-page { background: #ffffff; }
+
+.anuncios-hero { min-height: 360px; }
+
+/* ── Lista de anuncios ─────────────────────────────────────────── */
+.anuncios-lista { padding: 56px 0 80px; }
+.anuncios-lista__vacio { color: var(--color-text-muted); }
+
+.anuncio-tarjeta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  max-width: 980px;
+}
+.anuncio-tarjeta__img { width: 100%; height: 100%; min-height: 220px; object-fit: cover; display: block; }
+.anuncio-tarjeta__cuerpo { padding: 26px 28px 30px; display: flex; flex-direction: column; gap: 12px; }
+.anuncio-tarjeta__fecha { font-weight: 800; color: var(--color-brand-dark); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.92rem; }
+.anuncio-tarjeta__titulo { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.12; margin: 0; color: var(--color-dark); }
+.anuncio-tarjeta__texto { margin: 0; color: var(--color-text); line-height: 1.6; }
+.anuncio-tarjeta__datos { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; color: var(--color-text); }
+.anuncio-tarjeta__datos i { color: var(--color-brand); width: 20px; }
+.anuncio-tarjeta .btn { align-self: flex-start; margin-top: 6px; }
+
+@media (min-width: 820px) {
+  .anuncio-tarjeta { grid-template-columns: 1.05fr 1fr; }
+}
+
+/* ── Página del evento ─────────────────────────────────────────── */
+.evento-ficha {
+  position: relative;
+  z-index: 2;
+  margin-top: -44px;
+}
+.evento-ficha__caja {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 26px;
+}
+.evento-ficha__dato { display: flex; gap: 12px; align-items: flex-start; }
+.evento-ficha__dato i { color: var(--color-brand); font-size: 1.25rem; margin-top: 3px; width: 22px; text-align: center; }
+.evento-ficha__dato span { display: block; font-size: 0.85rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+.evento-ficha__dato strong { display: block; color: var(--color-dark); font-size: 1.05rem; line-height: 1.35; }
+.evento-ficha__dato a { color: var(--color-brand-dark); font-weight: 700; font-size: 0.95rem; }
+@media (min-width: 900px) {
+  .evento-ficha__caja { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .evento-ficha__caja { grid-template-columns: minmax(0, 1fr); }
+}
+
+.evento-seccion { padding: 64px 0; }
+.evento-seccion--suave { background: #f2fbfb; }
+.evento-split { display: grid; grid-template-columns: minmax(0, 1fr); gap: 34px; align-items: center; }
+.evento-split img { width: 100%; border-radius: 14px; display: block; }
+@media (min-width: 900px) {
+  .evento-split { grid-template-columns: 1.1fr 1fr; gap: 54px; }
+}
+.evento-titulo { font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.12; margin: 0 0 18px; color: var(--color-dark); }
+.evento-lista { list-style: none; margin: 0 0 20px; padding: 0; }
+.evento-lista li { padding: 12px 0; border-bottom: 1px solid #d7ebe9; line-height: 1.55; color: var(--color-text); }
+.evento-lista li:last-child { border-bottom: none; }
+.evento-lista strong { color: var(--color-dark); }
+.evento-destacado { font-weight: 800; color: var(--color-brand-dark); font-size: 1.1rem; margin: 0 0 14px; }
+.evento-nota { color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+
+/* ── Formulario ─────────────────────────────────────────────────── */
+.inscripcion { max-width: 720px; margin: 0 auto; }
+.inscripcion__intro { color: var(--color-text); line-height: 1.6; margin: 0 0 26px; }
+.inscripcion__form { display: flex; flex-direction: column; gap: 20px; }
+.campo { display: flex; flex-direction: column; gap: 7px; }
+.campo label, .campo legend { font-weight: 700; color: var(--color-dark); }
+.campo .opcional { font-weight: 400; color: var(--color-text-muted); }
+.campo input[type="text"], .campo input[type="email"], .campo input[type="tel"],
+.campo input[type="number"], .campo textarea, .campo select {
+  font: inherit;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 1.5px solid #cfdcdb;
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--color-dark);
+  width: 100%;
+  box-sizing: border-box;
+}
+.campo input:focus, .campo textarea:focus, .campo select:focus { outline: 3px solid rgba(1, 174, 171, 0.25); border-color: var(--color-brand); }
+.campo textarea { min-height: 90px; resize: vertical; }
+.campo input[type="number"] { max-width: 140px; }
+.campo__ayuda { font-size: 0.92rem; color: var(--color-text-muted); margin: 0; line-height: 1.45; }
+.campo fieldset, fieldset.campo { border: none; padding: 0; margin: 0; }
+.opciones { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.opcion { display: flex; gap: 10px; align-items: flex-start; font-weight: 400 !important; cursor: pointer; line-height: 1.45; }
+.opcion input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--color-brand); flex-shrink: 0; }
+.campo-doble { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+@media (min-width: 640px) { .campo-doble { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.permiso { background: #f7f7f7; border-radius: 10px; padding: 14px 16px; }
+.permiso a { color: var(--color-brand-dark); font-weight: 700; }
+.campo-trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.inscripcion__error { color: #b42318; font-weight: 700; margin: 0; }
+.inscripcion__form .btn { align-self: flex-start; font-size: 1.05rem; padding: 14px 28px; }
+.inscripcion__form .btn[disabled] { opacity: 0.6; cursor: wait; }
+
+.inscripcion__listo { text-align: left; background: #f2fbfb; border: 1px solid #cfeceb; border-radius: 14px; padding: 26px 28px; }
+.inscripcion__listo h3 { margin: 0 0 10px; font-size: 1.5rem; color: var(--color-dark); }
+.inscripcion__listo p { margin: 0 0 14px; line-height: 1.6; }
+.inscripcion__listo .botones { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Lo que el formulario oculta tiene que ocultarse aunque tenga display propio */
+.inscripcion [hidden] { display: none !important; }

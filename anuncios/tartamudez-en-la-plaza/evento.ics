@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Escuela Con Confianza//Eventos//ES
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:tartamudez-en-la-plaza-2026@escuelaconconfianza.com
+DTSTAMP:20260922T210000Z
+DTSTART:20261018T140000Z
+DTEND:20261018T180000Z
+SUMMARY:Tartamudez en la plaza · Escuela Con Confianza
+LOCATION:Plaza San José\, Jesús María\, Lima
+DESCRIPTION:Mañana abierta por el Día Internacional de la Tartamudez. Gratis. https://escuelaconconfianza.com/anuncios/tartamudez-en-la-plaza/
+URL:https://escuelaconconfianza.com/anuncios/tartamudez-en-la-plaza/
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Mañana es Tartamudez en la plaza
+END:VALARM
+END:VEVENT
+END:VCALENDAR

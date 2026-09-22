@@ -16,3 +16,7 @@
 # Contenido editable desde el panel: cache muy corta para que los cambios se vean casi al instante
 /data/*
   Cache-Control: public, max-age=30, must-revalidate
+
+# Invitaciones de calendario de los eventos de /anuncios
+/anuncios/*/evento.ics
+  Content-Type: text/calendar; charset=utf-8
