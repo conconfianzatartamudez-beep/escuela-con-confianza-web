@@ -9,8 +9,8 @@ DTSTART:20261018T140000Z
 DTEND:20261018T180000Z
 SUMMARY:Tartamudez en la plaza · Escuela Con Confianza
 LOCATION:Plaza San José\, Jesús María\, Lima
-DESCRIPTION:Mañana abierta por el Día Internacional de la Tartamudez. Gratis. https://escuelaconconfianza.com/anuncios/tartamudez-en-la-plaza
-URL:https://escuelaconconfianza.com/anuncios/tartamudez-en-la-plaza
+DESCRIPTION:Mañana abierta por el Día Internacional de la Tartamudez. Gratis. https://escuelaconconfianza.com/anuncios/tartamudez-en-la-plaza/
+URL:https://escuelaconconfianza.com/anuncios/tartamudez-en-la-plaza/
 BEGIN:VALARM
 TRIGGER:-P1D
 ACTION:DISPLAY
