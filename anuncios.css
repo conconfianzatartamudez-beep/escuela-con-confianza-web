@@ -80,7 +80,7 @@
 .campo label, .campo legend { font-weight: 700; color: var(--color-dark); }
 .campo .opcional { font-weight: 400; color: var(--color-text-muted); }
 .campo input[type="text"], .campo input[type="email"], .campo input[type="tel"],
-.campo input[type="number"], .campo textarea {
+.campo input[type="number"], .campo textarea, .campo select {
   font: inherit;
   font-size: 1rem;
   padding: 12px 14px;
@@ -91,7 +91,7 @@
   width: 100%;
   box-sizing: border-box;
 }
-.campo input:focus, .campo textarea:focus { outline: 3px solid rgba(1, 174, 171, 0.25); border-color: var(--color-brand); }
+.campo input:focus, .campo textarea:focus, .campo select:focus { outline: 3px solid rgba(1, 174, 171, 0.25); border-color: var(--color-brand); }
 .campo textarea { min-height: 90px; resize: vertical; }
 .campo input[type="number"] { max-width: 140px; }
 .campo__ayuda { font-size: 0.92rem; color: var(--color-text-muted); margin: 0; line-height: 1.45; }
@@ -112,3 +112,6 @@
 .inscripcion__listo h3 { margin: 0 0 10px; font-size: 1.5rem; color: var(--color-dark); }
 .inscripcion__listo p { margin: 0 0 14px; line-height: 1.6; }
 .inscripcion__listo .botones { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Lo que el formulario oculta tiene que ocultarse aunque tenga display propio */
+.inscripcion [hidden] { display: none !important; }

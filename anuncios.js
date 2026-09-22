@@ -6,16 +6,23 @@
   if (!form) return;
 
   const $ = (id) => document.getElementById(id);
+  const elegido = (nombre) => (form.querySelector('input[name="' + nombre + '"]:checked') || {}).value || '';
   const error = $('form-error');
   const boton = $('form-enviar');
-  const campoEdades = $('campo-edades');
-  const casillaNino = form.querySelector('input[name="quienes"][value="nino"]');
   const whatsapp = $('f-whatsapp');
   const avisos = $('f-avisos');
   const opcionAvisos = $('opcion-avisos');
 
-  function actualizar() {
-    campoEdades.hidden = !casillaNino.checked;
+  function actualizar(ev) {
+    const quien = elegido('quien');
+    // Quien trae a un niño va acompañado sí o sí.
+    if (ev && ev.target.name === 'quien' && quien === 'familiar_nino') {
+      form.querySelector('input[name="acompanado"][value="si"]').checked = true;
+    }
+    const acompanado = elegido('acompanado') === 'si';
+    $('campo-acompanantes').hidden = !acompanado;
+    $('campo-ninos').hidden = quien !== 'familiar_nino';
+
     const hayNumero = whatsapp.value.replace(/\D/g, '').length >= 6;
     avisos.disabled = !hayNumero;
     opcionAvisos.style.opacity = hayNumero ? '1' : '0.55';
@@ -35,24 +42,32 @@
     ev.preventDefault();
     error.hidden = true;
 
+    const quien = elegido('quien');
+    const acompanado = elegido('acompanado');
+    const acompanantes = acompanado === 'si' ? Number($('f-acompanantes').value) : 0;
+    const ninos = quien === 'familiar_nino' ? Number($('f-ninos').value) : 0;
+
     const datos = {
       nombre: $('f-nombre').value.trim(),
-      personas: Number($('f-personas').value),
-      quienes: Array.from(form.querySelectorAll('input[name="quienes"]:checked')).map((c) => c.value),
-      edades: $('f-edades').value.trim(),
-      distrito: $('f-distrito').value.trim(),
+      quien,
+      acompanantes,
+      ninos,
+      personas: 1 + acompanantes,
+      edades: quien === 'familiar_nino' ? $('f-edades').value.trim() : '',
+      distrito: $('f-distrito').value,
       correo: $('f-correo').value.trim(),
       whatsapp: whatsapp.value.trim(),
       avisos: avisos.checked,
-      comentario: $('f-comentario').value.trim(),
       acepta: $('f-acepta').checked,
       web: $('f-web').value,
       evento: 'tartamudez-en-la-plaza-2026',
     };
 
     if (datos.nombre.length < 2) return mostrarError('Escribe tu nombre.', $('f-nombre'));
-    if (!(datos.personas >= 1 && datos.personas <= 20)) return mostrarError('Indica cuántas personas van, de 1 a 20.', $('f-personas'));
-    if (!datos.quienes.length) return mostrarError('Marca quiénes van.', form.querySelector('input[name="quienes"]'));
+    if (!quien) return mostrarError('Cuéntanos quién eres.', form.querySelector('input[name="quien"]'));
+    if (!acompanado) return mostrarError('Dinos si irás acompañado.', form.querySelector('input[name="acompanado"]'));
+    if (acompanado === 'si' && !(acompanantes >= 1 && acompanantes <= 15)) return mostrarError('Indica con cuántas personas irás, de 1 a 15.', $('f-acompanantes'));
+    if (quien === 'familiar_nino' && !(ninos >= 1 && ninos <= acompanantes)) return mostrarError('Revisa cuántos niños irán. No pueden ser más que las personas que van contigo.', $('f-ninos'));
     if (datos.correo && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(datos.correo)) return mostrarError('Revisa tu correo, parece que le falta algo.', $('f-correo'));
     if (!datos.acepta) return mostrarError('Para inscribirte tienes que aceptar el uso de tus datos.', $('f-acepta'));
 

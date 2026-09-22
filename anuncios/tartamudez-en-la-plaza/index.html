@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="/styles.css?v=20260804">
   <link rel="stylesheet" href="/servicios.css?v=20260804">
-  <link rel="stylesheet" href="/anuncios.css?v=20260922">
+  <link rel="stylesheet" href="/anuncios.css?v=20260922-2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -118,38 +118,107 @@
         <div class="inscripcion">
           <p class="section__label">Inscripción</p>
           <h2 class="evento-titulo" id="titulo-inscripcion">Inscríbete, es gratis</h2>
-          <p class="inscripcion__intro">La inscripción nos sirve para saber cuántos vamos a ser. Una sola persona puede inscribir a toda su familia.</p>
-
           <form class="inscripcion__form" id="form-inscripcion" novalidate>
             <div class="campo">
               <label for="f-nombre">Tu nombre y apellido</label>
               <input type="text" id="f-nombre" name="nombre" autocomplete="name" required maxlength="120" />
             </div>
 
-            <div class="campo">
-              <label for="f-personas">¿Cuántas personas van en total, contándote a ti?</label>
-              <input type="number" id="f-personas" name="personas" min="1" max="20" value="1" inputmode="numeric" required />
-            </div>
-
             <fieldset class="campo">
-              <legend>¿Quiénes van? <span class="opcional">Marca todas las que correspondan.</span></legend>
+              <legend>¿Quién eres?</legend>
               <div class="opciones">
-                <label class="opcion"><input type="checkbox" name="quienes" value="nino" /> Niño o niña que tartamudea</label>
-                <label class="opcion"><input type="checkbox" name="quienes" value="adolescente" /> Adolescente que tartamudea</label>
-                <label class="opcion"><input type="checkbox" name="quienes" value="adulto" /> Adulto que tartamudea</label>
-                <label class="opcion"><input type="checkbox" name="quienes" value="familiar" /> Familiar</label>
-                <label class="opcion"><input type="checkbox" name="quienes" value="interesado" /> Persona interesada en el tema</label>
+                <label class="opcion"><input type="radio" name="quien" value="adulto" /> Adulto que tartamudea</label>
+                <label class="opcion"><input type="radio" name="quien" value="adolescente" /> Adolescente que tartamudea</label>
+                <label class="opcion"><input type="radio" name="quien" value="familiar_nino" /> Mamá, papá o familiar de un niño o niña que tartamudea</label>
+                <label class="opcion"><input type="radio" name="quien" value="familiar" /> Familiar de un adolescente o adulto que tartamudea</label>
+                <label class="opcion"><input type="radio" name="quien" value="interesado" /> Profesional o persona interesada en el tema</label>
               </div>
             </fieldset>
 
-            <div class="campo" id="campo-edades" hidden>
-              <label for="f-edades">Edad de los niños <span class="opcional">(opcional)</span></label>
-              <input type="text" id="f-edades" name="edades" maxlength="80" placeholder="Por ejemplo, 6 y 9 años" />
+            <fieldset class="campo">
+              <legend>¿Irás acompañado?</legend>
+              <div class="opciones">
+                <label class="opcion"><input type="radio" name="acompanado" value="no" /> No, voy solo</label>
+                <label class="opcion"><input type="radio" name="acompanado" value="si" /> Sí</label>
+              </div>
+            </fieldset>
+
+            <div class="campo" id="campo-acompanantes" hidden>
+              <label for="f-acompanantes">¿Con cuántas personas irás? <span class="opcional">Sin contarte, y contando a los niños.</span></label>
+              <input type="number" id="f-acompanantes" name="acompanantes" min="1" max="15" value="1" inputmode="numeric" />
+            </div>
+
+            <div class="campo-doble" id="campo-ninos" hidden>
+              <div class="campo">
+                <label for="f-ninos">¿Cuántos niños irán?</label>
+                <input type="number" id="f-ninos" name="ninos" min="1" max="10" value="1" inputmode="numeric" />
+              </div>
+              <div class="campo">
+                <label for="f-edades">¿Qué edad tienen? <span class="opcional">(opcional)</span></label>
+                <input type="text" id="f-edades" name="edades" maxlength="80" placeholder="Por ejemplo, 6 y 9 años" />
+              </div>
             </div>
 
             <div class="campo">
-              <label for="f-distrito">Distrito donde viven <span class="opcional">(opcional)</span></label>
-              <input type="text" id="f-distrito" name="distrito" maxlength="60" autocomplete="address-level3" />
+              <label for="f-distrito">Distrito donde vives <span class="opcional">(opcional)</span></label>
+              <select id="f-distrito" name="distrito">
+                <option value="">Elige tu distrito</option>
+                <option>Jesús María</option>
+                <optgroup label="Lima">
+                  <option>Ancón</option>
+                  <option>Ate</option>
+                  <option>Barranco</option>
+                  <option>Breña</option>
+                  <option>Carabayllo</option>
+                  <option>Chaclacayo</option>
+                  <option>Chorrillos</option>
+                  <option>Cieneguilla</option>
+                  <option>Comas</option>
+                  <option>El Agustino</option>
+                  <option>Independencia</option>
+                  <option>La Molina</option>
+                  <option>La Victoria</option>
+                  <option>Lima (Cercado)</option>
+                  <option>Lince</option>
+                  <option>Los Olivos</option>
+                  <option>Lurigancho-Chosica</option>
+                  <option>Lurín</option>
+                  <option>Magdalena del Mar</option>
+                  <option>Miraflores</option>
+                  <option>Pachacámac</option>
+                  <option>Pucusana</option>
+                  <option>Pueblo Libre</option>
+                  <option>Puente Piedra</option>
+                  <option>Punta Hermosa</option>
+                  <option>Punta Negra</option>
+                  <option>Rímac</option>
+                  <option>San Bartolo</option>
+                  <option>San Borja</option>
+                  <option>San Isidro</option>
+                  <option>San Juan de Lurigancho</option>
+                  <option>San Juan de Miraflores</option>
+                  <option>San Luis</option>
+                  <option>San Martín de Porres</option>
+                  <option>San Miguel</option>
+                  <option>Santa Anita</option>
+                  <option>Santa María del Mar</option>
+                  <option>Santa Rosa</option>
+                  <option>Santiago de Surco</option>
+                  <option>Surquillo</option>
+                  <option>Villa El Salvador</option>
+                  <option>Villa María del Triunfo</option>
+                </optgroup>
+                <optgroup label="Callao">
+                  <option>Bellavista</option>
+                  <option>Callao (Cercado)</option>
+                  <option>Carmen de la Legua</option>
+                  <option>La Perla</option>
+                  <option>La Punta</option>
+                  <option>Mi Perú</option>
+                  <option>Ventanilla</option>
+                </optgroup>
+                <option>Fuera de Lima y Callao</option>
+              </select>
             </div>
 
             <div class="campo-doble">
@@ -167,10 +236,6 @@
 
             <label class="opcion" id="opcion-avisos"><input type="checkbox" name="avisos" id="f-avisos" /> Quiero que me escriban por WhatsApp cuando haya otras actividades de la escuela. Algunas son gratuitas y otras tienen costo. Pueden dejar de escribirme cuando lo pida.</label>
 
-            <div class="campo">
-              <label for="f-comentario">¿Algo que debamos saber para recibirlos bien? <span class="opcional">(opcional)</span></label>
-              <textarea id="f-comentario" name="comentario" maxlength="500" placeholder="Por ejemplo, si alguien va en silla de ruedas o necesita algún apoyo."></textarea>
-            </div>
 
             <div class="campo-trampa" aria-hidden="true">
               <label for="f-web">No llenes este campo</label>
@@ -243,6 +308,6 @@
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
   </a>
   <script src="/script.js?v=20260804"></script>
-  <script src="/anuncios.js?v=20260922"></script>
+  <script src="/anuncios.js?v=20260922-2"></script>
 </body>
 </html>
