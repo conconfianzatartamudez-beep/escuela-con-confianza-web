@@ -2,7 +2,6 @@
 
 .anuncios-page { background: #ffffff; }
 
-.anuncios-hero { min-height: 360px; }
 
 /* ── Lista de anuncios ─────────────────────────────────────────── */
 .anuncios-lista { padding: 56px 0 80px; }
@@ -50,10 +49,36 @@
 .evento-ficha__dato span { display: block; font-size: 0.85rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
 .evento-ficha__dato strong { display: block; color: var(--color-dark); font-size: 1.05rem; line-height: 1.35; }
 .evento-ficha__dato a { color: var(--color-brand-dark); font-weight: 700; font-size: 0.95rem; }
+.evento-ficha__boton { align-self: center; justify-self: stretch; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.05rem; padding: 14px 18px; }
 @media (min-width: 900px) {
   .evento-ficha__caja { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
-@media (max-width: 520px) {
+/* En el celular la caja no se monta sobre la foto: va debajo, más liviana y en dos columnas. */
+@media (max-width: 899px) {
+  .evento-ficha { margin-top: 0; padding-top: 22px; }
+  .evento-ficha__caja {
+    box-shadow: none;
+    border: 1px solid #d7ebe9;
+    background: #f2fbfb;
+    padding: 18px 16px;
+    gap: 18px 14px;
+  }
+  .evento-ficha__dato { gap: 9px; }
+  .evento-ficha__dato i { font-size: 1.05rem; width: 18px; margin-top: 2px; }
+  .evento-ficha__dato span { font-size: 0.75rem; }
+  .evento-ficha__dato strong { font-size: 0.98rem; }
+  .evento-ficha__dato a { font-size: 0.9rem; }
+  .evento-ficha__boton { grid-column: 1 / -1; }
+  .evento-seccion { padding: 44px 0; }
+  .evento-split { gap: 26px; }
+  .anuncios-lista { padding: 36px 0 56px; }
+  .anuncio-tarjeta__cuerpo { padding: 20px 18px 24px; }
+  .inscripcion__listo { padding: 22px 18px; }
+  .inscripcion__form .btn { align-self: stretch; justify-content: center; text-align: center; }
+  .inscripcion__listo .botones .btn { flex: 1 1 100%; justify-content: center; text-align: center; }
+}
+#inscripcion { scroll-margin-top: 70px; }
+@media (max-width: 340px) {
   .evento-ficha__caja { grid-template-columns: minmax(0, 1fr); }
 }
 
@@ -115,3 +140,7 @@
 
 /* Lo que el formulario oculta tiene que ocultarse aunque tenga display propio */
 .inscripcion [hidden] { display: none !important; }
+
+@media (max-width: 899px) {
+  .inscripcion__form .btn { align-self: stretch; justify-content: center; }
+}
