@@ -467,4 +467,7 @@
   .curso-page .resources-hero__subtitle { font-size: 1rem; }
   .curso-botones--heroe .btn { width: auto; }
 }
-.curso-investment__foto { display: block; width: 100%; height: auto; margin-top: 24px; border-radius: 10px; box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1); }
+.curso-investment__foto { display: block; width: 100%; height: auto; margin-top: 0; border-radius: 10px; box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1); }
+.curso-compra { margin-top: 34px; }
+.curso-price__etiqueta { margin: 0; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-brand-dark); }
+.curso-price .curso-aparte { margin-top: 6px; }
