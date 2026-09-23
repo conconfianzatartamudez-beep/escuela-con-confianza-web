@@ -429,7 +429,9 @@
 
 /* Encabezado: la misma altura que las otras subpáginas (430 px en computadora, unos 250 en
    celular). El botón suma una fila, así que aquí el texto va con menos aire arriba y abajo. */
-.curso-page .resources-hero__content { padding-top: 40px; padding-bottom: 40px; }
+.curso-page .resources-hero__title { max-width: none; }
+.curso-page .resources-hero__subtitle { max-width: 760px; }
+.curso-page .resources-hero__content { padding-top: 56px; padding-bottom: 56px; }
 .curso-botones--heroe { margin-top: 18px; }
 .curso-enlace { color: var(--color-brand-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -461,6 +463,7 @@
   .curso-pantalla__vistas img:nth-child(n+2) { display: none; }
 }
 @media (max-width: 560px) {
-  .curso-page .resources-hero__content { padding-top: 28px; padding-bottom: 28px; }
+  .curso-page .resources-hero__content { padding-top: 24px; padding-bottom: 28px; }
+  .curso-page .resources-hero__subtitle { font-size: 1rem; }
   .curso-botones--heroe .btn { width: auto; }
 }
