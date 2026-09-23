@@ -352,7 +352,7 @@
   .curso-benefits,
   .curso-compare,
   .curso-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -369,7 +369,7 @@
   }
 
   .curso-steps {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -416,3 +416,60 @@
     grid-row: span 2;
   }
 }
+
+/* ── Campus (23/09/2026): la web lleva al campus, donde se estudia y se paga ── */
+.curso-botones { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 22px; }
+.curso-campus { margin: 0; }
+.curso-campus figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--color-text); }
+.curso-price__formas { margin: 0 0 6px; font-size: 0.92rem; }
+.curso-price .btn + .btn { margin-top: 0; }
+.curso-aparte { margin-top: 12px; font-size: 0.95rem; }
+.curso-aparte a { color: var(--color-brand-dark); font-weight: 700; }
+.curso-community p + p { margin-top: 12px; }
+
+/* Encabezado: la misma altura que las otras subpáginas (430 px en computadora, unos 250 en
+   celular). El botón suma una fila, así que aquí el texto va con menos aire arriba y abajo. */
+.curso-page .resources-hero__title { max-width: none; }
+.curso-page .resources-hero__subtitle { max-width: 760px; }
+.curso-page .resources-hero__content { padding-top: 36px; padding-bottom: 36px; }
+.curso-botones--heroe { margin-top: 18px; }
+.curso-enlace { color: var(--color-brand-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* El campus por dentro: cuatro pantallas que se van fundiendo una en otra, con un movimiento
+   lento hacia arriba, como si alguien recorriera la página. */
+.curso-pantalla { display: block; border-radius: 12px; overflow: hidden; background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.12); }
+.curso-pantalla__barra { display: flex; align-items: center; gap: 6px; padding: 9px 12px;
+  background: #f1f3f3; border-bottom: 1px solid rgba(0, 0, 0, 0.06); }
+.curso-pantalla__barra i { width: 9px; height: 9px; border-radius: 50%; background: #d4d9d9; }
+.curso-pantalla__barra em { margin-left: 8px; font-style: normal; font-size: 0.76rem; color: #6b7474; }
+.curso-pantalla__vistas { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+.curso-pantalla__vistas img { position: absolute; top: 0; left: 0; width: 100%; height: auto;
+  opacity: 0; animation: curso-vista 24s linear infinite; }
+/* Cuánto baja cada pantalla: lo que sobra de su alto por debajo del marco (16:10). */
+.curso-pantalla__vistas img:nth-child(1) { --fin: -49.3%; opacity: 1; animation-delay: -0.6s; }
+.curso-pantalla__vistas img:nth-child(2) { --fin: -54.5%; animation-delay: 6s; }
+.curso-pantalla__vistas img:nth-child(3) { --fin: -54.5%; animation-delay: 12s; }
+.curso-pantalla__vistas img:nth-child(4) { --fin: -54.5%; animation-delay: 18s; }
+@keyframes curso-vista {
+  0%   { opacity: 0; transform: translateY(0); }
+  4%   { opacity: 1; transform: translateY(0); }
+  7%   { opacity: 1; transform: translateY(0); }
+  22%  { opacity: 1; transform: translateY(var(--fin)); }
+  25%  { opacity: 1; transform: translateY(var(--fin)); }
+  29%  { opacity: 0; transform: translateY(var(--fin)); }
+  100% { opacity: 0; transform: translateY(var(--fin)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .curso-pantalla__vistas img { animation: none; }
+  .curso-pantalla__vistas img:nth-child(n+2) { display: none; }
+}
+@media (max-width: 560px) {
+  .curso-page .resources-hero__content { padding-top: 20px; padding-bottom: 22px; }
+  .curso-page .resources-hero__subtitle { font-size: 1rem; }
+  .curso-botones--heroe .btn { width: auto; }
+}
+.curso-investment__foto { display: block; width: 100%; height: auto; margin-top: 0; border-radius: 10px; box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1); }
+.curso-compra { margin-top: 34px; }
+.curso-price__etiqueta { margin: 0; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-brand-dark); }
+.curso-price .curso-aparte { margin-top: 6px; }
