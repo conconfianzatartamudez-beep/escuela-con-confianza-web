@@ -24,6 +24,16 @@
 .anuncio-tarjeta__datos { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; color: var(--color-text); }
 .anuncio-tarjeta__datos i { color: var(--color-brand); width: 20px; }
 .anuncio-tarjeta .btn { align-self: flex-start; margin-top: 6px; }
+.anuncio-tarjeta + .anuncio-tarjeta { margin-top: 32px; }
+.anuncio-tarjeta__img--retrato { object-position: 50% 12%; }
+.anuncio-tarjeta__pronto {
+  margin: 8px 0 0;
+  padding-top: 14px;
+  border-top: 2px solid var(--color-brand);
+  align-self: flex-start;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+}
 
 @media (min-width: 820px) {
   .anuncio-tarjeta { grid-template-columns: 1.05fr 1fr; }
