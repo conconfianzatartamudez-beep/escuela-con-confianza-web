@@ -445,18 +445,18 @@
 .curso-pantalla__barra em { margin-left: 8px; font-style: normal; font-size: 0.76rem; color: #6b7474; }
 .curso-pantalla__vistas { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; }
 .curso-pantalla__vistas img { position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: top center; opacity: 0;
+  object-fit: cover; object-position: top center; opacity: 0; transform-origin: top center;
   animation: curso-vista 20s ease-in-out infinite; }
 .curso-pantalla__vistas img:nth-child(1) { opacity: 1; animation-delay: -1s; }
 .curso-pantalla__vistas img:nth-child(2) { animation-delay: 4s; }
 .curso-pantalla__vistas img:nth-child(3) { animation-delay: 9s; }
 .curso-pantalla__vistas img:nth-child(4) { animation-delay: 14s; }
 @keyframes curso-vista {
-  0%   { opacity: 0; transform: scale(1.06) translateY(1.5%); }
+  0%   { opacity: 0; transform: scale(1); }
   6%   { opacity: 1; }
-  25%  { opacity: 1; transform: scale(1.06) translateY(-1.5%); }
-  31%  { opacity: 0; transform: scale(1.06) translateY(-2%); }
-  100% { opacity: 0; transform: scale(1.06) translateY(-2%); }
+  25%  { opacity: 1; transform: scale(1.035); }
+  31%  { opacity: 0; transform: scale(1.04); }
+  100% { opacity: 0; transform: scale(1.04); }
 }
 @media (prefers-reduced-motion: reduce) {
   .curso-pantalla__vistas img { animation: none; }
