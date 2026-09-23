@@ -473,3 +473,5 @@
 .curso-compra { margin-top: 34px; }
 .curso-price__etiqueta { margin: 0; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-brand-dark); }
 .curso-price .curso-aparte { margin-top: 6px; }
+/* En la comparación, que las sesiones traen el curso se lee como un beneficio (Héctor, 23/09). */
+.curso-compare li.curso-compare__extra { color: var(--color-brand-dark); font-weight: 700; }
