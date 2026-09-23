@@ -426,4 +426,6 @@
 .curso-gratis { display: inline-block; margin-left: 6px; padding: 0.15rem 0.55rem; border-radius: 999px; background: rgba(1, 174, 171, 0.14); color: var(--color-brand-dark); font-size: 0.74rem; font-weight: 800; vertical-align: middle; }
 .curso-price__formas { margin: 0 0 6px; font-size: 0.92rem; }
 .curso-price .btn + .btn { margin-top: 0; }
-.curso-note a { color: var(--color-brand-dark); font-weight: 700; }
+.curso-aparte { margin-top: 12px; font-size: 0.95rem; }
+.curso-aparte a { color: var(--color-brand-dark); font-weight: 700; }
+.curso-community p + p { margin-top: 12px; }
