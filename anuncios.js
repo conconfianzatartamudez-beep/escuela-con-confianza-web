@@ -23,6 +23,9 @@
 
   }
   form.addEventListener('change', actualizar);
+  // El aviso rojo se va apenas la persona corrige algo, para que no quede pegado.
+  form.addEventListener('input', () => { error.hidden = true; });
+  form.addEventListener('change', () => { error.hidden = true; });
   actualizar();
 
   function mostrarError(texto, campo) {
@@ -48,7 +51,8 @@
       personas: 1 + acompanantes,
       edades: quien === 'familiar_nino' ? $('f-edades').value.trim() : '',
       distrito: $('f-distrito').value,
-      correo: $('f-correo').value.trim(),
+      // El autocompletado del celular a veces mete espacios o caracteres invisibles.
+      correo: $('f-correo').value.replace(/[\s\u200B-\u200D\uFEFF]/g, '').toLowerCase(),
       whatsapp: whatsapp.value.trim(),
       // El campo de WhatsApp es solo para quien quiere avisos: dejarlo es aceptarlos.
       avisos: whatsapp.value.replace(/\D/g, '').length >= 6,
@@ -63,7 +67,7 @@
     if (acompanado === 'si' && !(acompanantes >= 1 && acompanantes <= 15)) return mostrarError('Indica con cuántas personas irás, de 1 a 15.', $('f-acompanantes'));
     if (quien === 'familiar_nino' && !(ninos >= 1 && ninos <= acompanantes)) return mostrarError('Revisa cuántos niños irán. No pueden ser más que las personas que van contigo.', $('f-ninos'));
     if (datos.correo && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(datos.correo)) return mostrarError('Revisa tu correo, parece que le falta algo.', $('f-correo'));
-    if (!datos.acepta) return mostrarError('Para inscribirte tienes que aceptar el uso de tus datos.', $('f-acepta'));
+    if (!datos.acepta) return mostrarError('Marca la casilla de aceptación para terminar tu inscripción.', $('f-acepta'));
 
     boton.disabled = true;
     boton.textContent = 'Enviando…';
