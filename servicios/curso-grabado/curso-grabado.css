@@ -419,13 +419,48 @@
 
 /* ── Campus (23/09/2026): la web lleva al campus, donde se estudia y se paga ── */
 .curso-botones { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 22px; }
-.curso-enlace-claro { color: #ffffff; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 .curso-campus { margin: 0; }
-.curso-campus img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1); }
 .curso-campus figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--color-text); }
-.curso-gratis { display: inline-block; margin-left: 6px; padding: 0.15rem 0.55rem; border-radius: 999px; background: rgba(1, 174, 171, 0.14); color: var(--color-brand-dark); font-size: 0.74rem; font-weight: 800; vertical-align: middle; }
 .curso-price__formas { margin: 0 0 6px; font-size: 0.92rem; }
 .curso-price .btn + .btn { margin-top: 0; }
 .curso-aparte { margin-top: 12px; font-size: 0.95rem; }
 .curso-aparte a { color: var(--color-brand-dark); font-weight: 700; }
 .curso-community p + p { margin-top: 12px; }
+
+/* Encabezado: la misma altura que las otras subpáginas (430 px en computadora, unos 250 en
+   celular). El botón suma una fila, así que aquí el texto va con menos aire arriba y abajo. */
+.curso-page .resources-hero__content { padding-top: 40px; padding-bottom: 40px; }
+.curso-botones--heroe { margin-top: 18px; }
+.curso-enlace { color: var(--color-brand-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* El campus por dentro: cuatro pantallas que se van fundiendo una en otra, con un movimiento
+   lento hacia arriba, como si alguien recorriera la página. */
+.curso-pantalla { display: block; border-radius: 12px; overflow: hidden; background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.12); }
+.curso-pantalla__barra { display: flex; align-items: center; gap: 6px; padding: 9px 12px;
+  background: #f1f3f3; border-bottom: 1px solid rgba(0, 0, 0, 0.06); }
+.curso-pantalla__barra i { width: 9px; height: 9px; border-radius: 50%; background: #d4d9d9; }
+.curso-pantalla__barra em { margin-left: 8px; font-style: normal; font-size: 0.76rem; color: #6b7474; }
+.curso-pantalla__vistas { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+.curso-pantalla__vistas img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center; opacity: 0;
+  animation: curso-vista 20s ease-in-out infinite; }
+.curso-pantalla__vistas img:nth-child(1) { opacity: 1; animation-delay: -1s; }
+.curso-pantalla__vistas img:nth-child(2) { animation-delay: 4s; }
+.curso-pantalla__vistas img:nth-child(3) { animation-delay: 9s; }
+.curso-pantalla__vistas img:nth-child(4) { animation-delay: 14s; }
+@keyframes curso-vista {
+  0%   { opacity: 0; transform: scale(1.06) translateY(1.5%); }
+  6%   { opacity: 1; }
+  25%  { opacity: 1; transform: scale(1.06) translateY(-1.5%); }
+  31%  { opacity: 0; transform: scale(1.06) translateY(-2%); }
+  100% { opacity: 0; transform: scale(1.06) translateY(-2%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .curso-pantalla__vistas img { animation: none; }
+  .curso-pantalla__vistas img:nth-child(n+2) { display: none; }
+}
+@media (max-width: 560px) {
+  .curso-page .resources-hero__content { padding-top: 28px; padding-bottom: 28px; }
+  .curso-botones--heroe .btn { width: auto; }
+}
