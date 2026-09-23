@@ -352,7 +352,7 @@
   .curso-benefits,
   .curso-compare,
   .curso-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -369,7 +369,7 @@
   }
 
   .curso-steps {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -444,19 +444,21 @@
 .curso-pantalla__barra i { width: 9px; height: 9px; border-radius: 50%; background: #d4d9d9; }
 .curso-pantalla__barra em { margin-left: 8px; font-style: normal; font-size: 0.76rem; color: #6b7474; }
 .curso-pantalla__vistas { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; }
-.curso-pantalla__vistas img { position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: top center; opacity: 0; transform-origin: top center;
-  animation: curso-vista 20s ease-in-out infinite; }
-.curso-pantalla__vistas img:nth-child(1) { opacity: 1; animation-delay: -1s; }
-.curso-pantalla__vistas img:nth-child(2) { animation-delay: 4s; }
-.curso-pantalla__vistas img:nth-child(3) { animation-delay: 9s; }
-.curso-pantalla__vistas img:nth-child(4) { animation-delay: 14s; }
+.curso-pantalla__vistas img { position: absolute; top: 0; left: 0; width: 100%; height: auto;
+  opacity: 0; animation: curso-vista 24s linear infinite; }
+/* Cuánto baja cada pantalla: lo que sobra de su alto por debajo del marco (16:10). */
+.curso-pantalla__vistas img:nth-child(1) { --fin: -49.3%; opacity: 1; animation-delay: -0.6s; }
+.curso-pantalla__vistas img:nth-child(2) { --fin: -54.5%; animation-delay: 6s; }
+.curso-pantalla__vistas img:nth-child(3) { --fin: -54.5%; animation-delay: 12s; }
+.curso-pantalla__vistas img:nth-child(4) { --fin: -54.5%; animation-delay: 18s; }
 @keyframes curso-vista {
-  0%   { opacity: 0; transform: scale(1); }
-  6%   { opacity: 1; }
-  25%  { opacity: 1; transform: scale(1.035); }
-  31%  { opacity: 0; transform: scale(1.04); }
-  100% { opacity: 0; transform: scale(1.04); }
+  0%   { opacity: 0; transform: translateY(0); }
+  4%   { opacity: 1; transform: translateY(0); }
+  7%   { opacity: 1; transform: translateY(0); }
+  22%  { opacity: 1; transform: translateY(var(--fin)); }
+  25%  { opacity: 1; transform: translateY(var(--fin)); }
+  29%  { opacity: 0; transform: translateY(var(--fin)); }
+  100% { opacity: 0; transform: translateY(var(--fin)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .curso-pantalla__vistas img { animation: none; }
