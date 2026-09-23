@@ -467,3 +467,4 @@
   .curso-page .resources-hero__subtitle { font-size: 1rem; }
   .curso-botones--heroe .btn { width: auto; }
 }
+.curso-investment__foto { display: block; width: 100%; height: auto; margin-top: 24px; border-radius: 10px; box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1); }
