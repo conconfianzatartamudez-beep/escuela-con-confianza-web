@@ -74,13 +74,28 @@
 <link rel="stylesheet" href="styles.css?v=20260804">
 <link rel="stylesheet" href="resenas.css?v=20260801-3">
 <style>
-.aviso-eventos{background:#1c262d;color:#fff;font-size:.95rem;line-height:1.4}
-.aviso-eventos a{display:flex;align-items:center;justify-content:center;gap:10px 16px;flex-wrap:wrap;padding:11px 20px;color:#fff;text-decoration:none;text-align:center}
-.aviso-eventos strong{color:#5fd6d3;font-weight:700}
-.aviso-eventos__ir{font-weight:700;border-bottom:2px solid #01aeab;padding-bottom:1px;white-space:nowrap}
-.aviso-eventos a:hover .aviso-eventos__ir{color:#5fd6d3}
+.aviso-eventos{background:#0b7479;color:#fff;font-size:1rem;line-height:1.4}
+.aviso-eventos a{display:flex;align-items:center;justify-content:center;gap:10px 18px;flex-wrap:wrap;padding:13px 20px;color:#fff;text-decoration:none;text-align:center}
+.aviso-eventos strong{font-weight:800}
+.aviso-eventos__ir{font-weight:800;background:#fff;color:#0b7479;padding:6px 14px;border-radius:6px;white-space:nowrap}
+.aviso-eventos a:hover .aviso-eventos__ir{background:#e6f7f7}
 .aviso-eventos__corto{display:none}
-@media (max-width:700px){.aviso-eventos__largo{display:none}.aviso-eventos__corto{display:inline}.aviso-eventos{font-size:.9rem}}
+@media (max-width:700px){.aviso-eventos__largo{display:none}.aviso-eventos__corto{display:inline}.aviso-eventos{font-size:.95rem}}
+.eventos-flotante{position:fixed;right:22px;bottom:96px;z-index:9998;width:360px;max-width:calc(100% - 44px);background:#fff;border-radius:14px;box-shadow:0 18px 50px rgba(16,32,31,.28);overflow:hidden;transform:translateY(130%);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.eventos-flotante.is-visible{transform:none;opacity:1}
+.eventos-flotante__cabeza{background:#0b7479;color:#fff;padding:12px 48px 12px 18px;font-weight:800;font-size:1.02rem;position:relative}
+.eventos-flotante__cerrar{position:absolute;top:2px;right:2px;width:44px;height:44px;border:0;background:transparent;color:#fff;font-size:1.1rem;cursor:pointer;border-radius:8px}
+.eventos-flotante__cerrar:hover,.eventos-flotante__cerrar:focus-visible{background:rgba(255,255,255,.18)}
+.eventos-flotante__item{display:flex;gap:14px;align-items:center;padding:12px 16px;color:#222;text-decoration:none;border-bottom:1px solid #e8eeee}
+.eventos-flotante__item:hover{background:#f3fafa}
+.eventos-flotante__item img{width:72px;height:72px;object-fit:cover;border-radius:10px;flex-shrink:0}
+.eventos-flotante__item img.retrato{object-position:50% 12%}
+.eventos-flotante__fecha{display:block;font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#018f8d}
+.eventos-flotante__titulo{display:block;font-weight:700;font-size:1rem;line-height:1.25;margin-top:2px}
+.eventos-flotante__todos{display:block;text-align:center;padding:12px 16px;font-weight:800;color:#0b7479;text-decoration:none}
+.eventos-flotante__todos:hover{background:#f3fafa}
+@media (max-width:640px){.eventos-flotante{left:12px;right:84px;bottom:14px;width:auto;max-width:none}.eventos-flotante__item{padding:10px 12px;gap:10px}.eventos-flotante__item img{width:56px;height:56px}.eventos-flotante__titulo{font-size:.93rem}}
+@media (prefers-reduced-motion:reduce){.eventos-flotante{transition:none}}
 </style>
 </head>
 <body>
@@ -89,7 +104,7 @@
   <aside class="aviso-eventos" aria-label="Próximos eventos">
     <a href="/anuncios/">
       <span class="aviso-eventos__largo"><strong>Próximos eventos:</strong> Tartamudez en la plaza, domingo 18 de octubre, y Masterclass de oratoria y tartamudez, sábado 24 de octubre.</span>
-      <span class="aviso-eventos__corto"><strong>Próximos eventos</strong> el 18 y el 24 de octubre.</span>
+      <span class="aviso-eventos__corto"><strong>Próximos eventos</strong> el 18 y el 24 de octubre</span>
       <span class="aviso-eventos__ir">Ver anuncios <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
     </a>
   </aside>
@@ -303,6 +318,34 @@
       </div>
     </div>
   </footer>
+
+  <aside class="eventos-flotante" id="eventos-flotante" aria-label="Próximos eventos" hidden>
+    <div class="eventos-flotante__cabeza">Próximos eventos
+      <button type="button" class="eventos-flotante__cerrar" id="eventos-flotante-cerrar" aria-label="Cerrar aviso de eventos"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <a class="eventos-flotante__item" href="/anuncios/tartamudez-en-la-plaza/">
+      <img src="/images/anuncios/plaza-tarjeta.jpg" alt="" loading="lazy" />
+      <span><span class="eventos-flotante__fecha">Domingo 18 de octubre · Gratis</span><span class="eventos-flotante__titulo">Tartamudez en la plaza</span></span>
+    </a>
+    <a class="eventos-flotante__item" href="/anuncios/">
+      <img class="retrato" src="/images/anuncios/masterclass-oratoria-tarjeta.jpg" alt="" loading="lazy" />
+      <span><span class="eventos-flotante__fecha">Sábado 24 de octubre</span><span class="eventos-flotante__titulo">Masterclass de oratoria y tartamudez</span></span>
+    </a>
+    <a class="eventos-flotante__todos" href="/anuncios/">Ver todos los anuncios <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </aside>
+  <script>
+  (function(){
+    var caja=document.getElementById('eventos-flotante'); if(!caja) return;
+    var CLAVE='ecc-eventos-cerrado-oct2026', DOS_DIAS=2*24*60*60*1000;
+    try{ var t=+localStorage.getItem(CLAVE); if(t && Date.now()-t<DOS_DIAS) return; }catch(e){}
+    caja.hidden=false;
+    setTimeout(function(){ caja.classList.add('is-visible'); }, 1500);
+    document.getElementById('eventos-flotante-cerrar').addEventListener('click', function(){
+      caja.classList.remove('is-visible'); setTimeout(function(){ caja.hidden=true; }, 500);
+      try{ localStorage.setItem(CLAVE, String(Date.now())); }catch(e){}
+    });
+  })();
+  </script>
 
   <a href="https://wa.me/51926687682?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20Escuela%20Con%20Confianza%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contáctanos por WhatsApp">
   <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
