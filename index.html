@@ -73,8 +73,26 @@
 
 <link rel="stylesheet" href="styles.css?v=20260804">
 <link rel="stylesheet" href="resenas.css?v=20260801-3">
+<style>
+.aviso-eventos{background:#1c262d;color:#fff;font-size:.95rem;line-height:1.4}
+.aviso-eventos a{display:flex;align-items:center;justify-content:center;gap:10px 16px;flex-wrap:wrap;padding:11px 20px;color:#fff;text-decoration:none;text-align:center}
+.aviso-eventos strong{color:#5fd6d3;font-weight:700}
+.aviso-eventos__ir{font-weight:700;border-bottom:2px solid #01aeab;padding-bottom:1px;white-space:nowrap}
+.aviso-eventos a:hover .aviso-eventos__ir{color:#5fd6d3}
+.aviso-eventos__corto{display:none}
+@media (max-width:700px){.aviso-eventos__largo{display:none}.aviso-eventos__corto{display:inline}.aviso-eventos{font-size:.9rem}}
+</style>
 </head>
 <body>
+
+  <!-- ========== AVISO DE EVENTOS (quitar cuando pasen) ========== -->
+  <aside class="aviso-eventos" aria-label="Próximos eventos">
+    <a href="/anuncios/">
+      <span class="aviso-eventos__largo"><strong>Próximos eventos:</strong> Tartamudez en la plaza, domingo 18 de octubre, y Masterclass de oratoria y tartamudez, sábado 24 de octubre.</span>
+      <span class="aviso-eventos__corto"><strong>Próximos eventos</strong> el 18 y el 24 de octubre.</span>
+      <span class="aviso-eventos__ir">Ver anuncios <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+  </aside>
 
   <!-- ========== HEADER ========== -->
   <header class="header" id="header">
