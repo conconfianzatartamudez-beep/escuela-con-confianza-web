@@ -72,7 +72,8 @@
 
   function matchesAudience(video) {
     if (state.category === 'familias') {
-      return video.audience === 'familiares';
+      // tambien los de 'todos' que el equipo puso en Familias (p. ej. videos para ver con los hijos)
+      return video.audience === 'familiares' || video.audience === 'todos';
     }
     return video.audience === state.audience || video.audience === 'todos';
   }
