@@ -19,7 +19,7 @@
       "body": [
         {
           "tipo": "parrafo",
-          "texto": "Hablar lento, hacer pausas, empezar la palabra suave, marcar un ritmo, etc. Quien busca técnicas para la tartamudez encuentra muchas, y casi siempre se presentan como si todas sirvieran igual y lo único que faltara fuera practicarlas.",
+          "texto": "Hablar lento, hacer pausas, empezar la palabra suave, marcar un ritmo, etc. Quien busca técnicas para la tartamudez encuentra muchas, y casi siempre se consideran como si todas fueran útiles y lo único que faltara fuera practicarlas.",
           "pie": "",
           "src": ""
         },
@@ -43,7 +43,7 @@
         },
         {
           "tipo": "parrafo",
-          "texto": "Si las escuchas, las dos usan la misma técnica. La primera la usa para esconder su tartamudez y la segunda, de vez en cuando, para comunicarse con menos esfuerzo.",
+          "texto": "Si las escuchas, las dos usan la misma técnica, pero lo que cambia es la intención al usarla. La primera la usa para esconder su tartamudez y la segunda, de vez en cuando, para comunicarse con menos esfuerzo.",
           "pie": "",
           "src": ""
         },
@@ -91,13 +91,13 @@
         },
         {
           "tipo": "parrafo",
-          "texto": "La persona que habla lento todo el día para esconder su tartamudez pasa cada conversación pendiente de que no se le escape un tartamudeo, igual que la del maquillaje pasa pendiente de si se le corrió. Vive dependiendo de la técnica para hablar fluido. Y como nunca se permite tartamudear delante de otros, nunca llega a comprobar que podía decir lo que quería aunque tartamudeara, y que el mundo no se iba a acabar por eso. El miedo a tartamudear se mantiene, aunque por momentos logre ocultar su tartamudez.",
+          "texto": "La persona que habla lento todo el día para esconder su tartamudez pasa cada conversación pendiente de que no se le escape un tartamudeo, igual que la del maquillaje pasa pendiente de si se le corrió, y vive dependiendo de la técnica para hablar fluido. Y como nunca se permite tartamudear delante de otros, nunca llega a comprobar que podía decir lo que quería aunque tartamudeara, y que el mundo no se iba a acabar por eso. El miedo a tartamudear se mantiene, aunque por momentos logre ocultar su tartamudez.",
           "pie": "",
           "src": ""
         },
         {
           "tipo": "parrafo",
-          "texto": "Por eso, cuando una persona usa una técnica para esconder su tartamudez, en terapia trabajamos para reencuadrar la intención con la que usa esa técnica.",
+          "texto": "Por eso, cuando una persona usa una técnica para esconder su tartamudez, en terapia trabajamos para reencuadrar la intención con la que usa esa técnica. Así su confianza no depende de si le sale una técnica o no, y logra decir lo que quiere incluso si tartamudea o si la técnica no le sale perfecto.",
           "pie": "",
           "src": ""
         },
@@ -140,6 +140,12 @@
         {
           "tipo": "parrafo",
           "texto": "Si lo que te preguntas es si practicar técnicas hace que una persona deje de tartamudear, eso lo explico en [esta otra lectura sobre las técnicas para dejar de tartamudear](/recursos-didacticos/articulos/tecnicas-para-dejar-de-tartamudear/).",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Y si deseas información para trabajar con uno de nuestros especialistas, [escríbenos](https://wa.me/51926687682?text=Hola%2C%20le%C3%AD%20en%20la%20web%20el%20art%C3%ADculo%20sobre%20qu%C3%A9%20t%C3%A9cnica%20es%20buena%20para%20la%20tartamudez%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n.).",
           "pie": "",
           "src": ""
         }
