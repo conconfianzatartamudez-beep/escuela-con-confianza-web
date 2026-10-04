@@ -1,6 +1,151 @@
 {
   "articulos": [
     {
+      "id": "que-tecnica-es-buena-para-la-tartamudez",
+      "title": "¿Qué técnica es buena para la tartamudez?",
+      "description": "Hablar lento, hacer pausas, empezar suave. La misma técnica puede ayudarle a una persona y perjudicar a otra, según para qué la use.",
+      "image": "images/recursos/que-tecnica-es-buena-para-la-tartamudez.jpg",
+      "mobileImage": "images/recursos/que-tecnica-es-buena-para-la-tartamudez-cuadrado.jpg",
+      "url": "/recursos-didacticos/articulos/que-tecnica-es-buena-para-la-tartamudez/",
+      "featured": true,
+      "date": "2026-10-04",
+      "badge": "",
+      "author": "Lic. T.M. Terapeuta de lenguaje, Adriano Vega.",
+      "references": [
+        "Lowe, R., Helgadottir, F., Menzies, R., Heard, R., O'Brian, S., Packman, A., & Onslow, M. (2017). Safety behaviors and stuttering. Journal of Speech, Language, and Hearing Research, 60(5), 1246–1253. https://doi.org/10.1044/2016_JSLHR-S-16-0055",
+        "Lowe, R., Menzies, R., Onslow, M., Packman, A., & O'Brian, S. (2021). Speech and anxiety management with persistent stuttering: Current status and essential research. Journal of Speech, Language, and Hearing Research, 64(1), 59–74. https://doi.org/10.1044/2020_JSLHR-20-00144",
+        "Piccirillo, M. L., Taylor Dryman, M., & Heimberg, R. G. (2016). Safety behaviors in adults with social anxiety: Review and future directions. Behavior Therapy, 47(5), 675–687. https://doi.org/10.1016/j.beth.2015.11.005"
+      ],
+      "body": [
+        {
+          "tipo": "parrafo",
+          "texto": "Hablar lento, hacer pausas, empezar la palabra suave, marcar un ritmo, etc. Quien busca técnicas para la tartamudez encuentra muchas, y casi siempre se presentan como si todas sirvieran igual y lo único que faltara fuera practicarlas.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "La misma técnica puede ayudarle a una persona y perjudicar a otra. Lo que decide si una técnica es buena para ti es para qué la usas.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "La misma técnica con dos intenciones",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Piensa en dos personas con tartamudez que usan el habla lenta. La primera habla lento todo el día, en todas sus conversaciones, para que nadie se dé cuenta de que tartamudea. La segunda habla con su propia velocidad la mayoría del tiempo. Solo baja la velocidad cuando siente que se está trabando mucho y quiere hablar con menos esfuerzo, pero no lo hace en todo momento que tartamudea, porque no lo ve necesario.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si las escuchas, las dos usan la misma técnica. La primera la usa para esconder su tartamudez y la segunda, de vez en cuando, para comunicarse con menos esfuerzo.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "El problema de depender de las técnicas para ocultar",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/que-tecnica-es-buena-para-la-tartamudez-1.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Pensemos en este ejemplo para entender por qué no es conveniente usar las técnicas para ocultar la tartamudez. Dos personas tienen manchas en la cara y a las dos les incomodan. La primera solo sale de su casa maquillada. Si no tiene maquillaje no sale, y cuando está afuera pasa pendiente de si se le corrió. La segunda se maquilla cuando quiere. Si un día no tiene maquillaje, no le impide salir, y con el tiempo las manchas le dejan de importar.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Las dos usan maquillaje. La primera depende de él para salir a la calle, la segunda no.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Técnicas usadas para esconder la tartamudez",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "imagen",
+          "texto": "",
+          "pie": "",
+          "src": "images/recursos/articulos/que-tecnica-es-buena-para-la-tartamudez-2.jpg"
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Usar una técnica para que nadie se dé cuenta de que tartamudeas te puede tranquilizar, pero ese alivio dura solo un momento.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "La persona que habla lento todo el día para esconder su tartamudez pasa cada conversación pendiente de que no se le escape un tartamudeo, igual que la del maquillaje pasa pendiente de si se le corrió. Vive dependiendo de la técnica para hablar fluido. Y como nunca se permite tartamudear delante de otros, nunca llega a comprobar que podía decir lo que quería aunque tartamudeara, y que el mundo no se iba a acabar por eso. El miedo a tartamudear se mantiene, aunque por momentos logre ocultar su tartamudez.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Por eso, cuando una persona usa una técnica para esconder su tartamudez, en terapia trabajamos para reencuadrar la intención con la que usa esa técnica.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Hay estudios que respaldan esta postura. En personas con mucho miedo a ser juzgadas, se ha visto que las cosas que hacen para evitar lo que temen les mantienen el miedo con el tiempo, porque nunca llegan a comprobar que lo que temían no iba a pasar (Piccirillo y colaboradores, 2016).",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "En la tartamudez, unos investigadores advierten que las técnicas para controlar la tartamudez podrían terminar usándose para esconderla (Lowe y colaboradores, 2021). Y en un estudio con 133 adultos que tartamudean, casi todos dijeron que, cuando se ponían nerviosos al hablar con otros, hacían cosas para que no pasara lo que temían, como evitar ciertas situaciones o elegir con quién hablar. Varias de esas cosas iban de la mano con más miedo a ser juzgados (Lowe y colaboradores, 2017).",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Y como bien se sabe, [la ansiedad complica aún más la comunicación](/recursos-didacticos/articulos/dias-tartamudeo-mas/) en personas que tartamudean.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "subtitulo",
+          "texto": "Técnicas usadas con intención de comunicarte más fácil",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Una técnica te conviene cuando tu propósito principal es comunicarte más fácil. No hay una técnica exclusiva que debas usar. Puedes elegir cualquiera con la que te sientas cómodo. Y no tienes que usarla todo el tiempo, solo cuando lo consideres útil, que no es necesariamente cada vez que vayas a tartamudear. A veces es más fácil simplemente tartamudear \"como salga\" que concentrarse en una técnica para hablar más fluido. Eso va a depender de lo que tú consideres más conveniente en ese momento.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Además, enfocarlo de esta manera te puede ayudar a reducir la frustración por si en algún momento el uso de la técnica no te sale, porque, honestamente, las técnicas no siempre te van a salir. El uso de las técnicas va a depender mucho de tu concentración y tiene que ver con tu estado físico y mental en ese momento. No siempre vamos a estar libres de estrés o carga mental, y en esos momentos será más difícil usar una técnica. Pero es mejor que no te salga la técnica aceptando que puedes tartamudear, a que no te salga la técnica y te frustres por eso y que te mueras del miedo y la vergüenza, lo cual empeoraría la situación.",
+          "pie": "",
+          "src": ""
+        },
+        {
+          "tipo": "parrafo",
+          "texto": "Si lo que te preguntas es si practicar técnicas hace que una persona deje de tartamudear, eso lo explico en [esta otra lectura sobre las técnicas para dejar de tartamudear](/recursos-didacticos/articulos/tecnicas-para-dejar-de-tartamudear/).",
+          "pie": "",
+          "src": ""
+        }
+      ]
+    },
+    {
       "id": "respiracion-y-masajes-para-la-tartamudez",
       "title": "¿Los ejercicios de respiración y los masajes sirven para la tartamudez?",
       "description": "Por qué respirar hondo no hace falta para hablar, por qué a algunos les va peor, y qué se trabaja de verdad en la terapia de tartamudez.",
