@@ -57,7 +57,7 @@
     if (!id) return '';
     var params = 'rel=0&modestbranding=1&playsinline=1';
     if (autoplay) params = 'autoplay=1&' + params;
-    return 'https://www.youtube.com/embed/' + id + '?' + params;
+    return 'https://www.youtube-nocookie.com/embed/' + id + '?' + params;
   }
 
   function getWatchUrl(video) {
@@ -128,9 +128,33 @@
       return;
     }
 
+    // Al abrir la página solo se muestra la miniatura. El reproductor de
+    // YouTube (y sus cookies) se carga recién cuando la persona da clic.
+    if (!autoplay) {
+      container.innerHTML =
+        '<button type="button" data-video-play="' + escapeHtml(video.id) + '" aria-label="Reproducir video: ' + escapeHtml(video.title) + '" style="position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;background:#111111;cursor:pointer;display:block;">' +
+          '<img src="' + getThumbUrl(video) + '" alt="" style="width:100%;height:100%;display:block;object-fit:cover;" />' +
+          '<span aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:inline-grid;place-items:center;width:64px;height:64px;color:#ffffff;background:#01aeab;border-radius:50%;box-shadow:0 12px 30px rgba(1,174,171,0.35);font-size:22px;"><i class="fa-solid fa-play"></i></span>' +
+        '</button>' +
+        '<a class="youtube-fallback-link" href="' + getWatchUrl(video) + '" target="_blank" rel="noopener">Ver en YouTube</a>';
+      return;
+    }
+
     container.innerHTML =
       '<iframe src="' + getEmbedUrl(video, autoplay) + '" title="' + escapeHtml(video.title) + '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>' +
       '<a class="youtube-fallback-link" href="' + getWatchUrl(video) + '" target="_blank" rel="noopener">Ver en YouTube</a>';
+  }
+
+  function bindMainVideoPlay() {
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-video-play]');
+      if (!button) return;
+
+      var video = findVideoById(button.getAttribute('data-video-play'));
+      if (!video || !getYouTubeId(video)) return;
+
+      renderMainVideo(video, true);
+    });
   }
 
   function renderRelatedVideos(videos, mainVideo) {
@@ -364,6 +388,7 @@
       bindAudienceButtons();
       bindCategoryButtons();
       bindRelatedVideoButtons();
+      bindMainVideoPlay();
       renderVideos();
       renderGuides();
       renderFeaturedArticles();
