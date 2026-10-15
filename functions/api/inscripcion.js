@@ -37,6 +37,12 @@ export async function onRequestPost({ request }) {
   const destino = DESTINOS[datos && datos.evento];
   if (!destino) return json({ ok: false, error: 'evento' }, 400);
 
+  // Prueba del consentimiento (Ley 29733, reglamento art. 9): desde qué IP y a qué
+  // hora llegó la inscripción. Los pone el servidor, así el navegador no los puede
+  // inventar; si alguien los manda en el formulario, se reemplazan.
+  datos.ip_origen = request.headers.get('CF-Connecting-IP') || '';
+  datos.fecha_servidor = new Date().toISOString();
+
   try {
     const r = await fetch(destino, {
       method: 'POST',

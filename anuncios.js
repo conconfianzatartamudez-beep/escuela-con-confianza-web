@@ -57,6 +57,9 @@
       // El campo de WhatsApp es solo para quien quiere avisos: dejarlo es aceptarlos.
       avisos: whatsapp.value.replace(/\D/g, '').length >= 6,
       acepta: $('f-acepta').checked,
+      // Prueba del consentimiento: la casilla marcada y la versión de la política que se aceptó.
+      consentimiento: $('f-acepta').checked,
+      version_privacidad: '2026-10-15',
       web: $('f-web').value,
       evento: 'tartamudez-en-la-plaza-2026',
     };
