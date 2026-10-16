@@ -14,6 +14,7 @@
   /* Colores */
   --color-brand:       #01aeab;
   --color-brand-dark:  #018f8d;
+  --color-brand-btn:   #01807e; /* fondo de botones con letra blanca: 4,8:1 */
   --color-brand-ink:   #016e6c; /* aguamarina oscuro para texto chico: 5,6:1 sobre gris claro */
   --color-black:       #111111;
   --color-near-black:  #1a1a1a;
@@ -219,15 +220,15 @@ button {
 }
 
 .btn--primary {
-  background-color: var(--color-brand);
+  background-color: var(--color-brand-btn);
   color: var(--color-white);
-  border-color: var(--color-brand);
+  border-color: var(--color-brand-btn);
 }
 
 .btn--primary:hover,
 .btn--primary:focus-visible {
-  background-color: var(--color-brand-dark);
-  border-color: var(--color-brand-dark);
+  background-color: var(--color-brand-ink);
+  border-color: var(--color-brand-ink);
   transform: translateY(-1px);
 }
 
@@ -323,7 +324,7 @@ button {
 
 .header__nav-link:hover,
 .header__nav-link.is-active {
-  color: var(--color-brand);
+  color: var(--color-brand-ink);
 }
 
 .header__nav-link.is-active::after,
@@ -335,14 +336,14 @@ button {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-white);
-  background-color: var(--color-brand);
+  background-color: var(--color-brand-btn);
   padding: 0.55em 1.25em;
   transition: background-color var(--transition);
 }
 
 .header__nav-cta:hover,
 .header__nav-cta:focus-visible {
-  background-color: var(--color-brand-dark);
+  background-color: var(--color-brand-ink);
 }
 
 /* Hamburger */
@@ -1090,7 +1091,7 @@ button {
    ============================================================ */
 
 .cta-band {
-  background-color: var(--color-brand);
+  background-color: var(--color-brand-btn);
   color: var(--color-white);
   text-align: center;
 }
@@ -1112,14 +1113,14 @@ button {
 
 .cta-band__text {
   font-size: 1rem;
-  color: rgba(255,255,255,0.85);
+  color: var(--color-white);
   max-width: 40ch;
   line-height: 1.65;
 }
 
 .cta-band .btn--primary {
   background-color: var(--color-white);
-  color: var(--color-brand);
+  color: var(--color-brand-ink);
   border-color: var(--color-white);
 }
 
@@ -1964,7 +1965,7 @@ main > .resources-section:last-child {
 
 .resources-section__link {
   flex: 0 0 auto;
-  color: var(--color-brand);
+  color: var(--color-brand-ink);
   font-weight: 700;
   font-size: 1rem;
 }
@@ -2188,7 +2189,7 @@ main > .resources-section:last-child {
   margin-top: 24px;
   padding: 9px 18px;
   border-radius: 7px;
-  background: var(--color-brand);
+  background: var(--color-brand-btn);
   color: #ffffff;
   font-size: 0.92rem;
   font-weight: 700;
@@ -2238,7 +2239,7 @@ a.resources-article-card:focus-visible {
 .resources-article-card__link {
   display: inline-flex;
   margin-top: 12px;
-  color: var(--color-brand);
+  color: var(--color-brand-ink);
   font-weight: 700;
 }
 
@@ -2298,7 +2299,7 @@ a.resources-article-card:focus-visible {
   gap: 10px;
   padding: 0 24px;
   border-radius: 8px;
-  background: var(--color-brand);
+  background: var(--color-brand-btn);
   color: #ffffff;
   font-weight: 800;
   white-space: nowrap;
