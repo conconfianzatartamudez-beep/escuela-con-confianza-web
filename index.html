@@ -79,7 +79,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   />
 
-<link rel="stylesheet" href="styles.css?v=20260804">
+<link rel="stylesheet" href="styles.css?v=20261015">
 <link rel="stylesheet" href="resenas.css?v=20260801-3">
 <style>
 .aviso-eventos{background:#0b7479;color:#fff;font-size:1rem;line-height:1.4}
@@ -107,6 +107,7 @@
 </style>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <!-- ========== AVISO DE EVENTOS (quitar cuando pasen) ========== -->
   <aside class="aviso-eventos" aria-label="Próximos eventos">
@@ -141,7 +142,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="contenido">
 
     <!-- ========== HERO ========== -->
     <section class="hero" aria-labelledby="hero-title">
@@ -349,7 +350,18 @@
     var CLAVE='ecc-eventos-cerrado-oct2026', DOS_DIAS=2*24*60*60*1000;
     try{ var t=+localStorage.getItem(CLAVE); if(t && Date.now()-t<DOS_DIAS) return; }catch(e){}
     caja.hidden=false;
-    setTimeout(function(){ caja.classList.add('is-visible'); }, 1500);
+    // En celular el aviso tapaba el título de la portada: ahí sale recién cuando la persona baja
+    // más allá de la portada. En computadora queda a la derecha y no tapa nada, sale a los 1,5 s.
+    if(window.matchMedia('(max-width:640px)').matches){
+      var hero=document.querySelector('.hero');
+      var mostrar=function(){
+        var limite=hero ? hero.offsetTop+hero.offsetHeight*0.8 : 400;
+        if(window.scrollY>limite){ caja.classList.add('is-visible'); window.removeEventListener('scroll', mostrar); }
+      };
+      window.addEventListener('scroll', mostrar, {passive:true});
+    } else {
+      setTimeout(function(){ caja.classList.add('is-visible'); }, 1500);
+    }
     document.getElementById('eventos-flotante-cerrar').addEventListener('click', function(){
       caja.classList.remove('is-visible'); setTimeout(function(){ caja.hidden=true; }, 500);
       try{ localStorage.setItem(CLAVE, String(Date.now())); }catch(e){}
