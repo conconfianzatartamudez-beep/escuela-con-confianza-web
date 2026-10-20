@@ -18,7 +18,7 @@
 }
 .anuncio-tarjeta__img { width: 100%; height: 100%; min-height: 220px; object-fit: cover; display: block; }
 .anuncio-tarjeta__cuerpo { padding: 26px 28px 30px; display: flex; flex-direction: column; gap: 12px; }
-.anuncio-tarjeta__fecha { font-weight: 800; color: var(--color-brand-dark); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.92rem; }
+.anuncio-tarjeta__fecha { font-weight: 800; color: var(--color-brand-ink, #016e6c); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.92rem; }
 .anuncio-tarjeta__titulo { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.12; margin: 0; color: var(--color-dark); }
 .anuncio-tarjeta__texto { margin: 0; color: var(--color-text); line-height: 1.6; }
 .anuncio-tarjeta__datos { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; color: var(--color-text); }
@@ -58,7 +58,7 @@
 .evento-ficha__dato i { color: var(--color-brand); font-size: 1.25rem; margin-top: 3px; width: 22px; text-align: center; }
 .evento-ficha__dato span { display: block; font-size: 0.85rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
 .evento-ficha__dato strong { display: block; color: var(--color-dark); font-size: 1.05rem; line-height: 1.35; }
-.evento-ficha__dato a { color: var(--color-brand-dark); font-weight: 700; font-size: 0.95rem; }
+.evento-ficha__dato a { color: var(--color-brand-ink, #016e6c); font-weight: 700; font-size: 0.95rem; }
 .evento-ficha__boton { align-self: center; justify-self: stretch; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.05rem; padding: 14px 18px; }
 @media (min-width: 900px) {
   .evento-ficha__caja { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -104,7 +104,7 @@
 .evento-lista li { padding: 12px 0; border-bottom: 1px solid #d7ebe9; line-height: 1.55; color: var(--color-text); }
 .evento-lista li:last-child { border-bottom: none; }
 .evento-lista strong { color: var(--color-dark); }
-.evento-destacado { font-weight: 800; color: var(--color-brand-dark); font-size: 1.1rem; margin: 0 0 14px; }
+.evento-destacado { font-weight: 800; color: var(--color-brand-ink, #016e6c); font-size: 1.1rem; margin: 0 0 14px; }
 .evento-nota { color: var(--color-text-muted); line-height: 1.6; margin: 0; }
 
 /* ── Formulario ─────────────────────────────────────────────────── */
@@ -154,3 +154,14 @@
 @media (max-width: 899px) {
   .inscripcion__form .btn { align-self: stretch; justify-content: center; }
 }
+
+/* ── Evento ya realizado (20/10/2026): aviso, fotos y cierre ─────── */
+.evento-ficha__realizado { margin: 0; display: flex; align-items: center; gap: 8px; font-weight: 700; color: #016e6c; }
+.evento-fotos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.evento-fotos img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; display: block; }
+.evento-gracias { max-width: 70ch; margin: 24px 0 0; font-size: 1.05rem; line-height: 1.65; color: #333; }
+.evento-siguiente { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.evento-siguiente p { margin: 0; color: #333; }
+.anuncios-vacio { margin: 8px 0 0; color: #333; font-size: 1.05rem; line-height: 1.65; }
+.anuncios-lista--pasados { padding-top: 0; }
+@media (max-width: 700px) { .evento-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }

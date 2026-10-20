@@ -17,6 +17,8 @@ const DESTINOS = {
     'https://script.google.com/macros/s/AKfycbyFvLa1BiIVV4_oLRYQgV7zbxD-1HDwVs8_QyJVSegmoOeRSHAj4uLlWE3yzMU2G9zj/exec',
 };
 
+const CERRADOS = new Set(['tartamudez-en-la-plaza-2026']);
+
 const CABECERAS = { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' };
 
 function json(data, status = 200) {
@@ -33,6 +35,9 @@ export async function onRequestPost({ request }) {
   } catch {
     return json({ ok: false, error: 'formato' }, 400);
   }
+
+  // Eventos que ya se realizaron: no se aceptan más inscripciones (Tartamudez en la plaza, 18/10/2026).
+  if (CERRADOS.has(datos && datos.evento)) return json({ ok: false, error: 'cerrado' }, 410);
 
   const destino = DESTINOS[datos && datos.evento];
   if (!destino) return json({ ok: false, error: 'evento' }, 400);
