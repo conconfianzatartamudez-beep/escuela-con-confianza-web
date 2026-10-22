@@ -228,7 +228,7 @@
   padding: 0.45rem 0.7rem;
   border-radius: 999px;
   background: rgba(1, 174, 171, 0.12);
-  color: var(--color-brand-dark);
+  color: var(--color-brand-ink);
   font-size: 0.78rem;
   font-weight: 800;
   line-height: 1;
@@ -264,7 +264,7 @@
 }
 
 .mentorias-price-card__options small {
-  color: var(--color-brand-dark);
+  color: var(--color-brand-ink);
   font-size: 0.82rem;
   font-weight: 800;
 }
@@ -277,6 +277,17 @@
 
 .mentorias-price-card .btn {
   margin-top: auto;
+}
+
+/* La sesión suelta y, aparte, los paquetes bajo "Descuento por paquetes", como en el mensaje de
+   precios por WhatsApp (reunión del 21/10/2026). */
+.mentorias-section .mentorias-pricing__descuento {
+  margin: 8px 0 -6px;
+  color: var(--color-black);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .mentorias-note {
@@ -460,6 +471,17 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .mentorias-pricing--paquetes .mentorias-pricing__descuento {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    align-self: end;
+    margin: 0;
+  }
+
+  .mentorias-pricing--paquetes > article:nth-of-type(1) { grid-column: 1; grid-row: 2; }
+  .mentorias-pricing--paquetes > article:nth-of-type(2) { grid-column: 2; grid-row: 2; }
+  .mentorias-pricing--paquetes > article:nth-of-type(3) { grid-column: 3; grid-row: 2; }
+
   .mentorias-benefits {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -493,6 +515,10 @@
 
   .mentorias-benefits {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .mentorias-benefits--tres {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .mentorias-facts {
