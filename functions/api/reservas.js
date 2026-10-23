@@ -191,6 +191,11 @@ export async function onRequestPost(context) {
           // Zona horaria del dispositivo del cliente: el motor la guarda para
           // que el equipo pueda mostrarle los horarios en su hora local.
           tz: typeof body.tz === "string" ? body.tz.slice(0, 60) : "",
+          // Paquete mixto: "Presencial"/"Virtual" de cada horario, en el mismo
+          // orden que keys. Vacío en los demás paquetes.
+          modalidades: Array.isArray(body.modalidades)
+            ? body.modalidades.map((m) => String(m || "").slice(0, 12)).join(",")
+            : "",
         }),
         // Antes eran 155 s. Esperar más de 100 s no sirve de nada: Cloudflare
         // ya cortó la conexión con el navegador y el cliente vio un error.
@@ -217,6 +222,7 @@ export async function onRequestPost(context) {
       action: "confirmar",
       codigo: body.codigo,
       slotsSeleccionados: body.slotsSeleccionados,
+      modalidades: Array.isArray(body.modalidades) ? body.modalidades : undefined,
     });
 
     return json(data, { status: response.ok ? 200 : 502 });
