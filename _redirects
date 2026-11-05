@@ -19,5 +19,6 @@
 /plaza/ /anuncios/tartamudez-en-la-plaza/ 302
 
 # Enlace corto de la Masterclass de oratoria 28/11/2026 (invitaciones por WhatsApp)
-/masterclass /anuncios/masterclass-de-oratoria/ 302
-/masterclass/ /anuncios/masterclass-de-oratoria/ 302
+# 200 = muestra la página ahí mismo, sin redirigir: WhatsApp no arma la vista previa con imagen si el enlace redirige.
+/masterclass /anuncios/masterclass-de-oratoria/ 200
+/masterclass/ /anuncios/masterclass-de-oratoria/ 200
