@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="/styles.css?v=20261015c">
   <link rel="stylesheet" href="/servicios.css?v=20260804">
-  <link rel="stylesheet" href="/anuncios.css?v=20261020b">
+  <link rel="stylesheet" href="/anuncios.css?v=20261105">
 </head>
 <body>
 
@@ -69,10 +69,8 @@
     <section class="anuncios-lista" aria-label="Próximas actividades">
       <div class="container">
         <p class="section__label">Próximamente</p>
-        <p class="anuncios-vacio">Por ahora no hay actividades programadas. Cuando haya una nueva, la publicamos aquí.</p>
-        <!-- OCULTO por ahora (pedido de Hector 12/10): masterclass de oratoria. Para mostrarla, quitar el style. -->
-        <article class="anuncio-tarjeta" style="display: none;">
-          <img class="anuncio-tarjeta__img anuncio-tarjeta__img--retrato" loading="lazy" decoding="async" src="/images/anuncios/masterclass-oratoria-tarjeta.jpg" alt="Vanessa Trebejo, facilitadora de la masterclass de oratoria" />
+        <article class="anuncio-tarjeta anuncio-tarjeta--lamina">
+          <a href="/anuncios/masterclass-de-oratoria/" tabindex="-1" aria-hidden="true"><img class="anuncio-tarjeta__img anuncio-tarjeta__img--lamina" loading="lazy" decoding="async" src="/images/anuncios/masterclass-oratoria/tarjeta.jpg" width="640" height="800" alt="" /></a>
           <div class="anuncio-tarjeta__cuerpo">
             <p class="anuncio-tarjeta__fecha">Sábado 28 de noviembre · Presencial</p>
             <h2 class="anuncio-tarjeta__titulo">Masterclass de oratoria y tartamudez</h2>
@@ -83,7 +81,10 @@
               <li><i class="fa-solid fa-tag" aria-hidden="true"></i> Preventa hasta el 13 de noviembre: S/&nbsp;150, o S/&nbsp;110 para la Comunidad Con Confianza</li>
               <li><i class="fa-solid fa-tag" aria-hidden="true"></i> Del 14 al 25 de noviembre: S/&nbsp;180, o S/&nbsp;130 para la Comunidad Con Confianza</li>
             </ul>
-            <p class="anuncio-tarjeta__pronto">Muy pronto publicamos el programa y cómo inscribirte.</p>
+            <div class="anuncio-tarjeta__botones">
+              <a class="btn btn--primary" href="/anuncios/masterclass-de-oratoria/">Ver detalles</a>
+              <a class="btn btn--outline" href="https://wa.me/51926687682?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Masterclass%20de%20oratoria%20y%20tartamudez%20del%2028%20de%20noviembre." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Preguntar por WhatsApp</a>
+            </div>
           </div>
         </article>
       </div>

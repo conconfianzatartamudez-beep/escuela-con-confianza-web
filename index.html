@@ -109,7 +109,14 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- ========== AVISO DE EVENTOS: sin eventos próximos desde el 20/10/2026. Para volver a usarlo, ver el commit "Tartamudez en la plaza ya se realizó". ========== -->
+  <!-- ========== AVISO DE EVENTOS (quitar después del 28/11/2026) ========== -->
+  <aside class="aviso-eventos" aria-label="Próximo evento">
+    <a href="/anuncios/masterclass-de-oratoria/">
+      <span class="aviso-eventos__largo"><strong>Próximo evento:</strong> Masterclass de oratoria y tartamudez, sábado 28 de noviembre.</span>
+      <span class="aviso-eventos__corto"><strong>Masterclass de oratoria</strong>, sábado 28 de noviembre</span>
+      <span class="aviso-eventos__ir">Ver detalles <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+  </aside>
 
   <!-- ========== HEADER ========== -->
   <header class="header" id="header">
@@ -321,11 +328,21 @@
     </div>
   </footer>
 
-  <!-- Tarjeta flotante de eventos: sin eventos próximos desde el 20/10/2026 (el script de abajo no hace nada si no está). -->
+  <!-- Tarjeta flotante de eventos (quitar después del 28/11/2026; sin ella el script de abajo no hace nada). -->
+  <aside class="eventos-flotante" id="eventos-flotante" aria-label="Próximo evento" hidden>
+    <div class="eventos-flotante__cabeza">Próximo evento
+      <button type="button" class="eventos-flotante__cerrar" id="eventos-flotante-cerrar" aria-label="Cerrar aviso de eventos"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <a class="eventos-flotante__item" href="/anuncios/masterclass-de-oratoria/">
+      <img class="retrato" src="/images/anuncios/masterclass-oratoria/tarjeta.jpg" alt="" loading="lazy" />
+      <span><span class="eventos-flotante__fecha">Sábado 28 de noviembre · Presencial</span><span class="eventos-flotante__titulo">Masterclass de oratoria y tartamudez</span></span>
+    </a>
+    <a class="eventos-flotante__todos" href="/anuncios/">Ver todos los anuncios <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </aside>
   <script>
   (function(){
     var caja=document.getElementById('eventos-flotante'); if(!caja) return;
-    var CLAVE='ecc-eventos-cerrado-oct2026', DOS_DIAS=2*24*60*60*1000;
+    var CLAVE='ecc-eventos-cerrado-nov2026', DOS_DIAS=2*24*60*60*1000;
     try{ var t=+localStorage.getItem(CLAVE); if(t && Date.now()-t<DOS_DIAS) return; }catch(e){}
     caja.hidden=false;
     // En celular el aviso tapaba el título de la portada: ahí sale recién cuando la persona baja
