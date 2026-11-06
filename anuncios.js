@@ -91,7 +91,7 @@
       listo.focus();
       listo.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch (e) {
-      mostrarError('No se pudo enviar. Revisa tu conexión e inténtalo otra vez. Si sigue fallando, escríbenos por WhatsApp al 904 156 299.');
+      mostrarError('No se pudo enviar. Revisa tu conexión e inténtalo otra vez. Si sigue fallando, escríbenos por WhatsApp al 926 687 682.');
       boton.disabled = false;
       boton.textContent = 'Inscribirme';
     }
